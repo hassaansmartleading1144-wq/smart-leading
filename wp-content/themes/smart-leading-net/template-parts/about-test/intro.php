@@ -65,24 +65,15 @@ $stats = array(
 
 				<div class="nat-intro__actions">
 					<?php
-					sln_render_cta_button(
-						array(
-							'text'    => __( 'Talk to Our Team', 'smart-leading-net' ),
-							'url'     => sln_get_page_url_by_slug( 'contact-us' ),
-							'variant' => 'primary',
-							'class'   => 'nat-intro__cta',
-						)
-					);
-					sln_render_cta_button(
-						array(
-							'text'       => __( 'View Original About Us', 'smart-leading-net' ),
-							'url'        => sln_get_page_url_by_slug( 'about-us' ),
-							'variant'    => 'outline',
-							'class'      => 'nat-intro__cta-secondary',
-							'show_arrow' => false,
-						)
-					);
-					?>
+				sln_render_cta_button(
+					array(
+						'text'    => __( 'Talk to Our Team', 'smart-leading-net' ),
+						'url'     => sln_get_page_url_by_slug( 'contact-us' ),
+						'variant' => 'primary',
+						'class'   => 'nat-intro__cta',
+					)
+				);
+				?>
 				</div>
 			</div>
 
