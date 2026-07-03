@@ -4,21 +4,23 @@
 # Keep this file
 !.gitignore
 
-# Keep only the custom theme directory
+# Keep wp-content with selected subdirectories
 !wp-content/
 wp-content/*
 !wp-content/themes/
 wp-content/themes/*
 !wp-content/themes/smart-leading-net/
 !wp-content/themes/smart-leading-net/**
+!wp-content/plugins/
+!wp-content/plugins/**
+!wp-content/uploads/
+!wp-content/uploads/**
 
 # WordPress core (explicit exclusions for clarity)
 /wp-admin/
 /wp-includes/
 /wp-config.php
 /wp-config-sample.php
-/wp-content/debug.log
-/wp-content/uploads/
 /wp-content/cache/
 /wp-content/upgrade/
 /wp-content/backup*/
@@ -31,11 +33,22 @@ wp-content/themes/*
 *.sql
 *.sql.gz
 *.sqlite
+*.bak
+*.backup
 
 # Logs and debug output
 *.log
 debug.log
 error_log
+
+# Cache and temporary files
+**/cache/
+**/Cache/
+*.cache
+*.tmp
+*.temp
+/tmp/
+/temp/
 
 # OS and editor files
 .DS_Store
