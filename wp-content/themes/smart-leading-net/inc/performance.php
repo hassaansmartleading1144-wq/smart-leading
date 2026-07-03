@@ -136,6 +136,10 @@ function sln_get_deferred_style_handles() {
 		$handles[] = 'sln-testimonials';
 	}
 
+	if ( is_page_template( 'digital-marketing-template.php' ) ) {
+		$handles[] = 'sln-digital-marketing-page';
+	}
+
 	if ( is_singular( defined( 'SLN_GROWTH_PAGE_POST_TYPE' ) ? SLN_GROWTH_PAGE_POST_TYPE : 'growth_page' ) ) {
 		$handles = array_merge(
 			$handles,
@@ -184,6 +188,7 @@ function sln_get_deferred_script_handles() {
 		'sln-price-plan',
 		'sln-contact-form',
 		'sln-seo-page',
+		'sln-digital-marketing-page',
 		'sln-ai-chat-loader',
 	);
 

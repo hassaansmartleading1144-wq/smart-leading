@@ -51,6 +51,7 @@ require SLN_THEME_DIR . '/inc/ghl-settings.php';
 require SLN_THEME_DIR . '/inc/ghl-api.php';
 require SLN_THEME_DIR . '/inc/ghl-form-handler.php';
 require SLN_THEME_DIR . '/inc/seo-page-data.php';
+require SLN_THEME_DIR . '/inc/digital-marketing-page-data.php';
 require SLN_THEME_DIR . '/inc/ai-chat-api.php';
 
 /**
@@ -550,3 +551,28 @@ function sln_enqueue_seo_page_assets() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_seo_page_assets' );
+
+/**
+ * Enqueue Digital Marketing page template assets.
+ */
+function sln_enqueue_digital_marketing_page_assets() {
+	if ( ! sln_is_digital_marketing_page() ) {
+		return;
+	}
+
+	wp_enqueue_style(
+		'sln-digital-marketing-page',
+		SLN_THEME_URI . '/assets/css/digital-marketing-page.css',
+		array( 'sln-main' ),
+		SLN_THEME_VERSION
+	);
+
+	wp_enqueue_script(
+		'sln-digital-marketing-page',
+		SLN_THEME_URI . '/assets/js/digital-marketing-page.js',
+		array(),
+		SLN_THEME_VERSION,
+		true
+	);
+}
+add_action( 'wp_enqueue_scripts', 'sln_enqueue_digital_marketing_page_assets' );
