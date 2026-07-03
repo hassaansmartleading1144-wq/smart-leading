@@ -86,6 +86,28 @@ function sln_get_theme_image_uri( $filename ) {
 }
 
 /**
+ * Page templates that share the About Us layout and assets.
+ *
+ * @return string[]
+ */
+function sln_get_about_page_templates() {
+	return array(
+		'about-us-template.php',
+		'about-template.php',
+		'new-about-test-template.php',
+	);
+}
+
+/**
+ * Whether the current page uses an About-style template.
+ *
+ * @return bool
+ */
+function sln_is_about_page_template() {
+	return is_page_template( sln_get_about_page_templates() );
+}
+
+/**
  * Homepage hero LCP image variants (uploads dir).
  *
  * @return array<int, array{url: string, width: int}>

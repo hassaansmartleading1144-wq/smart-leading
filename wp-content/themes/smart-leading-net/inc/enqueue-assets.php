@@ -118,7 +118,7 @@ function sln_preload_critical_backgrounds() {
 
 	$preloads = array();
 
-	if ( is_page_template( array( 'about-us-template.php', 'about-template.php' ) ) ) {
+	if ( sln_is_about_page_template() ) {
 		$workflow_bg = sln_get_workflow_background_url();
 
 		if ( $workflow_bg ) {

@@ -185,7 +185,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_case_studies_assets' );
  * Enqueue workflow section assets on the front page and About Us page.
  */
 function sln_enqueue_workflow_assets() {
-	if ( ! is_front_page() && ! is_page_template( array( 'about-us-template.php', 'about-template.php' ) ) ) {
+	if ( ! is_front_page() && ! sln_is_about_page_template() ) {
 		return;
 	}
 
@@ -197,7 +197,7 @@ function sln_enqueue_workflow_assets() {
 	);
 
 	// Workflow critical CSS only on About — homepage workflow CSS is deferred.
-	if ( is_page_template( array( 'about-us-template.php', 'about-template.php' ) ) ) {
+	if ( sln_is_about_page_template() ) {
 		wp_add_inline_style( 'sln-main', sln_get_workflow_critical_css() );
 	}
 }
@@ -453,7 +453,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_contact_page_assets' );
  * Enqueue About Us page template assets.
  */
 function sln_enqueue_about_page_assets() {
-	if ( ! is_page_template( array( 'about-us-template.php', 'about-template.php' ) ) ) {
+	if ( ! sln_is_about_page_template() ) {
 		return;
 	}
 

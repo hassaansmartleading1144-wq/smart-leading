@@ -113,7 +113,7 @@ function sln_get_deferred_style_handles() {
 		);
 	}
 
-	if ( is_page_template( array( 'about-us-template.php', 'about-template.php' ) ) ) {
+	if ( sln_is_about_page_template() ) {
 		$handles[] = 'sln-about-page';
 		$handles[] = 'sln-workflow';
 		$handles[] = 'sln-page-banner';
