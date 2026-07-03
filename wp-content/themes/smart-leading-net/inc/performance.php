@@ -136,6 +136,11 @@ function sln_get_deferred_style_handles() {
 		$handles[] = 'sln-testimonials';
 	}
 
+	if ( is_page_template( 'demo-test-template.php' ) ) {
+		$handles[] = 'sln-demo-test-page';
+		$handles[] = 'sln-page-banner';
+	}
+
 	if ( is_singular( defined( 'SLN_GROWTH_PAGE_POST_TYPE' ) ? SLN_GROWTH_PAGE_POST_TYPE : 'growth_page' ) ) {
 		$handles = array_merge(
 			$handles,

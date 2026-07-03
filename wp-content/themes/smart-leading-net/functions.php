@@ -550,3 +550,31 @@ function sln_enqueue_seo_page_assets() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_seo_page_assets' );
+
+/**
+ * Whether the current request is the Demo Test page template.
+ *
+ * @return bool
+ */
+function sln_is_demo_test_page() {
+	return is_page_template( 'demo-test-template.php' );
+}
+
+/**
+ * Enqueue Demo Test page template assets.
+ */
+function sln_enqueue_demo_test_page_assets() {
+	if ( ! sln_is_demo_test_page() ) {
+		return;
+	}
+
+	sln_enqueue_page_banner_assets();
+
+	wp_enqueue_style(
+		'sln-demo-test-page',
+		SLN_THEME_URI . '/assets/css/demo-test-page.css',
+		array( 'sln-page-banner' ),
+		SLN_THEME_VERSION
+	);
+}
+add_action( 'wp_enqueue_scripts', 'sln_enqueue_demo_test_page_assets' );
