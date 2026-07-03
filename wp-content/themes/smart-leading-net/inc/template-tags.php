@@ -94,8 +94,32 @@ function sln_get_about_page_templates() {
 	return array(
 		'about-us-template.php',
 		'about-template.php',
-		'new-about-test-template.php',
 	);
+}
+
+/**
+ * Whether the current page uses the New About For Test template.
+ *
+ * @return bool
+ */
+function sln_is_new_about_test_page() {
+	return is_page_template( 'new-about-test-template.php' );
+}
+
+/**
+ * Resolve a published page permalink by slug.
+ *
+ * @param string $slug Page slug.
+ * @return string
+ */
+function sln_get_page_url_by_slug( $slug ) {
+	$page = get_page_by_path( sanitize_title( $slug ), OBJECT, 'page' );
+
+	if ( $page instanceof WP_Post && 'publish' === $page->post_status ) {
+		return get_permalink( $page );
+	}
+
+	return home_url( '/' . sanitize_title( $slug ) . '/' );
 }
 
 /**

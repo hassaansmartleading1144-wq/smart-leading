@@ -119,6 +119,13 @@ function sln_get_deferred_style_handles() {
 		$handles[] = 'sln-page-banner';
 	}
 
+	if ( sln_is_new_about_test_page() ) {
+		$handles[] = 'sln-new-about-test-page';
+		$handles[] = 'sln-businesses-choose';
+		$handles[] = 'sln-credibility';
+		$handles[] = 'sln-page-banner';
+	}
+
 	if ( is_page_template( 'contact-template.php' ) ) {
 		$handles[] = 'sln-contact-page';
 		$handles[] = 'sln-page-banner';

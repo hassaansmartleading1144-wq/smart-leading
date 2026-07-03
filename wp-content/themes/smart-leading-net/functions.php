@@ -470,6 +470,55 @@ function sln_enqueue_about_page_assets() {
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_about_page_assets' );
 
 /**
+ * Enqueue New About For Test page — brand-aligned sections (not About Us duplicate).
+ */
+function sln_enqueue_new_about_test_page_assets() {
+	if ( ! sln_is_new_about_test_page() ) {
+		return;
+	}
+
+	sln_enqueue_page_banner_assets();
+
+	wp_enqueue_style(
+		'sln-new-about-test-page',
+		SLN_THEME_URI . '/assets/css/new-about-test-page.css',
+		array( 'sln-page-banner' ),
+		SLN_THEME_VERSION
+	);
+
+	wp_enqueue_style(
+		'sln-businesses-choose',
+		SLN_THEME_URI . '/assets/css/businesses-choose.css',
+		array( 'sln-main' ),
+		SLN_THEME_VERSION
+	);
+
+	wp_enqueue_script(
+		'sln-businesses-choose',
+		SLN_THEME_URI . '/assets/js/businesses-choose.js',
+		array(),
+		SLN_THEME_VERSION,
+		true
+	);
+
+	wp_enqueue_style(
+		'sln-credibility',
+		SLN_THEME_URI . '/assets/css/credibility.css',
+		array( 'sln-main' ),
+		SLN_THEME_VERSION
+	);
+
+	wp_enqueue_script(
+		'sln-credibility',
+		SLN_THEME_URI . '/assets/js/credibility.js',
+		array(),
+		SLN_THEME_VERSION,
+		true
+	);
+}
+add_action( 'wp_enqueue_scripts', 'sln_enqueue_new_about_test_page_assets' );
+
+/**
  * Enqueue SEO Services page template assets.
  */
 function sln_enqueue_seo_page_assets() {

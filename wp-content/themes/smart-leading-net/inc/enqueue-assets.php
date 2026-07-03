@@ -128,6 +128,11 @@ function sln_preload_critical_backgrounds() {
 		$preloads[] = content_url( '/uploads/2026/05/bg-businesses.webp' );
 	}
 
+	if ( sln_is_new_about_test_page() ) {
+		$preloads[] = content_url( '/uploads/2026/05/banner_image.webp' );
+		$preloads[] = content_url( '/uploads/2026/05/bg-businesses.webp' );
+	}
+
 	foreach ( array_unique( $preloads ) as $image_url ) {
 		printf(
 			'<link rel="preload" as="image" href="%s">' . "\n",

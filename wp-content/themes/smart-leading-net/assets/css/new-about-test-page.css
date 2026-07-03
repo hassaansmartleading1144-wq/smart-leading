@@ -1,0 +1,397 @@
+/**
+ * Smart Leading Net — New About For Test (brand-aligned, not About Us duplicate)
+ */
+
+.new-about-test,
+.new-about-test * {
+	box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   Intro — homepage-style hero messaging
+   -------------------------------------------------------------------------- */
+
+.nat-intro {
+	background: linear-gradient(180deg, var(--light-blue-2) 0%, var(--white) 100%);
+}
+
+.nat-intro__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+	align-items: center;
+	gap: 48px;
+}
+
+.nat-intro__badges {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-bottom: 24px;
+}
+
+.nat-intro__badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 14px;
+	border-radius: 999px;
+	font-size: 12px;
+	font-weight: var(--font-weight-bold);
+	letter-spacing: 0.06em;
+	line-height: 1;
+}
+
+.nat-intro__badge--primary {
+	background: var(--white);
+	color: var(--primary-color);
+	box-shadow: 0 4px 18px rgba(31, 78, 158, 0.08);
+}
+
+.nat-intro__badge--certified {
+	background: var(--light-orange-1);
+	color: var(--heading-color);
+}
+
+.nat-intro__title {
+	margin: 0 0 20px;
+	font-size: clamp(32px, 4vw, var(--heading-xl-size));
+	font-weight: var(--heading-xl-weight);
+	line-height: 1.12;
+	color: var(--heading-color);
+}
+
+.nat-intro__title-accent-wrap {
+	display: inline-block;
+	position: relative;
+}
+
+.nat-intro__title-accent {
+	color: var(--primary-color);
+}
+
+.nat-intro__underline {
+	display: block;
+	width: min(100%, 223px);
+	height: auto;
+	margin-top: 4px;
+}
+
+.nat-intro__description {
+	margin: 0 0 28px;
+	max-width: 560px;
+	font-size: var(--paragraph-size);
+	line-height: 1.7;
+	color: var(--text-color);
+}
+
+.nat-intro__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+	align-items: center;
+}
+
+.nat-intro__visual {
+	min-width: 0;
+}
+
+.nat-intro__artwork {
+	position: relative;
+	max-width: 520px;
+	margin-left: auto;
+}
+
+.nat-intro__image {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: var(--card-radius);
+}
+
+.nat-intro__stat {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 14px 16px;
+	background: var(--white);
+	border-radius: 12px;
+	box-shadow: 0 12px 32px rgba(34, 34, 34, 0.1);
+	min-width: 150px;
+}
+
+.nat-intro__stat--blue .nat-intro__stat-icon {
+	background: var(--light-blue-1);
+}
+
+.nat-intro__stat--orange .nat-intro__stat-icon {
+	background: var(--light-orange-2);
+}
+
+.nat-intro__stat-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 42px;
+	height: 42px;
+	border-radius: 10px;
+	flex-shrink: 0;
+}
+
+.nat-intro__stat-copy {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.nat-intro__stat-copy strong {
+	font-size: 18px;
+	font-weight: var(--font-weight-bold);
+	color: var(--heading-color);
+	line-height: 1.1;
+}
+
+.nat-intro__stat-copy span {
+	font-size: 12px;
+	color: var(--text-color);
+	line-height: 1.3;
+}
+
+.nat-intro__stat--1 {
+	top: 8%;
+	left: -6%;
+}
+
+.nat-intro__stat--2 {
+	right: -4%;
+	top: 38%;
+}
+
+.nat-intro__stat--3 {
+	left: 4%;
+	bottom: 8%;
+}
+
+/* --------------------------------------------------------------------------
+   Pillars
+   -------------------------------------------------------------------------- */
+
+.nat-pillars {
+	background: var(--white);
+}
+
+.nat-pillars__header {
+	max-width: 720px;
+	margin-bottom: 40px;
+}
+
+.nat-pillars__label {
+	margin: 0 0 12px;
+	font-size: 14px;
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: 0.04em;
+	color: var(--primary-color);
+}
+
+.nat-pillars__grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 20px;
+}
+
+.nat-pillars__card {
+	padding: 28px 24px;
+	height: 100%;
+	border: 1px solid var(--light-blue-3);
+}
+
+.nat-pillars__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 56px;
+	height: 56px;
+	margin-bottom: 18px;
+	border-radius: 12px;
+	background: var(--light-blue-1);
+	color: var(--primary-color);
+}
+
+.nat-pillars__icon svg {
+	width: 28px;
+	height: 28px;
+}
+
+.nat-pillars__card-title {
+	margin: 0 0 12px;
+	font-size: var(--h4-size);
+	font-weight: var(--h4-weight);
+	color: var(--heading-color);
+}
+
+.nat-pillars__card-text {
+	margin: 0;
+	font-size: var(--paragraph-size);
+	line-height: 1.65;
+	color: var(--text-color);
+}
+
+/* --------------------------------------------------------------------------
+   Impact band
+   -------------------------------------------------------------------------- */
+
+.nat-impact {
+	padding: 56px 0;
+	background: var(--primary-color);
+}
+
+.nat-impact__grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 24px;
+	text-align: center;
+}
+
+.nat-impact__value {
+	margin: 0 0 8px;
+	font-size: clamp(28px, 3vw, 40px);
+	font-weight: var(--font-weight-extrabold);
+	line-height: 1.1;
+	color: var(--white);
+}
+
+.nat-impact__label {
+	margin: 0;
+	font-size: var(--paragraph-size);
+	font-weight: var(--font-weight-medium);
+	color: rgba(255, 255, 255, 0.88);
+}
+
+/* --------------------------------------------------------------------------
+   CTA
+   -------------------------------------------------------------------------- */
+
+.nat-cta {
+	background: var(--light-blue-1);
+}
+
+.nat-cta__card {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 28px;
+	padding: 40px 48px;
+	background: linear-gradient(135deg, var(--white) 0%, var(--light-blue-2) 100%);
+	border: 1px solid var(--light-blue-3);
+}
+
+.nat-cta__title {
+	margin: 0 0 12px;
+	font-size: clamp(28px, 3vw, var(--section-title-size));
+	font-weight: var(--section-title-weight);
+	line-height: 1.15;
+	color: var(--heading-color);
+}
+
+.nat-cta__accent-wrap {
+	display: inline-block;
+	position: relative;
+}
+
+.nat-cta__accent {
+	color: var(--secondary-color);
+}
+
+.nat-cta__underline {
+	display: block;
+	width: min(100%, 180px);
+	height: auto;
+	margin-top: 2px;
+}
+
+.nat-cta__text {
+	margin: 0;
+	max-width: 520px;
+	font-size: var(--paragraph-size);
+	line-height: 1.65;
+	color: var(--text-color);
+}
+
+.nat-cta__actions {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 12px;
+}
+
+.nat-cta__contact {
+	margin: 0;
+	font-size: 14px;
+	color: var(--text-color);
+}
+
+.nat-cta__contact a {
+	color: var(--primary-color);
+	font-weight: var(--font-weight-semibold);
+	text-decoration: none;
+}
+
+.nat-cta__contact a:hover,
+.nat-cta__contact a:focus {
+	color: var(--secondary-color);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1199px) {
+	.nat-intro__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.nat-intro__visual {
+		order: -1;
+	}
+
+	.nat-intro__artwork {
+		margin: 0 auto 12px;
+	}
+
+	.nat-pillars__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 767px) {
+	.nat-intro__stat {
+		position: static;
+		margin-top: 12px;
+		width: 100%;
+	}
+
+	.nat-intro__artwork {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.nat-pillars__grid,
+	.nat-impact__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.nat-cta__card {
+		padding: 28px 22px;
+	}
+
+	.nat-intro__actions {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.nat-intro__actions .sls-btn {
+		width: 100%;
+		justify-content: center;
+	}
+}
