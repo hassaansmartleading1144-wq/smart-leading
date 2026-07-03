@@ -11,6 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $uploads_url   = trailingslashit( content_url( '/uploads/2026/05' ) );
 $underline_src = $uploads_url . rawurlencode( 'line sls.svg' );
+$hero_image    = $uploads_url . rawurlencode( 'banner_image.webp' );
+
+if ( ! file_exists( WP_CONTENT_DIR . '/uploads/2026/05/banner_image.webp' ) ) {
+	$hero_image = sln_get_theme_image_uri( 'good-job.webp' );
+}
 
 $stats = array(
 	array(
@@ -85,7 +90,7 @@ $stats = array(
 				<div class="nat-intro__artwork">
 					<img
 						class="nat-intro__image"
-						src="<?php echo esc_url( $uploads_url . rawurlencode( 'banner_image.webp' ) ); ?>"
+						src="<?php echo esc_url( $hero_image ); ?>"
 						alt="<?php esc_attr_e( 'Smart Leading growth team', 'smart-leading-net' ); ?>"
 						width="560"
 						height="668"
