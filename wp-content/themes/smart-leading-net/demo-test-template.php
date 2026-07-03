@@ -87,7 +87,14 @@ while ( have_posts() ) :
 								decoding="async"
 							/>
 						<?php else : ?>
-							<?php echo sln_inline_svg( 'focused.svg', 'demo-test-highlights__card-icon-fallback' ); ?>
+							<img
+								src="<?php echo esc_url( sln_get_theme_image_uri( 'focused.svg' ) ); ?>"
+								alt=""
+								width="48"
+								height="48"
+								loading="lazy"
+								decoding="async"
+							/>
 						<?php endif; ?>
 					</div>
 					<h3 class="demo-test-highlights__card-title"><?php echo esc_html( $feature['title'] ); ?></h3>
