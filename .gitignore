@@ -8,6 +8,13 @@
 !.github/
 !.github/**
 
+# Static page previews (browser-viewable without WordPress)
+!preview/
+!preview/**
+preview/node_modules/
+preview/package-lock.json
+preview/package.json
+
 # Keep wp-content with selected subdirectories
 !wp-content/
 wp-content/*

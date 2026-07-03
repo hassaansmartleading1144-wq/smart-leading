@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Smart Leading Solutions — Grow Your Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#16243D; --navy-2:#1E3050; --orange:#ED7322; --orange-2:#FF8A3D;
+  --orange-soft:#FBE7D6; --slate:#4C586E; --ice:#E5EEFB; --ice-2:#EEF3FB;
+  --line:#E7EBF2; --muted:#94A0B5; --tint:#F5F8FD; --white:#FFFFFF; --green:#1E9E6A;
+  --wrap:480px; --pad:22px; --sec:54px;
+  --shadow-sm:0 6px 18px rgba(133,149,176,.16);
+  --shadow-md:0 16px 38px rgba(22,36,61,.13);
+  --shadow-orange:0 12px 26px rgba(237,115,34,.30);
+  --r:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter','Segoe UI',Arial,system-ui,sans-serif;
+  color:var(--navy);
+  background:#0B1322;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{font-family:'Plus Jakarta Sans','Segoe UI',Arial,sans-serif;}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+/* page = centered portrait column */
+.page{max-width:var(--wrap);margin:0 auto;background:var(--white);
+  min-height:100vh;box-shadow:0 0 60px rgba(0,0,0,.4);overflow:hidden;}
+
+.wrap{padding-left:var(--pad);padding-right:var(--pad);}
+section{padding-top:var(--sec);padding-bottom:var(--sec);}
+.sec-tint{background:var(--tint);}
+.sec-dark{background:var(--navy);color:#EAF0FA;}
+
+/* shared type */
+.eyebrow{font-family:'Plus Jakarta Sans';font-weight:700;font-size:12px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--orange);display:block;margin-bottom:12px;}
+.h-sec{font-family:'Plus Jakarta Sans';font-weight:800;font-size:28px;line-height:1.15;
+  letter-spacing:-.01em;color:var(--navy);}
+.sec-dark .h-sec{color:#fff;}
+.h-sec .hl{color:var(--orange);}
+.lead{font-size:15px;color:var(--slate);margin-top:14px;}
+.sec-dark .lead{color:#A9B7CE;}
+
+/* pill button */
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--orange);
+  color:#fff;font-family:'Plus Jakarta Sans';font-weight:700;font-size:15px;padding:15px 26px;
+  border-radius:999px;box-shadow:var(--shadow-orange);border:none;cursor:pointer;width:100%;
+  transition:transform .22s ease, box-shadow .22s ease;}
+.pill .arr{transition:transform .22s ease;}
+.pill:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(237,115,34,.4);}
+.pill:hover .arr{transform:translateX(4px);}
+.pill.ghost{background:transparent;color:var(--orange);border:1.5px solid var(--orange);box-shadow:none;}
+.pill.ghost:hover{background:var(--orange);color:#fff;}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(22px);
+  transition:opacity .6s cubic-bezier(.22,.61,.36,1),transform .6s cubic-bezier(.22,.61,.36,1);}
+.reveal.in{opacity:1;transform:none;}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:40;background:rgba(11,19,34,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.08);}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;}
+.brand{display:flex;align-items:center;gap:9px;font-family:'Plus Jakarta Sans';font-weight:800;
+  font-size:13px;letter-spacing:.12em;color:#fff;}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 0 4px rgba(237,115,34,.22);}
+.hdr .mini{font-family:'Plus Jakarta Sans';font-weight:700;font-size:12.5px;color:#fff;
+  background:var(--orange);padding:9px 15px;border-radius:999px;}
+
+/* hero */
+.hero{background:radial-gradient(120% 90% at 50% -10%,#1B2C4A 0%,#16243D 55%,#101B30 100%);
+  color:#EAF0FA;position:relative;overflow:hidden;text-align:center;}
+.hero .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;z-index:0;}
+.hero .blob.o{background:rgba(237,115,34,.5);width:230px;height:230px;top:-60px;left:-50px;}
+.hero .blob.b{background:rgba(70,130,230,.4);width:220px;height:220px;bottom:-70px;right:-40px;}
+.hero .wrap{position:relative;z-index:1;}
+.hero h1{font-size:33px;line-height:1.12;font-weight:800;letter-spacing:-.01em;margin-top:16px;}
+.hero h1 .hl{color:var(--orange);}
+.hero .lead{color:#A9B7CE;max-width:380px;margin-left:auto;margin-right:auto;}
+.hero .cta-wrap{margin-top:24px;}
+.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px;}
+.stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;
+  padding:16px 14px;text-align:left;}
+.stat .num{font-family:'Plus Jakarta Sans';font-weight:800;font-size:27px;color:var(--orange-2);line-height:1;}
+.stat .num .u{font-size:14px;color:#fff;font-weight:700;}
+.stat .lab{font-size:11.5px;color:#9FB0CC;margin-top:7px;}
+
+/* pain list */
+.list{display:flex;flex-direction:column;gap:12px;margin-top:24px;}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 16px 16px 14px;
+  display:flex;gap:13px;align-items:flex-start;box-shadow:var(--shadow-sm);}
+.ic{width:40px;height:40px;border-radius:11px;flex:none;display:grid;place-items:center;
+  background:var(--orange-soft);color:var(--orange);font-weight:800;font-size:17px;
+  font-family:'Plus Jakarta Sans';}
+.ic.ice{background:var(--ice);color:#2C6BD6;}
+.pcard h3{font-family:'Plus Jakarta Sans';font-weight:700;font-size:15.5px;color:var(--navy);}
+.pcard p{font-size:13px;color:var(--slate);margin-top:4px;}
+.note{margin-top:20px;background:var(--ice-2);border:1px dashed #C7D6EE;border-radius:12px;
+  padding:14px 16px;font-size:13.5px;color:var(--navy);text-align:center;font-weight:600;}
+.note b{color:var(--orange);}
+
+/* approach */
+.appcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;
+  box-shadow:var(--shadow-sm);}
+.appcard .prob{display:flex;align-items:center;gap:10px;font-weight:600;color:#B23A2E;font-size:13.5px;}
+.appcard .prob .x{width:22px;height:22px;border-radius:50%;background:#FCE6E2;color:#C0392B;
+  display:grid;place-items:center;font-size:11px;font-weight:700;flex:none;}
+.appcard .sol{display:flex;align-items:flex-start;gap:10px;margin-top:11px;font-size:13.5px;color:var(--slate);}
+.appcard .sol .ar{color:var(--orange);font-weight:800;flex:none;}
+.appcard .sol b{color:var(--navy);}
+
+/* quote card */
+.quote{background:var(--navy);border-radius:20px;padding:30px 26px;color:#fff;margin-top:24px;
+  box-shadow:var(--shadow-md);}
+.quote .qm{font-family:Georgia,serif;font-size:70px;line-height:.5;color:rgba(255,255,255,.2);height:32px;}
+.quote .qbig{font-family:'Plus Jakarta Sans';font-weight:800;font-size:22px;line-height:1.25;margin-top:22px;}
+.quote .qbig .hl{color:var(--orange);}
+.quote .qa{font-size:12.5px;font-style:italic;color:#9FB0CC;margin-top:20px;}
+.body-p{font-size:14.5px;color:var(--slate);margin-top:14px;}
+
+/* services */
+.svc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow-sm);
+  transition:transform .25s ease,box-shadow .25s ease;}
+.svc:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.svc .ic{margin-bottom:13px;width:46px;height:46px;border-radius:50%;}
+.svc h3{font-family:'Plus Jakarta Sans';font-weight:700;font-size:16px;color:var(--navy);}
+.svc p{font-size:13px;color:var(--slate);margin-top:6px;}
+
+/* channels (2-col on dark) */
+.chgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;}
+.chan{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:15px 14px;}
+.chan .chip{width:30px;height:30px;border-radius:9px;background:rgba(237,115,34,.18);color:var(--orange-2);
+  display:grid;place-items:center;font-weight:800;font-size:13px;margin-bottom:11px;font-family:'Plus Jakarta Sans';}
+.chan .cn{font-family:'Plus Jakarta Sans';font-weight:700;font-size:14.5px;color:#fff;}
+.chan .cd{font-size:11.5px;color:#9FB0CC;margin-top:4px;}
+.incl{margin-top:20px;text-align:center;font-size:12.5px;color:#A9B7CE;line-height:1.7;}
+.incl b{color:#fff;}
+
+/* timeline (process) */
+.timeline{position:relative;margin-top:26px;padding-left:6px;}
+.timeline::before{content:"";position:absolute;left:23px;top:10px;bottom:10px;width:2px;background:var(--line);}
+.timeline .fill{content:"";position:absolute;left:23px;top:10px;width:2px;
+  background:linear-gradient(var(--orange),var(--orange-2));transform:scaleY(0);transform-origin:top;
+  height:calc(100% - 20px);transition:transform 1.1s ease .2s;border-radius:2px;}
+.timeline.in .fill{transform:scaleY(1);}
+.tstep{position:relative;display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:start;}
+.tstep:not(:last-child){padding-bottom:24px;}
+.tnum{width:46px;height:46px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;
+  font-family:'Plus Jakarta Sans';font-weight:800;font-size:16px;box-shadow:var(--shadow-orange);
+  position:relative;z-index:1;}
+.tstep h3{font-family:'Plus Jakarta Sans';font-weight:700;font-size:17px;color:var(--navy);
+  margin-top:11px;margin-bottom:8px;}
+.tstep ul{list-style:none;}
+.tstep li{font-size:13px;color:var(--slate);padding-left:16px;position:relative;margin:5px 0;}
+.tstep li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--orange);}
+.procnote{margin-top:22px;text-align:center;font-size:13px;color:var(--slate);}
+
+/* proof */
+.case{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow-sm);}
+.case+.case{margin-top:14px;}
+.case-h{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.case-h .nm{font-family:'Plus Jakarta Sans';font-weight:700;font-size:15.5px;color:var(--navy);}
+.tag{font-size:10.5px;font-weight:700;color:var(--orange);background:var(--orange-soft);padding:5px 10px;
+  border-radius:999px;white-space:nowrap;}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;}
+.metric .mv{font-family:'Plus Jakarta Sans';font-weight:800;font-size:24px;color:var(--orange);line-height:1;}
+.metric .ml{font-size:11px;color:var(--slate);margin-top:5px;}
+.case blockquote{font-size:13px;color:var(--navy);font-style:italic;line-height:1.5;
+  border-left:3px solid var(--orange);padding-left:12px;}
+.case .attr{font-size:11.5px;color:var(--slate);margin-top:8px;}
+.disc{margin-top:18px;text-align:center;font-size:11.5px;color:var(--muted);}
+
+/* pricing */
+.plan{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow-sm);}
+.plan+.plan{margin-top:16px;}
+.plan.pop{border:2px solid var(--orange);box-shadow:var(--shadow-orange);}
+.poptag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.06em;color:#fff;
+  background:var(--orange);padding:5px 11px;border-radius:999px;margin-bottom:12px;}
+.ptier{font-family:'Plus Jakarta Sans';font-weight:800;font-size:13px;letter-spacing:.1em;color:var(--orange);}
+.ptag{font-size:12.5px;color:var(--slate);margin-top:3px;}
+.price{font-family:'Plus Jakarta Sans';font-weight:800;font-size:36px;color:var(--navy);margin-top:12px;line-height:1;}
+.price small{font-size:12px;font-weight:500;color:var(--muted);}
+.feat{list-style:none;margin:16px 0;}
+.feat li{font-size:13px;color:var(--slate);padding-left:24px;position:relative;margin:9px 0;}
+.feat li::before{content:"✓";position:absolute;left:0;top:0;color:var(--green);font-weight:800;}
+.pricenote{margin-top:18px;text-align:center;font-size:12px;color:var(--muted);}
+
+/* faq accordion */
+.faq{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-sm);overflow:hidden;}
+.faq+.faq{margin-top:12px;}
+.faq summary{list-style:none;cursor:pointer;padding:17px 18px;display:flex;align-items:center;gap:13px;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq .qb{width:34px;height:34px;border-radius:50%;background:var(--orange);color:#fff;flex:none;
+  display:grid;place-items:center;font-family:'Plus Jakarta Sans';font-weight:800;font-size:15px;
+  box-shadow:var(--shadow-orange);}
+.faq .qt{font-family:'Plus Jakarta Sans';font-weight:700;font-size:14.5px;color:var(--navy);flex:1;}
+.faq .chev{color:var(--orange);font-size:14px;transition:transform .25s ease;flex:none;}
+.faq[open] .chev{transform:rotate(180deg);}
+.faq .ans{padding:0 18px 18px 65px;font-size:13.5px;color:var(--slate);line-height:1.55;}
+
+/* final cta */
+.final{background:radial-gradient(120% 100% at 50% 0%,#1B2C4A 0%,#16243D 60%,#101B30 100%);
+  color:#EAF0FA;text-align:center;position:relative;overflow:hidden;}
+.final .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;z-index:0;}
+.final .blob.o{background:rgba(237,115,34,.45);width:240px;height:240px;top:-80px;left:30px;}
+.final .wrap{position:relative;z-index:1;}
+.checks{display:flex;flex-direction:column;gap:10px;margin-top:22px;}
+.check{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.13);border-radius:12px;padding:12px 16px;font-size:14px;
+  font-weight:600;color:#EAF0FA;text-align:left;}
+.check .tk{width:22px;height:22px;border-radius:50%;background:rgba(30,158,106,.22);color:#36D08A;
+  display:grid;place-items:center;font-size:12px;flex:none;}
+.final .cta-wrap{margin-top:24px;}
+.web{margin-top:18px;font-family:'Plus Jakarta Sans';font-weight:700;font-size:15px;color:#fff;
+  display:flex;align-items:center;justify-content:center;gap:9px;}
+.web .g{width:30px;height:30px;border-radius:50%;background:rgba(237,115,34,.2);color:var(--orange-2);
+  display:grid;place-items:center;font-size:14px;}
+.finalnote{margin-top:18px;font-size:12.5px;font-style:italic;color:#7E8CA6;}
+
+/* footer */
+.ftr{background:#0E1729;color:#7E8CA6;text-align:center;padding:26px var(--pad);font-size:12px;}
+.ftr .brand{justify-content:center;margin-bottom:10px;}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important;}
+  .reveal{opacity:1!important;transform:none!important;}
+  .timeline .fill{transform:scaleY(1)!important;}
+}
+@media (max-width:380px){
+  :root{--pad:18px;}
+  .hero h1{font-size:29px;} .h-sec{font-size:25px;}
+  .statgrid,.chgrid{gap:10px;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hdr"><div class="wrap">
+    <span class="brand"><span class="dot"></span>SMART&nbsp;LEADING</span>
+    <a class="mini" href="#contact">Book a call</a>
+  </div></header>
+
+  <section class="hero">
+    <span class="blob o"></span><span class="blob b"></span>
+    <div class="wrap">
+      <span class="eyebrow" style="color:var(--orange)">SMART LEADING SOLUTIONS</span>
+      <h1>Turn Your Business Challenges Into <span class="hl">Growth Opportunities.</span></h1>
+      <p class="lead">A focused digital marketing roadmap — built to bring you more leads, stronger revenue, and measurable long-term growth.</p>
+      <div class="cta-wrap"><a class="pill" href="#contact">Book a Free Strategy Call <span class="arr">→</span></a></div>
+      <div class="statgrid">
+        <div class="stat"><div class="num"><span class="count" data-pre="" data-val="3.2" data-dec="1" data-suf="x">0x</span></div><div class="lab">Average Ad ROAS</div></div>
+        <div class="stat"><div class="num"><span class="count" data-pre="+" data-val="300" data-dec="0" data-suf="%">+0%</span></div><div class="lab">Lead Volume Growth</div></div>
+        <div class="stat"><div class="num"><span class="count" data-pre="$" data-val="50" data-dec="0" data-suf="M+">$0M+</span></div><div class="lab">Sales Generated</div></div>
+        <div class="stat"><div class="num"><span class="count" data-pre="+" data-val="220" data-dec="0" data-suf="%">+0%</span></div><div class="lab">Avg. Revenue Growth</div></div>
+        <div class="stat"><div class="num"><span class="count" data-pre="" data-val="6" data-dec="0" data-suf="">0</span><span class="u"> Weeks</span></div><div class="lab">To Measurable Results</div></div>
+        <div class="stat"><div class="num"><span class="count" data-pre="" data-val="150" data-dec="0" data-suf="+">0+</span></div><div class="lab">Businesses Scaled</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section><div class="wrap">
+    <span class="eyebrow reveal">The Reality</span>
+    <h2 class="h-sec reveal">We Understand the Challenges <span class="hl">Holding You Back.</span></h2>
+    <p class="lead reveal">Most owners come to us after years of frustration. If any of this feels familiar, you're in the right place.</p>
+    <div class="list">
+        <div class="pcard reveal"><div class="ic">!</div><div><h3>Revenue Feels Stuck</h3><p>Your business works hard, but monthly revenue isn't growing the way it should.</p></div></div>
+        <div class="pcard reveal"><div class="ic ice">!</div><div><h3>Sales Are Inconsistent</h3><p>Some months bring good inquiries; others feel slow and unpredictable.</p></div></div>
+        <div class="pcard reveal"><div class="ic">!</div><div><h3>Poor Lead Quality</h3><p>You get inquiries, but many just ask prices and never become serious customers.</p></div></div>
+        <div class="pcard reveal"><div class="ic">!</div><div><h3>Leads Aren't Converting</h3><p>People show interest but don't take the next step — call, book, visit or buy.</p></div></div>
+        <div class="pcard reveal"><div class="ic ice">!</div><div><h3>Competitors Win First</h3><p>Even when your service is better, rivals with a stronger presence get noticed first.</p></div></div>
+        <div class="pcard reveal"><div class="ic">!</div><div><h3>Weak Brand Trust</h3><p>People find you online but hesitate, because your brand doesn't build confidence fast.</p></div></div>
+        <div class="pcard reveal"><div class="ic">!</div><div><h3>No Clear Offer</h3><p>Customers don't instantly understand why they should choose you over someone else.</p></div></div>
+        <div class="pcard reveal"><div class="ic ice">!</div><div><h3>Missed Follow-Ups</h3><p>Interested leads slip away — there's no follow-up system to bring them back.</p></div></div>
+        <div class="pcard reveal"><div class="ic">!</div><div><h3>Low Online Visibility</h3><p>Customers are searching, but you're not showing up strongly on Google or social.</p></div></div>
+    </div>
+    <div class="note reveal">If even one of these feels familiar — <b>you're exactly who we built this for.</b></div>
+  </div></section>
+
+  <section class="sec-tint"><div class="wrap">
+    <span class="eyebrow reveal">Our Approach</span>
+    <h2 class="h-sec reveal">Your Problem. <span class="hl">Our Solution.</span></h2>
+    <p class="lead reveal">Every pain point has a direct, practical answer. Here's exactly how we solve each one.</p>
+    <div class="list">
+        <div class="appcard reveal"><div class="prob"><span class="x">✕</span>Wasting ad budget with zero leads</div><div class="sol"><span class="ar">→</span><span>We <b>audit, rebuild &amp; manage</b> every campaign — every dollar tracked and reported.</span></div></div>
+        <div class="appcard reveal"><div class="prob"><span class="x">✕</span>Invisible when customers search</div><div class="sol"><span class="ar">→</span><span><b>Google Ads</b> puts you at the top of search the moment buyers are looking.</span></div></div>
+        <div class="appcard reveal"><div class="prob"><span class="x">✕</span>Traffic that never converts</div><div class="sol"><span class="ar">→</span><span>We build <b>landing pages &amp; funnels</b> designed to turn clicks into real enquiries.</span></div></div>
+        <div class="appcard reveal"><div class="prob"><span class="x">✕</span>Social media with no engagement</div><div class="sol"><span class="ar">→</span><span>A consistent, <b>on-brand content engine</b> that builds your audience and your DMs.</span></div></div>
+        <div class="appcard reveal"><div class="prob"><span class="x">✕</span>Flying blind with no reporting</div><div class="sol"><span class="ar">→</span><span>Clear <b>monthly dashboards</b>: leads, cost-per-lead and ROAS in plain language.</span></div></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <span class="eyebrow reveal">A Quick Truth</span>
+    <h2 class="h-sec reveal">You Started With a Vision — <span class="hl">Now You Need a System.</span></h2>
+    <p class="body-p reveal">It began with a vision — to do great work, serve more people, and build something that lasts.</p>
+    <p class="body-p reveal">Then marketing became a maze of dashboards, jargon and budgets that vanish with nothing to show. That's not your business failing — it's marketing done without a system.</p>
+    <p class="body-p reveal">You don't need more noise. You need a partner who turns ambition into a predictable engine for growth.</p>
+    <div class="quote reveal"><div class="qm">“</div><div class="qbig">You deserve a marketing partner that brings <span class="hl">measurable results.</span></div><div class="qa">— What we promise every client on day one.</div></div>
+    <div class="cta-wrap" style="margin-top:24px"><a class="pill" href="#contact">Book a Free Strategy Call <span class="arr">→</span></a></div>
+  </div></section>
+
+  <section class="sec-tint"><div class="wrap">
+    <span class="eyebrow reveal">What We Do</span>
+    <h2 class="h-sec reveal">Everything You Need, <span class="hl">Under One Roof.</span></h2>
+    <p class="lead reveal">A complete growth system — not scattered tactics. One team, one strategy, one set of numbers.</p>
+    <div class="list">
+        <div class="svc reveal"><div class="ic">◎</div><h3>Paid Advertising</h3><p>Meta, Google, YouTube &amp; TikTok — fully managed and optimised.</p></div>
+        <div class="svc reveal"><div class="ic ice">◍</div><h3>Social Media Management</h3><p>Strategy, content and community that build real trust.</p></div>
+        <div class="svc reveal"><div class="ic">⌕</div><h3>Search Marketing</h3><p>Show up first the moment buyers are looking for you.</p></div>
+        <div class="svc reveal"><div class="ic ice">⮞</div><h3>Landing Pages &amp; Funnels</h3><p>Pages engineered to turn clicks into booked enquiries.</p></div>
+        <div class="svc reveal"><div class="ic">✦</div><h3>Creative &amp; Content</h3><p>Scroll-stopping graphics, video and copy that convert.</p></div>
+        <div class="svc reveal"><div class="ic ice">▤</div><h3>Analytics &amp; Reporting</h3><p>Clear numbers that show exactly what's driving growth.</p></div>
+    </div>
+  </div></section>
+
+  <section class="sec-dark"><div class="wrap">
+    <span class="eyebrow reveal">Paid Advertising</span>
+    <h2 class="h-sec reveal">Ads That <span class="hl">Actually Pay You Back.</span></h2>
+    <p class="lead reveal">Every major paid channel — managed under one strategy, one team, one transparent dashboard.</p>
+    <div class="chgrid reveal">
+        <div class="chan"><div class="chip">f</div><div class="cn">Meta Ads</div><div class="cd">Facebook &amp; Instagram</div></div>
+        <div class="chan"><div class="chip">G</div><div class="cn">Google Search</div><div class="cd">High-intent buyers</div></div>
+        <div class="chan"><div class="chip">▷</div><div class="cn">YouTube &amp; Display</div><div class="cd">Reach &amp; awareness</div></div>
+        <div class="chan"><div class="chip">♪</div><div class="cn">TikTok Ads</div><div class="cd">Viral, younger reach</div></div>
+        <div class="chan"><div class="chip">in</div><div class="cn">LinkedIn Ads</div><div class="cd">B2B decision-makers</div></div>
+        <div class="chan"><div class="chip">↺</div><div class="cn">Retargeting</div><div class="cd">Win back lost visitors</div></div>
+        <div class="chan"><div class="chip">◫</div><div class="cn">Shopping &amp; PMax</div><div class="cd">Built for e-commerce</div></div>
+        <div class="chan"><div class="chip">✎</div><div class="cn">Lead-Gen Ads</div><div class="cd">Forms that fill your pipeline</div></div>
+    </div>
+    <div class="incl reveal">Included in every campaign:<br><b>Strategy · Laser Targeting · Weekly A/B Testing · Transparent Reporting</b></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <span class="eyebrow reveal">How We Work</span>
+    <h2 class="h-sec reveal">A Clear Path To <span class="hl">Predictable Growth.</span></h2>
+    <p class="lead reveal">Four steps, clear ownership, and measurable results at every stage.</p>
+    <div class="timeline"><span class="fill"></span>
+        <div class="tstep"><div class="tnum">01</div><div><h3>Discover</h3><ul><li>Free strategy call</li><li>Understand your goals</li><li>Audit your channels</li><li>Spot the quick wins</li></ul></div></div>
+        <div class="tstep"><div class="tnum">02</div><div><h3>Strategise</h3><ul><li>Custom 90-day plan</li><li>Right-fit channels</li><li>Smart budget split</li><li>Content &amp; ad plan</li></ul></div></div>
+        <div class="tstep"><div class="tnum">03</div><div><h3>Launch</h3><ul><li>Accounts optimised</li><li>Campaigns go live</li><li>Content published</li><li>Tracking installed</li></ul></div></div>
+        <div class="tstep"><div class="tnum">04</div><div><h3>Optimise</h3><ul><li>Weekly reviews</li><li>Constant A/B testing</li><li>Budget reallocation</li><li>Monthly ROI report</li></ul></div></div>
+    </div>
+    <div class="procnote reveal">Every step is communicated clearly — no jargon, just visible progress.</div>
+  </div></section>
+
+  <section class="sec-tint"><div class="wrap">
+    <span class="eyebrow reveal">Proof of Work</span>
+    <h2 class="h-sec reveal">Real Clients. <span class="hl">Real Numbers.</span></h2>
+    <p class="lead reveal">These aren't projections. They're outcomes from businesses just like yours.</p>
+    <div style="margin-top:24px">
+        <div class="case reveal"><div class="case-h"><div class="nm">Home Improvement Brand</div><span class="tag">Meta Ads</span></div>
+          <div class="metrics"><div class="metric"><div class="mv">+340%</div><div class="ml">Inbound Leads / 4 Mo</div></div><div class="metric"><div class="mv">−48%</div><div class="ml">Cost Per Lead</div></div><div class="metric"><div class="mv">+190%</div><div class="ml">Revenue Growth</div></div><div class="metric"><div class="mv">$4.8M</div><div class="ml">Sales Driven</div></div></div>
+          <blockquote>“Within two months our phone was ringing every single day — and we knew exactly where each call came from.”</blockquote><div class="attr">— Owner, Cabinetry &amp; Flooring Co.</div></div>
+        <div class="case reveal"><div class="case-h"><div class="nm">Aesthetics Clinic</div><span class="tag">Meta + Google</span></div>
+          <div class="metrics"><div class="metric"><div class="mv">+280%</div><div class="ml">Bookings / 60 Days</div></div><div class="metric"><div class="mv">4.8x</div><div class="ml">Return on Ad Spend</div></div><div class="metric"><div class="mv">+240%</div><div class="ml">Revenue Growth</div></div><div class="metric"><div class="mv">$3.1M</div><div class="ml">Sales Driven</div></div></div>
+          <blockquote>“They rebuilt our entire digital presence — our calendar has been fully booked for three months straight.”</blockquote><div class="attr">— Director, Aesthetics Practice</div></div>
+    </div>
+    <div class="disc reveal">Real client outcomes. Individual results vary by industry, budget and market.</div>
+  </div></section>
+
+  <section><div class="wrap">
+    <span class="eyebrow reveal">Investment</span>
+    <h2 class="h-sec reveal">Simple, <span class="hl">Transparent Pricing.</span></h2>
+    <p class="lead reveal">No hidden fees. No long contracts. Just results you can measure.</p>
+    <div style="margin-top:24px">
+        <div class="plan  reveal"><div class="ptier">STARTER</div><div class="ptag">Launch &amp; Grow</div>
+          <div class="price">$500<small> /mo · starting at</small></div><ul class="feat"><li>Social media management (2 platforms)</li><li>20 posts/month + captions</li><li>Meta Ads setup &amp; management</li><li>Monthly analytics report</li><li>Dedicated account manager</li></ul><button class="pill ghost">Get Started <span class="arr">→</span></button></div>
+        <div class="plan pop reveal"><div class="poptag">★ MOST POPULAR</div><div class="ptier">GROWTH</div><div class="ptag">Accelerate Sales</div>
+          <div class="price">$1,200<small> /mo · starting at</small></div><ul class="feat"><li>Everything in Starter, plus:</li><li>Google Ads management</li><li>Retargeting campaigns</li><li>Landing page optimisation</li><li>Bi-weekly strategy calls</li><li>Lead tracking &amp; CRM setup</li></ul><button class="pill">Get Started <span class="arr">→</span></button></div>
+        <div class="plan  reveal"><div class="ptier">SCALE</div><div class="ptag">Dominate Market</div>
+          <div class="price">$2,500<small> /mo · starting at</small></div><ul class="feat"><li>Everything in Growth, plus:</li><li>Full content production</li><li>Advanced funnel build</li><li>Weekly reporting dashboard</li><li>Priority support</li><li>Quarterly strategy &amp; planning</li></ul><button class="pill ghost">Get Started <span class="arr">→</span></button></div>
+    </div>
+    <div class="pricenote reveal">All plans include onboarding, a strategy session and a dedicated account manager. Custom plans available on request.</div>
+  </div></section>
+
+  <section class="sec-tint"><div class="wrap">
+    <span class="eyebrow reveal">Common Questions</span>
+    <h2 class="h-sec reveal">Questions? <span class="hl">We've Got Answers.</span></h2>
+    <p class="lead reveal">Everything you want to know before we start working together — answered straight.</p>
+    <div style="margin-top:24px">
+        <details class="faq reveal"><summary><span class="qb">Q</span><span class="qt">How soon will I see results?</span><span class="chev">▼</span></summary><div class="ans">Most clients see early traction within the first 4–6 weeks, with growth compounding as campaigns are optimised each month.</div></details>
+        <details class="faq reveal"><summary><span class="qb">Q</span><span class="qt">Do I need a long-term contract?</span><span class="chev">▼</span></summary><div class="ans">No. We work month-to-month — we earn your business with results, not lock-in clauses or hidden penalties.</div></details>
+        <details class="faq reveal"><summary><span class="qb">Q</span><span class="qt">How much should I budget for ads?</span><span class="chev">▼</span></summary><div class="ans">It depends on your goals and market. We'll recommend a realistic spend on your free call — and every dollar is tracked.</div></details>
+        <details class="faq reveal"><summary><span class="qb">Q</span><span class="qt">Which platforms do you advertise on?</span><span class="chev">▼</span></summary><div class="ans">Meta, Google, YouTube, TikTok and LinkedIn — we pick the channels where your buyers are, not all of them at once.</div></details>
+        <details class="faq reveal"><summary><span class="qb">Q</span><span class="qt">How will I know it's working?</span><span class="chev">▼</span></summary><div class="ans">You get clear monthly dashboards showing leads, cost-per-lead and ROAS — in plain language, no vanity metrics.</div></details>
+        <details class="faq reveal"><summary><span class="qb">Q</span><span class="qt">What if I've been burned before?</span><span class="chev">▼</span></summary><div class="ans">Most clients come to us after exactly that. Transparent reporting and a dedicated manager mean you always know what's happening.</div></details>
+    </div>
+  </div></section>
+
+  <section class="final" id="contact">
+    <span class="blob o"></span>
+    <div class="wrap">
+      <span class="eyebrow reveal">Your Next Step</span>
+      <h2 class="h-sec reveal">Let's Build a Clear Path to <span class="hl">More Leads &amp; Revenue.</span></h2>
+      <p class="lead reveal">Your next client is already online — searching for what you offer. The only question is whether they find you, or your competitor.</p>
+      <div class="checks reveal">
+        <div class="check"><span class="tk">✓</span>Revenue-focused strategy</div>
+        <div class="check"><span class="tk">✓</span>Transparent reporting</div>
+        <div class="check"><span class="tk">✓</span>Results from Month 1</div>
+      </div>
+      <div class="cta-wrap reveal"><a class="pill" href="#">Book a Free Strategy Call <span class="arr">→</span></a></div>
+      <div class="web reveal"><span class="g">⊕</span>www.smartleading.net</div>
+      <div class="finalnote reveal">No commitment. No pressure. Just an honest conversation about your growth.</div>
+    </div>
+  </section>
+
+  <footer class="ftr">
+    <div class="brand"><span class="dot"></span>SMART LEADING SOLUTIONS</div>
+    Smart Leading Solutions · www.smartleading.net · 2026
+  </footer>
+
+</div>
+<script>
+// scroll reveal
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.16});
+document.querySelectorAll('.reveal').forEach((el,i)=>{io.observe(el);});
+// timeline fill
+const tl=document.querySelector('.timeline');
+if(tl){const t2=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){tl.classList.add('in');t2.disconnect();}});},{threshold:.25});t2.observe(tl);}
+// count up
+const counted=new WeakSet();
+const cio=new IntersectionObserver((es)=>{es.forEach(e=>{
+  if(e.isIntersecting && !counted.has(e.target)){counted.add(e.target);
+    e.target.querySelectorAll('.count').forEach(el=>{
+      const pre=el.dataset.pre||'',suf=el.dataset.suf||'',dec=+el.dataset.dec||0,target=parseFloat(el.dataset.val),dur=1100,t0=performance.now();
+      function tick(t){let p=Math.min(1,(t-t0)/dur);p=1-Math.pow(1-p,3);el.textContent=pre+(target*p).toFixed(dec)+suf;if(p<1)requestAnimationFrame(tick);}
+      requestAnimationFrame(tick);
+    });
+  }});},{threshold:.4});
+document.querySelectorAll('.statgrid').forEach(s=>cio.observe(s));
+</script>
+</body>
+</html>
