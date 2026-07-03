@@ -1,0 +1,49 @@
+name: Deploy wp-content to cPanel (FTP)
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: deploy-main
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: FTP deploy to InterServer
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy themes, plugins, and uploads
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          server-dir: public_html/wp-content/
+          local-dir: wp-content/
+          log-level: standard
+          dry-run: false
+          exclude: |
+            **/.git/**
+            **/.git*
+            **/.github/**
+            **/README*
+            **/readme*
+            **/cache/**
+            **/Cache/**
+            **/*.log
+            **/debug.log
+            **/error_log
+            **/*.tmp
+            **/*.temp
+            **/*.cache
+            **/.DS_Store
+            **/Thumbs.db
+            **/desktop.ini

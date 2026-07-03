@@ -4,6 +4,10 @@
 # Keep this file
 !.gitignore
 
+# GitHub Actions workflows
+!.github/
+!.github/**
+
 # Keep wp-content with selected subdirectories
 !wp-content/
 wp-content/*
