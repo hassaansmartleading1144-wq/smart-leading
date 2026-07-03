@@ -2,7 +2,7 @@
 /**
  * Template Name: New About For Test
  *
- * Duplicate of the About Us page layout and content for testing.
+ * Test duplicate of the About Us page layout — does not replace /about-us/.
  *
  * @package Smart_Leading_Net
  */

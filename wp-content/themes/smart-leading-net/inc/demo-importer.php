@@ -112,7 +112,7 @@ final class SLN_Demo_Importer {
 
 			<h2><?php esc_html_e( 'What gets imported', 'smart-leading-net' ); ?></h2>
 			<ul style="list-style:disc;padding-left:1.5rem;">
-				<li><?php esc_html_e( 'Pages: Home, About Us, New About For Test, Contact Us, Privacy Policy, Terms of Service', 'smart-leading-net' ); ?></li>
+				<li><?php esc_html_e( 'Pages: Home, About Us, Contact Us, Privacy Policy, Terms of Service', 'smart-leading-net' ); ?></li>
 				<li><?php esc_html_e( 'Growth Page CPT: Revenue Growth (all section meta)', 'smart-leading-net' ); ?></li>
 				<li><?php esc_html_e( 'Primary and footer navigation menus', 'smart-leading-net' ); ?></li>
 				<li><?php esc_html_e( 'Theme options: Our Services, Our Projects, Credibility logos', 'smart-leading-net' ); ?></li>

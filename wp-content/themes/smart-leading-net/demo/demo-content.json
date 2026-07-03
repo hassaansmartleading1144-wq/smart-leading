@@ -22,13 +22,6 @@
 			"content": ""
 		},
 		{
-			"title": "New About For Test",
-			"slug": "new-about-for-test",
-			"status": "publish",
-			"template": "new-about-test-template.php",
-			"content": ""
-		},
-		{
 			"title": "Contact Us",
 			"slug": "contact-us",
 			"status": "publish",
