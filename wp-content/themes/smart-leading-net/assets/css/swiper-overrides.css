@@ -1,0 +1,35 @@
+/**
+ * Swiper overrides — prevent blank sliders before JS initialization.
+ * Swiper bundle sets height:100% on slides/wrapper, which collapses when
+ * the parent has no explicit height, leaving pagination dots with no content.
+ */
+
+.swiper:not(.swiper-initialized) {
+	overflow: visible;
+}
+
+.swiper:not(.swiper-initialized) .swiper-wrapper {
+	display: block;
+	height: auto !important;
+	transform: none !important;
+}
+
+.swiper:not(.swiper-initialized) .swiper-slide {
+	height: auto !important;
+	opacity: 1 !important;
+	visibility: visible !important;
+}
+
+.swiper:not(.swiper-initialized) .swiper-slide:not(:first-child) {
+	display: none;
+}
+
+.swiper:not(.swiper-initialized) .swiper-pagination {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.our-projects__slider .swiper-wrapper,
+.our-projects__slider .swiper-slide {
+	height: auto;
+}

@@ -1,0 +1,267 @@
+/**
+ * Smart Leading Net — Expertise Section
+ * Scoped styles only. Uses theme tokens — no global overrides.
+ */
+
+.expertise {
+	padding-top: var(--section-spacing);
+	padding-bottom: var(--section-spacing);
+}
+
+.expertise__container {
+	width: 100%;
+}
+
+.expertise__box {
+	position: relative;
+	overflow: hidden;
+	padding: 80px;
+	border-radius: 24px;
+	background: #eef3ff;
+}
+
+.expertise__shape {
+	position: absolute;
+	pointer-events: none;
+	border-radius: 50%;
+	opacity: 0.06;
+	background: #2552a6;
+}
+
+.expertise__shape--left {
+	bottom: -120px;
+	left: -80px;
+	width: 320px;
+	height: 320px;
+}
+
+.expertise__shape--right {
+	top: 50%;
+	right: -100px;
+	width: 360px;
+	height: 360px;
+	transform: translateY(-40%);
+}
+
+.expertise__inner {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 60px;
+}
+
+.expertise__content {
+	flex: 0 0 45%;
+	max-width: 45%;
+}
+
+.expertise__label {
+	margin: 0;
+	font-size: var(--paragraph-size);
+    font-weight: var(--font-weight-semibold);
+	line-height: 1.2;
+	letter-spacing: 1px;
+	color: #2552a6;
+}
+
+.expertise__heading {
+	margin: 15px 0 0;
+	font-size: var(--h1-size);
+	font-weight: var(--h1-weight);
+	line-height: 1.15;
+	color: var(--heading-color);
+}
+
+.expertise__heading-accent {
+	color: #2552a6;
+}
+
+.expertise__items {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	margin-top: 32px;
+}
+
+.expertise__item {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+}
+
+.expertise__check {
+	display: inline-flex;
+	flex-shrink: 0;
+	width: 28px;
+	height: 28px;
+	color: #1f4e9e;
+}
+
+.expertise__check svg,
+.expertise__check-icon {
+	display: block;
+	width: 28px;
+	height: 28px;
+	flex-shrink: 0;
+}
+
+.expertise__item-text {
+	margin: 0;
+	font-size: var(--paragraph-size);
+	font-weight: var(--paragraph-weight);
+	line-height: 1.6;
+	color: var(--heading-color);
+}
+
+.expertise__cta {
+	margin-top: 36px;
+}
+
+.expertise__media {
+	flex: 0 0 55%;
+	max-width: 55%;
+}
+
+.expertise__media-mask {
+	position: relative;
+	overflow: hidden;
+}
+
+.expertise__gif {
+	position: relative;
+	z-index: 1;
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.expertise__media-overlay {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 30%;
+	pointer-events: none;
+	z-index: 2;
+}
+
+.expertise__media-overlay--top {
+	top: 0;
+	background: linear-gradient(
+		to bottom,
+		#eef3ff 0%,
+		rgba(238, 243, 255, 0) 100%
+	);
+}
+
+.expertise__media-overlay--bottom {
+	bottom: 0;
+	background: linear-gradient(
+		to top,
+		#eef3ff 0%,
+		rgba(238, 243, 255, 0) 100%
+	);
+}
+
+/* --------------------------------------------------------------------------
+   Entrance Animation (optional transform only — content always visible)
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+	.expertise.is-visible .expertise__content {
+		animation: expertise-fade-in-left 0.8s ease forwards;
+	}
+
+	.expertise.is-visible .expertise__media {
+		animation: expertise-fade-in-right 0.8s ease forwards;
+	}
+}
+
+@keyframes expertise-fade-in-left {
+	from {
+		transform: translateX(-40px);
+	}
+
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes expertise-fade-in-right {
+	from {
+		transform: translateX(40px);
+	}
+
+	to {
+		transform: translateX(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.expertise.is-visible .expertise__content,
+	.expertise.is-visible .expertise__media {
+		animation: none;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — mobile
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+	.expertise {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+
+	.expertise__box {
+		padding: 30px;
+		border-radius: 18px;
+	}
+
+	.expertise__inner {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 24px;
+	}
+
+	.expertise__content {
+		display: contents;
+	}
+
+	.expertise__label {
+		order: 1;
+	}
+
+	.expertise__heading {
+		order: 2;
+		margin-top: 12px;
+	}
+
+	.expertise__media {
+		order: 3;
+		flex: none;
+		max-width: 100%;
+		width: 100%;
+	}
+
+	.expertise__media-mask {
+		border-radius: 18px;
+	}
+
+	.expertise__items {
+		order: 4;
+		margin-top: 0;
+		gap: 20px;
+	}
+
+	.expertise__item-text {
+		font-size: var(--paragraph-size);
+	}
+
+	.expertise__cta {
+		order: 5;
+		margin-top: 8px;
+	}
+}

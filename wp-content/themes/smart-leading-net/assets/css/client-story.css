@@ -1,0 +1,451 @@
+/**
+ * Smart Leading Net — Client Story Section
+ * Scoped styles only. Uses theme tokens — no global overrides.
+ */
+
+.client-story {
+	padding-top: var(--section-spacing);
+	padding-bottom: var(--section-spacing);
+	background-color: var(--white);
+	overflow: hidden;
+}
+
+.client-story,
+.client-story * {
+	box-sizing: border-box;
+}
+
+.client-story__container {
+	width: 100%;
+}
+
+.client-story__header {
+	max-width: 990px;
+	margin: 0 auto 56px;
+	text-align: center;
+}
+
+.client-story__label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	margin: 0 0 24px;
+	font-size: var(--paragraph-size);
+	font-weight: var(--font-weight-semibold);
+	line-height: 1.2;
+	letter-spacing: 0.08em;
+	color: var(--primary-color);
+}
+
+.client-story__label::before,
+.client-story__label::after {
+	content: "";
+	flex: 0 1 80px;
+	width: 100%;
+	max-width: 45px;
+	height: 1px;
+	background: var(--primary-color);
+}
+
+.client-story__heading {
+	margin: 0;
+	font-family: var(--font-family-base);
+	font-size: var(--section-title-size);
+	font-weight: var(--section-title-weight);
+	line-height: 1.15;
+	color: var(--heading-color);
+}
+
+.client-story__accent {
+	color: var(--accent-color);
+}
+
+.client-story__subheading,
+.client-story__description {
+	font-size: var(--paragraph-size);
+	font-weight: var(--paragraph-weight);
+	line-height: 1.7;
+	color: var(--text-color);
+}
+
+.client-story__description {
+	max-width: 760px;
+	margin: 24px auto 0;
+}
+
+/* --------------------------------------------------------------------------
+   Two-column grid: story left, results right
+   -------------------------------------------------------------------------- */
+
+.client-story__layout {
+	display: grid;
+	grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
+	gap: 60px;
+	align-items: start;
+	min-width: 0;
+	max-width: 100%;
+}
+
+.client-story__main,
+.client-story__results {
+	min-width: 0;
+	max-width: 100%;
+}
+
+.client-story__main {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+
+.client-story__block {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.client-story__eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+	font-size: 13px;
+	font-weight: var(--font-weight-bold);
+	line-height: 1.2;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.client-story__eyebrow--challenge {
+	color: var(--accent-color);
+}
+
+.client-story__eyebrow--strategy {
+	color: var(--primary-color);
+}
+
+.client-story__eyebrow-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.client-story__eyebrow-icon svg {
+	display: block;
+}
+
+.client-story__block-title {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 1.7;
+	color: var(--heading-color);
+}
+
+.client-story__block-text {
+	margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Strategy steps — icon + inline title/description in one block
+   -------------------------------------------------------------------------- */
+
+.client-story__steps {
+	margin: 8px 0 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+.client-story__step {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+}
+
+.client-story__step-check {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 24px;
+	height: 24px;
+	margin-top: 4px;
+	border-radius: 6px;
+	background: var(--light-blue-1);
+	color: var(--primary-color);
+}
+
+.client-story__step-check svg {
+	display: block;
+}
+
+.client-story__step-content {
+	flex: 1;
+	min-width: 0;
+	margin: 0;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1.7;
+	color: var(--text-color);
+}
+
+.client-story__step-title {
+	display: inline;
+	font-weight: 700;
+	color: var(--heading-color);
+	white-space: nowrap;
+}
+
+.client-story__step-text {
+	display: inline;
+	font-weight: 400;
+	color: var(--text-color);
+}
+
+.client-story__step-text p,
+.client-story__step-text br:first-child {
+	display: inline;
+	margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Results card
+   -------------------------------------------------------------------------- */
+
+.client-story__results-card {
+	max-width: 100%;
+	padding: 28px;
+	border: 1px solid var(--light-blue-3);
+	border-radius: 18px;
+	background: var(--white);
+	box-shadow: 0 8px 30px rgba(31, 78, 158, 0.08);
+}
+
+.client-story__results-title {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	margin: 0 0 24px;
+	font-size: var(--heading-sm-size);
+	font-weight: var(--font-weight-bold);
+	line-height: 1.35;
+	color: var(--heading-color);
+}
+
+.client-story__results-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 28px;
+	height: 28px;
+	border-radius: 8px;
+	background: var(--light-blue-1);
+	color: var(--primary-color);
+}
+
+.client-story__results-icon svg {
+	display: block;
+}
+
+.client-story__table-wrap {
+	width: 100%;
+	max-width: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	margin-bottom: 24px;
+}
+
+.client-story__table {
+	width: 100%;
+	min-width: 520px;
+	border-collapse: collapse;
+	font-size: 14px;
+	line-height: 1.45;
+	table-layout: auto;
+}
+
+.client-story__table thead th {
+	padding: 0 0 14px;
+	border-bottom: 1px solid var(--light-blue-3);
+	font-size: 11px;
+	font-weight: var(--font-weight-bold);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	text-align: left;
+	color: var(--text-color);
+}
+
+.client-story__table tbody th,
+.client-story__table tbody td {
+	padding: 14px 12px 14px 0;
+	border-bottom: 1px solid var(--light-blue-3);
+	vertical-align: top;
+	white-space: normal;
+	word-break: normal;
+	overflow-wrap: anywhere;
+}
+
+.client-story__table tbody th {
+	font-weight: var(--font-weight-semibold);
+	color: var(--heading-color);
+	text-align: left;
+}
+
+.client-story__table-before {
+	color: var(--text-color);
+}
+
+.client-story__table-after {
+	font-weight: var(--font-weight-semibold);
+	color: var(--primary-color);
+}
+
+.client-story__table-check {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 18px;
+	height: 18px;
+	margin-right: 6px;
+	border-radius: 4px;
+	background: var(--light-blue-1);
+	font-size: 12px;
+	font-weight: var(--font-weight-bold);
+	line-height: 1;
+	color: var(--primary-color);
+	vertical-align: middle;
+}
+
+.client-story__highlight {
+	padding: 28px 24px;
+	border-radius: 18px;
+	background: var(--primary-color);
+	text-align: center;
+}
+
+.client-story__highlight-number {
+	margin: 0;
+	font-size: clamp(36px, 5vw, 48px);
+	font-weight: var(--font-weight-bold);
+	line-height: 1.1;
+	color: var(--white);
+}
+
+.client-story__highlight-label {
+	margin: 8px 0 0;
+	font-size: var(--paragraph-size);
+	font-weight: var(--font-weight-medium);
+	line-height: 1.4;
+	color: rgba(255, 255, 255, 0.88);
+}
+
+.client-story__description > :first-child,
+.client-story__block-text > :first-child,
+.client-story__quote > :first-child {
+	margin-top: 0;
+}
+
+.client-story__description > :last-child,
+.client-story__block-text > :last-child,
+.client-story__quote > :last-child {
+	margin-bottom: 0;
+}
+
+.client-story__description a,
+.client-story__block-text a,
+.client-story__step-text a,
+.client-story__quote a {
+	color: var(--primary-color);
+	text-decoration: underline;
+}
+
+.client-story__description ul,
+.client-story__description ol,
+.client-story__block-text ul,
+.client-story__block-text ol {
+	margin: 0 0 1em;
+	padding-left: 1.25em;
+}
+
+.client-story__quote {
+	margin: 20px 0 0;
+	padding: 0;
+	border: 0;
+	font-size: var(--paragraph-size);
+	font-weight: var(--paragraph-weight);
+	line-height: 1.7;
+	color: rgba(255, 255, 255, 0.92);
+}
+
+.client-story__quote p {
+	margin: 0;
+}
+
+@media (max-width: 991.98px) {
+	.client-story__layout {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+
+	.client-story__heading {
+		font-size: clamp(32px, 7vw, 48px);
+	}
+}
+
+@media (max-width: 768px) {
+	.client-story {
+		padding-top: var(--section-spacing-mobile);
+		padding-bottom: var(--section-spacing-mobile);
+	}
+
+	.client-story__header {
+		margin-bottom: 40px;
+	}
+
+	.client-story__subheading,
+	.client-story__description,
+	.client-story__block-text,
+	.client-story__step-content {
+		font-size: 18px;
+		line-height: 1.7;
+	}
+
+	.client-story__step-title {
+		white-space: normal;
+	}
+
+	.client-story__results-card {
+		padding: 24px;
+		border-radius: 16px;
+	}
+
+	.client-story__table thead th,
+	.client-story__table tbody th,
+	.client-story__table tbody td {
+		padding-right: 16px;
+	}
+
+	.client-story__highlight {
+		padding: 24px;
+		border-radius: 16px;
+	}
+
+	.client-story__highlight-number {
+		font-size: 48px;
+	}
+
+	.client-story__highlight-label {
+		font-size: 18px;
+	}
+
+	.client-story__quote {
+		font-size: 16px;
+		line-height: 1.7;
+	}
+}

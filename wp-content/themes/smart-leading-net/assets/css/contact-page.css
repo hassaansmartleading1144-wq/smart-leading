@@ -1,0 +1,517 @@
+/**
+ * Smart Leading Net — Contact Page
+ * Scoped styles only. Uses theme tokens where possible.
+ */
+
+.contact-page {
+	--contact-primary: #2f62e9;
+	--contact-navy: #0f1d63;
+	--contact-accent: #f97316;
+	--contact-bg: #f7f9fc;
+	--contact-text: #1a1a1a;
+}
+
+.contact-page,
+.contact-page * {
+	box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   Section 2 — Intro
+   -------------------------------------------------------------------------- */
+
+.contact-page__intro {
+	padding: var(--section-spacing) 0 40px;
+	background-color: var(--white);
+}
+
+.contact-page__intro-inner {
+	max-width: 700px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.contact-page__intro-title {
+	margin: 0 0 20px;
+	font-family: var(--font-family-base);
+	font-size: var(--section-title-size);
+	font-weight: var(--section-title-weight);
+	line-height: 1.15;
+	color: var(--heading-color);
+}
+
+.contact-page__intro-text {
+	margin: 0;
+	font-size: var(--paragraph-size);
+	font-weight: var(--paragraph-weight);
+	line-height: 1.65;
+	color: var(--text-color);
+}
+
+/* --------------------------------------------------------------------------
+   Section 3 — Contact grid
+   -------------------------------------------------------------------------- */
+
+.contact-page__main {
+	padding: 0 0 var(--section-spacing);
+	background-color: var(--contact-bg);
+}
+
+.contact-page__main-inner {
+	width: 100%;
+}
+
+.contact-page__grid {
+	display: grid;
+	grid-template-columns: 35fr 65fr;
+	gap: 24px;
+	align-items: stretch;
+}
+
+.contact-page__info-card {
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	padding: 50px;
+	border-radius: 24px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+	background-color: #0f1d63;
+	color: var(--white);
+}
+
+.contact-page__info-card::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image: var(--contact-card-bg-image);
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	z-index: 0;
+}
+
+.contact-page__info-card::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: var(--primary-color);
+	z-index: 1;
+}
+
+.contact-page__info-watermark {
+	position: absolute;
+	top: 24px;
+	right: 24px;
+	z-index: 2;
+	width: 140px;
+	height: auto;
+	opacity: 0.08;
+	pointer-events: none;
+	user-select: none;
+}
+
+.contact-page__info-card-inner {
+	position: relative;
+	z-index: 3;
+}
+
+.contact-page__info-label {
+	margin: 0 0 14px;
+	font-size: 13px;
+	font-weight: var(--font-weight-bold);
+	line-height: 1.2;
+	letter-spacing: 1px;
+	color: var(--secondary-color);
+}
+
+.contact-page__info-title,
+.contact-page__form-title {
+	margin: 0 0 16px;
+	font-family: var(--font-family-base);
+	font-weight: var(--font-weight-bold);
+	line-height: 1.25;
+}
+
+.contact-page__info-title {
+	font-size: 42px;
+	font-weight: 800;
+	line-height: 1.2;
+	color: #ffffff;
+}
+
+.contact-page__info-description {
+	margin: 0 0 36px;
+	font-size: var(--paragraph-size);
+	font-weight: var(--font-weight-regular);
+	line-height: 1.65;
+	color: var(--white);
+}
+
+.contact-page__info-list {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.contact-page__info-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 20px;
+	padding-bottom: 32px;
+}
+
+.contact-page__info-item:last-child {
+	padding-bottom: 0;
+}
+
+.contact-page__info-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	background-color: #ffffff;
+	color: #f97316;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+	transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-page__info-icon:hover,
+.contact-page__info-icon:focus-within {
+	background-color: #f97316;
+	color: #ffffff;
+}
+
+.contact-page__info-svg {
+	display: block;
+	width: 28px;
+	height: 28px;
+}
+
+.contact-page__info-content {
+	min-width: 0;
+	font-size: 16px;
+	line-height: 1.6;
+}
+
+.contact-page__info-item-label {
+	display: block;
+	margin-bottom: 8px;
+	font-size: var(--paragraph-size);
+	font-weight: 700;
+	line-height: 1.3;
+	letter-spacing: 0.5px;
+	color: #afc3ff;
+}
+
+.contact-page__info-link {
+	font-weight: 600;
+	color: var(--white);
+	text-decoration: none;
+	transition: color var(--transition-base);
+}
+
+.contact-page__info-link:hover,
+.contact-page__info-link:focus {
+	color: var(--contact-accent);
+	text-decoration: underline;
+}
+
+.contact-page__address {
+	margin: 0 0 16px;
+	font-style: normal;
+	font-weight: 600;
+	color: var(--white);
+}
+
+.contact-page__other-locations {
+	margin: 0;
+}
+
+.contact-page__other-locations-title {
+	display: block;
+	margin-bottom: 12px;
+	font-size: var(--paragraph-size);
+	font-weight: 700;
+	line-height: 1.3;
+	letter-spacing: 0.5px;
+	color: #afc3ff;
+}
+
+.contact-page__location-pills {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.contact-page__location-pill {
+	display: inline-flex;
+	align-items: center;
+	padding: 8px 14px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 50px;
+	background: rgba(255, 255, 255, 0.08);
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.2;
+	color: #ffffff;
+}
+
+.contact-page__form-card {
+	padding: 40px;
+	border-radius: 20px;
+	background-color: var(--card-bg);
+	box-shadow: var(--card-shadow-hover);
+}
+
+.contact-page__form-title {
+	margin: 0 0 28px;
+	font-family: var(--font-family-base);
+	font-size: var(--heading-md-size);
+	font-weight: var(--font-weight-bold);
+	line-height: 1.25;
+	text-align: center;
+	color: var(--heading-color);
+}
+
+.contact-page__form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.contact-page__field {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.contact-page__label {
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.3;
+	color: var(--heading-color);
+}
+
+.contact-page__required {
+	color: #e11d48;
+}
+
+.contact-page__optional {
+	font-size: 13px;
+	font-weight: 400;
+	color: var(--text-color);
+}
+
+.contact-page__input {
+	width: 100%;
+	min-height: 52px;
+	padding: 0 16px;
+	border: 1px solid #d7deea;
+	border-radius: 10px;
+	background: #ffffff;
+	font-family: var(--font-family-base);
+	font-size: 16px;
+	line-height: 1.4;
+	color: var(--heading-color);
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-page__input:focus {
+	border-color: var(--contact-primary);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(47, 98, 233, 0.12);
+}
+
+.contact-page__input::placeholder {
+	color: #8b95a7;
+}
+
+.contact-page__textarea {
+	min-height: 120px;
+	padding: 14px 16px;
+	resize: vertical;
+	line-height: 1.6;
+}
+
+/* intl-tel-input integration */
+.contact-page__field .iti {
+	width: 100%;
+	display: block;
+}
+
+.contact-page__field .iti__tel-input,
+.contact-page__field input.contact-page__input--phone {
+	width: 100%;
+}
+
+.contact-page__field .iti--separate-dial-code .iti__selected-dial-code,
+.contact-page__field .iti__selected-country {
+	background: #f4f7ff;
+}
+
+.contact-page__field .iti__dropdown-content {
+	border-radius: 10px;
+}
+
+.contact-page__submit {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	width: 100%;
+	margin-top: 8px;
+	padding: 18px 30px;
+	border: none;
+	border-radius: 12px;
+	background-color: var(--primary-color);
+	color: #ffffff;
+	font-family: var(--font-family-base);
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.2;
+	cursor: pointer;
+	transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-page__submit:hover,
+.contact-page__submit:focus-visible {
+	background-color: var(--primary-color);
+	opacity: 0.92;
+	outline: none;
+}
+
+.contact-page__submit:disabled {
+	opacity: 0.7;
+	cursor: wait;
+}
+
+.contact-page__submit-text {
+	color: inherit;
+}
+
+.contact-page__form-message {
+	margin: 4px 0 0;
+	padding: 12px 16px;
+	border-radius: 10px;
+	font-size: 15px;
+	line-height: 1.5;
+	color: #b42318;
+	background: #fef3f2;
+	border: 1px solid #fecdca;
+	opacity: 0;
+	transform: translateY(6px);
+	transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.contact-page__form-message.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.thank-you-page__content {
+	padding-bottom: var(--section-spacing);
+}
+
+.thank-you-page__cta {
+	margin-top: 28px;
+}
+
+.contact-page__form-embed {
+	width: 100%;
+	min-width: 0;
+}
+
+.contact-page__form-embed iframe {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Tablet
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 991.98px) {
+	.contact-page__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.contact-page__info-card {
+		order: 1;
+		padding: 40px;
+	}
+
+	.contact-page__form-card {
+		order: 2;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Mobile
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+	.contact-page__intro {
+		padding-top: var(--section-spacing-mobile);
+		padding-bottom: 28px;
+	}
+
+	.contact-page__intro-title {
+		font-size: var(--section-title-size-mobile);
+		line-height: var(--section-title-line-height-mobile);
+	}
+
+	.contact-page__intro-text {
+		font-size: var(--paragraph-size-mobile);
+	}
+
+	.contact-page__main {
+		padding-bottom: var(--section-spacing-mobile);
+	}
+
+	.contact-page__info-card {
+		padding: 30px;
+		border-radius: 20px;
+	}
+
+	.contact-page__info-watermark {
+		top: 16px;
+		right: 16px;
+		width: 100px;
+	}
+
+	.contact-page__info-title {
+		font-size: 32px;
+		line-height: 1.2;
+	}
+
+	.contact-page__form-card {
+		padding: 20px;
+		border-radius: 16px;
+	}
+
+	.contact-page__form-title {
+		font-size: var(--heading-sm-size);
+	}
+
+	.contact-page__input {
+		min-height: 48px;
+		font-size: 16px;
+	}
+
+	.contact-page__info-icon {
+		width: 60px;
+		height: 60px;
+	}
+
+	.contact-page__info-svg {
+		width: 24px;
+		height: 24px;
+	}
+}

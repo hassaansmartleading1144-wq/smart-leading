@@ -1,0 +1,235 @@
+/**
+ * Smart Leading Net — Why Choose Section
+ * Scoped styles only. Uses theme tokens — no global overrides.
+ */
+
+.why-choose {
+	padding-top: var(--section-spacing);
+	padding-bottom: var(--section-spacing);
+	background-color: var(--white);
+	overflow: hidden;
+}
+
+.why-choose,
+.why-choose * {
+	box-sizing: border-box;
+}
+
+.why-choose__container {
+	width: 100%;
+}
+
+.why-choose__header {
+	max-width: 900px;
+	margin: 0 auto 48px;
+	text-align: center;
+}
+
+.why-choose__label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	margin: 0 0 24px;
+	font-size: var(--paragraph-size);
+	font-weight: var(--font-weight-semibold);
+	line-height: 1.2;
+	letter-spacing: 0.08em;
+	color: var(--primary-color);
+}
+
+.why-choose__label::before,
+.why-choose__label::after {
+	content: "";
+	flex: 0 1 80px;
+	width: 100%;
+	max-width: 45px;
+	height: 1px;
+	background: var(--primary-color);
+}
+
+.why-choose__heading {
+	margin: 0;
+	font-family: var(--font-family-base);
+	font-size: var(--h2-size);
+	font-weight: 700;
+	line-height: 1.15;
+	color: var(--heading-color);
+}
+
+.why-choose__accent {
+	color: #2854b6;
+}
+
+.why-choose__description {
+	max-width: 760px;
+	margin: 24px auto 0;
+	font-size: var(--paragraph-size);
+	font-weight: var(--paragraph-weight);
+	line-height: 1.65;
+	color: var(--text-color);
+}
+
+.why-choose__description > :first-child {
+	margin-top: 0;
+}
+
+.why-choose__description > :last-child {
+	margin-bottom: 0;
+}
+
+.why-choose__description a {
+	color: var(--primary-color);
+	text-decoration: underline;
+}
+
+.why-choose__table-card {
+	background: #ffffff;
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: var(--card-shadow-hover);
+	max-width: 100%;
+	min-width: 0;
+}
+
+.why-choose__table-wrap {
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+	overflow-x: auto;
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+
+.why-choose__table {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.why-choose__th {
+	padding: 18px 20px;
+	font-family: var(--font-family-base);
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.3;
+	color: #ffffff;
+	text-align: center;
+	background: #102a7a;
+}
+
+.why-choose__th--feature {
+	width: 34%;
+	text-align: left;
+}
+
+.why-choose__th--brand {
+	background: var(--secondary-color);
+}
+
+.why-choose__row--odd {
+	background: #f3f6fd;
+}
+
+.why-choose__row--even {
+	background: #ffffff;
+}
+
+.why-choose__feature,
+.why-choose__cell {
+	min-height: 70px;
+	padding: 18px 20px;
+	font-family: var(--font-family-base);
+	font-size: var(--paragraph-size);
+	line-height: 1.45;
+	color: #1a1a1a;
+	vertical-align: middle;
+}
+
+.why-choose__feature {
+	font-weight: var(--font-weight-semibold);
+	text-align: left;
+}
+
+.why-choose__cell {
+	text-align: center;
+}
+
+.why-choose__status {
+	display: inline-block;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.why-choose__status--check {
+	color: #00b67a;
+}
+
+.why-choose__status--cross {
+	color: #ff4d4f;
+}
+
+.why-choose__status--warning {
+	font-size: var(--paragraph-size);
+	font-weight: var(--font-weight-semibold);
+	color: var(--secondary-color);
+}
+
+.why-choose__cta {
+	margin-top: 40px;
+	text-align: center;
+}
+
+.why-choose__button {
+	display: inline-flex;
+}
+
+@media (max-width: 767.98px) {
+	.why-choose {
+		padding-top: var(--section-spacing-mobile);
+		padding-bottom: var(--section-spacing-mobile);
+		overflow: hidden;
+	}
+
+	.why-choose__table-wrap {
+		overflow-x: auto;
+		max-width: 100%;
+	}
+
+	.why-choose__table {
+		width: -webkit-fill-available!important;
+	}
+
+	.why-choose__header {
+		margin-bottom: 32px;
+	}
+
+	.why-choose__heading {
+		font-size: var(--section-title-size-mobile);
+		line-height: var(--section-title-line-height-mobile);
+	}
+
+	.why-choose__description {
+		font-size: var(--paragraph-size-mobile);
+	}
+
+	.why-choose__feature,
+	.why-choose__cell,
+	.why-choose__th {
+		padding: 16px 14px;
+		font-size: 14px;
+	}
+
+	.why-choose__status {
+		font-size: 20px;
+	}
+
+	.why-choose__status--warning {
+		font-size: 13px;
+	}
+
+	.why-choose__cta {
+		margin-top: 32px;
+	}
+}

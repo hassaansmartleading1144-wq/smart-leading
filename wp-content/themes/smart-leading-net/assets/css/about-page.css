@@ -1,0 +1,443 @@
+/**
+ * Smart Leading Net — About Us Page
+ * Scoped styles only. Uses theme tokens — no global overrides.
+ */
+
+.about-page,
+.about-page * {
+	box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   Overview — company intro (first section below hero)
+   -------------------------------------------------------------------------- */
+
+.about-overview {
+	background-color: var(--white);
+}
+
+.about-overview__container {
+	width: 100%;
+}
+
+.about-overview__grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	align-items: center;
+	gap: 48px;
+}
+
+.about-overview__content {
+	min-width: 0;
+}
+
+.about-overview__label {
+	margin: 0 0 16px;
+	font-family: var(--font-family);
+	font-size: var(--paragraph-size);
+	font-weight: var(--font-weight-bold);
+	line-height: 1.3;
+	color: var(--primary-color);
+}
+
+.about-overview__title {
+	margin: 0 0 24px;
+	font-family: var(--font-family);
+	font-size: var(--section-title-size);
+	font-weight: var(--section-title-weight);
+	line-height: 1.15;
+	color: var(--heading-color);
+}
+
+.about-overview__description {
+	margin: 0 0 32px;
+	font-size: var(--paragraph-size);
+	font-weight: var(--paragraph-weight);
+	line-height: 1.7;
+	color: var(--text-color);
+}
+
+.about-overview__features {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 18px 32px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.about-overview__feature {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	font-size: var(--paragraph-size);
+	font-weight: var(--font-weight-semibold);
+	line-height: 1.4;
+	color: var(--heading-color);
+}
+
+.about-overview__feature-check {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 28px;
+	height: 28px;
+	border-radius: var(--button-radius);
+	background-color: var(--light-orange-2);
+	color: var(--accent-color);
+	transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+.about-overview__feature-check svg {
+	display: block;
+}
+
+.about-overview__media {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 0;
+}
+
+.about-overview__image {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+/* --------------------------------------------------------------------------
+   Optional editor content below sections
+   -------------------------------------------------------------------------- */
+
+.about-page__content {
+	padding: var(--section-spacing) 0;
+}
+
+/* --------------------------------------------------------------------------
+   Tablet
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 991.98px) {
+	.about-overview__grid {
+		gap: 40px;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Mobile
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+	.about-overview__grid {
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
+
+	.about-overview__content {
+		order: 1;
+	}
+
+	.about-overview__media {
+		order: 2;
+	}
+
+	.about-overview__title {
+		font-size: var(--section-title-size-mobile);
+		line-height: var(--section-title-line-height-mobile);
+	}
+
+	.about-overview__description {
+		font-size: var(--paragraph-size-mobile);
+		margin-bottom: 28px;
+	}
+
+	.about-overview__features {
+		grid-template-columns: repeat(2, minmax(0, 1fr)); 	
+		gap: 14px;
+	}
+
+	.about-page__content {
+		padding: var(--section-spacing-mobile) 0;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Leader About — stats & content section
+   -------------------------------------------------------------------------- */
+
+.about-leader {
+	position: relative;
+	overflow: hidden;
+	background-color: var(--white);
+	background-image: var(--about-leader-bg, none);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	content-visibility: visible;
+}
+
+.about-leader::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	background-color: color-mix(in srgb, var(--white) 88%, transparent);
+	pointer-events: none;
+}
+
+.about-leader__container {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+}
+
+.about-leader__title {
+	margin: 0 auto 48px;
+	font-family: var(--font-family);
+	font-size: var(--section-title-size);
+	font-weight: var(--section-title-weight);
+	line-height: 1.15;
+	text-align: center;
+	color: var(--heading-color);
+}
+
+.about-leader__grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	align-items: start;
+	gap: 48px;
+}
+
+.about-leader__content {
+	display: flex;
+	flex-direction: column;
+	gap: 36px;
+	min-width: 0;
+}
+
+.about-leader__block {
+	min-width: 0;
+}
+
+.about-leader__block-title {
+	margin: 0 0 10px;
+	font-family: var(--font-family);
+	font-size: var(--h3-size);
+	font-weight: var(--h4-weight);
+	line-height: 1.3;
+	color: var(--heading-color);
+}
+
+.about-leader__block-text {
+	margin: 0;
+	font-size: var(--paragraph-size);
+	font-weight: var(--paragraph-weight);
+	line-height: 1.65;
+	color: var(--text-color);
+}
+
+.about-leader__aside {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	min-width: 0;
+}
+
+.about-leader__stats {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+}
+
+.about-leader__stat-card,
+.about-leader__tech-card {
+	background-color: var(--white);
+	border-radius: var(--card-radius);
+	box-shadow: var(--card-shadow-hover);
+	transition:
+		transform var(--transition-base),
+		box-shadow var(--transition-base);
+}
+
+.about-leader__stat-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 120px;
+	padding: 22px 80px 22px 22px;
+}
+
+.about-leader__stat-copy {
+	position: relative;
+	z-index: 1;
+	min-width: 0;
+}
+
+.about-leader__stat-value {
+	margin: 0 0 8px;
+	font-family: var(--font-family);
+	font-size: var(--h3-size);
+	font-weight: var(--font-weight-bold);
+	line-height: 1.1;
+	color: var(--heading-color);
+}
+
+.about-leader__stat-label {
+	margin: 0;
+	font-size: var(--paragraph-size);
+	font-weight: var(--paragraph-weight);
+	line-height: 1.4;
+	color: var(--text-color);
+}
+
+.about-leader__stat-icon {
+	position: absolute;
+	top: 30px;
+	right: 16px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 56px;
+	height: 56px;
+	border-radius: var(--card-radius);
+	pointer-events: none;
+	background-color: color-mix(in srgb, var(--primary-color) 10%, var(--white));
+	color: var(--primary-color);
+	padding: 10px;
+}
+
+/* .about-leader__stat-card:nth-child(odd) .about-leader__stat-icon {
+	background-color: color-mix(in srgb, var(--primary-color) 10%, var(--white));
+	color: var(--primary-color);
+}
+
+.about-leader__stat-card:nth-child(even) .about-leader__stat-icon {
+	background-color: color-mix(in srgb, var(--secondary-color) 10%, var(--white));
+	color: var(--secondary-color);
+} */
+
+.about-leader__stat-icon-svg,
+.about-leader__stat-icon svg {
+	display: block;
+	width: 52px;
+	height: 52px;
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+
+.about-leader__tech-card {
+	padding: 28px 24px 24px;
+}
+
+.about-leader__tech-title {
+	margin: 0 0 20px;
+	font-family: var(--font-family);
+	font-size: var(--paragraph-size);
+	font-weight: var(--font-weight-semibold);
+	line-height: 1.2;
+	letter-spacing: 0.08em;
+	text-align: center;
+	text-transform: uppercase;
+	color: var(--text-color);
+}
+
+.about-leader__tech-media {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 72px;
+	padding: 16px;
+	border-radius: var(--card-radius);
+	background-color: var(--white);
+}
+
+.about-leader__tech-image {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.about-leader__stat-card:hover,
+	.about-leader__tech-card:hover {
+		transform: translateY(-4px);
+		border: 1px solid var(--primary-color);
+		background: var(--brand-background);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.about-leader__stat-card,
+	.about-leader__tech-card {
+		transition: none;
+	}
+}
+
+@media (max-width: 991.98px) {
+	.about-leader__grid {
+		gap: 40px;
+	}
+
+	.about-leader__title {
+		margin-bottom: 40px;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.about-leader__title {
+		margin-bottom: 32px;
+		font-size: var(--section-title-size-mobile);
+		line-height: var(--section-title-line-height-mobile);
+		text-align: left;
+	}
+
+	.about-leader__grid {
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
+
+	.about-leader__content {
+		gap: 28px;
+	}
+
+	.about-leader__block {
+		gap: 0;
+	}
+
+	.about-leader__stats {
+		gap: 14px;
+	}
+
+	.about-leader__stat-card {
+		min-height: 0;
+		padding: 18px 72px 18px 16px;
+	}
+
+	.about-leader__stat-icon {
+		top: 12px;
+		right: 12px;
+		width: 50px;
+		height: 50px;
+	}
+
+	.about-leader__stat-icon-svg,
+	.about-leader__stat-icon svg {
+		width: 46px;
+		height: 46px;
+	}
+
+	.about-leader__stat-value {
+		font-size: var(--h4-size);
+	}
+
+	.about-leader__tech-card {
+		padding: 24px 20px 20px;
+	}
+}

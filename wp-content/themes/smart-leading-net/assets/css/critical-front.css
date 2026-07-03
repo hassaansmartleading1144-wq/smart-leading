@@ -1,0 +1,91 @@
+/**
+ * Critical above-the-fold CSS — header shell + hero layout (homepage).
+ */
+
+:root {
+	--primary-color: #1f4e9e;
+	--light-blue-2: #f4f7ff;
+	--heading-color: #222222;
+	--text-color: #6f6f6f;
+	--white: #ffffff;
+	--font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background: #eef2ff;
+}
+
+.site-header {
+	position: relative;
+	z-index: 1030;
+}
+
+.header-top {
+	background-color: var(--primary-color);
+	height: 45px;
+}
+
+.header-main {
+	background: var(--white);
+}
+
+.header-main__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 88px;
+}
+
+.hero-banner {
+	position: relative;
+	width: 100%;
+	padding: 20px 0 50px;
+	background-color: var(--light-blue-2);
+	overflow-x: clip;
+}
+
+.hero-banner__stage {
+	display: grid;
+	grid-template-columns: 48fr 52fr;
+	align-items: end;
+	gap: 20px;
+}
+
+.hero-banner__heading {
+	margin: 0;
+	font-size: clamp(34px, 5vw, 55px);
+	font-weight: 700;
+	line-height: 1.1;
+	color: var(--heading-color);
+}
+
+.hero-banner__artwork-wrap {
+	position: relative;
+	width: 100%;
+	max-width: min(640px, 100%);
+	margin: 50px auto 0;
+}
+
+.hero-banner__artwork {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-height: min(620px, calc(100vh - 160px));
+	object-fit: contain;
+	object-position: center bottom;
+	opacity: 1;
+	visibility: visible;
+}
+
+.sls-ai-chat {
+	min-height: 56px;
+}
+
+@media (max-width: 991.98px) {
+	.hero-banner__stage {
+		grid-template-columns: 1fr;
+	}
+}

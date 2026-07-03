@@ -1,0 +1,10 @@
+/**
+ * Smart Leading Net — Theme Overrides
+ * Layout adjustments that extend the global design system.
+ */
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}

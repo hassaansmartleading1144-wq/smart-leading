@@ -1,0 +1,107 @@
+/**
+ * Smart Leading Net — Design Tokens
+ * Single source of truth for all brand values.
+ */
+
+:root {
+	/* Primary Blue */
+	--primary-color: #1f4e9e;
+	--light-blue-1: #ecf2fc;
+	--light-blue-2: #f4f7ff;
+	--light-blue-3: #e2eeff;
+	--brand-background: #eef2ff;
+
+	/* Secondary Orange */
+	--secondary-color: #f36b32;
+	--accent-color: var(--secondary-color);
+	--light-orange-1: #fff9f7;
+	--light-orange-2: #ffeee8;
+
+	/* Neutral Colors */
+	--heading-color: #222222;
+	--text-color: #6f6f6f;
+	--text-secondary: var(--text-color);
+	--white: #ffffff;
+
+	/* Typography — Family & Weights */
+	--font-family: "Inter", sans-serif;
+	--font-family-base: var(--font-family);
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+	--font-weight-extrabold: 800;
+
+	/* Typography — Desktop Sizes */
+	--h1-size: 55px;
+	--h1-weight: 700;
+	--h2-size: 40px;
+	--h2-weight: 700;
+	--h3-size: 25px;
+	--h3-weight: 600;
+	--h4-size: 20px;
+	--h4-weight: 600;
+	--h5-size: 18px;
+	--h5-weight: 500;
+	--paragraph-size: 16px;
+	--paragraph-weight: 400;
+	--button-font-size: 18px;
+	--button-font-weight: 600;
+
+	/* Typography — Unified Mobile Heading (default for all headings) */
+	--heading-size-mobile: 26px;
+
+	/* Typography — Section Main Heading (mobile Brand Kit) */
+	--section-title-size-mobile: 28px;
+	--section-title-line-height-mobile: 1.15;
+
+	/* Typography — Mobile Body & Button */
+	--paragraph-size-mobile: 16px;
+	--button-font-size-mobile: 16px;
+
+	/* Typography — Section Title */
+	--section-title-size: 40px;
+	--section-title-weight: 700;
+
+	/* Typography — Reusable Heading Classes (Desktop) */
+	--heading-xl-size: 55px;
+	--heading-xl-weight: 700;
+	--heading-lg-size: 40px;
+	--heading-lg-weight: 700;
+	--heading-md-size: 25px;
+	--heading-md-weight: 600;
+	--heading-sm-size: 20px;
+	--heading-sm-weight: 600;
+
+	/* Button System */
+	--button-radius: 6px;
+	--button-padding-y: 20px;
+	--button-padding-x: 25px;
+	--button-icon-size: 18px;
+
+	/* Card System */
+	--card-radius: 15px;
+	--card-bg: #ffffff;
+	--card-shadow-hover: 0 8px 30px rgba(34, 34, 34, 0.08);
+
+	/* Section Spacing */
+	--section-spacing: 80px;
+	--section-spacing-tablet: 60px;
+	--section-spacing-mobile: 50px;
+
+	/* Global Container — homepage alignment (sls-container) */
+	--sls-container-max-width: 1420px;
+	--sls-container-max-width-laptop: 1200px;
+	--sls-container-padding-x: 24px;
+	--sls-container-padding-x-mobile: 20px;
+	--container-max-width: var(--sls-container-max-width);
+	--container-padding-x: var(--sls-container-padding-x);
+
+	/* Header */
+	--header-height: 100px;
+	--logo-width: 120px;
+	--logo-height: 100px;
+
+	/* Transitions */
+	--transition-base: 0.3s ease;
+}

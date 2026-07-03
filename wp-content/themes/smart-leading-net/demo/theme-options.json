@@ -1,0 +1,26 @@
+{
+	"version": "1.0.0",
+	"options": {
+		"sln_our_services_settings": {
+			"source": "theme_defaults"
+		},
+		"sln_our_projects_settings": {
+			"source": "theme_defaults"
+		},
+		"sln_credibility_settings": {
+			"source": "theme_defaults"
+		}
+	},
+	"theme_mods": {},
+	"media_assignments": {
+		"growth_page_banner": "2026/05/banner_image.webp",
+		"growth_page_cta_background": "2026/05/case_studies_bg_1.webp"
+	},
+	"tab_icon_basenames": {
+		"revenue-growth": "growth-buiness",
+		"lead-generation": "Lead Generation2",
+		"conversion-retention": "Conversion Retention",
+		"brand-visibility": "Brand Visibility",
+		"marketing-automation": "focused"
+	}
+}

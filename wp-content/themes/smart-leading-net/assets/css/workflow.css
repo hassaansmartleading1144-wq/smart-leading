@@ -1,0 +1,320 @@
+/**
+ * Smart Leading Net — Workflow Section
+ * Scoped styles only. Uses theme tokens — no global overrides.
+ */
+
+.workflow {
+	position: relative;
+	overflow: hidden;
+	padding: 90px 0;
+	background-color: #ecf2fc;
+	content-visibility: visible;
+	contain: none;
+}
+
+.workflow__container {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+}
+
+.workflow__header {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.workflow__label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	margin: 0 0 24px;
+	font-size: var(--paragraph-size);
+	font-weight: var(--font-weight-semibold);
+	line-height: 1.2;
+	letter-spacing: 0.08em;
+	color: var(--primary-color);
+}
+
+.workflow__label::before,
+.workflow__label::after {
+	content: "";
+	flex: 0 1 80px;
+	width: 100%;
+	max-width: 45px;
+	height: 1px;
+	background: var(--primary-color);
+}
+
+.workflow__heading {
+	margin: 0 0 20px;
+	font-size: var(--section-title-size);
+	font-weight: var(--section-title-weight);
+	line-height: 1.15;
+	color: var(--heading-color);
+}
+
+.workflow__heading-accent {
+	color: #1f4e9e;
+}
+
+.workflow__description {
+	max-width: 700px;
+	margin: 0 auto;
+	font-size: var(--paragraph-size);
+	font-weight: var(--paragraph-weight);
+	line-height: 1.65;
+	color: var(--text-color);
+}
+
+/* --------------------------------------------------------------------------
+   Cards Grid
+   -------------------------------------------------------------------------- */
+
+.workflow__grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 28px;
+	margin-top: 56px;
+	padding-top: 50px;
+}
+
+.workflow__card {
+	position: relative;
+}
+
+@media (hover: hover) {
+	.workflow__card {
+		transition: transform 0.35s ease;
+	}
+
+	.workflow__card-shell {
+		transition: box-shadow 0.35s ease;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Card Shell
+   -------------------------------------------------------------------------- */
+
+.workflow__card-shell {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Badge Group (circle + pointer)
+   -------------------------------------------------------------------------- */
+
+.workflow__badge-group {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    margin-bottom: -15px;
+    z-index: 2;
+}
+
+.workflow__badge {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 0 12px #D9D9D9;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.workflow__badge-number {
+	font-size: 26px;
+	font-weight: 700;
+	line-height: 1;
+	color: #f36b32;
+	transition: color 0.3s ease;
+}
+
+.workflow__badge-pointer {
+	display: block;
+    width: 0;
+    height: 0;
+    margin-top: 0;
+    border-top: 30px solid #D9D9D9;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    transition: border-top-color 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Card Body
+   -------------------------------------------------------------------------- */
+
+.workflow__card-body {
+	width: 100%;
+	min-height: 320px;
+	margin-top: -1px;
+	border-radius: 15px;
+	background: linear-gradient(135deg, #316cd0 0%, #1f4e9e 100%);
+}
+
+.workflow__card-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 320px;
+	padding: 28px 28px 32px;
+	text-align: center;
+	color: #ffffff;
+}
+
+.workflow__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 54px;
+	height: 54px;
+	margin: 0 0 16px;
+	flex-shrink: 0;
+}
+
+.workflow__icon-svg,
+.workflow__icon svg {
+	display: block;
+	width: 54px;
+	height: 54px;
+	transition: transform 0.35s ease;
+}
+
+.workflow__card-title {
+	margin: 0 0 12px;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1.2;
+	color: #ffffff;
+}
+
+.workflow__card-text {
+	margin: 0;
+	max-width: 240px;
+	font-size: 14px;
+	font-weight: var(--paragraph-weight);
+	line-height: 1.35;
+	color: rgba(255, 255, 255, 0.95);
+}
+
+/* --------------------------------------------------------------------------
+   Card Hover
+   -------------------------------------------------------------------------- */
+
+/* Hover: only badge colors change — no movement, no extra box, no overlay */
+.workflow__card:hover {
+	transform: none;
+	box-shadow: none;
+}
+
+.workflow__card:hover .workflow__card-shell {
+	box-shadow: none;
+}
+
+.workflow__card:hover .workflow__icon-svg,
+.workflow__card:hover .workflow__icon svg {
+	transform: none;
+}
+
+/* Outer gray ring -> white */
+.workflow__card:hover .workflow__badge {
+	background: var(--primary-color);
+	box-shadow: 0 0 0 12px #ffffff;
+}
+
+/* Number text -> white */
+.workflow__card:hover .workflow__badge-number {
+	color: #ffffff;
+}
+
+/* Pointer matches the outer ring -> white */
+.workflow__card:hover .workflow__badge-pointer {
+	border-top-color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Tablet
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 991.98px) {
+	.workflow {
+		padding: 72px 0;
+	}
+
+	.workflow__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 20px;
+		margin-top: 48px;
+		padding-top: 50px;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Mobile
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+	.workflow {
+		padding: 64px 0;
+	}
+
+	.workflow__grid {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 32px;
+		margin-top: 40px;
+		padding-top: 50px;
+	}
+
+	.workflow__card-body,
+	.workflow__card-content {
+		min-height: 320px;
+	}
+
+	.workflow__card-text {
+		max-width: none;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Immediate render — no scroll-triggered hiding or deferred paint
+   -------------------------------------------------------------------------- */
+
+.workflow,
+.workflow * {
+	content-visibility: visible !important;
+	contain: none !important;
+}
+
+.workflow__header,
+.workflow__label,
+.workflow__heading,
+.workflow__description,
+.workflow__grid,
+.workflow__card,
+.workflow__card-shell,
+.workflow__card-body,
+.workflow__card-content,
+.workflow__badge-group,
+.workflow__badge,
+.workflow__badge-number,
+.workflow__badge-pointer,
+.workflow__icon,
+.workflow__icon-svg,
+.workflow__icon svg,
+.workflow__card-title,
+.workflow__card-text {
+	opacity: 1 !important;
+	visibility: visible !important;
+	transform: none !important;
+	animation: none !important;
+	animation-delay: 0s !important;
+}

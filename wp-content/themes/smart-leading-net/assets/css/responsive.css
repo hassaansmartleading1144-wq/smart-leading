@@ -1,0 +1,81 @@
+/**
+ * Smart Leading Net — Responsive Rules
+ */
+
+/* --------------------------------------------------------------------------
+   Tablet — Section Spacing
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 991.98px) {
+	.section-padding {
+		padding-top: var(--section-spacing-tablet);
+		padding-bottom: var(--section-spacing-tablet);
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Mobile — Typography & Section Spacing
+   Generic headings use 26px. Section main headings use Brand Kit (28px).
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6,
+	.heading-xl,
+	.heading-lg,
+	.heading-md,
+	.heading-sm {
+		font-size: var(--heading-size-mobile);
+	}
+
+	.section-title,
+	.accomplishments__heading,
+	.our-projects__title,
+	.our-services__title,
+	.case-studies__title,
+	.expertise__title,
+	.businesses-choose__title,
+	.contact-cta__title,
+	.results-section__title,
+	.testimonials__title,
+	.credibility__title,
+	.convert-scale__title,
+	.client-story__title,
+	.workflow__title,
+	.about-overview__title,
+	.about-leader__title {
+		font-size: 28px !important;
+		line-height: 1.15 !important;
+	}
+
+	body {
+		font-size: var(--paragraph-size-mobile);
+	}
+
+	.section-description {
+		font-size: var(--paragraph-size-mobile);
+	}
+
+	.btn-primary,
+	.btn-primary-custom,
+	.btn-secondary-custom,
+	.btn-outline-custom,
+	.btn-white-custom {
+		font-size: var(--button-font-size-mobile);
+	}
+
+	.section-padding {
+		padding-top: var(--section-spacing-mobile);
+		padding-bottom: var(--section-spacing-mobile);
+	}
+}

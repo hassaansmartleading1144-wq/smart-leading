@@ -1,0 +1,195 @@
+/**
+ * Smart Leading Net — Starts CTA Section
+ * Scoped styles only. Uses theme tokens — no global overrides.
+ */
+
+.starts-cta {
+	padding: var(--section-spacing) 0;
+	background-color: var(--white);
+}
+
+.starts-cta__wrap {
+	width: 100%;
+}
+
+.starts-cta__card {
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+	padding: 70px 80px;
+	border-radius: 18px;
+	overflow: hidden;
+	background-color: var(--primary-color);
+	background-image: var(--starts-cta-bg, none);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.starts-cta__overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(31, 78, 158, 0.35);
+	pointer-events: none;
+}
+
+.starts-cta__inner {
+	position: relative;
+	z-index: 1;
+	display: grid;
+	grid-template-columns: 60fr 35fr;
+	gap: 48px;
+	align-items: center;
+}
+
+.starts-cta__content {
+	max-width: 100%;
+}
+
+.starts-cta__heading {
+	margin: 0 0 20px;
+	font-size: 42px;
+	font-weight: var(--font-weight-bold);
+	line-height: 1.15;
+	color: var(--white);
+}
+
+.starts-cta__growth-wrap {
+	display: inline-block;
+	position: relative;
+	vertical-align: baseline;
+	padding-bottom: 14px;
+}
+
+.starts-cta__growth-text {
+	color: var(--white);
+}
+
+.starts-cta__growth-underline {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	transform: translateX(-50%);
+	pointer-events: none;
+}
+
+.starts-cta__description {
+	margin: 0;
+	max-width: 520px;
+	font-size: var(--paragraph-size);
+	font-weight: var(--paragraph-weight);
+	line-height: 1.65;
+	color: rgba(255, 255, 255, 0.92);
+}
+
+.starts-cta__form {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	width: 100%;
+}
+
+.starts-cta__field {
+	display: block;
+	width: 100%;
+}
+
+.starts-cta__input {
+	display: block;
+	width: 100%;
+	height: 64px;
+	padding: 0 22px;
+	border: 0;
+	border-radius: 10px;
+	background: var(--white);
+	font-family: var(--font-family-base);
+	font-size: var(--button-font-size);
+	font-weight: var(--font-weight-regular);
+	line-height: 1.2;
+	color: var(--heading-color);
+	outline: none;
+	box-sizing: border-box;
+}
+
+.starts-cta__input::placeholder {
+	color: #8b8b8b;
+}
+
+.starts-cta__input:focus {
+	box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35);
+}
+
+.starts-cta__submit {
+	width: 100%;
+	box-sizing: border-box;
+	border: 2px solid transparent;
+	cursor: pointer;
+	transition:
+		border-color 0.3s ease,
+		background-color 0.3s ease,
+		color 0.3s ease,
+		box-shadow 0.3s ease;
+}
+
+.starts-cta__submit:hover,
+.starts-cta__submit:focus-visible {
+	border: 2px solid #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Tablet
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 991.98px) {
+	.starts-cta__card {
+		padding: 56px 40px;
+	}
+
+	.starts-cta__inner {
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
+
+	.starts-cta__heading {
+		font-size: 36px;
+	}
+
+	.starts-cta__description {
+		max-width: none;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Mobile
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+	.starts-cta {
+		padding: var(--section-spacing-mobile) 0;
+	}
+
+	.starts-cta__card {
+		padding: 40px 24px;
+		border-radius: 18px;
+	}
+
+	.starts-cta__inner {
+		gap: 24px;
+	}
+
+	.starts-cta__heading {
+		font-size: 28px;
+	}
+
+	.starts-cta__growth-wrap {
+		padding-bottom: 10px;
+	}
+
+	.starts-cta__input,
+	.starts-cta__submit {
+		width: 100%;
+	}
+}

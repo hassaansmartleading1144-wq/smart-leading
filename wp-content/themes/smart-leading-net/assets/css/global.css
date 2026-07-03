@@ -1,0 +1,176 @@
+/**
+ * Smart Leading Net — Global Components & Utilities
+ */
+
+/* --------------------------------------------------------------------------
+   Section System
+   -------------------------------------------------------------------------- */
+
+.section-padding {
+	padding-top: var(--section-spacing);
+	padding-bottom: var(--section-spacing);
+}
+
+.section-title {
+	font-size: var(--section-title-size);
+	font-weight: var(--section-title-weight);
+	color: var(--heading-color);
+	margin-bottom: 1rem;
+	line-height: 1.2;
+}
+
+.section-description {
+	font-size: var(--paragraph-size);
+	font-weight: var(--paragraph-weight);
+	color: var(--text-color);
+	max-width: 720px;
+	margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Card System
+   -------------------------------------------------------------------------- */
+
+.card-custom {
+	background-color: var(--card-bg);
+	border-radius: var(--card-radius);
+	border: none;
+	transition: box-shadow var(--transition-base);
+}
+
+.card-custom:hover {
+	box-shadow: var(--card-shadow-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Color Utilities
+   -------------------------------------------------------------------------- */
+
+.text-primary {
+	color: var(--primary-color) !important;
+}
+
+.text-secondary {
+	color: var(--secondary-color) !important;
+}
+
+.bg-primary-light {
+	background-color: var(--light-blue-1) !important;
+}
+
+.bg-secondary-light {
+	background-color: var(--light-orange-1) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Site Layout — Boxed Wrapper
+   -------------------------------------------------------------------------- */
+
+body {
+	background: var(--brand-background);
+}
+
+.site-wrapper,
+#page {
+	width: 100%;
+	max-width: 100%;
+	margin: 0 auto;
+	background: #ffffff;
+	overflow: hidden;
+}
+
+@media (min-width: 2120px) {
+	#page,
+	.site,
+	.site-wrapper {
+		max-width: 1920px;
+		margin-left: auto;
+		margin-right: auto;
+		background: #ffffff;
+	}
+}
+
+.site-header,
+.header-top,
+.header-main,
+.site-main,
+.site-footer {
+	width: 100%;
+}
+
+.site {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Global Container — single source for all section content width
+   -------------------------------------------------------------------------- */
+
+.sls-container,
+.container {
+	width: 100%;
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--sls-container-padding-x-mobile);
+	padding-right: var(--sls-container-padding-x-mobile);
+}
+
+@media (min-width: 768px) {
+	.sls-container,
+	.container {
+		max-width: var(--sls-container-max-width-laptop);
+		padding-left: var(--sls-container-padding-x);
+		padding-right: var(--sls-container-padding-x);
+	}
+}
+
+@media (min-width: 1200px) {
+	.sls-container,
+	.container {
+		max-width: var(--sls-container-max-width);
+	}
+}
+
+/* Section wrappers use .sls-container — do not let scoped __container rules override width */
+@media (min-width: 768px) {
+	.sls-container[class*="__container"],
+	.sls-container[class*="__wrap"] {
+		max-width: var(--sls-container-max-width-laptop);
+		padding-left: var(--sls-container-padding-x);
+		padding-right: var(--sls-container-padding-x);
+	}
+}
+
+@media (min-width: 1200px) {
+	.sls-container[class*="__container"],
+	.sls-container[class*="__wrap"] {
+		max-width: var(--sls-container-max-width);
+	}
+}
+
+.site-main {
+	flex: 1 0 auto;
+}
+
+.skip-link {
+	position: absolute;
+	top: -100%;
+	left: 0;
+	z-index: 9999;
+	padding: 0.5rem 1rem;
+	background: var(--white);
+	color: var(--heading-color);
+}
+
+.skip-link:focus {
+	top: 0;
+}
+
+.entry-content img {
+	max-width: 100%;
+	height: auto;
+}

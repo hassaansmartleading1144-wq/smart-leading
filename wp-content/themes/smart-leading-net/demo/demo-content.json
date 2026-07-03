@@ -1,0 +1,91 @@
+{
+	"version": "1.0.0",
+	"url_replace_from": [
+		"http://localhost/new-smart-leading",
+		"https://localhost/new-smart-leading",
+		"http://localhost/new-smart-leading/",
+		"https://localhost/new-smart-leading/"
+	],
+	"pages": [
+		{
+			"title": "Home",
+			"slug": "home",
+			"status": "publish",
+			"template": "",
+			"content": "<!-- wp:paragraph --><p>Welcome to Smart Leading Solutions — your partner for revenue growth, lead generation, and measurable digital marketing results.</p><!-- /wp:paragraph -->"
+		},
+		{
+			"title": "About Us",
+			"slug": "about-us",
+			"status": "publish",
+			"template": "about-us-template.php",
+			"content": ""
+		},
+		{
+			"title": "Contact Us",
+			"slug": "contact-us",
+			"status": "publish",
+			"template": "contact-template.php",
+			"content": ""
+		},
+		{
+			"title": "Privacy Policy",
+			"slug": "privacy-policy",
+			"status": "publish",
+			"template": "",
+			"content": "<!-- wp:heading --><h2>Privacy Policy</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Smart Leading Solutions respects your privacy. This policy explains how we collect, use, and protect your information when you visit our website or use our services.</p><!-- /wp:paragraph -->"
+		},
+		{
+			"title": "Terms of Service",
+			"slug": "terms-of-service",
+			"status": "publish",
+			"template": "",
+			"content": "<!-- wp:heading --><h2>Terms of Service</h2><!-- /wp:heading --><!-- wp:paragraph --><p>By using this website, you agree to these terms. Smart Leading Solutions provides digital marketing services subject to the agreements outlined in your service contract.</p><!-- /wp:paragraph -->"
+		}
+	],
+	"growth_pages": [
+		{
+			"title": "Revenue Growth",
+			"slug": "revenue-growth",
+			"status": "publish",
+			"meta_source": "theme_defaults"
+		}
+	],
+	"menus": {
+		"primary": {
+			"name": "Primary Menu",
+			"items": [
+				{ "type": "page", "slug": "home", "title": "Home" },
+				{ "type": "page", "slug": "about-us", "title": "About Us" },
+				{ "type": "custom", "title": "Services", "url": "/#services" },
+				{ "type": "page", "slug": "contact-us", "title": "Contact" },
+				{ "type": "custom", "title": "Career", "url": "#" }
+			]
+		},
+		"footer_services_menu": {
+			"name": "Footer Services Menu",
+			"items": [
+				{ "type": "growth_page", "slug": "revenue-growth", "title": "Revenue Growth" },
+				{ "type": "custom", "title": "Lead Generation", "url": "/#services" },
+				{ "type": "custom", "title": "SEO Services", "url": "/#services" },
+				{ "type": "custom", "title": "Paid Advertising", "url": "/#services" },
+				{ "type": "custom", "title": "Marketing Automation", "url": "/#services" }
+			]
+		},
+		"footer_quick_links_menu": {
+			"name": "Footer Quick Links Menu",
+			"items": [
+				{ "type": "page", "slug": "home", "title": "Home" },
+				{ "type": "page", "slug": "about-us", "title": "About Us" },
+				{ "type": "page", "slug": "contact-us", "title": "Contact Us" },
+				{ "type": "page", "slug": "privacy-policy", "title": "Privacy Policy" },
+				{ "type": "page", "slug": "terms-of-service", "title": "Terms of Service" }
+			]
+		}
+	},
+	"wordpress": {
+		"show_on_front": "page",
+		"page_on_front_slug": "home",
+		"blogname": "Smart Leading Solutions"
+	}
+}

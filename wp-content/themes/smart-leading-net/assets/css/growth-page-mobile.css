@@ -1,0 +1,409 @@
+/**
+ * Growth Page — mobile layout fixes (max-width: 767px)
+ * Loaded last on singular growth_page templates only.
+ */
+
+/* --------------------------------------------------------------------------
+   Base containment — all viewports on growth pages
+   -------------------------------------------------------------------------- */
+
+html:has(body.growth-page),
+html:has(body.single-growth_page) {
+	overflow-x: hidden;
+	max-width: 100%;
+}
+
+
+body.growth-page,
+body.single-growth_page {
+	overflow-x: hidden;
+	max-width: 100%;
+}
+
+body.growth-page #page,
+body.growth-page .site,
+body.growth-page .site-main,
+body.growth-page .gp-page,
+body.single-growth_page #page,
+body.single-growth_page .site,
+body.single-growth_page .site-main,
+body.single-growth_page .gp-page {
+	width: 100%;
+	max-width: 100%;
+	overflow-x: hidden;
+	box-sizing: border-box;
+}
+
+body.growth-page img,
+body.growth-page svg,
+body.growth-page video,
+body.single-growth_page img,
+body.single-growth_page svg,
+body.single-growth_page video {
+	max-width: revert-rule;
+	height: auto;
+}
+
+/* Why Choose — table scroll stays inside wrapper */
+body.growth-page .why-choose__table-card,
+body.single-growth_page .why-choose__table-card {
+	max-width: 100%;
+	min-width: 0;
+	overflow: hidden;
+}
+
+body.growth-page .why-choose__table-wrap,
+body.single-growth_page .why-choose__table-wrap {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+	overflow-x: auto;
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+
+body.growth-page section,
+body.single-growth_page section {
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile — full viewport width, no empty right gutter
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+	html:has(body.growth-page),
+	html:has(body.single-growth_page),
+	body.growth-page,
+	body.single-growth_page {
+		width: 100% !important;
+		overflow-x: hidden !important;
+	}
+
+	/* Page + section wrappers */
+	body.growth-page .growth-page,
+	body.growth-page .gp-page,
+	body.growth-page .gp-section,
+	body.growth-page .gp-container,
+	body.growth-page .gp-hero,
+	body.growth-page .gp-hero-inner,
+	body.growth-page .growth-page-hero,
+	body.growth-page .growth-page-hero__container,
+	body.growth-page .growth-page-hero__stage,
+	body.growth-page .sls-container,
+	body.growth-page .container,
+	body.growth-page [class*="__container"],
+	body.single-growth_page .growth-page,
+	body.single-growth_page .gp-page,
+	body.single-growth_page .gp-section,
+	body.single-growth_page .gp-container,
+	body.single-growth_page .gp-hero,
+	body.single-growth_page .gp-hero-inner,
+	body.single-growth_page .growth-page-hero,
+	body.single-growth_page .growth-page-hero__container,
+	body.single-growth_page .growth-page-hero__stage,
+	body.single-growth_page .sls-container,
+	body.single-growth_page .container,
+	body.single-growth_page [class*="__container"] {
+		width: 100% !important;
+		max-width: 100% !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		box-sizing: border-box;
+	}
+
+	/* Bootstrap container — never constrain growth page on mobile */
+	body.growth-page .container,
+	body.single-growth_page .container {
+		padding-left: 16px !important;
+		padding-right: 16px !important;
+	}
+
+	/* Hero — flex column, full-width columns */
+	body.growth-page .gp-hero-inner,
+	body.growth-page .growth-page-hero__stage,
+	body.single-growth_page .gp-hero-inner,
+	body.single-growth_page .growth-page-hero__stage {
+		display: flex !important;
+		flex-direction: column !important;
+		grid-template-columns: none !important;
+		padding: 28px 16px !important;
+		gap: 24px !important;
+		min-width: 0 !important;
+		transform: none !important;
+	}
+
+	body.growth-page .gp-hero-content,
+	body.growth-page .gp-hero-metrics,
+	body.growth-page .growth-page-hero__content,
+	body.growth-page .growth-page-hero__visual,
+	body.single-growth_page .gp-hero-content,
+	body.single-growth_page .gp-hero-metrics,
+	body.single-growth_page .growth-page-hero__content,
+	body.single-growth_page .growth-page-hero__visual {
+		width: 100% !important;
+		max-width: 100% !important;
+		flex: none !important;
+		position: relative !important;
+		transform: none !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+
+	/* Hero container padding lives on stage; avoid double padding */
+	body.growth-page .growth-page-hero__container,
+	body.single-growth_page .growth-page-hero__container {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+
+	body.growth-page .growth-page-hero,
+	body.single-growth_page .growth-page-hero {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		overflow-x: hidden !important;
+	}
+
+	/* Metrics card */
+	body.growth-page .gp-metrics-card,
+	body.growth-page .growth-page-hero__metrics,
+	body.single-growth_page .gp-metrics-card,
+	body.single-growth_page .growth-page-hero__metrics {
+		width: 100% !important;
+		max-width: 100% !important;
+		padding: 16px !important;
+	}
+
+	body.growth-page .gp-metrics-grid,
+	body.growth-page .growth-page-hero__metrics-grid,
+	body.single-growth_page .gp-metrics-grid,
+	body.single-growth_page .growth-page-hero__metrics-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+		gap: 10px !important;
+	}
+
+	body.growth-page .growth-page-hero__metric,
+	body.single-growth_page .growth-page-hero__metric {
+		min-width: 0 !important;
+	}
+
+	/* Buttons — full width stack */
+	body.growth-page .gp-hero-buttons,
+	body.growth-page .gp-metrics-buttons,
+	body.growth-page .growth-page-hero__metrics-actions,
+	body.single-growth_page .gp-hero-buttons,
+	body.single-growth_page .gp-metrics-buttons,
+	body.single-growth_page .growth-page-hero__metrics-actions {
+		display: flex !important;
+		flex-direction: column !important;
+		gap: 10px !important;
+		width: 100% !important;
+	}
+
+	body.growth-page .gp-hero-buttons a,
+	body.growth-page .gp-hero-buttons .sls-btn,
+	body.growth-page .gp-metrics-buttons a,
+	body.growth-page .growth-page-hero__cta.sls-btn,
+	body.growth-page .growth-page-hero__metrics-btn,
+	body.single-growth_page .gp-hero-buttons a,
+	body.single-growth_page .gp-hero-buttons .sls-btn,
+	body.single-growth_page .gp-metrics-buttons a,
+	body.single-growth_page .growth-page-hero__cta.sls-btn,
+	body.single-growth_page .growth-page-hero__metrics-btn {
+		width: 100% !important;
+		max-width: 100% !important;
+		min-width: 0 !important;
+		justify-content: center !important;
+	}
+
+	/* Heading */
+	body.growth-page .gp-hero-title,
+	body.growth-page .growth-page-hero__heading,
+	body.single-growth_page .gp-hero-title,
+	body.single-growth_page .growth-page-hero__heading {
+		font-size: 34px !important;
+		line-height: 1.08 !important;
+		max-width: 100% !important;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	body.growth-page .growth-page-hero__heading-line--accent,
+	body.single-growth_page .growth-page-hero__heading-line--accent {
+		white-space: normal;
+	}
+
+	body.growth-page .growth-page-hero__badge-pill,
+	body.single-growth_page .growth-page-hero__badge-pill {
+		white-space: normal;
+		max-width: 100%;
+	}
+
+	body.growth-page .growth-page-hero__deco,
+	body.single-growth_page .growth-page-hero__deco {
+		display: none;
+	}
+
+	/* Kill desktop fixed widths / transforms that cause overflow */
+	body.growth-page .growth-page-hero__deco-image,
+	body.single-growth_page .growth-page-hero__deco-image {
+		max-width: 100% !important;
+		width: auto !important;
+	}
+
+	body.growth-page .testimonials__content,
+	body.single-growth_page .testimonials__content {
+		display: flex !important;
+		flex-direction: column !important;
+		grid-template-columns: none !important;
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+
+	body.growth-page .case-studies__text,
+	body.single-growth_page .case-studies__text {
+		width: 100% !important;
+	}
+
+	body.growth-page .price-plan-section .btn,
+	body.growth-page .price-plan-section .pricing-btn,
+	body.growth-page .price-plan-section .price-card a,
+	body.growth-page .price-plan-section .price-plan__button,
+	body.single-growth_page .price-plan-section .btn,
+	body.single-growth_page .price-plan-section .pricing-btn,
+	body.single-growth_page .price-plan-section .price-card a,
+	body.single-growth_page .price-plan-section .price-plan__button {
+		min-width: 0 !important;
+		width: 100% !important;
+	}
+
+	body.growth-page .our-services__tabs,
+	body.growth-page .how-work .our-services__tabs,
+	body.single-growth_page .our-services__tabs,
+	body.single-growth_page .how-work .our-services__tabs {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		max-width: 100% !important;
+		width: 100% !important;
+		min-width: 0 !important;
+		overflow-x: auto !important;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	body.growth-page .our-services__tab,
+	body.single-growth_page .our-services__tab {
+		min-width: 0 !important;
+	}
+
+	/* Contain slider tracks — wide flex rows must not expand the page */
+	body.growth-page .growth-services__slider,
+	body.growth-page .price-plan__slider,
+	body.single-growth_page .growth-services__slider,
+	body.single-growth_page .price-plan__slider {
+		overflow: hidden !important;
+		max-width: 100% !important;
+		contain: paint;
+	}
+
+	body.growth-page .growth-services__viewport,
+	body.growth-page .price-plan__viewport,
+	body.single-growth_page .growth-services__viewport,
+	body.single-growth_page .price-plan__viewport {
+		width: 100% !important;
+		max-width: 100% !important;
+		overflow-x: hidden !important;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		contain: paint;
+	}
+
+	body.growth-page .why-choose,
+	body.single-growth_page .why-choose {
+		overflow: hidden !important;
+		max-width: 100% !important;
+		min-width: 0 !important;
+	}
+
+	body.growth-page .why-choose__table-wrap,
+	body.single-growth_page .why-choose__table-wrap {
+		overflow-x: auto !important;
+		overflow-y: hidden !important;
+		max-width: 100% !important;
+		width: 100% !important;
+		min-width: 0 !important;
+	}
+
+	
+
+	body.growth-page .client-story__table-wrap,
+	body.single-growth_page .client-story__table-wrap {
+		display: block;
+		width: 100%;
+		max-width: 100%;
+		min-width: 0;
+		overflow-x: auto;
+		overflow-y: hidden;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	body.growth-page .price-plan__card,
+	body.growth-page .growth-services__card,
+	body.single-growth_page .price-plan__card,
+	body.single-growth_page .growth-services__card {
+		min-width: 0 !important;
+	}
+
+	/* Section overflow guards */
+	body.growth-page .why-choose,
+	body.growth-page .client-story,
+	body.growth-page .our-services,
+	body.growth-page .how-work,
+	body.growth-page .growth-services,
+	body.growth-page .price-plan,
+	body.growth-page .case-studies,
+	body.growth-page .testimonials,
+	body.growth-page .starts-cta,
+	body.growth-page .convert-scale,
+	body.single-growth_page .why-choose,
+	body.single-growth_page .client-story,
+	body.single-growth_page .our-services,
+	body.single-growth_page .how-work,
+	body.single-growth_page .growth-services,
+	body.single-growth_page .price-plan,
+	body.single-growth_page .case-studies,
+	body.single-growth_page .testimonials,
+	body.single-growth_page .starts-cta,
+	body.single-growth_page .convert-scale {
+		width: 100% !important;
+		max-width: 100% !important;
+		overflow-x: hidden;
+	}
+
+	body.growth-page .case-studies__number,
+	body.single-growth_page .case-studies__number {
+		margin-top: 0 !important;
+	}
+
+	body.growth-page .starts-cta__card,
+	body.single-growth_page .starts-cta__card {
+		padding: 40px 16px;
+	}
+
+	body.growth-page .starts-cta__heading,
+	body.single-growth_page .starts-cta__heading {
+		font-size: 28px;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	body.growth-page .convert-scale__heading,
+	body.single-growth_page .convert-scale__heading {
+		white-space: normal;
+	}
+}

@@ -1,0 +1,62 @@
+# Ignore everything in the project root by default
+/*
+
+# Keep this file
+!.gitignore
+
+# Keep only the custom theme directory
+!wp-content/
+wp-content/*
+!wp-content/themes/
+wp-content/themes/*
+!wp-content/themes/smart-leading-net/
+!wp-content/themes/smart-leading-net/**
+
+# WordPress core (explicit exclusions for clarity)
+/wp-admin/
+/wp-includes/
+/wp-config.php
+/wp-config-sample.php
+/wp-content/debug.log
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/backup*/
+/wp-content/backups/
+/wp-content/advanced-cache.php
+/wp-content/object-cache.php
+/wp-content/db.php
+
+# Database dumps and backups
+*.sql
+*.sql.gz
+*.sqlite
+
+# Logs and debug output
+*.log
+debug.log
+error_log
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Dependency / build artifacts
+node_modules/
+vendor/
+*.zip
+*.tar
+*.tar.gz
+
+# Environment and secrets
+.env
+.env.*
+!.env.example

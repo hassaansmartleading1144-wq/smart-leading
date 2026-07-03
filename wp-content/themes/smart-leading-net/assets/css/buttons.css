@@ -1,0 +1,374 @@
+/**
+ * Smart Leading Net — Button System
+ */
+
+.btn-primary,
+.btn-primary-custom,
+.btn-secondary-custom,
+.btn-outline-custom,
+.btn-white-custom {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: var(--button-padding-y) var(--button-padding-x);
+	border: none;
+	border-radius: var(--button-radius);
+	font-family: var(--font-family-base);
+	font-size: var(--button-font-size);
+	font-weight: var(--button-font-weight);
+	line-height: 1.2;
+	text-decoration: none;
+	cursor: pointer;
+	transition:
+		background-color var(--transition-base),
+		color var(--transition-base),
+		border-color var(--transition-base),
+		box-shadow var(--transition-base);
+}
+
+.btn-primary svg,
+.btn-primary-custom svg,
+.btn-secondary-custom svg,
+.btn-outline-custom svg,
+.btn-white-custom svg {
+	width: var(--button-icon-size);
+	height: var(--button-icon-size);
+	flex-shrink: 0;
+	color: inherit;
+}
+
+/* Primary Button */
+.btn-primary,
+.btn-primary-custom {
+	background-color: var(--primary-color);
+	color: var(--white);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary-custom:hover,
+.btn-primary-custom:focus {
+	background-color: var(--primary-color);
+	color: var(--white);
+}
+
+/* Secondary Button */
+.btn-secondary-custom {
+	background-color: var(--secondary-color);
+	color: var(--white);
+}
+
+.btn-secondary-custom:hover,
+.btn-secondary-custom:focus {
+	background-color: var(--secondary-color);
+	color: var(--white);
+}
+
+/* Outline Button */
+.btn-outline-custom {
+	background-color: transparent;
+	border: 1px solid var(--primary-color);
+	color: var(--primary-color);
+}
+
+.btn-outline-custom:hover,
+.btn-outline-custom:focus {
+	background-color: transparent;
+	color: var(--primary-color);
+}
+
+/* White Button */
+.btn-white-custom {
+	background-color: var(--white);
+	color: var(--heading-color);
+}
+
+.btn-white-custom:hover,
+.btn-white-custom:focus {
+	background-color: var(--white);
+	color: var(--heading-color);
+}
+
+/* --------------------------------------------------------------------------
+   Global CTA Button — Uiverse diagonal arrow swap (Creatlydev/silly-cat-86)
+   -------------------------------------------------------------------------- */
+
+.sls-btn {
+	position: relative;
+	overflow: hidden;
+	justify-content: space-between;
+	gap: 16px;
+	min-width: 0;
+	width: fit-content;
+	height: 64px;
+	padding: 20px 34px;
+	border-radius: 10px;
+	line-height: 1.2;
+}
+
+.sls-btn__text {
+	position: relative;
+	z-index: 1;
+	white-space: nowrap;
+}
+
+.sls-btn--text-only {
+	justify-content: center;
+	gap: 0;
+	min-width: 0;
+}
+
+.sls-btn--text-only > .sls-btn__text {
+	position: relative;
+	z-index: 1;
+	transform: none;
+	width: auto;
+	height: auto;
+	left: auto;
+	border-radius: 0;
+	pointer-events: auto;
+}
+
+.sls-btn--text-only .sls-btn__icon {
+	display: none;
+}
+
+.sls-btn__icon {
+	position: relative;
+	z-index: 1;
+	flex-shrink: 0;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: var(--white);
+	display: grid;
+	place-items: center;
+	overflow: hidden;
+}
+
+.sls-btn__arrow,
+.sls-btn__arrow-copy {
+	grid-area: 1 / 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--primary-color);
+	transition: transform 0.3s ease-in-out;
+}
+
+.sls-btn__arrow svg,
+.sls-btn__arrow-copy svg {
+	display: block;
+	width: 18px;
+	height: 18px;
+}
+
+.sls-btn__arrow {
+	transform: translate(0, 0);
+}
+
+.sls-btn__arrow-copy {
+	transform: translate(-150%, 150%);
+}
+
+.btn-secondary-custom.sls-btn .sls-btn__arrow,
+.btn-secondary-custom.sls-btn .sls-btn__arrow-copy {
+	color: var(--secondary-color);
+}
+
+/* Bubble fill hover — decorative spans only, never icon or label */
+.sls-btn__bubble {
+	position: absolute;
+	width: 25%;
+	height: 100%;
+	transform: translateY(150%);
+	border-radius: 50%;
+	left: calc((var(--n) - 1) * 25%);
+	transition: 0.5s;
+	transition-delay: calc((var(--n) - 1) * 0.1s);
+	z-index: 0;
+	pointer-events: none;
+}
+
+.btn-primary-custom.sls-btn .sls-btn__bubble:nth-child(1) {
+	--n: 1;
+	background-color: var(--secondary-color);
+}
+
+.btn-primary-custom.sls-btn .sls-btn__bubble:nth-child(2) {
+	--n: 2;
+	background-color: var(--secondary-color);
+}
+
+.btn-primary-custom.sls-btn .sls-btn__bubble:nth-child(3) {
+	--n: 3;
+	background-color: var(--secondary-color);
+}
+
+.btn-primary-custom.sls-btn .sls-btn__bubble:nth-child(4) {
+	--n: 4;
+	background-color: var(--secondary-color);
+}
+
+.btn-secondary-custom.sls-btn .sls-btn__bubble:nth-child(1) {
+	--n: 1;
+	background-color: var(--primary-color);
+}
+
+.btn-secondary-custom.sls-btn .sls-btn__bubble:nth-child(2) {
+	--n: 2;
+	background-color: var(--primary-color);
+}
+
+.btn-secondary-custom.sls-btn .sls-btn__bubble:nth-child(3) {
+	--n: 3;
+	background-color: var(--primary-color);
+}
+
+.btn-secondary-custom.sls-btn .sls-btn__bubble:nth-child(4) {
+	--n: 4;
+	background-color: var(--primary-color);
+}
+
+.btn-outline-custom.sls-btn .sls-btn__bubble:nth-child(1) {
+	--n: 1;
+	background-color: var(--secondary-color);
+}
+
+.btn-outline-custom.sls-btn .sls-btn__bubble:nth-child(2) {
+	--n: 2;
+	background-color: var(--secondary-color);
+}
+
+.btn-outline-custom.sls-btn .sls-btn__bubble:nth-child(3) {
+	--n: 3;
+	background-color: var(--secondary-color);
+}
+
+.btn-outline-custom.sls-btn .sls-btn__bubble:nth-child(4) {
+	--n: 4;
+	background-color: var(--secondary-color);
+}
+
+.btn-white-custom.sls-btn .sls-btn__bubble:nth-child(1) {
+	--n: 1;
+	background-color: var(--secondary-color);
+}
+
+.btn-white-custom.sls-btn .sls-btn__bubble:nth-child(2) {
+	--n: 2;
+	background-color: var(--secondary-color);
+}
+
+.btn-white-custom.sls-btn .sls-btn__bubble:nth-child(3) {
+	--n: 3;
+	background-color: var(--secondary-color);
+}
+
+.btn-white-custom.sls-btn .sls-btn__bubble:nth-child(4) {
+	--n: 4;
+	background-color: var(--secondary-color);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.sls-btn:hover .sls-btn__bubble,
+	.sls-btn:focus-visible .sls-btn__bubble {
+		transform: translateY(0) scale(2);
+	}
+
+	.sls-btn:hover,
+	.sls-btn:focus-visible {
+		color: var(--white);
+	}
+
+	.btn-outline-custom.sls-btn:hover,
+	.btn-outline-custom.sls-btn:focus-visible {
+		border-color: var(--secondary-color);
+	}
+
+	.sls-btn:hover .sls-btn__arrow,
+	.sls-btn:focus-visible .sls-btn__arrow {
+		transform: translate(150%, -150%);
+	}
+
+	.sls-btn:hover .sls-btn__arrow-copy,
+	.sls-btn:focus-visible .sls-btn__arrow-copy {
+		transform: translate(0, 0);
+		transition-delay: 0.1s;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.sls-btn {
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Compact card arrow — same diagonal swap as .sls-btn
+   -------------------------------------------------------------------------- */
+
+.sln-card-arrow {
+	display: inline-grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background-color: var(--white);
+	border: 1px solid var(--light-blue-3);
+	color: var(--primary-color);
+	flex-shrink: 0;
+	overflow: hidden;
+	transition:
+		background-color var(--transition-base),
+		border-color var(--transition-base),
+		color var(--transition-base);
+}
+
+.sln-card-arrow__item,
+.sln-card-arrow__item--hover {
+	grid-area: 1 / 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 0.3s ease-in-out;
+}
+
+.sln-card-arrow__item svg {
+	display: block;
+	width: 18px;
+	height: 18px;
+}
+
+.sln-card-arrow__item--primary {
+	transform: translate(0, 0);
+}
+
+.sln-card-arrow__item--hover {
+	transform: translate(-150%, 150%);
+	color: var(--secondary-color);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.sln-card-arrow:hover .sln-card-arrow__item--primary,
+	.sln-card-arrow:focus-visible .sln-card-arrow__item--primary {
+		transform: translate(150%, -150%);
+	}
+
+	.sln-card-arrow:hover .sln-card-arrow__item--hover,
+	.sln-card-arrow:focus-visible .sln-card-arrow__item--hover {
+		transform: translate(0, 0);
+		transition-delay: 0.1s;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.sls-btn__bubble,
+	.sls-btn__arrow,
+	.sls-btn__arrow-copy,
+	.sln-card-arrow__item {
+		transition: none;
+	}
+}
