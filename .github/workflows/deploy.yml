@@ -1,9 +1,15 @@
 name: Deploy wp-content to cPanel (FTP)
 
+# Required GitHub Secrets (Settings → Secrets and variables → Actions):
+#   FTP_SERVER   = ftp.hashdata.co
+#   FTP_USERNAME = webhassaankhan@smartleading.net
+#   FTP_PASSWORD = (your cPanel FTP password — never commit this)
+
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 concurrency:
   group: deploy-main
@@ -15,6 +21,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Validate FTP secrets
+        run: |
+          missing=""
+          if [ -z "${{ secrets.FTP_SERVER }}" ]; then
+            missing="${missing} FTP_SERVER"
+          fi
+          if [ -z "${{ secrets.FTP_USERNAME }}" ]; then
+            missing="${missing} FTP_USERNAME"
+          fi
+          if [ -z "${{ secrets.FTP_PASSWORD }}" ]; then
+            missing="${missing} FTP_PASSWORD"
+          fi
+          if [ -n "$missing" ]; then
+            echo "::error::Missing GitHub Secrets:$missing"
+            echo "Add them at: Repository → Settings → Secrets and variables → Actions"
+            echo "Expected values:"
+            echo "  FTP_SERVER   = ftp.hashdata.co"
+            echo "  FTP_USERNAME = webhassaankhan@smartleading.net"
+            echo "  FTP_PASSWORD = your cPanel FTP password"
+            exit 1
+          fi
+          echo "All required FTP secrets are configured."
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
