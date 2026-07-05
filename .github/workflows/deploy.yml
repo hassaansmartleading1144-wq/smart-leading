@@ -1,7 +1,7 @@
 name: Deploy wp-content to cPanel (FTP)
 
 # Required GitHub Secrets (Settings → Secrets and variables → Actions):
-#   FTP_SERVER   = ftp.hashdata.co
+#   FTP_SERVER   = ftp.smartleading.net   (NOT ftp.hashdata.co — that hostname points to CloudFront)
 #   FTP_USERNAME = webhassaankhan@smartleading.net
 #   FTP_PASSWORD = (your cPanel FTP password — never commit this)
 
@@ -19,6 +19,7 @@ jobs:
   deploy:
     name: FTP deploy to InterServer
     runs-on: ubuntu-latest
+    timeout-minutes: 45
 
     steps:
       - name: Validate FTP secrets
@@ -36,28 +37,57 @@ jobs:
           if [ -n "$missing" ]; then
             echo "::error::Missing GitHub Secrets:$missing"
             echo "Add them at: Repository → Settings → Secrets and variables → Actions"
-            echo "Expected values:"
-            echo "  FTP_SERVER   = ftp.hashdata.co"
-            echo "  FTP_USERNAME = webhassaankhan@smartleading.net"
-            echo "  FTP_PASSWORD = your cPanel FTP password"
             exit 1
           fi
+
+          # ftp.hashdata.co resolves to CloudFront (AWS), not the cPanel FTP server.
+          if [ "${{ secrets.FTP_SERVER }}" = "ftp.hashdata.co" ] || [ "${{ secrets.FTP_SERVER }}" = "hashdata.co" ]; then
+            echo "::error::FTP_SERVER is set to ${{ secrets.FTP_SERVER }} which points to CloudFront, not your hosting server."
+            echo "Update the FTP_SERVER secret to: ftp.smartleading.net"
+            echo "Or use the server IP: 173.225.110.102"
+            exit 1
+          fi
+
           echo "All required FTP secrets are configured."
+
+      - name: Check FTP server DNS
+        run: |
+          SERVER="${{ secrets.FTP_SERVER }}"
+          echo "Resolving FTP server: $SERVER"
+          if command -v dig >/dev/null 2>&1; then
+            dig +short "$SERVER" A || true
+          else
+            getent hosts "$SERVER" || true
+          fi
+          echo "Expected: hosting server IP (e.g. 173.225.110.102 for smartleading.net)"
+          echo "If you see 13.248.x.x or 76.223.x.x, the hostname points to CloudFront — use ftp.smartleading.net instead."
+
+      - name: Test FTP port connectivity
+        run: |
+          SERVER="${{ secrets.FTP_SERVER }}"
+          echo "Testing TCP port 21 on $SERVER ..."
+          if timeout 15 bash -c "echo > /dev/tcp/$SERVER/21" 2>/dev/null; then
+            echo "Port 21 is reachable."
+          else
+            echo "::warning::Could not reach port 21 on $SERVER within 15s — deploy may still work with FTPS."
+          fi
 
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Deploy themes, plugins, and uploads
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
           port: 21
-          protocol: ftp
+          security: loose
+          timeout: 120000
           server-dir: public_html/wp-content/
           local-dir: wp-content/
-          log-level: standard
+          log-level: verbose
           dry-run: false
           exclude: |
             **/.git/**
