@@ -1,0 +1,278 @@
+/**
+ * Smart Leading Net — Digital Marketing Services Page
+ * Uses theme design tokens from variables.css
+ */
+
+.dm-page {
+	--dm-ink: var(--heading-color);
+	--dm-line: var(--light-blue-3);
+	--dm-muted: var(--text-color);
+	--dm-shadow: 0 18px 50px -24px color-mix(in srgb, var(--primary-color) 22%, transparent);
+	--dm-shadow-sm: 0 6px 24px -12px color-mix(in srgb, var(--primary-color) 18%, transparent);
+	color: var(--heading-color);
+	overflow-x: clip;
+}
+
+.dm-page__section {
+	padding: var(--section-spacing) 0;
+}
+
+.dm-page__eyebrow {
+	display: block;
+	font-size: 14px;
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--secondary-color);
+	margin: 0 0 18px;
+}
+
+.dm-page__section-head {
+	max-width: 860px;
+	margin-bottom: 54px;
+}
+
+.dm-page__section-title {
+	font-size: clamp(28px, 4.4vw, var(--section-title-size));
+	font-weight: var(--section-title-weight);
+	line-height: 1.12;
+	color: var(--heading-color);
+	margin: 0 0 16px;
+}
+
+.dm-page__section-desc {
+	font-size: var(--paragraph-size);
+	line-height: 1.6;
+	color: var(--text-color);
+	margin: 0;
+	max-width: 760px;
+}
+
+.dm-page__section-desc--italic {
+	font-style: italic;
+}
+
+.dm-page__cta.sls-btn {
+	width: fit-content;
+	max-width: 100%;
+	flex-shrink: 0;
+}
+
+/* Hero */
+.dm-page__hero {
+	position: relative;
+	background: var(--white);
+	padding: 84px 0 96px;
+	overflow: hidden;
+}
+
+.dm-page__hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background:
+		radial-gradient(520px 520px at 92% 8%, color-mix(in srgb, var(--light-orange-2) 90%, transparent), transparent 70%),
+		radial-gradient(480px 480px at 88% 92%, color-mix(in srgb, var(--light-blue-3) 92%, transparent), transparent 68%);
+}
+
+.dm-page__hero-inner {
+	position: relative;
+	z-index: 2;
+	display: grid;
+	grid-template-columns: minmax(0, 54fr) minmax(0, 46fr);
+	gap: 48px;
+	align-items: center;
+}
+
+.dm-page__hero-copy {
+	min-width: 0;
+}
+
+.dm-page__hero-visual {
+	min-width: 0;
+	width: 100%;
+}
+
+.dm-page__hero-title {
+	font-size: clamp(34px, 4.8vw, 52px);
+	font-weight: var(--h1-weight);
+	line-height: 1.1;
+	color: var(--heading-color);
+	margin: 0 0 22px;
+}
+
+.dm-page__hero-highlight {
+	color: var(--secondary-color);
+}
+
+.dm-page__hero-lead {
+	font-size: var(--paragraph-size);
+	line-height: 1.6;
+	color: var(--text-color);
+	max-width: 620px;
+	margin: 0 0 36px;
+}
+
+.dm-page__hero-cta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+
+.dm-page__metric-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+}
+
+.dm-page__metric-card {
+	background: var(--white);
+	border-radius: var(--card-radius);
+	box-shadow: var(--dm-shadow-sm);
+	padding: 30px 22px;
+	text-align: center;
+}
+
+.dm-page__metric-value {
+	font-size: clamp(30px, 3.6vw, 40px);
+	font-weight: var(--font-weight-extrabold);
+	line-height: 1.08;
+	margin: 0 0 10px;
+}
+
+.dm-page__metric-value--accent {
+	color: var(--secondary-color);
+}
+
+.dm-page__metric-value--primary {
+	color: var(--primary-color);
+}
+
+.dm-page__metric-label {
+	font-size: 15px;
+	line-height: 1.4;
+	color: var(--text-color);
+	margin: 0;
+}
+
+/* Reality */
+.dm-page__reality-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 20px;
+}
+
+.dm-page__reality-card {
+	background: var(--white);
+	border: 1px solid var(--dm-line);
+	border-radius: var(--card-radius);
+	box-shadow: var(--dm-shadow-sm);
+	padding: 28px 26px;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.dm-page__reality-card:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--dm-shadow);
+	border-color: color-mix(in srgb, var(--secondary-color) 24%, var(--dm-line));
+}
+
+.dm-page__reality-card-head {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	margin-bottom: 14px;
+}
+
+.dm-page__reality-icon {
+	flex: 0 0 46px;
+	width: 46px;
+	height: 46px;
+	border-radius: 12px;
+	background: var(--light-orange-2);
+	color: var(--secondary-color);
+	display: grid;
+	place-items: center;
+}
+
+.dm-page__reality-title {
+	font-size: var(--h4-size);
+	font-weight: var(--font-weight-bold);
+	line-height: 1.25;
+	color: var(--heading-color);
+	margin: 0;
+	flex: 1;
+	min-width: 0;
+}
+
+.dm-page__reality-text {
+	font-size: var(--paragraph-size);
+	line-height: 1.55;
+	color: var(--text-color);
+	margin: 0;
+}
+
+.dm-page__reality-banner {
+	margin-top: 32px;
+	background: var(--secondary-color);
+	color: var(--white);
+	border-radius: var(--card-radius);
+	padding: 24px 32px;
+	text-align: center;
+}
+
+.dm-page__reality-banner p {
+	font-size: var(--paragraph-size);
+	font-weight: var(--font-weight-semibold);
+	line-height: 1.5;
+	margin: 0;
+}
+
+/* Reveal */
+.dm-page__reveal {
+	opacity: 0;
+	transform: translateY(24px);
+	transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.dm-page__reveal.is-visible {
+	opacity: 1;
+	transform: none;
+}
+
+/* Responsive */
+@media (max-width: 1199px) {
+	.dm-page__hero-inner {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+
+	.dm-page__reality-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 767px) {
+	.dm-page__section {
+		padding: var(--section-spacing-mobile) 0;
+	}
+
+	.dm-page__hero {
+		padding: 64px 0 72px;
+	}
+
+	.dm-page__hero-cta .dm-page__cta.sls-btn {
+		width: 100%;
+		justify-content: center;
+	}
+
+	.dm-page__metric-grid,
+	.dm-page__reality-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.dm-page__reality-banner {
+		padding: 20px 22px;
+	}
+}
