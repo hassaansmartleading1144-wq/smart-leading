@@ -108,7 +108,7 @@ $sln_social_links = array(
 								'container'        => false,
 								'menu_class'       => 'header-main__menu',
 								'fallback_cb'      => false,
-								'depth'            => 2,
+								'depth'            => 0,
 								'walker'           => new SLN_Bootstrap_Nav_Walker(),
 								'sln_menu_context' => 'desktop',
 							)
@@ -163,7 +163,7 @@ $sln_social_links = array(
 							'container'        => false,
 							'menu_class'       => 'navbar-nav sln-mobile-menu__list',
 							'fallback_cb'      => false,
-							'depth'            => 2,
+							'depth'            => 0,
 							'walker'           => new SLN_Bootstrap_Nav_Walker(),
 							'sln_menu_context' => 'mobile',
 						)
