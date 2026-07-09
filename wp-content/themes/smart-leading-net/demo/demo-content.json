@@ -29,6 +29,13 @@
 			"content": ""
 		},
 		{
+			"title": "Digital Marketing Services",
+			"slug": "digital-marketing-services",
+			"status": "publish",
+			"template": "digital-marketing-page-template.php",
+			"content": ""
+		},
+		{
 			"title": "Privacy Policy",
 			"slug": "privacy-policy",
 			"status": "publish",
