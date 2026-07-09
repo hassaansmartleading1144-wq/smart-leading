@@ -16,7 +16,7 @@ $dm_stats       = sln_get_dm_page_hero_stats();
 <section class="dm-page__hero" aria-labelledby="dm-hero-heading">
 	<span class="dm-page__blob dm-page__blob--orange" aria-hidden="true"></span>
 	<span class="dm-page__blob dm-page__blob--blue" aria-hidden="true"></span>
-	<div class="sls-container">
+	<div class="dm-page__wrap">
 		<p class="dm-page__eyebrow dm-page__eyebrow--light"><?php esc_html_e( 'Smart Leading Solutions', 'smart-leading-net' ); ?></p>
 		<h1 id="dm-hero-heading" class="dm-page__hero-title">
 			<?php

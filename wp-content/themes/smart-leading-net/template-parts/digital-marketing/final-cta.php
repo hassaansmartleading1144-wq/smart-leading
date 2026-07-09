@@ -15,8 +15,8 @@ $checks         = sln_get_dm_page_final_checks();
 
 <section class="dm-page__final" id="dm-contact" aria-labelledby="dm-final-heading">
 	<span class="dm-page__blob dm-page__blob--orange" aria-hidden="true"></span>
-	<div class="sls-container">
-		<p class="dm-page__eyebrow dm-page__eyebrow--light dm-page__reveal"><?php esc_html_e( 'Your Next Step', 'smart-leading-net' ); ?></p>
+	<div class="dm-page__wrap">
+		<p class="dm-page__eyebrow dm-page__reveal"><?php esc_html_e( 'Your Next Step', 'smart-leading-net' ); ?></p>
 		<h2 id="dm-final-heading" class="dm-page__section-title dm-page__section-title--light dm-page__reveal">
 			<?php
 			echo wp_kses(

@@ -393,7 +393,7 @@ function sln_get_dm_page_pricing_plans() {
 			'tier'       => __( 'STARTER', 'smart-leading-net' ),
 			'tagline'    => __( 'Launch & Grow', 'smart-leading-net' ),
 			'price'      => '$500',
-			'price_note' => __( '/mo · starting at', 'smart-leading-net' ),
+			'price_note' => __( ' /mo · starting at', 'smart-leading-net' ),
 			'popular'    => false,
 			'features'   => array(
 				__( 'Social media management (2 platforms)', 'smart-leading-net' ),
@@ -409,7 +409,7 @@ function sln_get_dm_page_pricing_plans() {
 			'tier'       => __( 'GROWTH', 'smart-leading-net' ),
 			'tagline'    => __( 'Accelerate Sales', 'smart-leading-net' ),
 			'price'      => '$1,200',
-			'price_note' => __( '/mo · starting at', 'smart-leading-net' ),
+			'price_note' => __( ' /mo · starting at', 'smart-leading-net' ),
 			'popular'    => true,
 			'popular_label' => __( '★ MOST POPULAR', 'smart-leading-net' ),
 			'features'   => array(
@@ -427,7 +427,7 @@ function sln_get_dm_page_pricing_plans() {
 			'tier'       => __( 'SCALE', 'smart-leading-net' ),
 			'tagline'    => __( 'Dominate Market', 'smart-leading-net' ),
 			'price'      => '$2,500',
-			'price_note' => __( '/mo · starting at', 'smart-leading-net' ),
+			'price_note' => __( ' /mo · starting at', 'smart-leading-net' ),
 			'popular'    => false,
 			'features'   => array(
 				__( 'Everything in Growth, plus:', 'smart-leading-net' ),

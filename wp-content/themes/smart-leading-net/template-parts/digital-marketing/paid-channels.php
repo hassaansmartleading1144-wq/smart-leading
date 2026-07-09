@@ -13,7 +13,7 @@ $channels = sln_get_dm_page_paid_channels();
 ?>
 
 <section class="dm-page__section dm-page__section--dark" aria-labelledby="dm-channels-heading">
-	<div class="sls-container">
+	<div class="dm-page__wrap">
 		<p class="dm-page__eyebrow dm-page__reveal"><?php esc_html_e( 'Paid Advertising', 'smart-leading-net' ); ?></p>
 		<h2 id="dm-channels-heading" class="dm-page__section-title dm-page__section-title--light dm-page__reveal">
 			<?php

@@ -13,7 +13,7 @@ $faq_items = sln_get_dm_page_faq_items();
 ?>
 
 <section class="dm-page__section dm-page__section--tint" aria-labelledby="dm-faq-heading">
-	<div class="sls-container">
+	<div class="dm-page__wrap">
 		<p class="dm-page__eyebrow dm-page__reveal"><?php esc_html_e( 'Common Questions', 'smart-leading-net' ); ?></p>
 		<h2 id="dm-faq-heading" class="dm-page__section-title dm-page__reveal">
 			<?php

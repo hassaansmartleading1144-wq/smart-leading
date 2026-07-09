@@ -32,7 +32,7 @@ while ( have_posts() ) :
 		<?php get_template_part( 'template-parts/digital-marketing/final', 'cta' ); ?>
 
 		<?php if ( get_the_content() ) : ?>
-		<div class="dm-page__editor-content sls-container">
+		<div class="dm-page__editor-content dm-page__wrap">
 			<?php the_content(); ?>
 		</div>
 		<?php endif; ?>

@@ -13,7 +13,7 @@ $steps = sln_get_dm_page_process_steps();
 ?>
 
 <section class="dm-page__section" aria-labelledby="dm-process-heading">
-	<div class="sls-container">
+	<div class="dm-page__wrap">
 		<p class="dm-page__eyebrow dm-page__reveal"><?php esc_html_e( 'How We Work', 'smart-leading-net' ); ?></p>
 		<h2 id="dm-process-heading" class="dm-page__section-title dm-page__reveal">
 			<?php

@@ -13,7 +13,7 @@ $pain_points = sln_get_dm_page_pain_points();
 ?>
 
 <section class="dm-page__section" aria-labelledby="dm-pain-heading">
-	<div class="sls-container">
+	<div class="dm-page__wrap">
 		<p class="dm-page__eyebrow dm-page__reveal"><?php esc_html_e( 'The Reality', 'smart-leading-net' ); ?></p>
 		<h2 id="dm-pain-heading" class="dm-page__section-title dm-page__reveal">
 			<?php
@@ -40,8 +40,8 @@ $pain_points = sln_get_dm_page_pain_points();
 		<div class="dm-page__note dm-page__reveal">
 			<?php
 			echo wp_kses(
-				__( 'If even one of these feels familiar — <strong>you\'re exactly who we built this for.</strong>', 'smart-leading-net' ),
-				array( 'strong' => array() )
+				__( 'If even one of these feels familiar — <b>you\'re exactly who we built this for.</b>', 'smart-leading-net' ),
+				array( 'b' => array() )
 			);
 			?>
 		</div>

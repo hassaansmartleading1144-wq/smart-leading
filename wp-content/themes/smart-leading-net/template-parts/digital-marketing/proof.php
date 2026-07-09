@@ -13,7 +13,7 @@ $cases = sln_get_dm_page_case_studies();
 ?>
 
 <section class="dm-page__section dm-page__section--tint" aria-labelledby="dm-proof-heading">
-	<div class="sls-container">
+	<div class="dm-page__wrap">
 		<p class="dm-page__eyebrow dm-page__reveal"><?php esc_html_e( 'Proof of Work', 'smart-leading-net' ); ?></p>
 		<h2 id="dm-proof-heading" class="dm-page__section-title dm-page__reveal">
 			<?php

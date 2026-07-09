@@ -13,7 +13,7 @@ $dm_contact_url = sln_get_dm_page_contact_url();
 ?>
 
 <section class="dm-page__section" aria-labelledby="dm-truth-heading">
-	<div class="sls-container">
+	<div class="dm-page__wrap">
 		<p class="dm-page__eyebrow dm-page__reveal"><?php esc_html_e( 'A Quick Truth', 'smart-leading-net' ); ?></p>
 		<h2 id="dm-truth-heading" class="dm-page__section-title dm-page__reveal">
 			<?php

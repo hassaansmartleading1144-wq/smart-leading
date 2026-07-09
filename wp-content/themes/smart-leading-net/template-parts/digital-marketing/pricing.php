@@ -13,7 +13,7 @@ $plans = sln_get_dm_page_pricing_plans();
 ?>
 
 <section class="dm-page__section" aria-labelledby="dm-pricing-heading">
-	<div class="sls-container">
+	<div class="dm-page__wrap">
 		<p class="dm-page__eyebrow dm-page__reveal"><?php esc_html_e( 'Investment', 'smart-leading-net' ); ?></p>
 		<h2 id="dm-pricing-heading" class="dm-page__section-title dm-page__reveal">
 			<?php
