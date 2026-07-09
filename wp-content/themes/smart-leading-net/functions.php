@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-	define( 'SLN_THEME_VERSION', '1.5.7' );
+	define( 'SLN_THEME_VERSION', '1.5.8' );
 define( 'SLN_THEME_DIR', get_template_directory() );
 define( 'SLN_THEME_URI', get_template_directory_uri() );
 

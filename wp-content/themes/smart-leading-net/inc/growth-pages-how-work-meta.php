@@ -19,7 +19,7 @@ define( 'SLN_GP_HOW_WORK_TABS_META', '_sln_gp_how_work_tabs' );
  */
 function sln_get_growth_page_default_how_work_section() {
 	return array(
-		'label'            => __( 'HOW IT WORKS', 'smart-leading-net' ),
+		'label'            => __( 'How It Works', 'smart-leading-net' ),
 		'heading_lead'     => __( 'Inside Our', 'smart-leading-net' ),
 		'highlight_word_1' => __( 'Revenue Growth', 'smart-leading-net' ),
 		'highlight_word_2' => __( 'Solutions', 'smart-leading-net' ),

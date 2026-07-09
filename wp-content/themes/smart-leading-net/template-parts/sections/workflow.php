@@ -58,7 +58,7 @@ if ( $workflow_bg ) {
 >
 	<div class="sls-container workflow__container">
 		<header class="workflow__header">
-			<p class="workflow__label"><?php esc_html_e( 'MARKETING WORKFLOW', 'smart-leading-net' ); ?></p>
+			<p class="workflow__label"><?php esc_html_e( 'Marketing Workflow', 'smart-leading-net' ); ?></p>
 
 			<h2 id="workflow-heading" class="workflow__heading workflow__title">
 				<?php

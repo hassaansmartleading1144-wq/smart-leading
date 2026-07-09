@@ -114,7 +114,6 @@
 	font-weight: var(--font-weight-bold);
 	line-height: 1.2;
 	letter-spacing: 0.08em;
-	text-transform: uppercase;
 }
 
 .client-story__eyebrow--challenge {

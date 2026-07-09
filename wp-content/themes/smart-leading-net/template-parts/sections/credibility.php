@@ -21,7 +21,7 @@ $credibility_has_marquee  = ! empty( $credibility_row_one ) || ! empty( $credibi
 <section class="credibility" aria-labelledby="credibility-heading">
 	<div class="sls-container credibility__container">
 		<header class="credibility__header">
-			<p class="credibility__label"><?php esc_html_e( 'CREDIBILITY', 'smart-leading-net' ); ?></p>
+			<p class="credibility__label"><?php esc_html_e( 'Credibility', 'smart-leading-net' ); ?></p>
 
 			<h2 id="credibility-heading" class="credibility__heading credibility__title">
 				<span class="credibility__heading-line"><?php esc_html_e( 'Trusted By Business', 'smart-leading-net' ); ?></span>

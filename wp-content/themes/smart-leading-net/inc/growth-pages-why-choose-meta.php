@@ -19,7 +19,7 @@ define( 'SLN_GP_WHY_CHOOSE_ROWS_META', '_sln_gp_why_choose_rows' );
  */
 function sln_get_growth_page_default_why_choose_section() {
 	return array(
-		'label'          => __( 'WHY CHOOSE US', 'smart-leading-net' ),
+		'label'          => __( 'Why Choose Us', 'smart-leading-net' ),
 		'heading_lead'   => __( 'Unmatched', 'smart-leading-net' ),
 		'highlight_word' => __( 'Revenue Growth', 'smart-leading-net' ),
 		'heading_trail'  => __( 'Expertise', 'smart-leading-net' ),

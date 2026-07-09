@@ -36,7 +36,7 @@ function sln_get_growth_page_testimonials_default_stat_icons() {
  */
 function sln_get_growth_page_default_testimonials_section() {
 	return array(
-		'label'          => __( 'TESTIMONIALS', 'smart-leading-net' ),
+		'label'          => __( 'Testimonials', 'smart-leading-net' ),
 		'heading_lead'   => __( 'Trusted Partnerships Built On', 'smart-leading-net' ),
 		'highlight_word' => __( 'Results', 'smart-leading-net' ),
 	);

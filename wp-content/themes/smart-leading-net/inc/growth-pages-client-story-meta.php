@@ -20,15 +20,15 @@ define( 'SLN_GP_CLIENT_STORY_RESULTS_META', '_sln_gp_client_story_results' );
  */
 function sln_get_growth_page_default_client_story_section() {
 	return array(
-		'label'                 => __( 'CLIENT SUCCESS STORY', 'smart-leading-net' ),
+		'label'                 => __( 'Client Success Story', 'smart-leading-net' ),
 		'heading_lead'          => __( 'From Wasted Ad Spend to', 'smart-leading-net' ),
 		'heading_highlight'     => __( '$50M+', 'smart-leading-net' ),
 		'heading_trail'         => __( 'in Sales', 'smart-leading-net' ),
 		'description'           => __( 'A Flooring Success Story — How we transformed a struggling in-house ad account into a revenue-generating machine.', 'smart-leading-net' ),
-		'challenge_label'       => __( 'THE CHALLENGE', 'smart-leading-net' ),
+		'challenge_label'       => __( 'The Challenge', 'smart-leading-net' ),
 		'challenge_heading'     => __( 'The Costly Trap of Self-Managed Ads', 'smart-leading-net' ),
 		'challenge_description' => __( "Sam's Flooring was managing their Google Ads entirely in-house. Without specialized optimization, they fell into a common trap — paying premium prices for generic keywords, driving irrelevant traffic, and bleeding budget on clicks that never converted.", 'smart-leading-net' ),
-		'strategy_label'        => __( 'THE STRATEGY', 'smart-leading-net' ),
+		'strategy_label'        => __( 'The Strategy', 'smart-leading-net' ),
 		'strategy_heading'      => __( 'Precision Google Ads Optimization', 'smart-leading-net' ),
 		'results_title'         => __( 'The Results: A Predictable Revenue Engine', 'smart-leading-net' ),
 		'revenue_number'        => __( '$50M+', 'smart-leading-net' ),

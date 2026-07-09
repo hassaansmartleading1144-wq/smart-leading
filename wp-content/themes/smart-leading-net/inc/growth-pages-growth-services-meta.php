@@ -19,7 +19,7 @@ define( 'SLN_GP_GROWTH_SERVICES_CARDS_META', '_sln_gp_growth_services_cards' );
  */
 function sln_get_growth_page_default_growth_services_section() {
 	return array(
-		'label'            => __( 'WHY SMART LEADING', 'smart-leading-net' ),
+		'label'            => __( 'Why Smart Leading', 'smart-leading-net' ),
 		'heading_lead'     => __( 'How Our', 'smart-leading-net' ),
 		'highlight_word_1' => __( 'Revenue Growth', 'smart-leading-net' ),
 		'heading_trail'    => __( 'Services', 'smart-leading-net' ),
