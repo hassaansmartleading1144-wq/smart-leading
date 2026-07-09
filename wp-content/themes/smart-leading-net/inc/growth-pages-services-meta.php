@@ -19,7 +19,7 @@ define( 'SLN_GP_SERVICES_CARDS_META', '_sln_gp_services_cards' );
  */
 function sln_get_growth_page_default_services_section() {
 	return array(
-		'label'                   => __( 'OUR SERVICES', 'smart-leading-net' ),
+		'label'                   => __( 'Our Services', 'smart-leading-net' ),
 		'heading_lead'            => __( 'Designed To', 'smart-leading-net' ),
 		'heading_accent_primary'  => __( 'Attract', 'smart-leading-net' ),
 		'heading_accent_secondary'=> __( 'Convert And Scale', 'smart-leading-net' ),

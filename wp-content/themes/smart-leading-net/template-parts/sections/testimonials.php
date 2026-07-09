@@ -77,7 +77,7 @@ $testimonials_reviews = array(
 >
 	<div class="sls-container testimonials__container">
 		<header class="testimonials__header">
-			<p class="testimonials__label"><?php esc_html_e( 'TESTIMONIALS', 'smart-leading-net' ); ?></p>
+			<p class="testimonials__label"><?php esc_html_e( 'Testimonials', 'smart-leading-net' ); ?></p>
 
 			<h2 id="testimonials-heading" class="testimonials__heading testimonials__title">
 				<?php

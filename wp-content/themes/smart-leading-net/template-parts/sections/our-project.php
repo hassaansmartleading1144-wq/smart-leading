@@ -19,7 +19,7 @@ $our_projects_items = sln_get_our_projects_items();
 				<div class="our-projects__header-left">
 					<p class="our-projects__label">
 						<span class="our-projects__label-icon" aria-hidden="true">*</span>
-						<?php esc_html_e( 'OUR PROJECTS', 'smart-leading-net' ); ?>
+						<?php esc_html_e( 'Our Projects', 'smart-leading-net' ); ?>
 					</p>
 
 					<h2 id="our-projects-heading" class="our-projects__heading our-projects__title">

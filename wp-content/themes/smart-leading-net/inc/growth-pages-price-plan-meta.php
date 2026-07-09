@@ -19,7 +19,7 @@ define( 'SLN_GP_PRICE_PLAN_CARDS_META', '_sln_gp_price_plan_cards' );
  */
 function sln_get_growth_page_default_price_plan_section() {
 	return array(
-		'label'          => __( 'PRICING PLANS', 'smart-leading-net' ),
+		'label'          => __( 'Pricing Plans', 'smart-leading-net' ),
 		'heading_lead'   => __( 'Transparent', 'smart-leading-net' ),
 		'highlight_word' => __( 'Revenue Growth Pricing', 'smart-leading-net' ),
 		'heading_trail'  => '',

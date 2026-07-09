@@ -448,7 +448,7 @@ function sln_get_seo_page_case_studies_data() {
  */
 function sln_get_seo_page_price_plan_section_settings() {
 	return array(
-		'label'          => __( 'PRICING PLANS', 'smart-leading-net' ),
+		'label'          => __( 'Pricing Plans', 'smart-leading-net' ),
 		'heading_lead'   => __( 'Transparent', 'smart-leading-net' ),
 		'highlight_word' => __( 'Revenue Growth Pricing', 'smart-leading-net' ),
 		'heading_trail'  => '',
@@ -554,7 +554,7 @@ function sln_get_seo_page_price_plan_data() {
  */
 function sln_get_seo_page_testimonials_section_settings() {
 	return array(
-		'label'          => __( 'TESTIMONIALS', 'smart-leading-net' ),
+		'label'          => __( 'Testimonials', 'smart-leading-net' ),
 		'heading_lead'   => __( 'Trusted Partnerships Built On', 'smart-leading-net' ),
 		'highlight_word' => __( 'Results', 'smart-leading-net' ),
 	);
