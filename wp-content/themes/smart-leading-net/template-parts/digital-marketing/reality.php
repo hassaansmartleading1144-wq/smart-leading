@@ -14,7 +14,7 @@ $cards = sln_get_dm_page_reality_cards();
 
 <section class="dm-page__section dm-page__reality" id="dm-reality" aria-labelledby="dm-reality-heading">
 	<div class="sls-container">
-		<header class="dm-page__section-head dm-page__reveal">
+		<header class="dm-page__section-head dm-page__section-head--center dm-page__reveal">
 			<p class="dm-page__eyebrow"><?php esc_html_e( 'The Reality', 'smart-leading-net' ); ?></p>
 			<h2 id="dm-reality-heading" class="dm-page__section-title">
 				<?php esc_html_e( 'We Understand the Challenges Holding Your Business Back.', 'smart-leading-net' ); ?>
@@ -27,12 +27,10 @@ $cards = sln_get_dm_page_reality_cards();
 		<div class="dm-page__reality-grid">
 			<?php foreach ( $cards as $card ) : ?>
 				<article class="dm-page__reality-card dm-page__reveal">
-					<div class="dm-page__reality-card-head">
-						<div class="dm-page__reality-icon" aria-hidden="true">
-							<?php get_template_part( 'template-parts/digital-marketing/icons/reality', null, array( 'icon' => $card['icon'] ) ); ?>
-						</div>
-						<h3 class="dm-page__reality-title"><?php echo esc_html( $card['title'] ); ?></h3>
+					<div class="dm-page__reality-icon" aria-hidden="true">
+						<?php get_template_part( 'template-parts/digital-marketing/icons/reality', null, array( 'icon' => $card['icon'] ) ); ?>
 					</div>
+					<h3 class="dm-page__reality-title"><?php echo esc_html( $card['title'] ); ?></h3>
 					<p class="dm-page__reality-text"><?php echo esc_html( $card['text'] ); ?></p>
 				</article>
 			<?php endforeach; ?>

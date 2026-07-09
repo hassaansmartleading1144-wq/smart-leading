@@ -18,18 +18,44 @@
 }
 
 .dm-page__eyebrow {
-	display: block;
-	font-size: 14px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: nowrap;
+	gap: 16px;
+	font-size: var(--paragraph-size);
 	font-weight: var(--font-weight-semibold);
 	letter-spacing: 0.18em;
 	text-transform: uppercase;
 	color: var(--secondary-color);
 	margin: 0 0 18px;
+	white-space: nowrap;
+}
+
+.dm-page__eyebrow::before,
+.dm-page__eyebrow::after {
+	content: "";
+	flex: 0 0 auto;
+	width: 45px;
+	min-width: 22px;
+	height: 1px;
+	background: var(--secondary-color);
 }
 
 .dm-page__section-head {
-	max-width: 860px;
+	max-width: 1000px;
 	margin-bottom: 54px;
+}
+
+.dm-page__section-head--center {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.dm-page__section-head--center .dm-page__section-desc {
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .dm-page__section-title {
@@ -178,15 +204,7 @@
 	border-color: color-mix(in srgb, var(--secondary-color) 24%, var(--dm-line));
 }
 
-.dm-page__reality-card-head {
-	display: flex;
-	align-items: flex-start;
-	gap: 14px;
-	margin-bottom: 14px;
-}
-
 .dm-page__reality-icon {
-	flex: 0 0 46px;
 	width: 46px;
 	height: 46px;
 	border-radius: 12px;
@@ -194,6 +212,7 @@
 	color: var(--secondary-color);
 	display: grid;
 	place-items: center;
+	margin-bottom: 18px;
 }
 
 .dm-page__reality-title {
@@ -201,9 +220,7 @@
 	font-weight: var(--font-weight-bold);
 	line-height: 1.25;
 	color: var(--heading-color);
-	margin: 0;
-	flex: 1;
-	min-width: 0;
+	margin: 0 0 9px;
 }
 
 .dm-page__reality-text {
