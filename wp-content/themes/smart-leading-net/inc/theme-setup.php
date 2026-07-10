@@ -69,6 +69,45 @@ function sln_assign_home_front_page() {
 add_action( 'after_switch_theme', 'sln_assign_home_front_page' );
 
 /**
+ * Ensure the Digital Marketing Services page exists with the correct template.
+ *
+ * @return int Page ID or 0 on failure.
+ */
+function sln_ensure_digital_marketing_services_page() {
+	$slug  = 'digital-marketing-services';
+	$title = __( 'Digital Marketing Services', 'smart-leading-net' );
+	$page  = get_page_by_path( $slug, OBJECT, 'page' );
+
+	if ( ! $page ) {
+		$page = get_page_by_title( $title, OBJECT, 'page' );
+	}
+
+	if ( $page instanceof WP_Post ) {
+		$page_id = $page->ID;
+	} else {
+		$page_id = wp_insert_post(
+			array(
+				'post_title'   => $title,
+				'post_name'    => $slug,
+				'post_status'  => 'publish',
+				'post_type'    => 'page',
+				'post_content' => '',
+			),
+			true
+		);
+
+		if ( is_wp_error( $page_id ) || ! $page_id ) {
+			return 0;
+		}
+	}
+
+	update_post_meta( $page_id, '_wp_page_template', 'digital-marketing-page-template.php' );
+
+	return absint( $page_id );
+}
+add_action( 'after_switch_theme', 'sln_ensure_digital_marketing_services_page' );
+
+/**
  * Force front-page.php for the site homepage.
  *
  * @param string $template Current template path.

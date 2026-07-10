@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-	define( 'SLN_THEME_VERSION', '1.5.9' );
+	define( 'SLN_THEME_VERSION', '1.5.7' );
 define( 'SLN_THEME_DIR', get_template_directory() );
 define( 'SLN_THEME_URI', get_template_directory_uri() );
 
@@ -556,7 +556,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_seo_page_assets' );
  * Enqueue Digital Marketing Services page template assets.
  */
 function sln_enqueue_digital_marketing_page_assets() {
-	if ( ! is_page_template( 'digital-marketing-page-template.php' ) ) {
+	if ( ! sln_is_digital_marketing_services_page() ) {
 		return;
 	}
 
