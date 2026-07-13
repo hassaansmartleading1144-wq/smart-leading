@@ -4,6 +4,19 @@
 
 .sln-new-section {
 	background-color: var(--light-blue-1);
+	border-top: 3px solid var(--primary-color);
+	border-bottom: 3px solid var(--primary-color);
+	min-height: 120px;
+}
+
+.sln-new-section__label {
+	margin: 0 0 0.5rem;
+	font-size: 14px;
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: 0.04em;
+	text-align: center;
+	text-transform: uppercase;
+	color: var(--primary-color);
 }
 
 .sln-new-section .section-title {

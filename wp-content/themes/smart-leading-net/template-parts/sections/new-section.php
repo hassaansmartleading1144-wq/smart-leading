@@ -10,8 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<section class="sln-new-section section-padding" aria-labelledby="sln-new-section-heading">
+<section id="sln-new-section" class="sln-new-section section-padding" aria-labelledby="sln-new-section-heading">
 	<div class="sls-container">
+		<p class="sln-new-section__label"><?php esc_html_e( 'Local test section', 'smart-leading-net' ); ?></p>
 		<h2 id="sln-new-section-heading" class="section-title text-center">
 			<?php esc_html_e( 'New section added (1)', 'smart-leading-net' ); ?>
 		</h2>
