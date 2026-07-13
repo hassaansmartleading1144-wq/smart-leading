@@ -8,6 +8,7 @@
 !docker-compose.yml
 !start-local.ps1
 !start-local.sh
+!fix-database.ps1
 !sync.ps1
 !LOCAL-SETUP.md
 
