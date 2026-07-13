@@ -11,15 +11,15 @@ Run the `team-web` branch on your PC with Docker Desktop, then view theme change
 
 ## Step 1: Clone the repository
 
-Open **PowerShell** or **Command Prompt** and run:
+Open **PowerShell** and run (recommended path for user `hp`):
 
 ```powershell
-cd C:\Users\YourName
-git clone -b team-web https://github.com/hassaansmartleading1144-wq/smart-leading.git
-cd smart-leading
+cd C:\Users\hp
+git clone -b team-web https://github.com/hassaansmartleading1144-wq/smart-leading.git smartleading
+cd smartleading
 ```
 
-Replace `YourName` with your Windows user folder. You can use any folder you prefer.
+You can clone into any folder; `C:\Users\hp\smartleading` matches the project layout used by `start-local.ps1`.
 
 > **Note:** This repo only contains `wp-content` (theme/plugins/uploads), not full WordPress core. Docker downloads WordPress automatically on first start.
 

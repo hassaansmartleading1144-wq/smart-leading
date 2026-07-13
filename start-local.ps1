@@ -1,4 +1,4 @@
-# Run from: C:\Users\Hp\smart-leading
+# Run from: C:\Users\hp\smartleading
 # Usage: powershell -ExecutionPolicy Bypass -File .\start-local.ps1
 #
 # This script automatically:
