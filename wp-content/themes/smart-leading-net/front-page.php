@@ -18,6 +18,7 @@ get_template_part( 'template-parts/sections/our', 'project' );
 get_template_part( 'template-parts/sections/testimonials' );
 get_template_part( 'template-parts/sections/credibility' );
 get_template_part( 'template-parts/sections/workflow' );
+get_template_part( 'template-parts/sections/new', 'section' );
 get_template_part( 'template-parts/sections/starts', 'cta' );
 
 get_footer();

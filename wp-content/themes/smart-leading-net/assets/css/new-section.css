@@ -1,0 +1,12 @@
+/**
+ * New section — local test placeholder styles.
+ */
+
+.sln-new-section {
+	background-color: var(--light-blue-1);
+}
+
+.sln-new-section .section-title {
+	margin-bottom: 0;
+	color: var(--heading-color);
+}

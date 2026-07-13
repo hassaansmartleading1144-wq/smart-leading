@@ -4,6 +4,9 @@
 # Keep this file
 !.gitignore
 
+# Local Docker setup
+!docker-compose.yml
+
 # GitHub Actions workflows
 !.github/
 !.github/**
