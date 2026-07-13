@@ -8,7 +8,6 @@
 get_header();
 
 get_template_part( 'template-parts/sections/hero', 'banner' );
-get_template_part( 'template-parts/sections/new', 'section' );
 get_template_part( 'template-parts/sections/accomplishments' );
 get_template_part( 'template-parts/sections/businesses', 'choose' );
 get_template_part( 'template-parts/sections/our', 'services' );
