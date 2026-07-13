@@ -9,6 +9,7 @@
 !start-local.ps1
 !start-local.sh
 !fix-database.ps1
+!reset-local.ps1
 !sync.ps1
 !LOCAL-SETUP.md
 
