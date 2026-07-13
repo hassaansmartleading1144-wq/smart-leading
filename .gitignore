@@ -6,6 +6,7 @@
 
 # Local Docker setup
 !docker-compose.yml
+!start-local.ps1
 
 # GitHub Actions workflows
 !.github/
