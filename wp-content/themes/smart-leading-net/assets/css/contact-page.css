@@ -434,6 +434,25 @@
 }
 
 /* --------------------------------------------------------------------------
+   Section 4 — Added section (before footer)
+   -------------------------------------------------------------------------- */
+
+.contact-page__added-section {
+	padding: var(--section-spacing) 0;
+	background-color: #ecf2fc;
+	text-align: center;
+}
+
+.contact-page__added-section-title {
+	margin: 0;
+	font-family: var(--font-family-base);
+	font-size: var(--section-title-size);
+	font-weight: var(--section-title-weight);
+	line-height: 1.15;
+	color: var(--heading-color);
+}
+
+/* --------------------------------------------------------------------------
    Tablet
    -------------------------------------------------------------------------- */
 

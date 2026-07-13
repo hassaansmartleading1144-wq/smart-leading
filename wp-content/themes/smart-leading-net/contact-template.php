@@ -228,6 +228,14 @@ while ( have_posts() ) :
 			</div>
 		</div>
 	</section>
+
+	<section class="contact-page__added-section section-padding" aria-labelledby="contact-page-added-section-heading">
+		<div class="sls-container">
+			<h2 id="contact-page-added-section-heading" class="contact-page__added-section-title">
+				<?php esc_html_e( 'Section added1', 'smart-leading-net' ); ?>
+			</h2>
+		</div>
+	</section>
 </div>
 
 	<?php
