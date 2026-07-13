@@ -515,3 +515,27 @@
 		height: 24px;
 	}
 }
+
+/* --------------------------------------------------------------------------
+   New section 1
+   -------------------------------------------------------------------------- */
+
+.contact-page__new-section {
+	padding: var(--section-spacing) 0;
+	background-color: var(--white);
+}
+
+.contact-page__new-section-inner {
+	max-width: 700px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.contact-page__new-section-title {
+	margin: 0;
+	font-family: var(--font-family-base);
+	font-size: var(--section-title-size);
+	font-weight: var(--section-title-weight);
+	line-height: 1.15;
+	color: var(--heading-color);
+}
