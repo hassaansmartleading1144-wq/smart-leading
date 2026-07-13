@@ -222,6 +222,23 @@ function sln_enqueue_new_section_assets() {
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_new_section_assets' );
 
 /**
+ * Enqueue team section assets on the front page only.
+ */
+function sln_enqueue_team_assets() {
+	if ( ! is_front_page() ) {
+		return;
+	}
+
+	wp_enqueue_style(
+		'sln-team',
+		SLN_THEME_URI . '/assets/css/team.css',
+		array( 'sln-main' ),
+		SLN_THEME_VERSION
+	);
+}
+add_action( 'wp_enqueue_scripts', 'sln_enqueue_team_assets' );
+
+/**
  * Enqueue starts CTA section assets on the front page only.
  */
 function sln_enqueue_starts_cta_assets() {

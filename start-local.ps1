@@ -14,6 +14,7 @@ Write-Host "Folder: $ProjectRoot"
 
 $heroFile = Join-Path $ProjectRoot "wp-content\themes\smart-leading-net\template-parts\sections\hero-banner.php"
 $contactFile = Join-Path $ProjectRoot "wp-content\themes\smart-leading-net\contact-template.php"
+$teamFile = Join-Path $ProjectRoot "wp-content\themes\smart-leading-net\template-parts\sections\team.php"
 $composeFile = Join-Path $ProjectRoot "docker-compose.yml"
 
 if (-not (Test-Path $composeFile)) {
@@ -60,6 +61,20 @@ if ($contactText -notmatch "Section added1") {
 }
 Write-Host "OK: Section added1 found in contact-template.php" -ForegroundColor Green
 
+if (-not (Test-Path $teamFile)) {
+    Write-Host "ERROR: Team section file not found." -ForegroundColor Red
+    Write-Host "Expected: $teamFile"
+    exit 1
+}
+
+$teamText = Get-Content $teamFile -Raw
+if ($teamText -notmatch "Our Team") {
+    Write-Host "ERROR: Team section heading still missing after git pull." -ForegroundColor Red
+    Write-Host "Check your internet connection and try again."
+    exit 1
+}
+Write-Host "OK: Our Team section found in team.php" -ForegroundColor Green
+
 Write-Host ""
 Write-Host "Step 3: Starting Docker..." -ForegroundColor Yellow
 docker compose down
@@ -74,4 +89,5 @@ Write-Host "  Homepage:  http://localhost:8080" -ForegroundColor Green
 Write-Host "  Contact:   http://localhost:8080/contact-us/" -ForegroundColor Green
 Write-Host "  (or)       http://localhost:8080/?page_id=210" -ForegroundColor Green
 Write-Host ""
+Write-Host "Homepage should show 'Our Team' section above the footer CTA." -ForegroundColor Green
 Write-Host "Contact page should show 'Section added1' above the footer." -ForegroundColor Green
