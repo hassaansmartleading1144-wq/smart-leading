@@ -76,7 +76,37 @@ if ($teamText -notmatch "Our Team") {
 Write-Host "OK: Our Team section found in team.php" -ForegroundColor Green
 
 Write-Host ""
-Write-Host "Step 3: Starting Docker..." -ForegroundColor Yellow
+Write-Host "Step 3: Check Docker Desktop..." -ForegroundColor Yellow
+
+if (-not (Get-Command docker -ErrorAction SilentlyContinue)) {
+    Write-Host "ERROR: Docker is not installed." -ForegroundColor Red
+    Write-Host ""
+    Write-Host "Do this first:" -ForegroundColor Yellow
+    Write-Host "  1. Download Docker Desktop: https://www.docker.com/products/docker-desktop/"
+    Write-Host "  2. Install it and restart your PC if asked"
+    Write-Host "  3. Open Docker Desktop from the Start menu"
+    Write-Host "  4. Wait until the bottom-left says 'Engine running'"
+    Write-Host "  5. Run this script again"
+    exit 1
+}
+
+$dockerInfo = docker info 2>&1
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "ERROR: Docker Desktop is not running." -ForegroundColor Red
+    Write-Host ""
+    Write-Host "Do this first:" -ForegroundColor Yellow
+    Write-Host "  1. Press Windows key and search for 'Docker Desktop'"
+    Write-Host "  2. Open Docker Desktop"
+    Write-Host "  3. Wait 1-2 minutes until it shows 'Engine running' (green)"
+    Write-Host "  4. Run this script again:"
+    Write-Host "     powershell -ExecutionPolicy Bypass -File .\start-local.ps1"
+    exit 1
+}
+Write-Host "OK: Docker Desktop is running" -ForegroundColor Green
+
+Write-Host ""
+Write-Host "Step 4: Starting WordPress + MySQL containers..." -ForegroundColor Yellow
+Write-Host "(First time may take 2-5 minutes to download images — please wait)" -ForegroundColor DarkGray
 docker compose down
 docker compose up -d
 
