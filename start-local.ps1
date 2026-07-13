@@ -107,11 +107,11 @@ Write-Host "OK: Docker Desktop is running" -ForegroundColor Green
 Write-Host ""
 Write-Host "Step 4: Starting WordPress + MySQL containers..." -ForegroundColor Yellow
 Write-Host "(First time may take 2-5 minutes to download images — please wait)" -ForegroundColor DarkGray
-docker compose down
-docker compose up -d
+docker compose -p smart-leading down
+docker compose -p smart-leading up -d
 
 Start-Sleep -Seconds 5
-docker compose ps
+docker compose -p smart-leading ps
 
 Write-Host ""
 Write-Host "Done! Open in browser:" -ForegroundColor Green
