@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-	define( 'SLN_THEME_VERSION', '1.5.11' );
+	define( 'SLN_THEME_VERSION', '1.5.12' );
 define( 'SLN_THEME_DIR', get_template_directory() );
 define( 'SLN_THEME_URI', get_template_directory_uri() );
 
@@ -220,21 +220,6 @@ function sln_enqueue_new_section_assets() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_new_section_assets' );
-
-/**
- * Render the homepage new section (direct include for reliable local loading).
- */
-function sln_render_new_section() {
-	$section_file = SLN_THEME_DIR . '/template-parts/sections/new-section.php';
-
-	if ( ! file_exists( $section_file ) ) {
-		return;
-	}
-
-	echo "\n<!-- SLN: new-section start -->\n";
-	include $section_file;
-	echo "\n<!-- SLN: new-section end -->\n";
-}
 
 /**
  * Enqueue starts CTA section assets on the front page only.
