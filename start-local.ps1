@@ -1,15 +1,36 @@
 # Run from: C:\Users\Hp\smart-leading
 # Usage: powershell -ExecutionPolicy Bypass -File .\start-local.ps1
+#
+# This script automatically:
+# 1. Pulls latest team-web from GitHub
+# 2. Verifies theme files include the latest sections
+# 3. Starts Docker
 
 $ErrorActionPreference = "Stop"
 $ProjectRoot = $PSScriptRoot
 
-Write-Host "Smart Leading - local start" -ForegroundColor Cyan
+Write-Host "Smart Leading - auto sync & local start" -ForegroundColor Cyan
 Write-Host "Folder: $ProjectRoot"
 
 $heroFile = Join-Path $ProjectRoot "wp-content\themes\smart-leading-net\template-parts\sections\hero-banner.php"
 $contactFile = Join-Path $ProjectRoot "wp-content\themes\smart-leading-net\contact-template.php"
 $composeFile = Join-Path $ProjectRoot "docker-compose.yml"
+
+if (-not (Test-Path $composeFile)) {
+    Write-Host "ERROR: docker-compose.yml not found in $ProjectRoot" -ForegroundColor Red
+    exit 1
+}
+
+Set-Location $ProjectRoot
+
+Write-Host ""
+Write-Host "Step 1: Auto-pull latest team-web from GitHub..." -ForegroundColor Yellow
+git fetch origin
+git checkout team-web
+git pull origin team-web
+
+Write-Host ""
+Write-Host "Step 2: Verify theme files..." -ForegroundColor Yellow
 
 if (-not (Test-Path $heroFile)) {
     Write-Host "ERROR: Theme file not found." -ForegroundColor Red
@@ -17,19 +38,12 @@ if (-not (Test-Path $heroFile)) {
     exit 1
 }
 
-if (-not (Test-Path $composeFile)) {
-    Write-Host "ERROR: docker-compose.yml not found in $ProjectRoot" -ForegroundColor Red
-    exit 1
-}
-
 $heroText = Get-Content $heroFile -Raw
 if ($heroText -notmatch "NEW section added \(1\)") {
-    Write-Host "ERROR: Homepage section missing. Pull latest team-web first." -ForegroundColor Red
-    Write-Host "Run: git checkout team-web"
-    Write-Host "Run: git pull origin team-web"
+    Write-Host "ERROR: Homepage section still missing after git pull." -ForegroundColor Red
+    Write-Host "Check your internet connection and try again."
     exit 1
 }
-
 Write-Host "OK: NEW section added (1) found in hero-banner.php" -ForegroundColor Green
 
 if (-not (Test-Path $contactFile)) {
@@ -40,20 +54,14 @@ if (-not (Test-Path $contactFile)) {
 
 $contactText = Get-Content $contactFile -Raw
 if ($contactText -notmatch "Section added1") {
-    Write-Host "ERROR: Contact page section missing. Pull latest branch first." -ForegroundColor Red
-    Write-Host "Run: git pull origin cursor/contact-section-added1-a086"
+    Write-Host "ERROR: Contact page section still missing after git pull." -ForegroundColor Red
+    Write-Host "Check your internet connection and try again."
     exit 1
 }
-
 Write-Host "OK: Section added1 found in contact-template.php" -ForegroundColor Green
 
-Set-Location $ProjectRoot
-
-Write-Host "Pulling latest cursor/contact-section-added1-a086..." -ForegroundColor Yellow
-git checkout cursor/contact-section-added1-a086
-git pull origin cursor/contact-section-added1-a086
-
-Write-Host "Starting Docker..." -ForegroundColor Yellow
+Write-Host ""
+Write-Host "Step 3: Starting Docker..." -ForegroundColor Yellow
 docker compose down
 docker compose up -d
 
@@ -61,6 +69,9 @@ Start-Sleep -Seconds 5
 docker compose ps
 
 Write-Host ""
-Write-Host "Open in browser: http://localhost:8080" -ForegroundColor Green
-Write-Host "Homepage should show hero, then: NEW section added (1)" -ForegroundColor Green
-Write-Host "Contact page: http://localhost:8080/contact-us/ (Section added1 before footer)" -ForegroundColor Green
+Write-Host "Done! Open in browser:" -ForegroundColor Green
+Write-Host "  Homepage:  http://localhost:8080" -ForegroundColor Green
+Write-Host "  Contact:   http://localhost:8080/contact-us/" -ForegroundColor Green
+Write-Host "  (or)       http://localhost:8080/?page_id=210" -ForegroundColor Green
+Write-Host ""
+Write-Host "Contact page should show 'Section added1' above the footer." -ForegroundColor Green
