@@ -1,0 +1,3490 @@
+{
+    "format": "sln-demo-package",
+    "version": "2.0.0",
+    "exported_at": "2026-07-14T12:56:22+00:00",
+    "site_url": "http://localhost/new-smart-leading/",
+    "theme_version": "1.7.0",
+    "url_replace_from": [
+        "http://localhost/new-smart-leading",
+        "http://localhost/new-smart-leading/"
+    ],
+    "content": {
+        "pages": [
+            {
+                "title": "About Us",
+                "slug": "about-us",
+                "status": "publish",
+                "template": "about-template.php",
+                "content": "",
+                "meta": []
+            },
+            {
+                "title": "Contact Us",
+                "slug": "contact-us",
+                "status": "publish",
+                "template": "contact-template.php",
+                "content": "",
+                "meta": []
+            },
+            {
+                "title": "Digital Marketing Services",
+                "slug": "digital-marketing-services",
+                "status": "publish",
+                "template": "digital-marketing-page-template.php",
+                "content": "",
+                "meta": []
+            },
+            {
+                "title": "Home",
+                "slug": "home",
+                "status": "publish",
+                "template": "",
+                "content": "",
+                "meta": []
+            },
+            {
+                "title": "Portfolio",
+                "slug": "portfolio",
+                "status": "publish",
+                "template": "portfolio-page-template.php",
+                "content": "",
+                "meta": {
+                    "_sln_portfolio_section": {
+                        "small_heading": "Our Projects",
+                        "main_heading": "Portfolio",
+                        "description": "Explore digital platforms built to solve business challenges. From user journeys to conversion-focused architecture, we build funnels that drive market performance."
+                    },
+                    "_sln_portfolio_projects": [
+                        {
+                            "image_id": 433,
+                            "image_file": "2026/06/badgergranite-scaled.webp",
+                            "image": "badgergranite",
+                            "title": "Badger Granite",
+                            "url": "https://www.badgergranite.com/",
+                            "new_tab": true,
+                            "active": true,
+                            "alt": "",
+                            "description": ""
+                        },
+                        {
+                            "image_id": 438,
+                            "image_file": "2026/06/NovaMed-urgent-care-scaled.webp",
+                            "image": "NovaMed-urgent-care",
+                            "title": "NovaMed Urgent Care",
+                            "url": "https://novamedurgentcare.com/",
+                            "new_tab": true,
+                            "active": true,
+                            "alt": "",
+                            "description": ""
+                        },
+                        {
+                            "image_id": 436,
+                            "image_file": "2026/06/iconkitchenbath-scaled.webp",
+                            "image": "iconkitchenbath",
+                            "title": "Icon Kitchen & Bath",
+                            "url": "https://iconkitchenbath.com/",
+                            "new_tab": true,
+                            "active": true,
+                            "alt": "",
+                            "description": ""
+                        },
+                        {
+                            "image_id": 437,
+                            "image_file": "2026/06/kitchencabinetdesign2-scaled.webp",
+                            "image": "iconkitchenbath",
+                            "title": "Kitchen Cabinet Design",
+                            "url": "https://www.kitchencabinetdesign.us/",
+                            "new_tab": true,
+                            "active": true,
+                            "alt": "",
+                            "description": ""
+                        },
+                        {
+                            "image_id": 435,
+                            "image_file": "2026/06/Cypress-Towne-Dental-scaled.webp",
+                            "image": "iconkitchenbath",
+                            "title": "Cypress Towne Dental",
+                            "url": "https://cypresstownedental.com/",
+                            "new_tab": true,
+                            "active": true,
+                            "alt": "",
+                            "description": ""
+                        },
+                        {
+                            "image_id": 434,
+                            "image_file": "2026/06/columbuscabinetcity2-scaled.webp",
+                            "image": "iconkitchenbath",
+                            "title": "Columbus Cabinet City",
+                            "url": "https://columbuscabinetscity.com/",
+                            "new_tab": true,
+                            "active": true,
+                            "alt": "",
+                            "description": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "title": "Privacy Policy",
+                "slug": "privacy-policy",
+                "status": "publish",
+                "template": "",
+                "content": "<!-- wp:heading --><h2>Privacy Policy</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Smart Leading Solutions respects your privacy. This policy explains how we collect, use, and protect your information when you visit our website or use our services.</p><!-- /wp:paragraph -->",
+                "meta": []
+            },
+            {
+                "title": "Revenue Growth",
+                "slug": "revenue-growth-2",
+                "status": "publish",
+                "template": "",
+                "content": "<!-- wp:paragraph --><p>REST test 13:05:43</p><!-- /wp:paragraph -->",
+                "meta": []
+            },
+            {
+                "title": "Sample Page",
+                "slug": "sample-page",
+                "status": "publish",
+                "template": "",
+                "content": "<!-- wp:paragraph -->\n<p>This is an example page. It's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\">\n<!-- wp:paragraph -->\n<p>Hi there! I'm a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin' caught in the rain.)</p>\n<!-- /wp:paragraph -->\n</blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>...or something like this:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\">\n<!-- wp:paragraph -->\n<p>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</p>\n<!-- /wp:paragraph -->\n</blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>As a new WordPress user, you should go to <a href=\"http://localhost/new-smart-leading/wp-admin/\">your dashboard</a> to delete this page and create new pages for your content. Have fun!</p>\n<!-- /wp:paragraph -->",
+                "meta": []
+            },
+            {
+                "title": "SEO",
+                "slug": "seo-services",
+                "status": "publish",
+                "template": "seo-page-template.php",
+                "content": "",
+                "meta": {
+                    "_sln_seo_svc_hero": {
+                        "small_heading": "SEO Services",
+                        "main_heading": "Own the Searches That",
+                        "highlighted_text": "Drive Your Revenue",
+                        "description": "We build SEO programs around the keywords your buyers actually search — turning organic visibility into qualified traffic, leads, and measurable revenue you can track in your CRM.",
+                        "primary_button_text": "Get My Free SEO Proposal",
+                        "primary_button_url": "#seo-proposal",
+                        "secondary_button_text": "See Client Results",
+                        "secondary_button_url": "#seo-results",
+                        "hero_image_id": 0,
+                        "trust_badge_text": "Google Partner Certified",
+                        "certified_team_text": "avg. client rating",
+                        "hero_stat_value": "$50M+",
+                        "hero_stat_label": "revenue driven"
+                    },
+                    "_sln_seo_svc_reality_section": {
+                        "small_heading": "The Problem",
+                        "main_heading": "Your Buyers Are Searching. Are They Finding You?",
+                        "description": "If your site isn't showing up for the searches that matter, every click goes to a competitor instead. These are the gaps we see costing businesses revenue every month.",
+                        "cta_text": "<strong>Every one of these is fixable.</strong> We start with a free audit that pinpoints exactly what&#039;s costing you traffic.",
+                        "cta_button_text": "Get My Free Audit",
+                        "cta_button_url": "#seo-proposal"
+                    },
+                    "_sln_seo_svc_reality_cards": [
+                        {
+                            "icon_id": 0,
+                            "icon_slug": "search-minus",
+                            "title": "Invisible On Page One",
+                            "description": "You rank below the fold — or nowhere — for the high-intent keywords your customers type when they're ready to buy.",
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "icon_slug": "chart",
+                            "title": "Traffic That Never Converts",
+                            "description": "Visitors arrive but don't become leads. The wrong keywords, slow pages, and weak intent leave your funnel leaking.",
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "icon_slug": "technical",
+                            "title": "Technical Issues Holding You Back",
+                            "description": "Crawl errors, slow Core Web Vitals, and broken architecture quietly cap your rankings no matter how good your content is.",
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "icon_slug": "lock",
+                            "title": "Agencies That Report Vanity Metrics",
+                            "description": "Impressions and keyword counts look nice in a deck but never tie back to pipeline, revenue, or return on investment.",
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "icon_slug": "clock",
+                            "title": "Losing Ground To Competitors",
+                            "description": "While you wait, competitors publish, earn links, and climb — compounding an advantage that gets harder to overtake.",
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "icon_slug": "ai",
+                            "title": "Invisible To AI Search",
+                            "description": "AI Overviews and answer engines now intercept clicks. If your content isn't structured for them, you're missing the new front page.",
+                            "url": "",
+                            "active": true
+                        }
+                    ],
+                    "_sln_seo_svc_program_section": {
+                        "small_heading": "What We Do",
+                        "main_heading": "A Complete SEO Program, Built To Perform",
+                        "description": "Every engagement combines technical foundations, content, and authority-building into one strategy aimed at the same outcome — measurable revenue growth."
+                    },
+                    "_sln_seo_svc_program_cards": [
+                        {
+                            "icon_id": 0,
+                            "title": "Technical SEO",
+                            "description": "We clear the path for search engines and AI crawlers to find, render, and rank every page.",
+                            "bullets": [
+                                "Core Web Vitals & speed",
+                                "Crawl, index & sitemap fixes",
+                                "Schema & structured data"
+                            ],
+                            "link_text": "",
+                            "link_url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Keyword & Intent Strategy",
+                            "description": "We map the searches your buyers use at every stage and prioritise the ones that drive pipeline.",
+                            "bullets": [
+                                "High-intent keyword research",
+                                "Competitor gap analysis",
+                                "Topic clusters & mapping"
+                            ],
+                            "link_text": "",
+                            "link_url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Content & On-Page SEO",
+                            "description": "We create and optimise content that ranks, reads well, and earns the trust signals Google rewards.",
+                            "bullets": [
+                                "Optimised landing pages",
+                                "Blog & pillar content",
+                                "Title, meta & internal links"
+                            ],
+                            "link_text": "",
+                            "link_url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Authority & Link Building",
+                            "description": "We earn relevant, high-quality backlinks that build the domain authority rankings depend on.",
+                            "bullets": [
+                                "Digital PR & outreach",
+                                "Editorial backlinks",
+                                "Toxic link cleanup"
+                            ],
+                            "link_text": "",
+                            "link_url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Local SEO",
+                            "description": "We help you dominate the map pack and \"near me\" searches in every market you serve.",
+                            "bullets": [
+                                "Google Business Profile",
+                                "Local landing pages",
+                                "Citations & reviews"
+                            ],
+                            "link_text": "",
+                            "link_url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "AI & Answer Engine SEO",
+                            "description": "We structure your content to win citations in AI Overviews, ChatGPT, and answer engines.",
+                            "bullets": [
+                                "AI Overview optimisation",
+                                "Entity & E-E-A-T signals",
+                                "Answer-ready formatting"
+                            ],
+                            "link_text": "",
+                            "link_url": "",
+                            "active": true
+                        }
+                    ],
+                    "_sln_seo_svc_results_section": {
+                        "small_heading": "Why Smart Leading",
+                        "main_heading": "SEO That's Measured in Revenue, Not Rankings Alone",
+                        "highlighted_word": "",
+                        "description": "Plenty of agencies can move a keyword. We tie every action back to traffic, leads, and revenue you can see in your numbers — and we report on it transparently every month."
+                    },
+                    "_sln_seo_svc_results_blocks": [
+                        {
+                            "number": "01",
+                            "label": "Google Partner Certified",
+                            "description": "Recognised expertise and direct access to best-practice standards — not guesswork or outdated tactics.",
+                            "icon_id": 0,
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "number": "02",
+                            "label": "Revenue-First Strategy",
+                            "description": "We prioritise the keywords and pages that actually move pipeline, tracked through your CRM and analytics.",
+                            "icon_id": 0,
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "number": "03",
+                            "label": "Transparent Reporting",
+                            "description": "Clear monthly reports show what we did, what it earned, and what's next. No vanity metrics, no jargon.",
+                            "icon_id": 0,
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "number": "04",
+                            "label": "A Dedicated Strategist",
+                            "description": "One senior point of contact who knows your business — not a rotating cast or a ticket queue.",
+                            "icon_id": 0,
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "number": "05",
+                            "label": "Proven Across Industries",
+                            "description": "From manufacturing to ecommerce, dental to home services — playbooks tailored to how each market searches.",
+                            "icon_id": 0,
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "number": "06",
+                            "label": "Try Before You Commit",
+                            "description": "Start with a 7-day free trial of our strategy and process before signing on to a full SEO program.",
+                            "icon_id": 0,
+                            "url": "",
+                            "active": true
+                        }
+                    ],
+                    "_sln_seo_svc_process_section": {
+                        "small_heading": "How It Works",
+                        "main_heading": "From Discovery to Durable Growth",
+                        "description": "A clear, proven path that turns an SEO audit into rankings, traffic, and revenue you can rely on month over month."
+                    },
+                    "_sln_seo_svc_process_steps": [
+                        {
+                            "step_number": "1",
+                            "icon_id": 0,
+                            "title": "Audit & Discovery",
+                            "description": "We dig into your site, rankings, competitors, and goals to find the highest-impact opportunities.",
+                            "url": ""
+                        },
+                        {
+                            "step_number": "2",
+                            "icon_id": 0,
+                            "title": "Strategy & Roadmap",
+                            "description": "We build a prioritised 90-day plan tied to the keywords and pages that drive revenue.",
+                            "url": ""
+                        },
+                        {
+                            "step_number": "3",
+                            "icon_id": 0,
+                            "title": "Optimise & Build",
+                            "description": "We fix technical issues, optimise pages, publish content, and earn authority links.",
+                            "url": ""
+                        },
+                        {
+                            "step_number": "4",
+                            "icon_id": 0,
+                            "title": "Measure & Report",
+                            "description": "We track rankings, traffic, and conversions, reporting results against your goals monthly.",
+                            "url": ""
+                        },
+                        {
+                            "step_number": "5",
+                            "icon_id": 0,
+                            "title": "Refine & Scale",
+                            "description": "We double down on what's working and adapt to every algorithm and market shift.",
+                            "url": ""
+                        }
+                    ],
+                    "_sln_seo_svc_case_studies_section": {
+                        "small_heading": "Case Studies",
+                        "main_heading": "Proven Results For",
+                        "highlighted_word": "Growth-Focused Businesses",
+                        "description": "See how we help brands turn strategy, paid media, websites, and optimisation into measurable growth through smart execution and data-backed decisions.",
+                        "more_case_studies_text": "",
+                        "more_case_studies_url": ""
+                    },
+                    "_sln_seo_svc_case_studies_cards": [
+                        {
+                            "title": "Case Study: Manufacturing",
+                            "icon_id": 0,
+                            "icon_fallback": "",
+                            "metric": "30%",
+                            "metric_description": "ROI Increase From Paid Search",
+                            "graph_id": 0,
+                            "graph_fallback": "paid-chart.svg",
+                            "footer_text": "",
+                            "card_url": "",
+                            "card_color": "#12b8b8",
+                            "active": true
+                        },
+                        {
+                            "title": "Case Study: ECommerce",
+                            "icon_id": 0,
+                            "icon_fallback": "",
+                            "metric": "4.2X",
+                            "metric_description": "Higher Return On Ad Spend",
+                            "graph_id": 0,
+                            "graph_fallback": "ad-spend-chart.svg",
+                            "footer_text": "Data-Backed Strategies. Real Business Impact.",
+                            "card_url": "",
+                            "card_color": "#f36b32",
+                            "active": true
+                        },
+                        {
+                            "title": "Case Study: Hospitality",
+                            "icon_id": 0,
+                            "icon_fallback": "",
+                            "metric": "260%",
+                            "metric_description": "Increase In Organic Revenue",
+                            "graph_id": 0,
+                            "graph_fallback": "organic-chart.svg",
+                            "footer_text": "More Traffic, Higher Rankings, More Revenue",
+                            "card_url": "",
+                            "card_color": "#1f4e9e",
+                            "active": true
+                        }
+                    ],
+                    "_sln_seo_svc_pricing_section": {
+                        "small_heading": "Pricing Plans",
+                        "main_heading": "Transparent",
+                        "highlighted_word": "Revenue Growth Pricing",
+                        "description": "Tailored to your business goals. Whether you're just starting or ready to scale aggressively, we have a plan designed to turn your marketing spend into predictable revenue."
+                    },
+                    "_sln_seo_svc_pricing_plans": [
+                        {
+                            "plan_name": "BASIC",
+                            "price": "$999",
+                            "price_suffix": "/ month",
+                            "description": "Essential paid media management for businesses ready to start generating consistent revenue from search and social.",
+                            "features": [
+                                "Google Ads campaign management",
+                                "Monthly performance reporting",
+                                "Landing page recommendations",
+                                "Email support"
+                            ],
+                            "button_text": "Get Started",
+                            "button_url": "#seo-proposal",
+                            "is_popular": false,
+                            "active": true
+                        },
+                        {
+                            "plan_name": "GROWTH",
+                            "price": "$2,499",
+                            "price_suffix": "/ month",
+                            "description": "Full-funnel growth for brands scaling paid acquisition with optimization across channels.",
+                            "features": [
+                                "Everything in Basic",
+                                "Meta Ads management",
+                                "Conversion rate optimization",
+                                "Bi-weekly strategy calls",
+                                "Dedicated account manager"
+                            ],
+                            "button_text": "Get Started",
+                            "button_url": "#seo-proposal",
+                            "is_popular": true,
+                            "active": true
+                        },
+                        {
+                            "plan_name": "PRO",
+                            "price": "Custom pricing",
+                            "price_suffix": "",
+                            "description": "Enterprise-level revenue growth partnerships with custom strategy, integrations, and dedicated support.",
+                            "features": [
+                                "Full-funnel revenue strategy",
+                                "Multi-channel campaign management",
+                                "Custom analytics & attribution",
+                                "Priority support & consulting",
+                                "Custom CRM & platform integrations"
+                            ],
+                            "button_text": "Get a Custom Quote",
+                            "button_url": "#seo-proposal",
+                            "is_popular": false,
+                            "active": true
+                        }
+                    ],
+                    "_sln_seo_svc_testimonials_section": {
+                        "small_heading": "Testimonials",
+                        "main_heading": "Trusted Partnerships Built On",
+                        "highlighted_word": "Results",
+                        "description": ""
+                    },
+                    "_sln_seo_svc_testimonials_summary": {
+                        "review_count": "28K+",
+                        "average_rating": "4.9★",
+                        "websites_built": "200+",
+                        "revenue_generated": "$50M+",
+                        "review_title": "",
+                        "star_rating": "",
+                        "verified_text": ""
+                    },
+                    "_sln_seo_svc_testimonials_reviews": [
+                        {
+                            "rating": 5,
+                            "testimonial": "Highly cooperative and honest with their work. They developed my business website and I am super happy with them. On time delivery and 24hrs support. They also manage our social media — they know what they're doing.",
+                            "client_name": "Sarah Mitchell",
+                            "client_position": "Growth Labs",
+                            "client_initials": "SM",
+                            "client_image_id": 0,
+                            "active": true
+                        },
+                        {
+                            "rating": 5,
+                            "testimonial": "Before working with Smart Leading, our campaigns lacked direction. They helped us build a clear strategy, improve conversions, and understand exactly where our growth was coming from.",
+                            "client_name": "James Carter",
+                            "client_position": "Managing Director",
+                            "client_initials": "JC",
+                            "client_image_id": 0,
+                            "active": true
+                        }
+                    ],
+                    "_sln_seo_svc_cta_form": {
+                        "small_heading": "Get Started",
+                        "main_heading": "Your Revenue Growth Starts With One Search",
+                        "description": "Tell us about your business and we'll build a custom SEO proposal showing exactly how we'll grow your traffic, leads, and revenue.",
+                        "form_heading": "Get Your Free SEO Proposal",
+                        "name_placeholder": "Jane Doe",
+                        "email_placeholder": "jane@company.com",
+                        "phone_placeholder": "",
+                        "website_placeholder": "https://yourbusiness.com",
+                        "button_text": "Get My Free Proposal",
+                        "thank_you_page_url": ""
+                    },
+                    "_sln_seo_svc_faq_section": {
+                        "small_heading": "FAQ",
+                        "main_heading": "SEO Questions, Answered",
+                        "description": "Still deciding? Here are the things businesses ask us most before getting started.",
+                        "cta_button_text": "Ask Us Anything",
+                        "cta_button_url": "#seo-proposal"
+                    },
+                    "_sln_seo_svc_faq_items": [
+                        {
+                            "question": "How long until I see SEO results?",
+                            "answer": "Most clients see early movement in 60–90 days, with meaningful traffic and lead growth between months 4 and 6. SEO compounds — the gains build and become more durable the longer we work together. Your roadmap sets clear expectations for each phase.",
+                            "active": true
+                        },
+                        {
+                            "question": "How do you measure success?",
+                            "answer": "We tie SEO to business outcomes: organic traffic, keyword rankings, qualified leads, conversions, and revenue tracked through your analytics and CRM. You get a transparent monthly report showing exactly what we did and what it earned.",
+                            "active": true
+                        },
+                        {
+                            "question": "Are there long-term contracts?",
+                            "answer": "No. Our SEO plans are month-to-month, and you can start with a 7-day free trial of our strategy and process. We earn your business with results, not lock-in clauses.",
+                            "active": true
+                        },
+                        {
+                            "question": "Do you optimise for AI search and Google AI Overviews?",
+                            "answer": "Yes. We structure your content and entities to earn citations in AI Overviews and answer engines like ChatGPT and Perplexity, alongside traditional rankings — so you stay visible as search evolves.",
+                            "active": true
+                        },
+                        {
+                            "question": "Who will manage my account?",
+                            "answer": "You'll have a dedicated senior strategist as your main point of contact, supported by specialists in technical SEO, content, and link building. No rotating reps and no ticket queues.",
+                            "active": true
+                        },
+                        {
+                            "question": "Will SEO work for my industry?",
+                            "answer": "We've driven results across manufacturing, ecommerce, hospitality, dental, home services, and more. Your free audit will show the specific organic opportunity in your market before you commit to anything.",
+                            "active": true
+                        }
+                    ]
+                }
+            },
+            {
+                "title": "Terms of Service",
+                "slug": "terms-of-service",
+                "status": "publish",
+                "template": "",
+                "content": "<!-- wp:heading --><h2>Terms of Service</h2><!-- /wp:heading --><!-- wp:paragraph --><p>By using this website, you agree to these terms. Smart Leading Solutions provides digital marketing services subject to the agreements outlined in your service contract.</p><!-- /wp:paragraph -->",
+                "meta": []
+            },
+            {
+                "title": "test page",
+                "slug": "test-page",
+                "status": "publish",
+                "template": "seo-page-template.php",
+                "content": "",
+                "meta": {
+                    "_sln_seo_svc_reality_section": {
+                        "small_heading": "The Problem",
+                        "main_heading": "Your Buyers Are Searching. Are They Finding You?",
+                        "description": "If your site isn't showing up for the searches that matter, every click goes to a competitor instead. These are the gaps we see costing businesses revenue every month.",
+                        "cta_text": "<strong>Every one of these is fixable.</strong> We start with a free audit that pinpoints exactly what&#039;s costing you traffic.",
+                        "cta_button_text": "Get My Free Audit",
+                        "cta_button_url": "#seo-proposal"
+                    },
+                    "_sln_seo_svc_reality_cards": [
+                        {
+                            "icon_id": 0,
+                            "icon_slug": "search-minus",
+                            "title": "Invisible On Page One",
+                            "description": "You rank below the fold — or nowhere — for the high-intent keywords your customers type when they're ready to buy.",
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "icon_slug": "chart",
+                            "title": "Traffic That Never Converts",
+                            "description": "Visitors arrive but don't become leads. The wrong keywords, slow pages, and weak intent leave your funnel leaking.",
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "icon_slug": "technical",
+                            "title": "Technical Issues Holding You Back",
+                            "description": "Crawl errors, slow Core Web Vitals, and broken architecture quietly cap your rankings no matter how good your content is.",
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "icon_slug": "lock",
+                            "title": "Agencies That Report Vanity Metrics",
+                            "description": "Impressions and keyword counts look nice in a deck but never tie back to pipeline, revenue, or return on investment.",
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "icon_slug": "clock",
+                            "title": "Losing Ground To Competitors",
+                            "description": "While you wait, competitors publish, earn links, and climb — compounding an advantage that gets harder to overtake.",
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "icon_slug": "ai",
+                            "title": "Invisible To AI Search",
+                            "description": "AI Overviews and answer engines now intercept clicks. If your content isn't structured for them, you're missing the new front page.",
+                            "url": "",
+                            "active": true
+                        }
+                    ],
+                    "_sln_seo_svc_program_section": {
+                        "small_heading": "What We Do",
+                        "main_heading": "A Complete SEO Program, Built To Perform",
+                        "description": "Every engagement combines technical foundations, content, and authority-building into one strategy aimed at the same outcome — measurable revenue growth."
+                    },
+                    "_sln_seo_svc_program_cards": [
+                        {
+                            "icon_id": 0,
+                            "title": "Technical SEO",
+                            "description": "We clear the path for search engines and AI crawlers to find, render, and rank every page.",
+                            "bullets": [
+                                "Core Web Vitals & speed",
+                                "Crawl, index & sitemap fixes",
+                                "Schema & structured data"
+                            ],
+                            "link_text": "",
+                            "link_url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Keyword & Intent Strategy",
+                            "description": "We map the searches your buyers use at every stage and prioritise the ones that drive pipeline.",
+                            "bullets": [
+                                "High-intent keyword research",
+                                "Competitor gap analysis",
+                                "Topic clusters & mapping"
+                            ],
+                            "link_text": "",
+                            "link_url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Content & On-Page SEO",
+                            "description": "We create and optimise content that ranks, reads well, and earns the trust signals Google rewards.",
+                            "bullets": [
+                                "Optimised landing pages",
+                                "Blog & pillar content",
+                                "Title, meta & internal links"
+                            ],
+                            "link_text": "",
+                            "link_url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Authority & Link Building",
+                            "description": "We earn relevant, high-quality backlinks that build the domain authority rankings depend on.",
+                            "bullets": [
+                                "Digital PR & outreach",
+                                "Editorial backlinks",
+                                "Toxic link cleanup"
+                            ],
+                            "link_text": "",
+                            "link_url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Local SEO",
+                            "description": "We help you dominate the map pack and \"near me\" searches in every market you serve.",
+                            "bullets": [
+                                "Google Business Profile",
+                                "Local landing pages",
+                                "Citations & reviews"
+                            ],
+                            "link_text": "",
+                            "link_url": "",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "AI & Answer Engine SEO",
+                            "description": "We structure your content to win citations in AI Overviews, ChatGPT, and answer engines.",
+                            "bullets": [
+                                "AI Overview optimisation",
+                                "Entity & E-E-A-T signals",
+                                "Answer-ready formatting"
+                            ],
+                            "link_text": "",
+                            "link_url": "",
+                            "active": true
+                        }
+                    ],
+                    "_sln_seo_svc_results_section": {
+                        "small_heading": "Why Smart Leading",
+                        "main_heading": "SEO That's Measured in Revenue, Not Rankings Alone",
+                        "highlighted_word": "",
+                        "description": "Plenty of agencies can move a keyword. We tie every action back to traffic, leads, and revenue you can see in your numbers — and we report on it transparently every month."
+                    },
+                    "_sln_seo_svc_results_blocks": [
+                        {
+                            "number": "01",
+                            "label": "Google Partner Certified",
+                            "description": "Recognised expertise and direct access to best-practice standards — not guesswork or outdated tactics.",
+                            "icon_id": 0,
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "number": "02",
+                            "label": "Revenue-First Strategy",
+                            "description": "We prioritise the keywords and pages that actually move pipeline, tracked through your CRM and analytics.",
+                            "icon_id": 0,
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "number": "03",
+                            "label": "Transparent Reporting",
+                            "description": "Clear monthly reports show what we did, what it earned, and what's next. No vanity metrics, no jargon.",
+                            "icon_id": 0,
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "number": "04",
+                            "label": "A Dedicated Strategist",
+                            "description": "One senior point of contact who knows your business — not a rotating cast or a ticket queue.",
+                            "icon_id": 0,
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "number": "05",
+                            "label": "Proven Across Industries",
+                            "description": "From manufacturing to ecommerce, dental to home services — playbooks tailored to how each market searches.",
+                            "icon_id": 0,
+                            "url": "",
+                            "active": true
+                        },
+                        {
+                            "number": "06",
+                            "label": "Try Before You Commit",
+                            "description": "Start with a 7-day free trial of our strategy and process before signing on to a full SEO program.",
+                            "icon_id": 0,
+                            "url": "",
+                            "active": true
+                        }
+                    ],
+                    "_sln_seo_svc_process_section": {
+                        "small_heading": "How It Works",
+                        "main_heading": "From Discovery to Durable Growth",
+                        "description": "A clear, proven path that turns an SEO audit into rankings, traffic, and revenue you can rely on month over month."
+                    },
+                    "_sln_seo_svc_process_steps": [
+                        {
+                            "step_number": "1",
+                            "icon_id": 0,
+                            "title": "Audit & Discovery",
+                            "description": "We dig into your site, rankings, competitors, and goals to find the highest-impact opportunities.",
+                            "url": ""
+                        },
+                        {
+                            "step_number": "2",
+                            "icon_id": 0,
+                            "title": "Strategy & Roadmap",
+                            "description": "We build a prioritised 90-day plan tied to the keywords and pages that drive revenue.",
+                            "url": ""
+                        },
+                        {
+                            "step_number": "3",
+                            "icon_id": 0,
+                            "title": "Optimise & Build",
+                            "description": "We fix technical issues, optimise pages, publish content, and earn authority links.",
+                            "url": ""
+                        },
+                        {
+                            "step_number": "4",
+                            "icon_id": 0,
+                            "title": "Measure & Report",
+                            "description": "We track rankings, traffic, and conversions, reporting results against your goals monthly.",
+                            "url": ""
+                        },
+                        {
+                            "step_number": "5",
+                            "icon_id": 0,
+                            "title": "Refine & Scale",
+                            "description": "We double down on what's working and adapt to every algorithm and market shift.",
+                            "url": ""
+                        }
+                    ],
+                    "_sln_seo_svc_case_studies_section": {
+                        "small_heading": "Case Studies",
+                        "main_heading": "Proven Results For",
+                        "highlighted_word": "Growth-Focused Businesses",
+                        "description": "See how we help brands turn strategy, paid media, websites, and optimisation into measurable growth through smart execution and data-backed decisions.",
+                        "more_case_studies_text": "",
+                        "more_case_studies_url": ""
+                    },
+                    "_sln_seo_svc_case_studies_cards": [
+                        {
+                            "title": "Case Study: Manufacturing",
+                            "icon_id": 0,
+                            "icon_fallback": "",
+                            "metric": "30%",
+                            "metric_description": "ROI Increase From Paid Search",
+                            "graph_id": 0,
+                            "graph_fallback": "paid-chart.svg",
+                            "footer_text": "",
+                            "card_url": "",
+                            "card_color": "#12b8b8",
+                            "active": true
+                        },
+                        {
+                            "title": "Case Study: ECommerce",
+                            "icon_id": 0,
+                            "icon_fallback": "",
+                            "metric": "4.2X",
+                            "metric_description": "Higher Return On Ad Spend",
+                            "graph_id": 0,
+                            "graph_fallback": "ad-spend-chart.svg",
+                            "footer_text": "Data-Backed Strategies. Real Business Impact.",
+                            "card_url": "",
+                            "card_color": "#f36b32",
+                            "active": true
+                        },
+                        {
+                            "title": "Case Study: Hospitality",
+                            "icon_id": 0,
+                            "icon_fallback": "",
+                            "metric": "260%",
+                            "metric_description": "Increase In Organic Revenue",
+                            "graph_id": 0,
+                            "graph_fallback": "organic-chart.svg",
+                            "footer_text": "More Traffic, Higher Rankings, More Revenue",
+                            "card_url": "",
+                            "card_color": "#1f4e9e",
+                            "active": true
+                        }
+                    ],
+                    "_sln_seo_svc_pricing_section": {
+                        "small_heading": "Pricing Plans",
+                        "main_heading": "Transparent",
+                        "highlighted_word": "Revenue Growth Pricing",
+                        "description": "Tailored to your business goals. Whether you're just starting or ready to scale aggressively, we have a plan designed to turn your marketing spend into predictable revenue."
+                    },
+                    "_sln_seo_svc_pricing_plans": [
+                        {
+                            "plan_name": "BASIC",
+                            "price": "$999",
+                            "price_suffix": "/ month",
+                            "description": "Essential paid media management for businesses ready to start generating consistent revenue from search and social.",
+                            "features": [
+                                "Google Ads campaign management",
+                                "Monthly performance reporting",
+                                "Landing page recommendations",
+                                "Email support"
+                            ],
+                            "button_text": "Get Started",
+                            "button_url": "#seo-proposal",
+                            "is_popular": false,
+                            "active": true
+                        },
+                        {
+                            "plan_name": "GROWTH",
+                            "price": "$2,499",
+                            "price_suffix": "/ month",
+                            "description": "Full-funnel growth for brands scaling paid acquisition with optimization across channels.",
+                            "features": [
+                                "Everything in Basic",
+                                "Meta Ads management",
+                                "Conversion rate optimization",
+                                "Bi-weekly strategy calls",
+                                "Dedicated account manager"
+                            ],
+                            "button_text": "Get Started",
+                            "button_url": "#seo-proposal",
+                            "is_popular": true,
+                            "active": true
+                        },
+                        {
+                            "plan_name": "PRO",
+                            "price": "Custom pricing",
+                            "price_suffix": "",
+                            "description": "Enterprise-level revenue growth partnerships with custom strategy, integrations, and dedicated support.",
+                            "features": [
+                                "Full-funnel revenue strategy",
+                                "Multi-channel campaign management",
+                                "Custom analytics & attribution",
+                                "Priority support & consulting",
+                                "Custom CRM & platform integrations"
+                            ],
+                            "button_text": "Get a Custom Quote",
+                            "button_url": "#seo-proposal",
+                            "is_popular": false,
+                            "active": true
+                        }
+                    ],
+                    "_sln_seo_svc_testimonials_section": {
+                        "small_heading": "Testimonials",
+                        "main_heading": "Trusted Partnerships Built On",
+                        "highlighted_word": "Results",
+                        "description": ""
+                    },
+                    "_sln_seo_svc_testimonials_summary": {
+                        "review_count": "28K+",
+                        "average_rating": "4.9★",
+                        "websites_built": "200+",
+                        "revenue_generated": "$50M+",
+                        "review_title": "",
+                        "star_rating": "",
+                        "verified_text": ""
+                    },
+                    "_sln_seo_svc_testimonials_reviews": [
+                        {
+                            "rating": 5,
+                            "testimonial": "Highly cooperative and honest with their work. They developed my business website and I am super happy with them. On time delivery and 24hrs support. They also manage our social media — they know what they're doing.",
+                            "client_name": "Sarah Mitchell",
+                            "client_position": "Growth Labs",
+                            "client_initials": "SM",
+                            "client_image_id": 0,
+                            "active": true
+                        },
+                        {
+                            "rating": 5,
+                            "testimonial": "Before working with Smart Leading, our campaigns lacked direction. They helped us build a clear strategy, improve conversions, and understand exactly where our growth was coming from.",
+                            "client_name": "James Carter",
+                            "client_position": "Managing Director",
+                            "client_initials": "JC",
+                            "client_image_id": 0,
+                            "active": true
+                        }
+                    ],
+                    "_sln_seo_svc_cta_form": {
+                        "small_heading": "Get Started",
+                        "main_heading": "Your Revenue Growth Starts With One Search",
+                        "description": "Tell us about your business and we'll build a custom SEO proposal showing exactly how we'll grow your traffic, leads, and revenue.",
+                        "form_heading": "Get Your Free SEO Proposal",
+                        "name_placeholder": "Jane Doe",
+                        "email_placeholder": "jane@company.com",
+                        "phone_placeholder": "",
+                        "website_placeholder": "https://yourbusiness.com",
+                        "button_text": "Get My Free Proposal",
+                        "thank_you_page_url": ""
+                    },
+                    "_sln_seo_svc_faq_section": {
+                        "small_heading": "FAQ",
+                        "main_heading": "SEO Questions, Answered",
+                        "description": "Still deciding? Here are the things businesses ask us most before getting started.",
+                        "cta_button_text": "Ask Us Anything",
+                        "cta_button_url": "#seo-proposal"
+                    },
+                    "_sln_seo_svc_faq_items": [
+                        {
+                            "question": "How long until I see SEO results?",
+                            "answer": "Most clients see early movement in 60–90 days, with meaningful traffic and lead growth between months 4 and 6. SEO compounds — the gains build and become more durable the longer we work together. Your roadmap sets clear expectations for each phase.",
+                            "active": true
+                        },
+                        {
+                            "question": "How do you measure success?",
+                            "answer": "We tie SEO to business outcomes: organic traffic, keyword rankings, qualified leads, conversions, and revenue tracked through your analytics and CRM. You get a transparent monthly report showing exactly what we did and what it earned.",
+                            "active": true
+                        },
+                        {
+                            "question": "Are there long-term contracts?",
+                            "answer": "No. Our SEO plans are month-to-month, and you can start with a 7-day free trial of our strategy and process. We earn your business with results, not lock-in clauses.",
+                            "active": true
+                        },
+                        {
+                            "question": "Do you optimise for AI search and Google AI Overviews?",
+                            "answer": "Yes. We structure your content and entities to earn citations in AI Overviews and answer engines like ChatGPT and Perplexity, alongside traditional rankings — so you stay visible as search evolves.",
+                            "active": true
+                        },
+                        {
+                            "question": "Who will manage my account?",
+                            "answer": "You'll have a dedicated senior strategist as your main point of contact, supported by specialists in technical SEO, content, and link building. No rotating reps and no ticket queues.",
+                            "active": true
+                        },
+                        {
+                            "question": "Will SEO work for my industry?",
+                            "answer": "We've driven results across manufacturing, ecommerce, hospitality, dental, home services, and more. Your free audit will show the specific organic opportunity in your market before you commit to anything.",
+                            "active": true
+                        }
+                    ]
+                }
+            },
+            {
+                "title": "Thank You",
+                "slug": "thank-you",
+                "status": "publish",
+                "template": "",
+                "content": "<!-- wp:html -->\n<h1>Thank You!</h1>\n\n<p>\nYour request has been successfully submitted.\nOne of our team members will contact you shortly.\n</p>\n\n<a href=\"/\">Return To Homepage</a>\n<!-- /wp:html -->",
+                "meta": []
+            }
+        ],
+        "growth_pages": [
+            {
+                "title": "Conversions Retention",
+                "slug": "conversions-retention",
+                "status": "publish",
+                "content": "",
+                "excerpt": "",
+                "menu_order": 0,
+                "meta": {
+                    "banner": {
+                        "small_heading": "Conversion & Retention",
+                        "core_service_text": "Core Service",
+                        "main_heading": "Turn Visitors Into",
+                        "highlight_word": "Loyal Customers",
+                        "description": "Stop losing the traffic you've already paid for. Our 5-step Conversion &amp; Retention system maximizes the value of every visitor turning one-time buyers into lifelong customers through CRO, email marketing, A/B testing, and data-driven retention systems.",
+                        "primary_btn_text": "Get My Free Audit",
+                        "primary_btn_url": "http://localhost/new-smart-leading",
+                        "secondary_btn_text": "Get My Free Audit",
+                        "secondary_btn_url": "http://localhost/new-smart-leading",
+                        "banner_image_id": "0"
+                    },
+                    "_sln_gp_growth_metrics": {
+                        "metrics_heading": "Conversion & Retention Metrics That Matter",
+                        "revenue_growth_label": "Appointment Growth",
+                        "revenue_growth_value": "72%",
+                        "roas_label": "Leads Conversion",
+                        "roas_value": "67%",
+                        "leads_generated_label": "Leads Recovered",
+                        "leads_generated_value": "700+",
+                        "conversion_boost_label": "Pipelines Created",
+                        "conversion_boost_value": "100+"
+                    },
+                    "_sln_gp_services_section": {
+                        "label": "Our Services",
+                        "heading_lead": "Built To",
+                        "heading_accent_primary": "Convert,",
+                        "heading_accent_secondary": "Designed To Retain",
+                        "description": "From diagnosing funnel drop-offs to building loyalty systems, every service is engineered to extract maximum value from every visitor and every customer."
+                    },
+                    "_sln_gp_services_cards": [
+                        {
+                            "number": "01",
+                            "title": "CRO — Conversion Rate Optimization",
+                            "description": "We turn your existing traffic into paying customers by removing friction from every stage of the buyer journey. Data-driven, hypothesis-backed, results-focused — more revenue without more ad spend.",
+                            "bullet_1": "Heatmap, session recording & funnel drop-off analysis",
+                            "bullet_2": "Landing page, checkout & form redesign",
+                            "bullet_3": "Trust signals, urgency cues & CTA optimization",
+                            "bullet_4": "",
+                            "active": true
+                        },
+                        {
+                            "number": "02",
+                            "title": "UX Design & Optimization",
+                            "description": "Great UX is silent revenue. We audit and redesign the on-site experience to make buying or contacting as effortless as possible reducing hesitation and guiding users to conversion.",
+                            "bullet_1": "Mobile & desktop UX audits with actionable fixes",
+                            "bullet_2": "Navigation restructure & page layout optimization",
+                            "bullet_3": "Speed optimization to cut bounce from slow load times",
+                            "bullet_4": "",
+                            "active": true
+                        },
+                        {
+                            "number": "03",
+                            "title": "A/B Testing & Experimentation",
+                            "description": "Every change we make is validated through structured experiments ensuring only proven, revenue-positive variations go live. No guesswork, ever.",
+                            "bullet_1": "A/B & multivariate testing on high-impact pages & CTAs",
+                            "bullet_2": "Statistical analysis of results & user behavior shifts",
+                            "bullet_3": "Continuous iteration to compound conversion gains",
+                            "bullet_4": "",
+                            "active": true
+                        },
+                        {
+                            "number": "04",
+                            "title": "Email Marketing & Automation",
+                            "description": "Email remains the highest-ROI channel in marketing. We design automated lifecycle sequences that nurture leads, convert fence-sitters, and re-engage past customers on autopilot.\r\n\r\n",
+                            "bullet_1": "Welcome, post-purchase & win-back email flows",
+                            "bullet_2": "Behavioral segmentation for personalized campaigns",
+                            "bullet_3": "Copywriting, design & deliverability optimization",
+                            "bullet_4": "",
+                            "active": true
+                        },
+                        {
+                            "number": "05",
+                            "title": "Analytics & Conversion Tracking",
+                            "description": "You can't improve what you can't measure. We build a full analytics infrastructure connecting your website, CRM, and email platform for complete conversion visibility.",
+                            "bullet_1": "Google Analytics 4 setup, goals & funnel tracking",
+                            "bullet_2": "CRM & email platform data integration",
+                            "bullet_3": "Custom dashboards showing revenue-linked conversion data",
+                            "bullet_4": "",
+                            "active": true
+                        },
+                        {
+                            "number": "06",
+                            "title": "CRM Setup & Management",
+                            "description": "A well-built CRM is the backbone of every high-converting business. We set up, integrate, and manage your CRM so no lead falls through the cracks and every pipeline stage drives action.",
+                            "bullet_1": "CRM platform setup, configuration & custom pipeline builds",
+                            "bullet_2": "Lead tracking, tagging & automated follow-up sequences",
+                            "bullet_3": "Sales team workflows & reporting dashboard integration",
+                            "bullet_4": "",
+                            "active": true
+                        }
+                    ],
+                    "_sln_gp_client_story_section": {
+                        "label": "Client Success Story",
+                        "heading_lead": "From High Bounce Rates to",
+                        "heading_highlight": "320%",
+                        "heading_trail": "More Conversions",
+                        "description": "A Kitchen &amp; Bath success story how we transformed a traffic-rich but conversion-starved website into a consistent lead and revenue machine.",
+                        "challenge_label": "The Challenge",
+                        "challenge_heading": "Traffic Without Conversions A Leaking Funnel",
+                        "challenge_description": "VCT Kitchen &amp; Bath had strong traffic from paid and organic sources, but their website was bleeding potential customers. High bounce rates, unclear calls-to-action, and zero post-visit follow-up meant most visitors left without making contact — and never returned. Leads were inconsistent, ad spend felt wasted, and there was no email or retention system in place.",
+                        "strategy_label": "The Strategy",
+                        "strategy_heading": "Full-Funnel Conversion & Retention Overhau",
+                        "results_title": "The Results: A Conversion Machine",
+                        "revenue_number": "320%",
+                        "revenue_label": "Conversion Rate Increase",
+                        "quote": "We rebuilt VCT's entire conversion funnel from landing page to follow-up sequence and turned their existing traffic into a consistent stream of qualified leads."
+                    },
+                    "_sln_gp_client_story_steps": [
+                        {
+                            "number": "01",
+                            "title": "CRO Audit & Funnel Restructure:",
+                            "description": "Diagnosed exact drop-off points using heatmaps and session recordings, then redesigned key pages to reduce friction and guide visitors toward quote requests."
+                        },
+                        {
+                            "number": "02",
+                            "title": "A/B Testing on High-Impact Pages:",
+                            "description": "Ran structured experiments on service pages, CTAs, and inquiry forms locking in winning variations that lifted conversion rates month over month."
+                        },
+                        {
+                            "number": "03",
+                            "title": "Email Retention & Win-Back Flows:",
+                            "description": "Built automated post-visit and post-inquiry email sequences to nurture leads, showcase completed projects, and bring past visitors back into the funnel."
+                        }
+                    ],
+                    "_sln_gp_client_story_results": [
+                        {
+                            "metric": "Bounce Rate",
+                            "before": "72% (High)",
+                            "after": "38% (Low)"
+                        },
+                        {
+                            "metric": "Lead Conv. Rate",
+                            "before": "0.8% / Mo",
+                            "after": "3.4% / Mo"
+                        },
+                        {
+                            "metric": "Email Open Rate",
+                            "before": "No System",
+                            "after": "48% Avg."
+                        },
+                        {
+                            "metric": "Repeat Inquiry",
+                            "before": "Near Zero",
+                            "after": "+65% Growth"
+                        },
+                        {
+                            "metric": "Overall CVR Lift",
+                            "before": "Stagnant",
+                            "after": "320% Up"
+                        }
+                    ],
+                    "_sln_gp_how_work_section": {
+                        "label": "How It Works",
+                        "heading_lead": "The 5-Step",
+                        "highlight_word_1": "Conversion & Retention",
+                        "highlight_word_2": "Journey",
+                        "description": "A proven blueprint built around CRO and Email Marketing, supported by Analytics, UX Design, A/B Testing, and Loyalty Systems — designed to maximize every customer relationship."
+                    },
+                    "_sln_gp_how_work_tabs": [
+                        {
+                            "tab_label": "Diagnose",
+                            "content_heading": "Diagnose",
+                            "content_description": "Every optimization strategy begins with understanding why users aren't converting and where they are dropping off. Before changing any elements, we deep-dive into user behavior, data analytics, and checkout funnels to uncover hidden friction points and growth leaks.",
+                            "activities": [
+                                "Analyze quantitative data through Google Analytics and checkout funnels",
+                                "Evaluate qualitative insights using heatmaps, session recordings, and user feedback",
+                                "Map the complete customer journey to identify drop-off points",
+                                "Formulate data-driven hypotheses for testing and optimization"
+                            ],
+                            "card_heading": "Deep-Dive Diagnosis",
+                            "card_description": "We audit your full funnel to pinpoint exactly where revenue is leaking — before a single change is made.",
+                            "stat_1_number": "100%",
+                            "stat_1_label": "Data-Driven",
+                            "stat_2_number": "48h",
+                            "stat_2_label": "Audit Turnaround",
+                            "stat_3_number": "30+",
+                            "stat_3_label": "Data Points",
+                            "active": true
+                        },
+                        {
+                            "tab_label": "Optimize",
+                            "content_heading": "Optimize",
+                            "content_description": "Once friction points are diagnosed, we redesign the on-site experience. This stage focuses on removing barriers, clarifying messaging, and restructuring key pages to make buying or signing up as seamless and intuitive as possible.",
+                            "activities": [
+                                "Improve checkout, cart, and signup flows to minimize abandonment",
+                                "Refine website messaging, value propositions, and calls-to-action",
+                                "Enhance mobile and desktop UX for smoother navigation",
+                                "Implement urgency and trust signals to give buyers immediate confidence"
+                            ],
+                            "card_heading": "Remove Friction, Unlock Revenue",
+                            "card_description": "We execute the Capture stage with precision, clarity, and a focus on predictable revenue growth.",
+                            "stat_1_number": "320%",
+                            "stat_1_label": "Avg. CVR Lift",
+                            "stat_2_number": "-34%",
+                            "stat_2_label": "Bounce Rate",
+                            "stat_3_number": "2x",
+                            "stat_3_label": "Form Completions",
+                            "active": true
+                        },
+                        {
+                            "tab_label": "Validate",
+                            "content_heading": "Validate",
+                            "content_description": "Optimization is never based on guesswork. We run structured experiments to prove which changes drive more revenue ensuring every modification results in a measurable lift before being permanently implemented.\r\n",
+                            "activities": [
+                                "Deploy A/B and multivariate tests on high-impact pages",
+                                "Measure variations against strict conversion and revenue KPIs",
+                                "Analyze test results to understand shifts in user behavior",
+                                "Implement permanent winning variations to lock in higher conversion baselines"
+                            ],
+                            "card_heading": "Test, Prove & Lock In Wins",
+                            "card_description": "Every optimization is validated with real data before going live — no assumptions, only proven revenue lifts.",
+                            "stat_1_number": "95%",
+                            "stat_1_label": "Confidence Level",
+                            "stat_2_number": "50+",
+                            "stat_2_label": "Tests Run",
+                            "stat_3_number": "3.5x",
+                            "stat_3_label": "ROAS Increase",
+                            "active": true
+                        },
+                        {
+                            "tab_label": "Retain",
+                            "content_heading": "Retain",
+                            "content_description": "Acquiring a customer is only half the battle the real profit comes from keeping them. This stage leverages advanced lifecycle marketing and automated systems to bring past buyers back, build habits, and turn transactions into relationships.",
+                            "activities": [
+                                "Build automated email and SMS post-purchase and win-back flows",
+                                "Segment customer data based on buying history and purchase frequency",
+                                "Create targeted personalized promotions to drive repeat purchases",
+                                "Establish loyalty or referral programs to reward ongoing customer engagement"
+                            ],
+                            "card_heading": "Build Relationships That Last",
+                            "card_description": "We implement retention systems that bring customers back automatically — turning one-time buyers into loyal advocates.",
+                            "stat_1_number": "42x",
+                            "stat_1_label": "Email ROI",
+                            "stat_2_number": "48%",
+                            "stat_2_label": "Avg Open Rate",
+                            "stat_3_number": "+65%",
+                            "stat_3_label": "Repeat Rate",
+                            "active": true
+                        },
+                        {
+                            "tab_label": "Maximize",
+                            "content_heading": "Maximize",
+                            "content_description": "With steady conversion rates and a solid retention framework in place, the focus shifts to compounding profits. We analyze Customer Lifetime Value and Average Order Value to extract maximum profitability from every customer relationship.",
+                            "activities": [
+                                "Analyze behavioral data to predict and prevent customer churn",
+                                "Optimize communication frequency to maximize long-term engagement",
+                                "Implement data-backed upselling and cross-selling strategies",
+                                "Continuously refine strategies to increase total Customer Lifetime Value (LTV)"
+                            ],
+                            "card_heading": "Scale & Expansion",
+                            "card_description": "We scale LTV and AOV systematically — extracting maximum revenue from every customer relationship.",
+                            "stat_1_number": "3.8x",
+                            "stat_1_label": "LTV Growth",
+                            "stat_2_number": "+40%",
+                            "stat_2_label": "AOV Increase",
+                            "stat_3_number": "-28%",
+                            "stat_3_label": "Churn Reduction",
+                            "active": true
+                        }
+                    ],
+                    "_sln_gp_growth_services_section": {
+                        "label": "Why Smart Leading",
+                        "heading_lead": "How Our",
+                        "highlight_word_1": "Conversion & Retention",
+                        "heading_trail": "Services",
+                        "highlight_word_2": "Drive More Revenue",
+                        "description": "Every visitor and every customer becomes a measurable revenue opportunity — one we're obsessed with maximizing on your behalf."
+                    },
+                    "_sln_gp_growth_services_cards": [
+                        {
+                            "icon_id": 0,
+                            "title": "Data-First Optimization",
+                            "description": "Every recommendation is backed by real behavioral data heatmaps, session recordings, analytics, and A/B test results. No guesswork, no assumptions, only proven improvements.\r\n\r\n",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Faster Revenue Without More Spend",
+                            "description": "Instead of spending more to drive more traffic, we make your existing traffic convert. CRO and email deliver measurable ROI boosts without increasing your ad budget by a dollar.",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Automated Retention Systems",
+                            "description": "We build lifecycle email and retention flows that work 24/7 — bringing customers back, nurturing leads, and generating repeat revenue on autopilot long after launch.",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "LTV-Focused Growth Strategy",
+                            "description": "We don't just chase one-off conversions we build customer relationships that compound over time, increasing average order value and lifetime value across your entire base.\r\n\r\n",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Continuous A/B Testing Culture",
+                            "description": "We establish an ongoing experimentation framework so your conversion rates keep improving month after month — never plateauing on a single optimization.",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "End-to-End Funnel Ownership",
+                            "description": "From the first click to the tenth purchase, we own the full conversion and retention funnel — ensuring every touchpoint is optimized, measured, and aligned with your revenue goals.",
+                            "active": true
+                        }
+                    ],
+                    "_sln_gp_case_studies_section": {
+                        "label": "Case Studies",
+                        "main_heading": "Proven Results For",
+                        "highlight_word": "Conversion-Focused Businesses",
+                        "description": "See how we help brands stop leaking revenue and start compounding it — through smarter funnels, better retention, and data-backed decisions.\r\n\r\n",
+                        "more_link_text": "More Case Studies",
+                        "more_link_url": "http://localhost/new-smart-leading/"
+                    },
+                    "_sln_gp_case_studies_cards": [
+                        {
+                            "title": "Appointments",
+                            "metric_value": "72%",
+                            "metric_description": "Appointment Growth (CRO, Funnels, Booking)",
+                            "icon_id": 0,
+                            "theme_color": "#12b8b8",
+                            "tags": [],
+                            "active": true
+                        },
+                        {
+                            "title": "Conversions",
+                            "metric_value": "67%",
+                            "metric_description": "Leads Conversion (Email, A/B Testing, CRM",
+                            "icon_id": 0,
+                            "theme_color": "#f36b32",
+                            "tags": [
+                                "Data-Backed Optimization. Measurable Revenue Impact."
+                            ],
+                            "active": true
+                        },
+                        {
+                            "title": "Lead Recovery",
+                            "metric_value": "260%",
+                            "metric_description": "Leads Recovered (Win-Back, Automation, Retention)",
+                            "icon_id": 0,
+                            "theme_color": "#1f4e9e",
+                            "tags": [],
+                            "active": true
+                        },
+                        {
+                            "title": "Pipeline",
+                            "metric_value": "100+",
+                            "metric_description": "Pipelines Created (CRM, Sales, Growth)",
+                            "icon_id": 0,
+                            "theme_color": "#1f4e9e",
+                            "tags": [],
+                            "active": true
+                        }
+                    ],
+                    "_sln_gp_why_choose_section": {
+                        "label": "Why Choose Us",
+                        "heading_lead": "Unmatched",
+                        "highlight_word": "Conversion & Retention Expertise",
+                        "heading_trail": "",
+                        "description": "See how Smart Leading stacks up against in-house teams and typical agencies — and why businesses trust us to own their full conversion and retention funnel.",
+                        "button_text": "",
+                        "button_url": ""
+                    },
+                    "_sln_gp_why_choose_rows": [
+                        {
+                            "feature": "Dedicated CRO & Retention Specialist",
+                            "smart_leading": "check",
+                            "in_house": "Sometimes",
+                            "agency": "Varies",
+                            "active": true
+                        },
+                        {
+                            "feature": "Full-Funnel Heatmap & Session Analysis",
+                            "smart_leading": "check",
+                            "in_house": "cross",
+                            "agency": "Extra Cost",
+                            "active": true
+                        },
+                        {
+                            "feature": "Structured A/B Testing Program",
+                            "smart_leading": "check",
+                            "in_house": "cross",
+                            "agency": "Limited",
+                            "active": true
+                        },
+                        {
+                            "feature": "Automated Email Lifecycle Flows",
+                            "smart_leading": "check",
+                            "in_house": "cross",
+                            "agency": "Extra Cost",
+                            "active": true
+                        },
+                        {
+                            "feature": "LTV & Churn Analytics Dashboard",
+                            "smart_leading": "check",
+                            "in_house": "cross",
+                            "agency": "cross",
+                            "active": true
+                        },
+                        {
+                            "feature": "Loyalty & Referral Program Design",
+                            "smart_leading": "check",
+                            "in_house": "cross",
+                            "agency": "Rarely",
+                            "active": true
+                        },
+                        {
+                            "feature": "Revenue-Focused Reporting (not just clicks)",
+                            "smart_leading": "check",
+                            "in_house": "Sometimes",
+                            "agency": "Sometimes",
+                            "active": true
+                        },
+                        {
+                            "feature": "24/7 Funnel Monitoring & Support",
+                            "smart_leading": "check",
+                            "in_house": "cross",
+                            "agency": "Limited",
+                            "active": true
+                        }
+                    ],
+                    "_sln_gp_price_plan_section": {
+                        "label": "Pricing Plans",
+                        "heading_lead": "Transparent",
+                        "highlight_word": "Conversion & Retention Pricing",
+                        "heading_trail": "",
+                        "description": "Whether you need to plug conversion leaks, build a retention engine, or maximize LTV at scale we have a plan built around your business goals."
+                    },
+                    "_sln_gp_price_plan_cards": [
+                        {
+                            "plan_name": "Starter",
+                            "price": "$799",
+                            "price_suffix": "/ month",
+                            "description": "Perfect for businesses ready to stop losing leads and start converting more of their existing traffic.",
+                            "features": [
+                                "CRO audit of up to 3 key pages",
+                                "Heatmap & session recording analysis",
+                                "2 A/B tests per month",
+                                "Basic email welcome sequence setup",
+                                "Monthly performance report",
+                                "Dedicated account manager"
+                            ],
+                            "button_text": "Get Started",
+                            "button_url": "http://localhost/new-smart-leading/",
+                            "is_popular": false,
+                            "badge_text": "MOST POPULAR",
+                            "active": true
+                        },
+                        {
+                            "plan_name": "Growth",
+                            "price": "$1,999",
+                            "price_suffix": "/ month",
+                            "description": "For growing businesses ready to build a full conversion and retention engine that compounds revenue.",
+                            "features": [
+                                "Full-funnel CRO strategy & optimization",
+                                "5 A/B & multivariate tests per month",
+                                "Complete email lifecycle flows (welcome, post-purchase, win-back)",
+                                "Customer segmentation & personalization",
+                                "Retention & loyalty program setup",
+                                "Bi-weekly performance reviews",
+                                "LTV & AOV tracking dashboard",
+                                "UX design improvements included"
+                            ],
+                            "button_text": "Get Started",
+                            "button_url": "http://localhost/new-smart-leading/",
+                            "is_popular": true,
+                            "badge_text": "MOST POPULAR",
+                            "active": true
+                        },
+                        {
+                            "plan_name": "PRO",
+                            "price": "Custom pricing",
+                            "price_suffix": "/pricing",
+                            "description": "For established businesses needing a fully managed, enterprise-level conversion and retention system.",
+                            "features": [
+                                "All Growth plan features included",
+                                "Unlimited A/B testing & experimentation",
+                                "Full omnichannel retention strategy",
+                                "Advanced churn prediction & prevention",
+                                "Custom referral & VIP loyalty system",
+                                "Weekly strategy calls & reporting",
+                                "Dedicated senior CRO strategist",
+                                "Priority 24/7 support & monitoring"
+                            ],
+                            "button_text": "Get a Custom Quote",
+                            "button_url": "http://localhost/new-smart-leading",
+                            "is_popular": false,
+                            "badge_text": "MOST POPULAR",
+                            "active": true
+                        }
+                    ],
+                    "_sln_gp_testimonials_section": {
+                        "label": "Testimonials",
+                        "heading_lead": "Trusted Partnerships Built On",
+                        "highlight_word": "Results"
+                    },
+                    "_sln_gp_testimonials_summary": {
+                        "review_title": "28k+ Client Reviews",
+                        "star_rating": 5,
+                        "verified_text": "Verified"
+                    },
+                    "_sln_gp_testimonials_stats": [
+                        {
+                            "icon_id": 158,
+                            "icon_file": "2026/05/client-reviews.svg",
+                            "counter_value": "28K+",
+                            "counter_prefix": "",
+                            "counter_suffix": "K+",
+                            "counter_decimals": 0,
+                            "label": "Client Reviews"
+                        },
+                        {
+                            "icon_id": 198,
+                            "icon_file": "2026/05/rating-star.svg",
+                            "counter_value": "4.9",
+                            "counter_prefix": "",
+                            "counter_suffix": "★",
+                            "counter_decimals": 1,
+                            "label": "Average Rating"
+                        },
+                        {
+                            "icon_id": 200,
+                            "icon_file": "2026/05/Revenue Growth.svg",
+                            "counter_value": "320",
+                            "counter_prefix": "",
+                            "counter_suffix": "%",
+                            "counter_decimals": 0,
+                            "label": "Avg. CVR Lift"
+                        },
+                        {
+                            "icon_id": 219,
+                            "icon_file": "2026/05/websites built.svg",
+                            "counter_value": "42",
+                            "counter_prefix": "$",
+                            "counter_suffix": "x",
+                            "counter_decimals": 0,
+                            "label": "Email ROI"
+                        }
+                    ],
+                    "_sln_gp_testimonials_reviews": [
+                        {
+                            "rating": 5,
+                            "text": "Smart Leading completely transformed how our website converts. Before working with them, we were spending a fortune on ads and barely getting leads. After their CRO work, our inquiry rate tripled within 60 days. The ROI speaks for itself.\r\n\r\n",
+                            "author_initials": "MR",
+                            "author_name": "Mark Reynolds",
+                            "author_title": "CEO, Home Renovation Co.",
+                            "active": true
+                        },
+                        {
+                            "rating": 5,
+                            "text": "Their email marketing system is genuinely impressive. We went from zero automation to a full lifecycle setup in weeks — welcome flows, post-purchase sequences, win-back campaigns. Our repeat customer rate is up 65% and growing every month.",
+                            "author_initials": "LP",
+                            "author_name": "Laura Park",
+                            "author_title": "E-Commerce Director",
+                            "active": true
+                        }
+                    ],
+                    "_sln_gp_cta_banner_section": {
+                        "main_heading": "Your Conversion Growth Starts Here",
+                        "description": "Tell us about your business and we'll build a custom Conversion &amp; Retention Blueprint to turn your existing traffic into predictable, compounding revenue.",
+                        "input_placeholder": "Enter your website",
+                        "button_text": "Get My Free Proposal",
+                        "button_url": "http://localhost/new-smart-leading/",
+                        "background_image_id": 0,
+                        "active": true
+                    },
+                    "_sln_gp_section_orders": {
+                        "banner": 1,
+                        "client_story": 2,
+                        "services": 3,
+                        "how_work": 4,
+                        "growth_services": 5,
+                        "case_studies": 6,
+                        "why_choose": 7,
+                        "price_plan": 8,
+                        "testimonials": 9,
+                        "cta_banner": 10
+                    }
+                }
+            },
+            {
+                "title": "Revenue Growth",
+                "slug": "revenue-growth",
+                "status": "publish",
+                "content": "",
+                "excerpt": "",
+                "menu_order": 0,
+                "meta": {
+                    "banner": {
+                        "small_heading": "Core Service",
+                        "core_service_text": "Revenue Growth",
+                        "main_heading": "Scale Predictable Revenue With Data-Driven Marketing",
+                        "highlight_word": "Revenue Growth",
+                        "description": "We build high-performance marketing systems that turn traffic into qualified leads and revenue. From paid media to conversion optimization, Smart Leading helps you grow with clarity and confidence.",
+                        "primary_btn_text": "Get My Free Proposal",
+                        "primary_btn_url": "http://localhost/new-smart-leading//contact-us/",
+                        "secondary_btn_text": "View Case Studies",
+                        "secondary_btn_url": "#case-studies",
+                        "banner_image_id": "146",
+                        "banner_image_file": "2026/05/banner_image.webp"
+                    },
+                    "_sln_gp_growth_metrics": {
+                        "metrics_heading": "Growth Metrics That Matter",
+                        "revenue_growth_label": "Revenue Growth",
+                        "revenue_growth_value": "$50M+",
+                        "roas_label": "ROAS Increase",
+                        "roas_value": "3.5x",
+                        "leads_generated_label": "Leads Generated",
+                        "leads_generated_value": "100k+",
+                        "conversion_boost_label": "ROI Boosted",
+                        "conversion_boost_value": "3x"
+                    },
+                    "_sln_gp_section_orders": {
+                        "banner": 1,
+                        "client_story": 2,
+                        "services": 3,
+                        "how_work": 4,
+                        "growth_services": 5,
+                        "case_studies": 6,
+                        "why_choose": 7,
+                        "price_plan": 8,
+                        "testimonials": 9,
+                        "cta_banner": 10
+                    },
+                    "_sln_gp_services_section": {
+                        "label": "Our Services",
+                        "heading_lead": "Designed To",
+                        "heading_accent_primary": "Attract",
+                        "heading_accent_secondary": "Convert And Scale",
+                        "description": "From visibility to conversions, our Revenue Growth services help businesses grow through smarter strategy, stronger campaigns, and measurable results."
+                    },
+                    "_sln_gp_services_cards": [
+                        {
+                            "number": "01",
+                            "title": "SEO",
+                            "description": "We build long-term organic visibility that drives consistent, high-intent traffic to your site. Our SEO strategies are rooted in data, engineered around your buyers, and designed to generate compounding revenue over time.",
+                            "bullet_1": "Technical SEO audits & on-page optimization",
+                            "bullet_2": "High-intent keyword research & content strategy",
+                            "bullet_3": "Authority building through backlinks & outreach",
+                            "bullet_4": "",
+                            "active": true
+                        },
+                        {
+                            "number": "02",
+                            "title": "Google Ads",
+                            "description": "We transform search intent into high-value conversions. Through precision keyword targeting and aggressive bid management, we ensure your brand captures active buyers at the exact moment they're ready to purchase.",
+                            "bullet_1": "High-intent keyword targeting & precision bidding",
+                            "bullet_2": "Continuous A/B testing of ad copy & extensions",
+                            "bullet_3": "Full campaign audits & competitor gap analysis",
+                            "bullet_4": "",
+                            "active": true
+                        },
+                        {
+                            "number": "03",
+                            "title": "Meta Ads",
+                            "description": "We turn cold traffic into predictable growth using high-converting Meta advertising strategies. Our data-driven creatives stop the scroll, nurture prospects through seamless sequences, and lower your customer acquisition cost.",
+                            "bullet_1": "Scroll-stopping Meta & Instagram ad creatives",
+                            "bullet_2": "Audience segmentation & lookalike targeting",
+                            "bullet_3": "Lower customer acquisition cost (CAC) guaranteed",
+                            "bullet_4": "",
+                            "active": true
+                        },
+                        {
+                            "number": "04",
+                            "title": "CRO",
+                            "description": "We maximize the value of your existing traffic by removing friction and optimizing every stage of the buyer journey. More conversions from the same spend means a better ROI across all your marketing channels.",
+                            "bullet_1": "Landing page audits & conversion flow optimization",
+                            "bullet_2": "A/B testing of headlines, CTAs & page layouts",
+                            "bullet_3": "UX improvements to reduce drop-off & bounce rates",
+                            "bullet_4": "",
+                            "active": true
+                        },
+                        {
+                            "number": "05",
+                            "title": "Analytics & Attribution",
+                            "description": "Stop guessing and start scaling with absolute clarity. We synchronize your ad platforms with your CRM to give you full visibility into which campaigns drive real revenue — not just traffic or clicks.",
+                            "bullet_1": "CRM & ad platform synchronization",
+                            "bullet_2": "Track exactly which campaigns close revenue",
+                            "bullet_3": "Real-time dashboards & performance reporting",
+                            "bullet_4": "",
+                            "active": true
+                        },
+                        {
+                            "number": "06",
+                            "title": "E-commerce Marketing",
+                            "description": "We build complete e-commerce growth systems — from product visibility and paid acquisition to checkout optimization. Every touchpoint is engineered to turn browsers into loyal, high-value customers.",
+                            "bullet_1": "Product feed optimization & shopping ads management",
+                            "bullet_2": "Checkout funnel optimization & cart recovery",
+                            "bullet_3": "Retargeting campaigns to recapture lost revenue",
+                            "bullet_4": "",
+                            "active": true
+                        }
+                    ],
+                    "_sln_gp_client_story_section": {
+                        "label": "Client Success Story",
+                        "heading_lead": "From Wasted Ad Spend to",
+                        "heading_highlight": "$50M+",
+                        "heading_trail": "in Sales",
+                        "description": "A Flooring Success Story — How we transformed a struggling in-house ad account into a revenue-generating machine.",
+                        "challenge_label": "The Challenge",
+                        "challenge_heading": "The Costly Trap of Self-Managed Ads",
+                        "challenge_description": "Sam's Flooring was managing their Google Ads entirely in-house. Without specialized optimization, they fell into a common trap — paying premium prices for generic keywords, driving irrelevant traffic, and bleeding budget on clicks that never converted.",
+                        "strategy_label": "The Strategy",
+                        "strategy_heading": "Precision Google Ads Optimization",
+                        "results_title": "The Results: A Predictable Revenue Engine",
+                        "revenue_number": "$50M+",
+                        "revenue_label": "Total Revenue Generated",
+                        "quote": "We stopped the bleeding, dialed in on high-converting search intent, and transformed their Google Ads into a scalable asset that generated over $50M in revenue."
+                    },
+                    "_sln_gp_client_story_steps": [
+                        {
+                            "number": "01",
+                            "title": "Eliminating Keyword Waste",
+                            "description": "Stripped broad-match keywords draining budget on non-buying searches, shifting entirely to high-intent phrases used by serious buyers."
+                        },
+                        {
+                            "number": "02",
+                            "title": "Geotargeting & Audience Calibration",
+                            "description": "Optimized location targeting to focus on regions with high concentrations of homeowners, interior designers & contractors."
+                        },
+                        {
+                            "number": "03",
+                            "title": "Conversion Funnel Restructuring",
+                            "description": "Reworked ad messaging and landing page flow, moving users seamlessly from search intent straight to booking a quote."
+                        }
+                    ],
+                    "_sln_gp_client_story_results": [
+                        {
+                            "metric": "Ad Spend Efficiency",
+                            "before": "High Waste",
+                            "after": "$0 Wasted"
+                        },
+                        {
+                            "metric": "Customer Acquisition Cost",
+                            "before": "Volatile & High",
+                            "after": "Optimized"
+                        },
+                        {
+                            "metric": "Conversion Rate",
+                            "before": "Low / Minimal",
+                            "after": "320% Up"
+                        },
+                        {
+                            "metric": "Total Revenue",
+                            "before": "Stagnant",
+                            "after": "$50M+"
+                        }
+                    ],
+                    "_sln_gp_how_work_section": {
+                        "label": "How It Works",
+                        "heading_lead": "Inside Our",
+                        "highlight_word_1": "Revenue Growth",
+                        "highlight_word_2": "Solutions",
+                        "description": "Revenue growth is as easy as 1, 2, 3 with Smart Leading. As a full-service agency, we provide the talent and tech your business needs to make paid advertising a predictable revenue engine."
+                    },
+                    "_sln_gp_how_work_tabs": [
+                        {
+                            "tab_label": "Discover",
+                            "content_heading": "Discover",
+                            "content_description": "Every successful revenue system starts with understanding where growth opportunities already exist. Before launching campaigns, we analyze your market, competitors, customer behavior, and current performance to identify the fastest and most sustainable paths to revenue growth.",
+                            "activities": [
+                                "Identify high-value customer segments and buying intent",
+                                "Analyze competitors' visibility, messaging, and acquisition channels",
+                                "Audit existing traffic, conversion, and revenue performance",
+                                "Define growth goals, KPIs, and revenue opportunities"
+                            ],
+                            "card_heading": "Discovery & Analysis",
+                            "card_description": "We dive deep into your business, market, and competition to uncover the clearest, fastest path to revenue growth.",
+                            "stat_1_number": "100%",
+                            "stat_1_label": "Custom Strategy",
+                            "stat_2_number": "47+",
+                            "stat_2_label": "Markets Analyzed",
+                            "stat_3_number": "3X",
+                            "stat_3_label": "Avg ROI Boost",
+                            "active": true
+                        },
+                        {
+                            "tab_label": "Capture",
+                            "content_heading": "Capture",
+                            "content_description": "Our Capture phase is designed to strengthen your revenue engine with proven strategies, measurable outcomes, and continuous optimization.",
+                            "activities": [
+                                "Audit current performance and identify growth opportunities",
+                                "Align campaigns with high-intent customer journeys",
+                                "Implement data-backed optimizations across channels",
+                                "Track KPIs and refine strategy for scalable revenue"
+                            ],
+                            "card_heading": "Capture & Demand Generation",
+                            "card_description": "We execute the Capture stage with precision, clarity, and a focus on predictable revenue growth.",
+                            "stat_1_number": "100%",
+                            "stat_1_label": "Custom Strategy",
+                            "stat_2_number": "47+",
+                            "stat_2_label": "Markets Analyzed",
+                            "stat_3_number": "3X",
+                            "stat_3_label": "Avg ROI Boost",
+                            "active": true
+                        },
+                        {
+                            "tab_label": "Convert",
+                            "content_heading": "Convert",
+                            "content_description": "Our Convert phase is designed to strengthen your revenue engine with proven strategies, measurable outcomes, and continuous optimization.",
+                            "activities": [
+                                "Audit current performance and identify growth opportunities",
+                                "Align campaigns with high-intent customer journeys",
+                                "Implement data-backed optimizations across channels",
+                                "Track KPIs and refine strategy for scalable revenue"
+                            ],
+                            "card_heading": "Conversion Optimization",
+                            "card_description": "We execute the Convert stage with precision, clarity, and a focus on predictable revenue growth.",
+                            "stat_1_number": "100%",
+                            "stat_1_label": "Custom Strategy",
+                            "stat_2_number": "47+",
+                            "stat_2_label": "Markets Analyzed",
+                            "stat_3_number": "3X",
+                            "stat_3_label": "Avg ROI Boost",
+                            "active": true
+                        },
+                        {
+                            "tab_label": "Nurture",
+                            "content_heading": "Nurture",
+                            "content_description": "Our Nurture phase is designed to strengthen your revenue engine with proven strategies, measurable outcomes, and continuous optimization.",
+                            "activities": [
+                                "Audit current performance and identify growth opportunities",
+                                "Align campaigns with high-intent customer journeys",
+                                "Implement data-backed optimizations across channels",
+                                "Track KPIs and refine strategy for scalable revenue"
+                            ],
+                            "card_heading": "Lead Nurturing Systems",
+                            "card_description": "We execute the Nurture stage with precision, clarity, and a focus on predictable revenue growth.",
+                            "stat_1_number": "100%",
+                            "stat_1_label": "Custom Strategy",
+                            "stat_2_number": "47+",
+                            "stat_2_label": "Markets Analyzed",
+                            "stat_3_number": "3X",
+                            "stat_3_label": "Avg ROI Boost",
+                            "active": true
+                        },
+                        {
+                            "tab_label": "Scale",
+                            "content_heading": "Scale",
+                            "content_description": "Our Scale phase is designed to strengthen your revenue engine with proven strategies, measurable outcomes, and continuous optimization.",
+                            "activities": [
+                                "Audit current performance and identify growth opportunities",
+                                "Align campaigns with high-intent customer journeys",
+                                "Implement data-backed optimizations across channels",
+                                "Track KPIs and refine strategy for scalable revenue"
+                            ],
+                            "card_heading": "Scale & Expansion",
+                            "card_description": "We execute the Scale stage with precision, clarity, and a focus on predictable revenue growth.",
+                            "stat_1_number": "100%",
+                            "stat_1_label": "Custom Strategy",
+                            "stat_2_number": "47+",
+                            "stat_2_label": "Markets Analyzed",
+                            "stat_3_number": "3X",
+                            "stat_3_label": "Avg ROI Boost",
+                            "active": true
+                        }
+                    ],
+                    "_sln_gp_growth_services_section": {
+                        "label": "Why Smart Leading",
+                        "heading_lead": "How Our",
+                        "highlight_word_1": "Revenue Growth",
+                        "heading_trail": "Services",
+                        "highlight_word_2": "Drive More Revenue",
+                        "description": "With Smart Leading as your revenue growth partner, you get access to a team obsessed with one thing: turning your marketing spend into predictable, scalable business growth."
+                    },
+                    "_sln_gp_growth_services_cards": [
+                        {
+                            "icon_id": 0,
+                            "title": "Custom Growth Strategies",
+                            "description": "Tailored revenue plans built around your market, margins, and growth goals — not generic templates.",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Dedicated Growth Team",
+                            "description": "Specialists across paid media, CRO, and analytics working as an extension of your business.",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Full-Funnel ROI Tracking",
+                            "description": "Clear attribution from first click to closed revenue so you know exactly what is working.",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Transparent Partnership",
+                            "description": "Open reporting, honest recommendations, and proactive communication at every stage.",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Advanced Ad Technology",
+                            "description": "Modern campaign architecture, testing frameworks, and optimization systems that scale efficiently.",
+                            "active": true
+                        },
+                        {
+                            "icon_id": 0,
+                            "title": "Google Partner Certified",
+                            "description": "Certified expertise backed by platform standards, best practices, and proven performance.",
+                            "active": true
+                        }
+                    ],
+                    "_sln_gp_case_studies_section": {
+                        "label": "Case Studies",
+                        "main_heading": "Proven Results For",
+                        "highlight_word": "Growth-Focused Businesses",
+                        "description": "See how we help brands turn strategy, paid media, websites, and optimisation into measurable growth through smart execution and data-backed decisions.",
+                        "more_link_text": "More Case Studies",
+                        "more_link_url": "#"
+                    },
+                    "_sln_gp_case_studies_cards": [
+                        {
+                            "title": "Case Study: Manufacturing",
+                            "metric_value": "30%",
+                            "metric_description": "ROI Increase From Paid Search",
+                            "icon_id": 211,
+                            "icon_file": "2026/05/surface1.svg",
+                            "icon_fallback": "surface1.svg",
+                            "theme_color": "#12b8b8",
+                            "tags": [],
+                            "active": true
+                        },
+                        {
+                            "title": "Case Study: ECommerce",
+                            "metric_value": "4.2X",
+                            "metric_description": "Higher Return On Ad Spend",
+                            "icon_id": 166,
+                            "icon_file": "2026/05/ecommerce.svg",
+                            "icon_fallback": "ecommerce.svg",
+                            "theme_color": "#f36b32",
+                            "tags": [
+                                "Data-Backed Strategies. Real Business Impact."
+                            ],
+                            "active": true
+                        },
+                        {
+                            "title": "Case Study: Hospitality",
+                            "metric_value": "260%",
+                            "metric_description": "Increase In Organic Revenue",
+                            "icon_id": 179,
+                            "icon_file": "2026/05/hospitality.svg",
+                            "icon_fallback": "hospitality.svg",
+                            "theme_color": "#1f4e9e",
+                            "tags": [
+                                "More Traffic",
+                                "Higher Rankings",
+                                "More Revenue"
+                            ],
+                            "active": true
+                        }
+                    ],
+                    "_sln_gp_why_choose_section": {
+                        "label": "Why Choose Us",
+                        "heading_lead": "Unmatched",
+                        "highlight_word": "Revenue Growth",
+                        "heading_trail": "Expertise",
+                        "description": "See how Smart Leading stacks up against in-house teams and typical marketing agencies — and why our clients consistently choose us to drive their growth.",
+                        "button_text": "",
+                        "button_url": ""
+                    },
+                    "_sln_gp_why_choose_rows": [
+                        {
+                            "feature": "Dedicated Revenue Growth Specialist",
+                            "smart_leading": "check",
+                            "in_house": "Sometimes",
+                            "agency": "Varies",
+                            "active": true
+                        },
+                        {
+                            "feature": "Full-Funnel CRM & Ad Platform Integration",
+                            "smart_leading": "check",
+                            "in_house": "cross",
+                            "agency": "Limited",
+                            "active": true
+                        },
+                        {
+                            "feature": "Real-Time Revenue & ROI Reporting",
+                            "smart_leading": "check",
+                            "in_house": "Limited",
+                            "agency": "Sometimes",
+                            "active": true
+                        },
+                        {
+                            "feature": "Cross-Channel Strategy (Paid + Organic)",
+                            "smart_leading": "check",
+                            "in_house": "cross",
+                            "agency": "Limited",
+                            "active": true
+                        },
+                        {
+                            "feature": "Conversion Rate Optimization",
+                            "smart_leading": "check",
+                            "in_house": "cross",
+                            "agency": "Extra Cost",
+                            "active": true
+                        },
+                        {
+                            "feature": "Dedicated Account Management",
+                            "smart_leading": "check",
+                            "in_house": "check",
+                            "agency": "Sometimes",
+                            "active": true
+                        },
+                        {
+                            "feature": "No Long-Term Contracts",
+                            "smart_leading": "check",
+                            "in_house": "check",
+                            "agency": "cross",
+                            "active": true
+                        },
+                        {
+                            "feature": "Transparent Pricing",
+                            "smart_leading": "check",
+                            "in_house": "check",
+                            "agency": "Varies",
+                            "active": true
+                        }
+                    ],
+                    "_sln_gp_price_plan_section": {
+                        "label": "Pricing Plans",
+                        "heading_lead": "Transparent",
+                        "highlight_word": "Revenue Growth Pricing",
+                        "heading_trail": "",
+                        "description": "Tailored to your business goals. Whether you're just starting or ready to scale aggressively, we have a plan designed to turn your marketing spend into predictable revenue."
+                    },
+                    "_sln_gp_price_plan_cards": [
+                        {
+                            "plan_name": "BASIC",
+                            "price": "$999",
+                            "price_suffix": "/ month",
+                            "description": "Essential paid media management for businesses ready to start generating consistent revenue from search and social.",
+                            "features": [
+                                "Google Ads campaign management",
+                                "Monthly performance reporting",
+                                "Landing page recommendations",
+                                "Email support"
+                            ],
+                            "button_text": "Get Started",
+                            "button_url": "#",
+                            "is_popular": false,
+                            "badge_text": "MOST POPULAR",
+                            "active": true
+                        },
+                        {
+                            "plan_name": "GROWTH",
+                            "price": "$2,499",
+                            "price_suffix": "/ month",
+                            "description": "Full-funnel growth for brands scaling paid acquisition with optimization across channels.",
+                            "features": [
+                                "Everything in Basic",
+                                "Meta Ads management",
+                                "Conversion rate optimization",
+                                "Bi-weekly strategy calls",
+                                "Dedicated account manager"
+                            ],
+                            "button_text": "Get Started",
+                            "button_url": "#",
+                            "is_popular": true,
+                            "badge_text": "MOST POPULAR",
+                            "active": true
+                        },
+                        {
+                            "plan_name": "PRO",
+                            "price": "Custom pricing",
+                            "price_suffix": "",
+                            "description": "Enterprise-level revenue growth partnerships with custom strategy, integrations, and dedicated support.",
+                            "features": [
+                                "Full-funnel revenue strategy",
+                                "Multi-channel campaign management",
+                                "Custom analytics & attribution",
+                                "Priority support & consulting",
+                                "Custom CRM & platform integrations"
+                            ],
+                            "button_text": "Get a Custom Quote",
+                            "button_url": "#",
+                            "is_popular": false,
+                            "badge_text": "MOST POPULAR",
+                            "active": true
+                        }
+                    ],
+                    "_sln_gp_testimonials_section": {
+                        "label": "Testimonials",
+                        "heading_lead": "Trusted Partnerships Built On",
+                        "highlight_word": "Results"
+                    },
+                    "_sln_gp_testimonials_summary": {
+                        "review_title": "28k+ Client Reviews",
+                        "star_rating": 5,
+                        "verified_text": "Verified"
+                    },
+                    "_sln_gp_testimonials_stats": [
+                        {
+                            "icon_id": 0,
+                            "icon_fallback": "client-reviews.svg",
+                            "counter_value": "28",
+                            "counter_prefix": "",
+                            "counter_suffix": "K+",
+                            "counter_decimals": 0,
+                            "label": "Client Reviews"
+                        },
+                        {
+                            "icon_id": 0,
+                            "icon_fallback": "rating-star.svg",
+                            "counter_value": "4.9",
+                            "counter_prefix": "",
+                            "counter_suffix": "★",
+                            "counter_decimals": 1,
+                            "label": "Average Rating"
+                        },
+                        {
+                            "icon_id": 0,
+                            "icon_fallback": "website-review.svg",
+                            "counter_value": "200",
+                            "counter_prefix": "",
+                            "counter_suffix": "+",
+                            "counter_decimals": 0,
+                            "label": "Website Build"
+                        },
+                        {
+                            "icon_id": 0,
+                            "icon_fallback": "revenue review.svg",
+                            "counter_value": "50",
+                            "counter_prefix": "$",
+                            "counter_suffix": "M+",
+                            "counter_decimals": 0,
+                            "label": "Revenue Generated"
+                        }
+                    ],
+                    "_sln_gp_testimonials_reviews": [
+                        {
+                            "rating": 5,
+                            "text": "Highly cooperative and honest with their work. They developed my business website and I am super happy with them. On time delivery and 24hrs support. They also manage our social media — they know what they're doing.",
+                            "author_initials": "SM",
+                            "author_name": "Sarah Mitchell",
+                            "author_title": "Growth Labs",
+                            "active": true
+                        },
+                        {
+                            "rating": 5,
+                            "text": "Before working with Smart Leading, our campaigns lacked direction. They helped us build a clear strategy, improve conversions, and understand exactly where our growth was coming from.",
+                            "author_initials": "JC",
+                            "author_name": "James Carter",
+                            "author_title": "Managing Director",
+                            "active": true
+                        }
+                    ],
+                    "_sln_gp_cta_banner_section": {
+                        "main_heading": "Your Revenue Growth Starts Here",
+                        "description": "Tell us about your business, and we'll create a custom plan to grow your traffic, leads, and predictable revenue.",
+                        "input_placeholder": "Enter your website",
+                        "button_text": "Get My Free Proposal",
+                        "button_url": "#",
+                        "background_image_id": 429,
+                        "background_image_file": "2026/05/case_studies_bg_1-scaled.webp",
+                        "active": true
+                    }
+                }
+            }
+        ],
+        "menus": {
+            "primary": {
+                "name": "Primary Menu",
+                "items": [
+                    {
+                        "title": "Home",
+                        "type": "page",
+                        "slug": "home"
+                    },
+                    {
+                        "title": "About Us",
+                        "type": "page",
+                        "slug": "about-us"
+                    },
+                    {
+                        "title": "Services",
+                        "type": "custom",
+                        "url": "#",
+                        "children": [
+                            {
+                                "title": "SEO",
+                                "type": "page",
+                                "slug": "seo-services"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Contact",
+                        "type": "page",
+                        "slug": "contact-us"
+                    },
+                    {
+                        "title": "Career",
+                        "type": "custom",
+                        "url": "#"
+                    },
+                    {
+                        "title": "Portfolio",
+                        "type": "page",
+                        "slug": "portfolio"
+                    }
+                ]
+            },
+            "footer_services_menu": {
+                "name": "Footer Services Menu",
+                "items": [
+                    {
+                        "title": "Revenue Growth",
+                        "type": "growth_page",
+                        "slug": "revenue-growth"
+                    },
+                    {
+                        "title": "Lead Generation",
+                        "type": "custom",
+                        "url": "http://localhost/new-smart-leading/#services"
+                    },
+                    {
+                        "title": "SEO Services",
+                        "type": "custom",
+                        "url": "http://localhost/new-smart-leading/#services"
+                    },
+                    {
+                        "title": "Paid Advertising",
+                        "type": "custom",
+                        "url": "http://localhost/new-smart-leading/#services"
+                    },
+                    {
+                        "title": "Marketing Automation",
+                        "type": "custom",
+                        "url": "http://localhost/new-smart-leading/#services"
+                    }
+                ]
+            },
+            "footer_quick_links_menu": {
+                "name": "Footer Quick Links Menu",
+                "items": [
+                    {
+                        "title": "Home",
+                        "type": "page",
+                        "slug": "home"
+                    },
+                    {
+                        "title": "About Us",
+                        "type": "page",
+                        "slug": "about-us"
+                    },
+                    {
+                        "title": "Contact Us",
+                        "type": "page",
+                        "slug": "contact-us"
+                    },
+                    {
+                        "title": "Privacy Policy",
+                        "type": "page",
+                        "slug": "privacy-policy"
+                    },
+                    {
+                        "title": "Terms of Service",
+                        "type": "page",
+                        "slug": "terms-of-service"
+                    }
+                ]
+            }
+        },
+        "wordpress": {
+            "show_on_front": "page",
+            "page_on_front_slug": "home",
+            "page_for_posts_slug": "",
+            "blogname": "Smart Leading Solutions"
+        }
+    },
+    "options": {
+        "sln_our_services_settings": {
+            "section": {
+                "label": "Our Services",
+                "heading_lead": "Designed To Attract,",
+                "heading_highlight_1": "Convert",
+                "heading_highlight_2": "Scale",
+                "description": "From visibility to conversions, our services help businesses grow through smarter strategy, stronger campaigns, and measurable results."
+            },
+            "counter": {
+                "enabled": true,
+                "duration": 2000
+            },
+            "tabs": [
+                {
+                    "slug": "revenue-growth",
+                    "tab_title": "Revenue Growth",
+                    "tab_icon_id": 178,
+                    "tab_icon_file": "2026/05/growth-buiness.svg",
+                    "icon_flip": false,
+                    "featured_label": "Featured Solution",
+                    "main_heading": "Grow Your Revenue With Intent",
+                    "description": "We engineer high-performance marketing ecosystems designed to transform attention into measurable equity. By synchronizing precise audience acquisition with seamless conversion optimization, we turn your digital footprint into a predictable engine for sustainable financial growth.",
+                    "bullet_1": "Scale With Clarity, Confidence, and a plan that performs.",
+                    "bullet_2": "Unlock new opportunities through smarter campaigns and sharper targeting.",
+                    "bullet_3": "Turn consistent marketing into predictable business growth.",
+                    "services": [
+                        {
+                            "icon_id": 32,
+                            "icon_file": "2026/06/Paid-Ads.svg",
+                            "title": "Paid Ads",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 33,
+                            "icon_file": "2026/06/seo.svg",
+                            "title": "SEO",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 34,
+                            "icon_file": "2026/06/google-Ads.svg",
+                            "title": "Google Ads",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 35,
+                            "icon_file": "2026/06/meta-ads.svg",
+                            "title": "Meta Ads",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 36,
+                            "icon_file": "2026/06/SMM.svg",
+                            "title": "SMM",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 37,
+                            "icon_file": "2026/06/retention.svg",
+                            "title": "Retention Marketing",
+                            "url": "http://localhost/new-smart-leading/"
+                        }
+                    ],
+                    "results": [
+                        {
+                            "type": "number",
+                            "number_value": "320%",
+                            "number_subtext": "Sales Growth In 3 Months",
+                            "logo_id": 0,
+                            "logo_alt": ""
+                        },
+                        {
+                            "type": "logo",
+                            "number_value": "",
+                            "number_subtext": "",
+                            "logo_id": 46,
+                            "logo_file": "2026/06/same-flooring-1.webp",
+                            "logo_alt": "Sam's Flooring"
+                        },
+                        {
+                            "type": "logo",
+                            "number_value": "",
+                            "number_subtext": "",
+                            "logo_id": 143,
+                            "logo_file": "2026/05/badger-granite-logo.webp",
+                            "logo_alt": "Badger Granite"
+                        },
+                        {
+                            "type": "number",
+                            "number_value": "400%",
+                            "number_subtext": "Increase In Overall Revenue",
+                            "logo_id": 0,
+                            "logo_alt": ""
+                        },
+                        {
+                            "type": "number",
+                            "number_value": "$20M",
+                            "number_subtext": "Generated In Revenue",
+                            "logo_id": 0,
+                            "logo_alt": ""
+                        },
+                        {
+                            "type": "logo",
+                            "number_value": "",
+                            "number_subtext": "",
+                            "logo_id": 354,
+                            "logo_file": "2026/06/cheapbill-logo.webp",
+                            "logo_alt": "CheapBills"
+                        }
+                    ]
+                },
+                {
+                    "slug": "lead-generation",
+                    "tab_title": "Lead Generation",
+                    "tab_icon_id": 39,
+                    "tab_icon_file": "2026/06/Lead-Generation2.svg",
+                    "icon_flip": true,
+                    "featured_label": "Featured Solution",
+                    "main_heading": "Pipeline Architecture Built For Quality",
+                    "description": "We engineer intent-driven lead generation infrastructure designed to capture, qualify, and nurture high-value prospects. By aligning targeted acquisition funnels with precise audience intent, we transform cold traffic into an automated stream of sales-ready opportunities for your team.",
+                    "bullet_1": "Capture High-Intent Prospects who are actively looking for your solution.",
+                    "bullet_2": "Optimize Multi-Channel Funnels to lower acquisition costs and maximize volume.",
+                    "bullet_3": "Sync Automated CRM Data seamlessly to eliminate manual follow-up delays.",
+                    "services": [
+                        {
+                            "icon_id": 32,
+                            "icon_file": "2026/06/Paid-Ads.svg",
+                            "title": "Inbound Funnels",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 33,
+                            "icon_file": "2026/06/seo.svg",
+                            "title": "LinkedIn Ads",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 34,
+                            "icon_file": "2026/06/google-Ads.svg",
+                            "title": "Lead Magnets",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 35,
+                            "icon_file": "2026/06/meta-ads.svg",
+                            "title": "Email Sequences",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 36,
+                            "icon_file": "2026/06/SMM.svg",
+                            "title": "Landing Pages",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 37,
+                            "icon_file": "2026/06/retention.svg",
+                            "title": "CRM Integration",
+                            "url": "http://localhost/new-smart-leading/"
+                        }
+                    ],
+                    "results": [
+                        {
+                            "type": "number",
+                            "number_value": "320%",
+                            "number_subtext": "Sales Growth In 3 Months",
+                            "logo_id": 0,
+                            "logo_alt": ""
+                        },
+                        {
+                            "type": "logo",
+                            "number_value": "",
+                            "number_subtext": "",
+                            "logo_id": 204,
+                            "logo_file": "2026/05/same-flooring.webp",
+                            "logo_alt": "Sam's Flooring"
+                        },
+                        {
+                            "type": "logo",
+                            "number_value": "",
+                            "number_subtext": "",
+                            "logo_id": 143,
+                            "logo_file": "2026/05/badger-granite-logo.webp",
+                            "logo_alt": "Badger Granite"
+                        },
+                        {
+                            "type": "number",
+                            "number_value": "700%",
+                            "number_subtext": "Increase In Overall Revenue",
+                            "logo_id": 0,
+                            "logo_alt": ""
+                        },
+                        {
+                            "type": "number",
+                            "number_value": "$30M",
+                            "number_subtext": "Generated In Revenue",
+                            "logo_id": 0,
+                            "logo_alt": ""
+                        },
+                        {
+                            "type": "logo",
+                            "number_value": "",
+                            "number_subtext": "",
+                            "logo_id": 189,
+                            "logo_file": "2026/05/noveMed-urgent-logo.webp",
+                            "logo_alt": "NoveMed Urgent Care"
+                        }
+                    ]
+                },
+                {
+                    "slug": "conversion-retention",
+                    "tab_title": "Conversion & Retention",
+                    "tab_icon_id": 40,
+                    "tab_icon_file": "2026/06/Conversion-Retention.svg",
+                    "icon_flip": false,
+                    "featured_label": "Featured Solution",
+                    "main_heading": "Maximize Value From Every Click",
+                    "description": "Traffic is only half the battle; the real growth happens when you optimize the experience. We specialize in Conversion Rate Optimization (CRO) and database monetization, fixing leaky funnels and building high-yield retention loops that increase customer lifetime value.",
+                    "bullet_1": "Remove Friction Points across your checkout and sign-up flows.",
+                    "bullet_2": "Deploy Data-Driven CRO tests backed by heatmaps and user behavior analytics.",
+                    "bullet_3": "Re-Engage Past Buyers with automated lifecycle and win-back marketing.",
+                    "services": [
+                        {
+                            "icon_id": 32,
+                            "icon_file": "2026/06/Paid-Ads.svg",
+                            "title": "CRO Audits",
+                            "url": "http://localhost/new-smart-leading"
+                        },
+                        {
+                            "icon_id": 33,
+                            "icon_file": "2026/06/seo.svg",
+                            "title": "A/B Testing",
+                            "url": "http://localhost/new-smart-leading"
+                        },
+                        {
+                            "icon_id": 34,
+                            "icon_file": "2026/06/google-Ads.svg",
+                            "title": "SMS Marketing",
+                            "url": "http://localhost/new-smart-leading"
+                        },
+                        {
+                            "icon_id": 35,
+                            "icon_file": "2026/06/meta-ads.svg",
+                            "title": "Email Automation",
+                            "url": "http://localhost/new-smart-leading"
+                        },
+                        {
+                            "icon_id": 36,
+                            "icon_file": "2026/06/SMM.svg",
+                            "title": "UI/UX Refinement",
+                            "url": "http://localhost/new-smart-leading"
+                        },
+                        {
+                            "icon_id": 37,
+                            "icon_file": "2026/06/retention.svg",
+                            "title": "Loyalty Programs",
+                            "url": "http://localhost/new-smart-leading"
+                        }
+                    ],
+                    "results": [
+                        {
+                            "type": "number",
+                            "number_value": "520%",
+                            "number_subtext": "Sales Growth In 5 Months",
+                            "logo_id": 0,
+                            "logo_alt": ""
+                        },
+                        {
+                            "type": "logo",
+                            "number_value": "",
+                            "number_subtext": "",
+                            "logo_id": 63,
+                            "logo_file": "2026/06/cypress-dental-logo.webp",
+                            "logo_alt": "Cypress Dental"
+                        },
+                        {
+                            "type": "logo",
+                            "number_value": "",
+                            "number_subtext": "",
+                            "logo_id": 143,
+                            "logo_file": "2026/05/badger-granite-logo.webp",
+                            "logo_alt": "Badger Granite"
+                        },
+                        {
+                            "type": "number",
+                            "number_value": "400%",
+                            "number_subtext": "Increase In Overall Revenue",
+                            "logo_id": 0,
+                            "logo_alt": ""
+                        },
+                        {
+                            "type": "number",
+                            "number_value": "$150M",
+                            "number_subtext": "Generated In Revenue",
+                            "logo_id": 0,
+                            "logo_alt": ""
+                        },
+                        {
+                            "type": "logo",
+                            "number_value": "",
+                            "number_subtext": "",
+                            "logo_id": 62,
+                            "logo_file": "2026/06/arynova_logo.webp",
+                            "logo_alt": "ARY Nova Aesthetics"
+                        }
+                    ]
+                },
+                {
+                    "slug": "brand-visibility",
+                    "tab_title": "Brand Visibility",
+                    "tab_icon_id": 41,
+                    "tab_icon_file": "2026/06/Brand-Visibility.svg",
+                    "icon_flip": false,
+                    "featured_label": "Featured Solution",
+                    "main_heading": "Dominate Your Market's Digital Footprint",
+                    "description": "True scale requires becoming the obvious choice in your industry. We build comprehensive organic and paid awareness ecosystems that place your brand front and center where your audience spends their time, establishing undeniable authority and top-of-mind awareness.",
+                    "bullet_1": "Establish Market Authority with high-production, high-value organic content.",
+                    "bullet_2": "Scale Omnichannel Reach across major social platforms and search networks.",
+                    "bullet_3": "Build Sustainable Awareness that fuels and lowers the cost of your paid acquisition.",
+                    "services": [
+                        {
+                            "icon_id": 32,
+                            "icon_file": "2026/06/Paid-Ads.svg",
+                            "title": "Content Strategy",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 33,
+                            "icon_file": "2026/06/seo.svg",
+                            "title": "Organic Social",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 34,
+                            "icon_file": "2026/06/google-Ads.svg",
+                            "title": "PR & Outreach",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 35,
+                            "icon_file": "2026/06/meta-ads.svg",
+                            "title": "Influencer Alignment",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 36,
+                            "icon_file": "2026/06/SMM.svg",
+                            "title": "Video Marketing",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 37,
+                            "icon_file": "2026/06/retention.svg",
+                            "title": "Brand Campaigns",
+                            "url": "http://localhost/new-smart-leading/"
+                        }
+                    ],
+                    "results": [
+                        {
+                            "type": "number",
+                            "number_value": "380%",
+                            "number_subtext": "Sales Growth In 2 Months",
+                            "logo_id": 0,
+                            "logo_alt": ""
+                        },
+                        {
+                            "type": "logo",
+                            "number_value": "",
+                            "number_subtext": "",
+                            "logo_id": 50,
+                            "logo_file": "2026/06/uib_food-ogo.webp",
+                            "logo_alt": "UIB food"
+                        },
+                        {
+                            "type": "logo",
+                            "number_value": "",
+                            "number_subtext": "",
+                            "logo_id": 188,
+                            "logo_file": "2026/05/MIC-Logo_.webp",
+                            "logo_alt": "Moveinconnect"
+                        },
+                        {
+                            "type": "number",
+                            "number_value": "900%",
+                            "number_subtext": "Increase In Overall Revenue",
+                            "logo_id": 0,
+                            "logo_alt": ""
+                        },
+                        {
+                            "type": "number",
+                            "number_value": "$220M",
+                            "number_subtext": "Generated In Revenue",
+                            "logo_id": 0,
+                            "logo_alt": ""
+                        },
+                        {
+                            "type": "logo",
+                            "number_value": "",
+                            "number_subtext": "",
+                            "logo_id": 260,
+                            "logo_file": "2026/06/LOGO-BADGER-CABINET-02-1024x372.webp",
+                            "logo_alt": "Badger Cabinets"
+                        }
+                    ]
+                },
+                {
+                    "slug": "marketing-automation",
+                    "tab_title": "Marketing Automation",
+                    "tab_icon_id": 170,
+                    "tab_icon_file": "2026/05/focused.svg",
+                    "icon_flip": false,
+                    "featured_label": "Featured Solution",
+                    "main_heading": "Scale Your Operations Without The Overhead",
+                    "description": "Eliminate repetitive tasks and let your revenue engines run on autopilot. We design and deploy end-to-end marketing automation systems that nurture prospects, score leads, and trigger hyper-personalized messages based on real-time user behavior.",
+                    "bullet_1": "Build Seamless Workflows that connect your marketing tech stack seamlessly.",
+                    "bullet_2": "Trigger Dynamic Campaigns based on real-time behavior and user actions.",
+                    "bullet_3": "Save Resource Hours by automating lead nurturing, scoring, and internal alerts.",
+                    "services": [
+                        {
+                            "icon_id": 32,
+                            "icon_file": "2026/06/Paid-Ads.svg",
+                            "title": "Workflow Design",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 33,
+                            "icon_file": "2026/06/seo.svg",
+                            "title": "Lead Scoring",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 34,
+                            "icon_file": "2026/06/google-Ads.svg",
+                            "title": "Data Pipelines",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 35,
+                            "icon_file": "2026/06/meta-ads.svg",
+                            "title": "API Integrations",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 36,
+                            "icon_file": "2026/06/SMM.svg",
+                            "title": "Behavioral Triggers",
+                            "url": "http://localhost/new-smart-leading/"
+                        },
+                        {
+                            "icon_id": 37,
+                            "icon_file": "2026/06/retention.svg",
+                            "title": "Drip Ecosystems",
+                            "url": "http://localhost/new-smart-leading/"
+                        }
+                    ],
+                    "results": [
+                        {
+                            "type": "number",
+                            "number_value": "520%",
+                            "number_subtext": "Sales Growth In 5 Months",
+                            "logo_id": 0,
+                            "logo_alt": ""
+                        },
+                        {
+                            "type": "logo",
+                            "number_value": "",
+                            "number_subtext": "",
+                            "logo_id": 159,
+                            "logo_file": "2026/05/columbus_cabinets_city_logo.webp",
+                            "logo_alt": "Columbus Cabinets City"
+                        },
+                        {
+                            "type": "logo",
+                            "number_value": "",
+                            "number_subtext": "",
+                            "logo_id": 457,
+                            "logo_file": "2026/07/kitchen-cabinet.webp",
+                            "logo_alt": "Kitchen Cabinet Design"
+                        },
+                        {
+                            "type": "number",
+                            "number_value": "400%",
+                            "number_subtext": "Increase In Overall Revenue",
+                            "logo_id": 0,
+                            "logo_alt": ""
+                        },
+                        {
+                            "type": "number",
+                            "number_value": "$70M",
+                            "number_subtext": "Generated In Revenue",
+                            "logo_id": 0,
+                            "logo_alt": ""
+                        },
+                        {
+                            "type": "logo",
+                            "number_value": "",
+                            "number_subtext": "",
+                            "logo_id": 213,
+                            "logo_file": "2026/05/usa-marble-logo.webp",
+                            "logo_alt": "USA Marble Granite"
+                        }
+                    ]
+                }
+            ]
+        },
+        "sln_our_projects_settings": {
+            "projects": [
+                {
+                    "image_id": 438,
+                    "image_file": "2026/06/NovaMed-urgent-care-scaled.webp",
+                    "image": "NovaMed-urgent-care",
+                    "title": "NovaMed Urgent Care",
+                    "url": "https://novamedurgentcare.com/"
+                },
+                {
+                    "image_id": 436,
+                    "image_file": "2026/06/iconkitchenbath-scaled.webp",
+                    "image": "iconkitchenbath",
+                    "title": "Icon Kitchen & Bath",
+                    "url": "https://iconkitchenbath.com/"
+                },
+                {
+                    "image_id": 437,
+                    "image_file": "2026/06/kitchencabinetdesign2-scaled.webp",
+                    "image": "kitchencabinetdesign2",
+                    "title": "Kitchen Cabinet Design",
+                    "url": "https://www.kitchencabinetdesign.us/"
+                },
+                {
+                    "image_id": 434,
+                    "image_file": "2026/06/columbuscabinetcity2-scaled.webp",
+                    "image": "columbuscabinetcity2",
+                    "title": "Columbus Cabinet City",
+                    "url": "https://columbuscabinetscity.com/"
+                },
+                {
+                    "image_id": 435,
+                    "image_file": "2026/06/Cypress-Towne-Dental-scaled.webp",
+                    "image": "Cypress-Towne-Dental",
+                    "title": "Cypress Towne Dental",
+                    "url": "https://cypresstownedental.com/"
+                },
+                {
+                    "image_id": 433,
+                    "image_file": "2026/06/badgergranite-scaled.webp",
+                    "image": "badgergranite",
+                    "title": "Badger Granite",
+                    "url": "https://www.badgergranite.com/"
+                }
+            ]
+        },
+        "sln_credibility_settings": {
+            "logos": [
+                {
+                    "image_id": 60,
+                    "image_file": "2026/06/anatolia_logo.webp",
+                    "image": "anatolia_logo",
+                    "url": "https://anatoliagraniteky.com/"
+                },
+                {
+                    "image_id": 61,
+                    "image_file": "2026/06/artline_logo.webp",
+                    "image": "artline_logo",
+                    "url": "https://artlinekitchenandbath.com/"
+                },
+                {
+                    "image_id": 62,
+                    "image_file": "2026/06/arynova_logo.webp",
+                    "image": "arynova_logo",
+                    "url": "https://arynovaaesthetics.com/"
+                },
+                {
+                    "image_id": 67,
+                    "image_file": "2026/06/ASHIKA-Logo.webp",
+                    "image": "ASHIKA-Logo",
+                    "url": "https://tas-wheaton.org/"
+                },
+                {
+                    "image_id": 142,
+                    "image_file": "2026/05/badger-cabinest.webp",
+                    "image": "badger-cabinest",
+                    "url": "https://badgercabinets.com/"
+                },
+                {
+                    "image_id": 143,
+                    "image_file": "2026/05/badger-granite-logo.webp",
+                    "image": "badger-granite-logo",
+                    "url": "https://www.badgergranite.com/"
+                },
+                {
+                    "image_id": 59,
+                    "image_file": "2026/06/cabinetsmke_logo.webp",
+                    "image": "cabinetsmke_logo",
+                    "url": "https://www.cabinetsmke.com/"
+                },
+                {
+                    "image_id": 154,
+                    "image_file": "2026/05/cb_logo.webp",
+                    "image": "cb_logo",
+                    "url": "https://www.cheapbills.com.au/"
+                },
+                {
+                    "image_id": 458,
+                    "image_file": "2026/07/smile4ever-logo2.webp",
+                    "image": "clarksville_standard_logo_bold_v2",
+                    "url": "https://www.smile4everdental.com/"
+                },
+                {
+                    "image_id": 58,
+                    "image_file": "2026/06/columbus_cabinets_city_logo.webp",
+                    "image": "columbus_cabinets_city_logo",
+                    "url": "https://columbuscabinetscity.com/"
+                },
+                {
+                    "image_id": 63,
+                    "image_file": "2026/06/cypress-dental-logo.webp",
+                    "image": "cypress-dental-logo",
+                    "url": "https://cypresstownedental.com/"
+                },
+                {
+                    "image_id": 55,
+                    "image_file": "2026/06/epoxy-logo.webp",
+                    "image": "epoxy-logo",
+                    "url": "https://epoxyshine.com/"
+                },
+                {
+                    "image_id": 56,
+                    "image_file": "2026/06/esos_countertops_cabinets_logo.webp",
+                    "image": "esos_countertops_cabinets_logo",
+                    "url": "https://esossurfaces.com/"
+                },
+                {
+                    "image_id": 57,
+                    "image_file": "2026/06/glowup-dentistry.webp",
+                    "image": "glowup-dentistry",
+                    "url": "https://myglowupdentistry.com/"
+                },
+                {
+                    "image_id": 459,
+                    "image_file": "2026/07/columbus-flooring-city.webp",
+                    "image": "keystone-logo",
+                    "url": "https://columbusflooringcity.com/"
+                },
+                {
+                    "image_id": 188,
+                    "image_file": "2026/05/MIC-Logo_.webp",
+                    "image": "mic-logo_",
+                    "url": "https://moveinconnect.com.au/"
+                },
+                {
+                    "image_id": 189,
+                    "image_file": "2026/05/noveMed-urgent-logo.webp",
+                    "image": "noveMed-urgent-logo",
+                    "url": "https://novamedurgentcare.com/"
+                },
+                {
+                    "image_id": 54,
+                    "image_file": "2026/06/Pali-pali-logo.webp",
+                    "image": "Pali-pali-logo",
+                    "url": "https://palipalipizza.com/"
+                },
+                {
+                    "image_id": 460,
+                    "image_file": "2026/07/novemed-womens-care.webp",
+                    "image": "pink-socials-logo",
+                    "url": "https://novamedwomenscare.com/"
+                },
+                {
+                    "image_id": 47,
+                    "image_file": "2026/06/pressure-king-logo.webp",
+                    "image": "pressure-king-logo",
+                    "url": "https://pressurekinginc.com/"
+                },
+                {
+                    "image_id": 53,
+                    "image_file": "2026/06/rug_gallery-logo.webp",
+                    "image": "rug_gallery-logo",
+                    "url": "https://ruggallery.net/"
+                },
+                {
+                    "image_id": 205,
+                    "image_file": "2026/05/sams_log.webp",
+                    "image": "",
+                    "url": "https://sams-flooring.com/"
+                },
+                {
+                    "image_id": 461,
+                    "image_file": "2026/07/strand_logo.webp",
+                    "image": "",
+                    "url": "https://strand-co.com/"
+                },
+                {
+                    "image_id": 50,
+                    "image_file": "2026/06/uib_food-ogo.webp",
+                    "image": "",
+                    "url": "https://uibfoods.com/"
+                },
+                {
+                    "image_id": 462,
+                    "image_file": "2026/07/south-shore-logo.webp",
+                    "image": "",
+                    "url": "https://southshoresmile.com/"
+                }
+            ]
+        },
+        "sln_ghl_settings": {
+            "private_token": "",
+            "location_id": "z7iJxT0penWjQEwjsz92"
+        }
+    },
+    "theme_mods": {
+        "nav_menu_locations": {
+            "primary": "Primary Menu",
+            "footer_services_menu": "Footer Services Menu",
+            "footer_quick_links_menu": "Footer Quick Links Menu"
+        }
+    },
+    "media_registry": {
+        "433": {
+            "id": 433,
+            "file": "2026/06/badgergranite-scaled.webp",
+            "filename": "badgergranite-scaled.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/badgergranite-scaled.webp",
+            "mime": "image/webp"
+        },
+        "438": {
+            "id": 438,
+            "file": "2026/06/NovaMed-urgent-care-scaled.webp",
+            "filename": "NovaMed-urgent-care-scaled.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/NovaMed-urgent-care-scaled.webp",
+            "mime": "image/webp"
+        },
+        "436": {
+            "id": 436,
+            "file": "2026/06/iconkitchenbath-scaled.webp",
+            "filename": "iconkitchenbath-scaled.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/iconkitchenbath-scaled.webp",
+            "mime": "image/webp"
+        },
+        "437": {
+            "id": 437,
+            "file": "2026/06/kitchencabinetdesign2-scaled.webp",
+            "filename": "kitchencabinetdesign2-scaled.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/kitchencabinetdesign2-scaled.webp",
+            "mime": "image/webp"
+        },
+        "435": {
+            "id": 435,
+            "file": "2026/06/Cypress-Towne-Dental-scaled.webp",
+            "filename": "Cypress-Towne-Dental-scaled.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/Cypress-Towne-Dental-scaled.webp",
+            "mime": "image/webp"
+        },
+        "434": {
+            "id": 434,
+            "file": "2026/06/columbuscabinetcity2-scaled.webp",
+            "filename": "columbuscabinetcity2-scaled.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/columbuscabinetcity2-scaled.webp",
+            "mime": "image/webp"
+        },
+        "158": {
+            "id": 158,
+            "file": "2026/05/client-reviews.svg",
+            "filename": "client-reviews.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/client-reviews.svg",
+            "mime": "image/svg+xml"
+        },
+        "198": {
+            "id": 198,
+            "file": "2026/05/rating-star.svg",
+            "filename": "rating-star.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/rating-star.svg",
+            "mime": "image/svg+xml"
+        },
+        "200": {
+            "id": 200,
+            "file": "2026/05/Revenue Growth.svg",
+            "filename": "Revenue Growth.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/Revenue Growth.svg",
+            "mime": "image/svg+xml"
+        },
+        "219": {
+            "id": 219,
+            "file": "2026/05/websites built.svg",
+            "filename": "websites built.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/websites built.svg",
+            "mime": "image/svg+xml"
+        },
+        "146": {
+            "id": 146,
+            "file": "2026/05/banner_image.webp",
+            "filename": "banner_image.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/banner_image.webp",
+            "mime": "image/webp"
+        },
+        "211": {
+            "id": 211,
+            "file": "2026/05/surface1.svg",
+            "filename": "surface1.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/surface1.svg",
+            "mime": "image/svg+xml"
+        },
+        "166": {
+            "id": 166,
+            "file": "2026/05/ecommerce.svg",
+            "filename": "ecommerce.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/ecommerce.svg",
+            "mime": "image/svg+xml"
+        },
+        "179": {
+            "id": 179,
+            "file": "2026/05/hospitality.svg",
+            "filename": "hospitality.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/hospitality.svg",
+            "mime": "image/svg+xml"
+        },
+        "429": {
+            "id": 429,
+            "file": "2026/05/case_studies_bg_1-scaled.webp",
+            "filename": "case_studies_bg_1-scaled.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/case_studies_bg_1-scaled.webp",
+            "mime": "image/webp"
+        },
+        "40": {
+            "id": 40,
+            "file": "2026/06/Conversion-Retention.svg",
+            "filename": "Conversion-Retention.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/Conversion-Retention.svg",
+            "mime": "image/svg+xml"
+        },
+        "42": {
+            "id": 42,
+            "file": "2026/06/Marketing-Automation.svg",
+            "filename": "Marketing-Automation.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/Marketing-Automation.svg",
+            "mime": "image/svg+xml"
+        },
+        "41": {
+            "id": 41,
+            "file": "2026/06/Brand-Visibility.svg",
+            "filename": "Brand-Visibility.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/Brand-Visibility.svg",
+            "mime": "image/svg+xml"
+        },
+        "71": {
+            "id": 71,
+            "file": "2026/06/g711.svg",
+            "filename": "g711.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/g711.svg",
+            "mime": "image/svg+xml"
+        },
+        "178": {
+            "id": 178,
+            "file": "2026/05/growth-buiness.svg",
+            "filename": "growth-buiness.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/growth-buiness.svg",
+            "mime": "image/svg+xml"
+        },
+        "32": {
+            "id": 32,
+            "file": "2026/06/Paid-Ads.svg",
+            "filename": "Paid-Ads.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/Paid-Ads.svg",
+            "mime": "image/svg+xml"
+        },
+        "33": {
+            "id": 33,
+            "file": "2026/06/seo.svg",
+            "filename": "seo.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/seo.svg",
+            "mime": "image/svg+xml"
+        },
+        "34": {
+            "id": 34,
+            "file": "2026/06/google-Ads.svg",
+            "filename": "google-Ads.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/google-Ads.svg",
+            "mime": "image/svg+xml"
+        },
+        "35": {
+            "id": 35,
+            "file": "2026/06/meta-ads.svg",
+            "filename": "meta-ads.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/meta-ads.svg",
+            "mime": "image/svg+xml"
+        },
+        "36": {
+            "id": 36,
+            "file": "2026/06/SMM.svg",
+            "filename": "SMM.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/SMM.svg",
+            "mime": "image/svg+xml"
+        },
+        "37": {
+            "id": 37,
+            "file": "2026/06/retention.svg",
+            "filename": "retention.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/retention.svg",
+            "mime": "image/svg+xml"
+        },
+        "46": {
+            "id": 46,
+            "file": "2026/06/same-flooring-1.webp",
+            "filename": "same-flooring-1.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/same-flooring-1.webp",
+            "mime": "image/webp"
+        },
+        "143": {
+            "id": 143,
+            "file": "2026/05/badger-granite-logo.webp",
+            "filename": "badger-granite-logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/badger-granite-logo.webp",
+            "mime": "image/webp"
+        },
+        "354": {
+            "id": 354,
+            "file": "2026/06/cheapbill-logo.webp",
+            "filename": "cheapbill-logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/cheapbill-logo.webp",
+            "mime": "image/webp"
+        },
+        "39": {
+            "id": 39,
+            "file": "2026/06/Lead-Generation2.svg",
+            "filename": "Lead-Generation2.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/Lead-Generation2.svg",
+            "mime": "image/svg+xml"
+        },
+        "204": {
+            "id": 204,
+            "file": "2026/05/same-flooring.webp",
+            "filename": "same-flooring.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/same-flooring.webp",
+            "mime": "image/webp"
+        },
+        "189": {
+            "id": 189,
+            "file": "2026/05/noveMed-urgent-logo.webp",
+            "filename": "noveMed-urgent-logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/noveMed-urgent-logo.webp",
+            "mime": "image/webp"
+        },
+        "63": {
+            "id": 63,
+            "file": "2026/06/cypress-dental-logo.webp",
+            "filename": "cypress-dental-logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/cypress-dental-logo.webp",
+            "mime": "image/webp"
+        },
+        "62": {
+            "id": 62,
+            "file": "2026/06/arynova_logo.webp",
+            "filename": "arynova_logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/arynova_logo.webp",
+            "mime": "image/webp"
+        },
+        "50": {
+            "id": 50,
+            "file": "2026/06/uib_food-ogo.webp",
+            "filename": "uib_food-ogo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/uib_food-ogo.webp",
+            "mime": "image/webp"
+        },
+        "188": {
+            "id": 188,
+            "file": "2026/05/MIC-Logo_.webp",
+            "filename": "MIC-Logo_.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/MIC-Logo_.webp",
+            "mime": "image/webp"
+        },
+        "260": {
+            "id": 260,
+            "file": "2026/06/LOGO-BADGER-CABINET-02-1024x372.webp",
+            "filename": "LOGO-BADGER-CABINET-02-1024x372.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/LOGO-BADGER-CABINET-02-1024x372.webp",
+            "mime": "image/webp"
+        },
+        "170": {
+            "id": 170,
+            "file": "2026/05/focused.svg",
+            "filename": "focused.svg",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/focused.svg",
+            "mime": "image/svg+xml"
+        },
+        "159": {
+            "id": 159,
+            "file": "2026/05/columbus_cabinets_city_logo.webp",
+            "filename": "columbus_cabinets_city_logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/columbus_cabinets_city_logo.webp",
+            "mime": "image/webp"
+        },
+        "457": {
+            "id": 457,
+            "file": "2026/07/kitchen-cabinet.webp",
+            "filename": "kitchen-cabinet.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/07/kitchen-cabinet.webp",
+            "mime": "image/webp"
+        },
+        "213": {
+            "id": 213,
+            "file": "2026/05/usa-marble-logo.webp",
+            "filename": "usa-marble-logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/usa-marble-logo.webp",
+            "mime": "image/webp"
+        },
+        "60": {
+            "id": 60,
+            "file": "2026/06/anatolia_logo.webp",
+            "filename": "anatolia_logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/anatolia_logo.webp",
+            "mime": "image/webp"
+        },
+        "61": {
+            "id": 61,
+            "file": "2026/06/artline_logo.webp",
+            "filename": "artline_logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/artline_logo.webp",
+            "mime": "image/webp"
+        },
+        "67": {
+            "id": 67,
+            "file": "2026/06/ASHIKA-Logo.webp",
+            "filename": "ASHIKA-Logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/ASHIKA-Logo.webp",
+            "mime": "image/webp"
+        },
+        "142": {
+            "id": 142,
+            "file": "2026/05/badger-cabinest.webp",
+            "filename": "badger-cabinest.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/badger-cabinest.webp",
+            "mime": "image/webp"
+        },
+        "59": {
+            "id": 59,
+            "file": "2026/06/cabinetsmke_logo.webp",
+            "filename": "cabinetsmke_logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/cabinetsmke_logo.webp",
+            "mime": "image/webp"
+        },
+        "154": {
+            "id": 154,
+            "file": "2026/05/cb_logo.webp",
+            "filename": "cb_logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/cb_logo.webp",
+            "mime": "image/webp"
+        },
+        "458": {
+            "id": 458,
+            "file": "2026/07/smile4ever-logo2.webp",
+            "filename": "smile4ever-logo2.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/07/smile4ever-logo2.webp",
+            "mime": "image/webp"
+        },
+        "58": {
+            "id": 58,
+            "file": "2026/06/columbus_cabinets_city_logo.webp",
+            "filename": "columbus_cabinets_city_logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/columbus_cabinets_city_logo.webp",
+            "mime": "image/webp"
+        },
+        "55": {
+            "id": 55,
+            "file": "2026/06/epoxy-logo.webp",
+            "filename": "epoxy-logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/epoxy-logo.webp",
+            "mime": "image/webp"
+        },
+        "56": {
+            "id": 56,
+            "file": "2026/06/esos_countertops_cabinets_logo.webp",
+            "filename": "esos_countertops_cabinets_logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/esos_countertops_cabinets_logo.webp",
+            "mime": "image/webp"
+        },
+        "57": {
+            "id": 57,
+            "file": "2026/06/glowup-dentistry.webp",
+            "filename": "glowup-dentistry.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/glowup-dentistry.webp",
+            "mime": "image/webp"
+        },
+        "459": {
+            "id": 459,
+            "file": "2026/07/columbus-flooring-city.webp",
+            "filename": "columbus-flooring-city.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/07/columbus-flooring-city.webp",
+            "mime": "image/webp"
+        },
+        "54": {
+            "id": 54,
+            "file": "2026/06/Pali-pali-logo.webp",
+            "filename": "Pali-pali-logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/Pali-pali-logo.webp",
+            "mime": "image/webp"
+        },
+        "460": {
+            "id": 460,
+            "file": "2026/07/novemed-womens-care.webp",
+            "filename": "novemed-womens-care.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/07/novemed-womens-care.webp",
+            "mime": "image/webp"
+        },
+        "47": {
+            "id": 47,
+            "file": "2026/06/pressure-king-logo.webp",
+            "filename": "pressure-king-logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/pressure-king-logo.webp",
+            "mime": "image/webp"
+        },
+        "53": {
+            "id": 53,
+            "file": "2026/06/rug_gallery-logo.webp",
+            "filename": "rug_gallery-logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/06/rug_gallery-logo.webp",
+            "mime": "image/webp"
+        },
+        "205": {
+            "id": 205,
+            "file": "2026/05/sams_log.webp",
+            "filename": "sams_log.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/05/sams_log.webp",
+            "mime": "image/webp"
+        },
+        "461": {
+            "id": 461,
+            "file": "2026/07/strand_logo.webp",
+            "filename": "strand_logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/07/strand_logo.webp",
+            "mime": "image/webp"
+        },
+        "462": {
+            "id": 462,
+            "file": "2026/07/south-shore-logo.webp",
+            "filename": "south-shore-logo.webp",
+            "url": "http://localhost/new-smart-leading/wp-content/uploads/2026/07/south-shore-logo.webp",
+            "mime": "image/webp"
+        }
+    }
+}

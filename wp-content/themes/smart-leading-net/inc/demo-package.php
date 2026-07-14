@@ -100,6 +100,88 @@ function sln_demo_package_growth_meta_keys() {
 }
 
 /**
+ * Collect all exportable Smart Leading post meta for a Growth Page.
+ *
+ * @param int $post_id Post ID.
+ * @return array<string, mixed>
+ */
+function sln_demo_package_collect_growth_page_meta( $post_id ) {
+	$post_id = absint( $post_id );
+	$meta    = array();
+
+	if ( ! $post_id ) {
+		return $meta;
+	}
+
+	$banner = array();
+
+	if ( function_exists( 'sln_growth_page_get_banner_field_map' ) ) {
+		foreach ( sln_growth_page_get_banner_field_map() as $field => $meta_key ) {
+			$banner[ $field ] = get_post_meta( $post_id, $meta_key, true );
+		}
+	}
+
+	$meta['banner'] = $banner;
+
+	$raw = get_post_meta( $post_id );
+
+	if ( ! is_array( $raw ) ) {
+		return $meta;
+	}
+
+	foreach ( $raw as $meta_key => $values ) {
+		if ( ! is_string( $meta_key ) ) {
+			continue;
+		}
+
+		// Skip noisy / transient WP keys.
+		if ( in_array( $meta_key, array( '_edit_lock', '_edit_last', '_wp_old_slug', '_wp_page_template' ), true ) ) {
+			continue;
+		}
+
+		$is_sln = ( 0 === strpos( $meta_key, '_sln_' ) );
+		$is_thumb = ( '_thumbnail_id' === $meta_key );
+
+		if ( ! $is_sln && ! $is_thumb ) {
+			continue;
+		}
+
+		$value = maybe_unserialize( $values[0] ?? '' );
+
+		// Avoid duplicating banner fields already nested under "banner".
+		if ( $is_sln && function_exists( 'sln_growth_page_get_banner_field_map' ) ) {
+			if ( in_array( $meta_key, array_values( sln_growth_page_get_banner_field_map() ), true ) ) {
+				continue;
+			}
+		}
+
+		$meta[ $meta_key ] = $value;
+	}
+
+	return $meta;
+}
+
+/**
+ * Whether a meta key is allowed during Growth Page package import.
+ *
+ * @param string $meta_key Meta key.
+ * @return bool
+ */
+function sln_demo_package_is_importable_growth_meta_key( $meta_key ) {
+	$meta_key = (string) $meta_key;
+
+	if ( 'banner' === $meta_key || '_thumbnail_id' === $meta_key ) {
+		return true;
+	}
+
+	if ( 0 === strpos( $meta_key, '_sln_' ) ) {
+		return true;
+	}
+
+	return in_array( $meta_key, sln_demo_package_growth_meta_keys(), true );
+}
+
+/**
  * Whether a key looks like an attachment ID field.
  *
  * @param string|int $key Array key.
@@ -108,7 +190,7 @@ function sln_demo_package_growth_meta_keys() {
 function sln_demo_package_is_attachment_key( $key ) {
 	$key = (string) $key;
 
-	if ( in_array( $key, array( 'image_id', 'icon_id', 'logo_id', 'tab_icon_id', 'banner_image_id', 'background_image_id', 'hero_image_id' ), true ) ) {
+	if ( in_array( $key, array( 'image_id', 'icon_id', 'logo_id', 'tab_icon_id', 'banner_image_id', 'background_image_id', 'hero_image_id', '_thumbnail_id' ), true ) ) {
 		return true;
 	}
 

@@ -203,9 +203,3 @@ $hero_sizes  = sln_get_hero_lcp_image_sizes();
 		</div>
 	</div>
 </section>
-
-<section id="sln-new-section-added" class="sln-new-section section-padding" style="background:#ecf2fc;padding:48px 20px;text-align:center;">
-	<div class="sls-container">
-		<h2 class="section-title" style="margin:0;font-size:40px;color:#222222;">NEW section added (1)</h2>
-	</div>
-</section>
