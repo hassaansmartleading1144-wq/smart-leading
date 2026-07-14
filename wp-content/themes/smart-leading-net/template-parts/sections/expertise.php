@@ -74,38 +74,19 @@ $expertise_items = array(
 
 				<div class="expertise__media">
 					<div class="expertise__media-mask">
-						<!--<img-->
-						<!--	class="expertise__gif"-->
-						<!--	src="<?php echo esc_url( $expertise_gif ); ?>"-->
-						<!--	alt="<?php esc_attr_e( 'Marketing platforms and tools we work with', 'smart-leading-net' ); ?>"-->
-						<!--	width="640"-->
-						<!--	height="640"-->
-						<!--	loading="lazy"-->
-						<!--	decoding="async"-->
-						<!--/>-->
-						<!--<span class="expertise__media-overlay expertise__media-overlay--top" aria-hidden="true"></span>-->
-						<!--<span class="expertise__media-overlay expertise__media-overlay--bottom" aria-hidden="true"></span>-->
+					<img
+                            class="expertise__gif"
+                            src="<?php echo esc_url( $expertise_gif ); ?>"
+                            alt="<?php esc_attr_e( 'Marketing platforms and tools we work with', 'smart-leading-net' ); ?>"
+                            width="640"
+                            height="640"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <span class="expertise__media-overlay expertise__media-overlay--top" aria-hidden="true"></span>
+                        <span class="expertise__media-overlay expertise__media-overlay--bottom" aria-hidden="true"></span>
 						
-						<iframe
-    src="https://api.leadconnectorhq.com/widget/form/D1Xax46qCYrJaPCKfsWj"
-    style="width:100%;height:100%;border:none;border-radius:8px"
-    id="inline-D1Xax46qCYrJaPCKfsWj" 
-    data-layout="{'id':'INLINE'}"
-    data-trigger-type="alwaysShow"
-    data-trigger-value=""
-    data-activation-type="alwaysActivated"
-    data-activation-value=""
-    data-deactivation-type="neverDeactivate"
-    data-deactivation-value=""
-    data-form-name="Form 0"
-    data-height="882"
-    data-layout-iframe-id="inline-D1Xax46qCYrJaPCKfsWj"
-    data-form-id="D1Xax46qCYrJaPCKfsWj"
-    title="Form 0"
-    
-        >
-</iframe>
-<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+						
 						
 					</div>
 				</div>

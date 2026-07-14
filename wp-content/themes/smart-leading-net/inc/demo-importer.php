@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'SLN_DEMO_DIR', SLN_THEME_DIR . '/demo' );
 define( 'SLN_DEMO_MEDIA_DIR', SLN_DEMO_DIR . '/media' );
 define( 'SLN_DEMO_IMPORT_OPTION', 'sln_demo_import_completed' );
-define( 'SLN_DEMO_IMPORT_VERSION', '1.0.0' );
+define( 'SLN_DEMO_IMPORT_VERSION', '2.0.0' );
 
 /**
  * Demo importer orchestrator.
@@ -62,11 +62,33 @@ final class SLN_Demo_Importer {
 	private $theme_options = array();
 
 	/**
+	 * Full export package options payload (live values).
+	 *
+	 * @var array<string, mixed>
+	 */
+	private $package_options = array();
+
+	/**
+	 * Whether this run uses an uploaded export package.
+	 *
+	 * @var bool
+	 */
+	private $from_package = false;
+
+	/**
+	 * Temporary extracted ZIP directory to clean up.
+	 *
+	 * @var string
+	 */
+	private $temp_extract_dir = '';
+
+	/**
 	 * Register admin hooks.
 	 */
 	public static function init() {
 		add_action( 'admin_menu', array( __CLASS__, 'register_admin_page' ) );
 		add_action( 'admin_post_sln_import_demo', array( __CLASS__, 'handle_import_request' ) );
+		add_action( 'admin_post_sln_import_demo_package', array( __CLASS__, 'handle_package_import_request' ) );
 		add_action( 'admin_notices', array( __CLASS__, 'render_admin_notices' ) );
 	}
 
@@ -96,7 +118,7 @@ final class SLN_Demo_Importer {
 		<div class="wrap">
 			<h1><?php esc_html_e( 'Smart Leading Theme Setup', 'smart-leading-net' ); ?></h1>
 
-			<p><?php esc_html_e( 'Import the complete Smart Leading demo website in one click. This creates pages, menus, media, theme settings, and a sample Growth Page.', 'smart-leading-net' ); ?></p>
+			<p><?php esc_html_e( 'Export your live Smart Leading configuration, or import a demo package onto a fresh WordPress install.', 'smart-leading-net' ); ?></p>
 
 			<?php if ( $imported ) : ?>
 				<div class="notice notice-info inline">
@@ -104,20 +126,49 @@ final class SLN_Demo_Importer {
 				</div>
 			<?php endif; ?>
 
+			<hr />
+
+			<h2><?php esc_html_e( 'Export Demo Package', 'smart-leading-net' ); ?></h2>
+			<p><?php esc_html_e( 'Download a ZIP (or JSON) snapshot of pages, menus, Growth Pages, SEO/Portfolio meta, Our Services, Our Projects, Credibility, GHL settings, and media references from this site.', 'smart-leading-net' ); ?></p>
+			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+				<?php wp_nonce_field( 'sln_export_demo', 'sln_export_demo_nonce' ); ?>
+				<input type="hidden" name="action" value="sln_export_demo">
+				<?php submit_button( __( 'Export Demo Package', 'smart-leading-net' ), 'secondary', 'submit', false ); ?>
+			</form>
+
+			<hr />
+
+			<h2><?php esc_html_e( 'Demo Import', 'smart-leading-net' ); ?></h2>
+			<p><?php esc_html_e( 'Upload an exported Smart Leading package (.zip or .json). This restores menus, theme options, page meta, Growth Pages, and assigns the Primary / Footer menus and front page.', 'smart-leading-net' ); ?></p>
+			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" enctype="multipart/form-data">
+				<?php wp_nonce_field( 'sln_import_demo_package', 'sln_import_demo_package_nonce' ); ?>
+				<input type="hidden" name="action" value="sln_import_demo_package">
+				<p>
+					<label for="sln-demo-package-file"><strong><?php esc_html_e( 'Package file', 'smart-leading-net' ); ?></strong></label><br />
+					<input type="file" id="sln-demo-package-file" name="sln_demo_package" accept=".json,.zip,application/json,application/zip" required />
+				</p>
+				<?php submit_button( __( 'Import Uploaded Package', 'smart-leading-net' ), 'primary', 'submit', false ); ?>
+			</form>
+
+			<hr />
+
+			<h2><?php esc_html_e( 'One-Click Bundled Demo', 'smart-leading-net' ); ?></h2>
+			<p><?php esc_html_e( 'Import the demo files shipped inside the theme /demo folder (defaults + bundled SVG media). Prefer an exported package when migrating a configured site.', 'smart-leading-net' ); ?></p>
 			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 				<?php wp_nonce_field( 'sln_import_demo', 'sln_import_demo_nonce' ); ?>
 				<input type="hidden" name="action" value="sln_import_demo">
-				<?php submit_button( __( 'Import Demo Website', 'smart-leading-net' ), 'primary', 'submit', false ); ?>
+				<?php submit_button( __( 'Import Bundled Demo Website', 'smart-leading-net' ), 'secondary', 'submit', false ); ?>
 			</form>
 
 			<h2><?php esc_html_e( 'What gets imported', 'smart-leading-net' ); ?></h2>
 			<ul style="list-style:disc;padding-left:1.5rem;">
-				<li><?php esc_html_e( 'Pages: Home, About Us, Contact Us, Privacy Policy, Terms of Service', 'smart-leading-net' ); ?></li>
-				<li><?php esc_html_e( 'Growth Page CPT: Revenue Growth (all section meta)', 'smart-leading-net' ); ?></li>
-				<li><?php esc_html_e( 'Primary and footer navigation menus', 'smart-leading-net' ); ?></li>
-				<li><?php esc_html_e( 'Theme options: Our Services, Our Projects, Credibility logos', 'smart-leading-net' ); ?></li>
-				<li><?php esc_html_e( 'Demo media (images, SVG, WebP) from the theme package', 'smart-leading-net' ); ?></li>
-				<li><?php esc_html_e( 'Static front page assignment (Home)', 'smart-leading-net' ); ?></li>
+				<li><?php esc_html_e( 'Required pages (Home, About Us, Services/SEO, Contact, Career, Portfolio, etc.)', 'smart-leading-net' ); ?></li>
+				<li><?php esc_html_e( 'Primary Menu + Footer Services + Footer Quick Links (assigned automatically)', 'smart-leading-net' ); ?></li>
+				<li><?php esc_html_e( 'Our Services, Our Projects, Credibility, GHL Integration settings', 'smart-leading-net' ); ?></li>
+				<li><?php esc_html_e( 'SEO Services page meta and Portfolio page meta', 'smart-leading-net' ); ?></li>
+				<li><?php esc_html_e( 'Growth Pages CPT data and section meta', 'smart-leading-net' ); ?></li>
+				<li><?php esc_html_e( 'Media files included in the package (ZIP) or theme /demo/media folder', 'smart-leading-net' ); ?></li>
+				<li><?php esc_html_e( 'Front page (and blog page if configured in the package)', 'smart-leading-net' ); ?></li>
 			</ul>
 		</div>
 		<?php
@@ -147,6 +198,52 @@ final class SLN_Demo_Importer {
 			if ( defined( 'WP_DEBUG' ) && WP_DEBUG && defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
 				error_log( // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 					'[SLN Demo Import] ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine()
+				);
+			}
+		}
+
+		$redirect = add_query_arg(
+			array(
+				'page'       => 'sln-theme-setup',
+				'sln_import' => $result ? 'success' : 'error',
+			),
+			admin_url( 'themes.php' )
+		);
+
+		wp_safe_redirect( $redirect );
+		exit;
+	}
+
+	/**
+	 * Handle uploaded demo package import.
+	 */
+	public static function handle_package_import_request() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( esc_html__( 'You do not have permission to import demo content.', 'smart-leading-net' ) );
+		}
+
+		check_admin_referer( 'sln_import_demo_package', 'sln_import_demo_package_nonce' );
+
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		require_once ABSPATH . 'wp-admin/includes/media.php';
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+		require_once ABSPATH . 'wp-admin/includes/nav-menu.php';
+
+		$result = false;
+
+		try {
+			if ( empty( $_FILES['sln_demo_package']['tmp_name'] ) ) {
+				throw new RuntimeException( 'No package file uploaded.' );
+			}
+
+			$file = $_FILES['sln_demo_package']; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+
+			$importer = new self();
+			$result   = $importer->run_from_upload( $file );
+		} catch ( Throwable $e ) {
+			if ( defined( 'WP_DEBUG' ) && WP_DEBUG && defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
+				error_log( // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+					'[SLN Demo Import Package] ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine()
 				);
 			}
 		}
@@ -230,6 +327,222 @@ final class SLN_Demo_Importer {
 		flush_rewrite_rules( false );
 
 		return true;
+	}
+
+	/**
+	 * Import from an uploaded JSON or ZIP package.
+	 *
+	 * @param array<string, mixed> $file $_FILES entry.
+	 * @return bool
+	 */
+	public function run_from_upload( array $file ) {
+		if ( function_exists( 'set_time_limit' ) ) {
+			set_time_limit( 300 );
+		}
+
+		if ( function_exists( 'wp_raise_memory_limit' ) ) {
+			wp_raise_memory_limit( 'admin' );
+		}
+
+		$tmp_name = isset( $file['tmp_name'] ) ? (string) $file['tmp_name'] : '';
+		$name     = isset( $file['name'] ) ? (string) $file['name'] : '';
+
+		if ( '' === $tmp_name || ! is_uploaded_file( $tmp_name ) ) {
+			return false;
+		}
+
+		$ext = strtolower( pathinfo( $name, PATHINFO_EXTENSION ) );
+
+		if ( 'zip' === $ext ) {
+			if ( ! $this->load_package_from_zip( $tmp_name ) ) {
+				return false;
+			}
+		} elseif ( 'json' === $ext ) {
+			$json = (string) file_get_contents( $tmp_name );
+			$pkg  = sln_demo_package_decode( $json );
+
+			if ( is_wp_error( $pkg ) || ! $this->hydrate_from_package( $pkg ) ) {
+				return false;
+			}
+		} else {
+			return false;
+		}
+
+		$this->from_package = true;
+		$this->import_media();
+
+		if ( $this->temp_extract_dir ) {
+			$this->import_package_media_dir( trailingslashit( $this->temp_extract_dir ) . 'media' );
+		}
+
+		$this->import_pages();
+		$this->import_growth_pages();
+		$this->import_menus();
+		$this->import_theme_options();
+		$this->import_wordpress_settings();
+		$this->cleanup_temp_extract();
+
+		update_option( SLN_DEMO_IMPORT_OPTION, SLN_DEMO_PACKAGE_VERSION );
+		update_option( 'sln_growth_page_flush_rewrite', SLN_GP_CPT_VERSION );
+		flush_rewrite_rules( false );
+
+		return true;
+	}
+
+	/**
+	 * Load and extract a ZIP package.
+	 *
+	 * @param string $zip_path Uploaded zip path.
+	 * @return bool
+	 */
+	private function load_package_from_zip( $zip_path ) {
+		if ( ! class_exists( 'ZipArchive' ) ) {
+			return false;
+		}
+
+		$upload_dir = wp_upload_dir();
+
+		if ( ! empty( $upload_dir['error'] ) ) {
+			return false;
+		}
+
+		$extract_dir = trailingslashit( $upload_dir['basedir'] ) . 'sln-demo-import-' . wp_generate_password( 8, false );
+
+		if ( ! wp_mkdir_p( $extract_dir ) ) {
+			return false;
+		}
+
+		$zip = new ZipArchive();
+
+		if ( true !== $zip->open( $zip_path ) ) {
+			return false;
+		}
+
+		$zip->extractTo( $extract_dir );
+		$zip->close();
+
+		$this->temp_extract_dir = $extract_dir;
+
+		$json_path = '';
+
+		foreach ( array( 'sln-demo-export.json', 'demo-package.json', 'demo-content.json' ) as $candidate ) {
+			$try = trailingslashit( $extract_dir ) . $candidate;
+
+			if ( file_exists( $try ) ) {
+				$json_path = $try;
+				break;
+			}
+		}
+
+		if ( ! $json_path ) {
+			$matches = glob( $extract_dir . '/*.json' );
+			$json_path = ! empty( $matches[0] ) ? $matches[0] : '';
+		}
+
+		if ( ! $json_path ) {
+			$this->cleanup_temp_extract();
+			return false;
+		}
+
+		$pkg = sln_demo_package_decode( (string) file_get_contents( $json_path ) );
+
+		if ( is_wp_error( $pkg ) || ! $this->hydrate_from_package( $pkg ) ) {
+			$this->cleanup_temp_extract();
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Map package array into importer content/options state.
+	 *
+	 * @param array<string, mixed> $package Package.
+	 * @return bool
+	 */
+	private function hydrate_from_package( array $package ) {
+		if ( ! empty( $package['content'] ) && is_array( $package['content'] ) ) {
+			$this->content = $package['content'];
+		} else {
+			$this->content = array(
+				'pages'        => $package['pages'] ?? array(),
+				'growth_pages' => $package['growth_pages'] ?? array(),
+				'menus'        => $package['menus'] ?? array(),
+				'wordpress'    => $package['wordpress'] ?? array(),
+			);
+		}
+
+		if ( ! empty( $package['url_replace_from'] ) && is_array( $package['url_replace_from'] ) ) {
+			$this->content['url_replace_from'] = $package['url_replace_from'];
+		}
+
+		$this->package_options = ! empty( $package['options'] ) && is_array( $package['options'] )
+			? $package['options']
+			: array();
+
+		if ( ! empty( $package['theme_mods'] ) && is_array( $package['theme_mods'] ) ) {
+			$this->theme_options['theme_mods'] = $package['theme_mods'];
+		}
+
+		return ! empty( $this->content['pages'] ) || ! empty( $this->content['menus'] ) || ! empty( $this->package_options );
+	}
+
+	/**
+	 * Import media files shipped inside an export ZIP.
+	 *
+	 * @param string $media_dir Absolute media directory.
+	 */
+	private function import_package_media_dir( $media_dir ) {
+		if ( ! is_dir( $media_dir ) ) {
+			return;
+		}
+
+		$iterator = new RecursiveIteratorIterator(
+			new RecursiveDirectoryIterator( $media_dir, FilesystemIterator::SKIP_DOTS )
+		);
+
+		foreach ( $iterator as $file ) {
+			if ( ! $file->isFile() ) {
+				continue;
+			}
+
+			$filename = $file->getFilename();
+
+			if ( 'index.php' === $filename || 0 === strpos( $filename, '.' ) ) {
+				continue;
+			}
+
+			$relative = ltrim( str_replace( '\\', '/', substr( $file->getPathname(), strlen( $media_dir ) ) ), '/' );
+			$this->register_demo_file( $file->getPathname(), $relative );
+		}
+	}
+
+	/**
+	 * Remove temporary extract directory.
+	 */
+	private function cleanup_temp_extract() {
+		if ( ! $this->temp_extract_dir || ! is_dir( $this->temp_extract_dir ) ) {
+			$this->temp_extract_dir = '';
+			return;
+		}
+
+		$iterator = new RecursiveIteratorIterator(
+			new RecursiveDirectoryIterator( $this->temp_extract_dir, FilesystemIterator::SKIP_DOTS ),
+			RecursiveIteratorIterator::CHILD_FIRST
+		);
+
+		foreach ( $iterator as $file ) {
+			$path = $file->getPathname();
+
+			if ( $file->isDir() ) {
+				rmdir( $path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_rmdir
+			} else {
+				unlink( $path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.unlink_unlink
+			}
+		}
+
+		rmdir( $this->temp_extract_dir ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_rmdir
+		$this->temp_extract_dir = '';
 	}
 
 	/**
@@ -479,7 +792,64 @@ final class SLN_Demo_Importer {
 			delete_post_meta( $page_id, '_wp_page_template' );
 		}
 
+		if ( ! empty( $page_data['meta'] ) && is_array( $page_data['meta'] ) ) {
+			$this->apply_page_meta( $page_id, $page_data['meta'] );
+		}
+
 		return $page_id;
+	}
+
+	/**
+	 * Apply page-level Smart Leading meta (SEO / Portfolio).
+	 *
+	 * @param int                  $page_id Page ID.
+	 * @param array<string, mixed> $meta    Meta map.
+	 */
+	private function apply_page_meta( $page_id, array $meta ) {
+		$allowed = array_merge(
+			sln_demo_package_seo_meta_keys(),
+			sln_demo_package_portfolio_meta_keys()
+		);
+
+		$remapped = sln_demo_package_remap_media_ids( $meta, $this->media_map, $this->basename_map );
+
+		foreach ( $remapped as $meta_key => $value ) {
+			if ( ! in_array( $meta_key, $allowed, true ) ) {
+				continue;
+			}
+
+			if ( is_string( $value ) ) {
+				$value = $this->replace_urls( $value );
+			} elseif ( is_array( $value ) ) {
+				$value = $this->replace_urls_deep( $value );
+			}
+
+			update_post_meta( $page_id, $meta_key, $value );
+		}
+	}
+
+	/**
+	 * Recursively replace URLs inside arrays/strings.
+	 *
+	 * @param mixed $data Data.
+	 * @return mixed
+	 */
+	private function replace_urls_deep( $data ) {
+		if ( is_string( $data ) ) {
+			return $this->replace_urls( $data );
+		}
+
+		if ( ! is_array( $data ) ) {
+			return $data;
+		}
+
+		$out = array();
+
+		foreach ( $data as $key => $value ) {
+			$out[ $key ] = $this->replace_urls_deep( $value );
+		}
+
+		return $out;
 	}
 
 	/**
@@ -541,9 +911,60 @@ final class SLN_Demo_Importer {
 		}
 
 		$post_id = absint( $post_id );
-		$this->apply_growth_page_meta( $post_id );
+
+		if ( ! empty( $gp_data['meta'] ) && is_array( $gp_data['meta'] ) ) {
+			$this->apply_growth_page_meta_from_package( $post_id, $gp_data['meta'] );
+		} else {
+			$this->apply_growth_page_meta( $post_id );
+		}
 
 		return $post_id;
+	}
+
+	/**
+	 * Apply Growth Page meta from an export package.
+	 *
+	 * @param int                  $post_id Post ID.
+	 * @param array<string, mixed> $meta    Meta payload.
+	 */
+	private function apply_growth_page_meta_from_package( $post_id, array $meta ) {
+		$meta = sln_demo_package_remap_media_ids( $meta, $this->media_map, $this->basename_map );
+
+		if ( ! empty( $meta['banner'] ) && is_array( $meta['banner'] ) && function_exists( 'sln_growth_page_get_banner_field_map' ) ) {
+			$fields = sln_growth_page_get_banner_field_map();
+
+			foreach ( $fields as $key => $meta_key ) {
+				if ( ! array_key_exists( $key, $meta['banner'] ) ) {
+					continue;
+				}
+
+				$value = $meta['banner'][ $key ];
+
+				if ( 'banner_image_id' === $key ) {
+					$value = absint( $value );
+				} else {
+					$value = $this->replace_urls( (string) $value );
+				}
+
+				update_post_meta( $post_id, $meta_key, $value );
+			}
+		}
+
+		foreach ( sln_demo_package_growth_meta_keys() as $meta_key ) {
+			if ( ! array_key_exists( $meta_key, $meta ) ) {
+				continue;
+			}
+
+			$value = $meta[ $meta_key ];
+
+			if ( is_string( $value ) ) {
+				$value = $this->replace_urls( $value );
+			} elseif ( is_array( $value ) ) {
+				$value = $this->replace_urls_deep( $value );
+			}
+
+			update_post_meta( $post_id, $meta_key, $value );
+		}
 	}
 
 	/**
@@ -703,37 +1124,61 @@ final class SLN_Demo_Importer {
 		$position = 1;
 
 		foreach ( $menu_config['items'] as $item ) {
-			$this->add_menu_item( (int) $menu_id, $item, $position );
-			++$position;
+			$this->add_menu_item_tree( (int) $menu_id, $item, $position, 0 );
 		}
 
 		return (int) $menu_id;
 	}
 
 	/**
+	 * Add a menu item and recursively add children.
+	 *
+	 * @param int                  $menu_id   Menu term ID.
+	 * @param array<string, mixed> $item      Item config.
+	 * @param int                  $position  Menu order.
+	 * @param int                  $parent_id Parent menu item ID.
+	 * @return int Created menu item ID.
+	 */
+	private function add_menu_item_tree( $menu_id, $item, &$position, $parent_id = 0 ) {
+		$item_id = $this->add_menu_item( $menu_id, $item, $position, $parent_id );
+		++$position;
+
+		if ( $item_id && ! empty( $item['children'] ) && is_array( $item['children'] ) ) {
+			foreach ( $item['children'] as $child ) {
+				$this->add_menu_item_tree( $menu_id, $child, $position, $item_id );
+			}
+		}
+
+		return $item_id;
+	}
+
+	/**
 	 * Add one nav menu item.
 	 *
-	 * @param int                  $menu_id  Menu term ID.
-	 * @param array<string, mixed> $item     Item config.
-	 * @param int                  $position Menu order.
+	 * @param int                  $menu_id   Menu term ID.
+	 * @param array<string, mixed> $item      Item config.
+	 * @param int                  $position  Menu order.
+	 * @param int                  $parent_id Parent menu item ID.
+	 * @return int
 	 */
-	private function add_menu_item( $menu_id, $item, $position ) {
+	private function add_menu_item( $menu_id, $item, $position, $parent_id = 0 ) {
 		$type  = sanitize_key( $item['type'] ?? 'custom' );
 		$title = sanitize_text_field( $item['title'] ?? '' );
 
 		$args = array(
-			'menu-item-title'     => $title,
-			'menu-item-status'    => 'publish',
-			'menu-item-position'  => $position,
-			'menu-item-type'      => 'custom',
-			'menu-item-url'       => '#',
+			'menu-item-title'    => $title,
+			'menu-item-status'   => 'publish',
+			'menu-item-position' => $position,
+			'menu-item-type'     => 'custom',
+			'menu-item-url'      => '#',
+			'menu-item-parent-id'=> absint( $parent_id ),
 		);
 
 		if ( 'page' === $type && ! empty( $item['slug'] ) ) {
 			$page_id = $this->page_map[ $item['slug'] ] ?? 0;
 
 			if ( ! $page_id ) {
-				$page = get_page_by_path( sanitize_title( $item['slug'] ) );
+				$page    = get_page_by_path( sanitize_title( $item['slug'] ) );
 				$page_id = $page instanceof WP_Post ? $page->ID : 0;
 			}
 
@@ -745,6 +1190,19 @@ final class SLN_Demo_Importer {
 			}
 		} elseif ( 'growth_page' === $type && ! empty( $item['slug'] ) ) {
 			$gp_id = $this->growth_page_map[ $item['slug'] ] ?? 0;
+
+			if ( ! $gp_id ) {
+				$found = get_posts(
+					array(
+						'name'           => sanitize_title( $item['slug'] ),
+						'post_type'      => SLN_GROWTH_PAGE_POST_TYPE,
+						'posts_per_page' => 1,
+						'post_status'    => array( 'publish', 'draft', 'private' ),
+						'fields'         => 'ids',
+					)
+				);
+				$gp_id = ! empty( $found[0] ) ? absint( $found[0] ) : 0;
+			}
 
 			if ( $gp_id ) {
 				$args['menu-item-type']      = 'post_type';
@@ -762,13 +1220,20 @@ final class SLN_Demo_Importer {
 			$args['menu-item-url'] = esc_url_raw( $url );
 		}
 
-		wp_update_nav_menu_item( $menu_id, 0, $args );
+		$item_id = wp_update_nav_menu_item( $menu_id, 0, $args );
+
+		return is_wp_error( $item_id ) ? 0 : absint( $item_id );
 	}
 
 	/**
 	 * Import theme options and mods.
 	 */
 	private function import_theme_options() {
+		if ( $this->from_package && ! empty( $this->package_options ) ) {
+			$this->import_package_options();
+			return;
+		}
+
 		$options_config = $this->theme_options['options'] ?? array();
 
 		if ( isset( $options_config['sln_our_services_settings'] ) ) {
@@ -791,12 +1256,69 @@ final class SLN_Demo_Importer {
 
 		if ( ! empty( $this->theme_options['theme_mods'] ) && is_array( $this->theme_options['theme_mods'] ) ) {
 			foreach ( $this->theme_options['theme_mods'] as $mod_key => $mod_value ) {
+				if ( 'nav_menu_locations' === $mod_key ) {
+					continue;
+				}
+
 				if ( is_string( $mod_value ) && isset( $this->media_map[ ltrim( $mod_value, '/' ) ] ) ) {
 					$mod_value = $this->media_map[ ltrim( $mod_value, '/' ) ];
 				}
 
 				set_theme_mod( sanitize_key( $mod_key ), $mod_value );
 			}
+		}
+	}
+
+	/**
+	 * Import live option values from an export package.
+	 */
+	private function import_package_options() {
+		foreach ( $this->package_options as $option_key => $value ) {
+			if ( ! in_array( $option_key, sln_demo_package_option_keys(), true ) ) {
+				continue;
+			}
+
+			$value = sln_demo_package_remap_media_ids( $value, $this->media_map, $this->basename_map );
+			$value = $this->replace_urls_deep( $value );
+
+			if ( SLN_OUR_SERVICES_OPTION === $option_key && function_exists( 'sln_normalize_our_services_settings' ) ) {
+				update_option( $option_key, sln_normalize_our_services_settings( is_array( $value ) ? $value : array() ) );
+				continue;
+			}
+
+			if ( SLN_OUR_PROJECTS_OPTION === $option_key && function_exists( 'sln_normalize_our_projects_settings' ) ) {
+				update_option( $option_key, sln_normalize_our_projects_settings( is_array( $value ) ? $value : array() ) );
+				continue;
+			}
+
+			if ( SLN_CREDIBILITY_OPTION === $option_key && function_exists( 'sln_normalize_credibility_settings' ) ) {
+				update_option( $option_key, sln_normalize_credibility_settings( is_array( $value ) ? $value : array() ) );
+				continue;
+			}
+
+			if ( SLN_GHL_OPTION === $option_key && is_array( $value ) ) {
+				$existing = get_option( SLN_GHL_OPTION, array() );
+				$token    = (string) ( $value['private_token'] ?? '' );
+
+				if ( '__PRESERVE_OR_SET_MANUALLY__' === $token ) {
+					$value['private_token'] = is_array( $existing ) ? (string) ( $existing['private_token'] ?? '' ) : '';
+				}
+
+				if ( function_exists( 'sln_sanitize_ghl_settings' ) ) {
+					update_option( SLN_GHL_OPTION, sln_sanitize_ghl_settings( $value ) );
+				} else {
+					update_option(
+						SLN_GHL_OPTION,
+						array(
+							'private_token' => sanitize_text_field( $value['private_token'] ?? '' ),
+							'location_id'   => sanitize_text_field( $value['location_id'] ?? SLN_GHL_DEFAULT_LOCATION_ID ),
+						)
+					);
+				}
+				continue;
+			}
+
+			update_option( $option_key, $value );
 		}
 	}
 
@@ -886,7 +1408,7 @@ final class SLN_Demo_Importer {
 			$page_id = $this->page_map[ $slug ] ?? 0;
 
 			if ( ! $page_id ) {
-				$page = get_page_by_path( $slug );
+				$page    = get_page_by_path( $slug );
 				$page_id = $page instanceof WP_Post ? $page->ID : 0;
 			}
 
@@ -896,6 +1418,20 @@ final class SLN_Demo_Importer {
 			}
 		} elseif ( ! empty( $wp_config['show_on_front'] ) ) {
 			update_option( 'show_on_front', sanitize_key( $wp_config['show_on_front'] ) );
+		}
+
+		if ( ! empty( $wp_config['page_for_posts_slug'] ) ) {
+			$slug    = sanitize_title( $wp_config['page_for_posts_slug'] );
+			$page_id = $this->page_map[ $slug ] ?? 0;
+
+			if ( ! $page_id ) {
+				$page    = get_page_by_path( $slug );
+				$page_id = $page instanceof WP_Post ? $page->ID : 0;
+			}
+
+			if ( $page_id ) {
+				update_option( 'page_for_posts', $page_id );
+			}
 		}
 	}
 

@@ -1,0 +1,72 @@
+/**
+ * Smart Leading Net — Portfolio page
+ * Hero reuses page-banner + contact-page__intro classes.
+ * Project cards reuse .project-card from our-project.css
+ */
+
+.portfolio-page__intro {
+	padding: var(--section-spacing) 0 40px;
+	background-color: var(--white);
+}
+
+.portfolio-page__intro .contact-page__intro-inner {
+	max-width: 700px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.portfolio-page__intro .contact-page__intro-title {
+	margin: 0 0 20px;
+	font-family: var(--font-family-base);
+	font-size: var(--section-title-size);
+	font-weight: var(--section-title-weight);
+	line-height: 1.15;
+	color: var(--heading-color);
+}
+
+.portfolio-page__intro .contact-page__intro-text {
+	margin: 0;
+	font-size: var(--paragraph-size);
+	font-weight: var(--paragraph-weight);
+	line-height: 1.65;
+	color: var(--text-color);
+}
+
+.portfolio-page__intro .contact-page__intro-text > :first-child {
+	margin-top: 0;
+}
+
+.portfolio-page__intro .contact-page__intro-text > :last-child {
+	margin-bottom: 0;
+}
+
+.portfolio-page__projects {
+	padding: 0 0 var(--section-spacing);
+	background-color: var(--white);
+}
+
+.portfolio-page__grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 28px;
+}
+
+.portfolio-page__grid .project-card {
+	height: 100%;
+}
+
+@media (max-width: 1199.98px) {
+	.portfolio-page__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 767.98px) {
+	.portfolio-page__projects {
+		padding-bottom: var(--section-spacing-mobile);
+	}
+
+	.portfolio-page__grid {
+		grid-template-columns: 1fr;
+	}
+}

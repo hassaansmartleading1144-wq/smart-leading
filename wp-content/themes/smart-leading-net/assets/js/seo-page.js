@@ -235,6 +235,15 @@
 			successBox.hidden = false;
 			successBox.setAttribute('tabindex', '-1');
 
+			var thankYouUrl = form.getAttribute('data-thank-you-url');
+
+			if (thankYouUrl) {
+				window.setTimeout(function () {
+					window.location.href = thankYouUrl;
+				}, 1200);
+				return;
+			}
+
 			window.requestAnimationFrame(function () {
 				window.scrollTo(0, scrollY);
 				successBox.focus({ preventScroll: true });
