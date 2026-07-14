@@ -4,16 +4,6 @@
 # Keep this file
 !.gitignore
 
-# Local Docker setup
-!docker-compose.yml
-!start-local.ps1
-!start-local.sh
-!fix-database.ps1
-!reset-local.ps1
-!diagnose.ps1
-!sync.ps1
-!LOCAL-SETUP.md
-
 # GitHub Actions workflows
 !.github/
 !.github/**
