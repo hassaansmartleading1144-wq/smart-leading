@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-	define( 'SLN_THEME_VERSION', '1.5.7' );
+define( 'SLN_THEME_VERSION', '1.7.0' );
 define( 'SLN_THEME_DIR', get_template_directory() );
 define( 'SLN_THEME_URI', get_template_directory_uri() );
 
@@ -46,12 +46,23 @@ require SLN_THEME_DIR . '/inc/growth-pages-why-choose-meta.php';
 require SLN_THEME_DIR . '/inc/growth-pages-price-plan-meta.php';
 require SLN_THEME_DIR . '/inc/growth-pages-testimonials-meta.php';
 require SLN_THEME_DIR . '/inc/growth-pages-cta-banner-meta.php';
-require SLN_THEME_DIR . '/inc/demo-importer.php';
 require SLN_THEME_DIR . '/inc/ghl-settings.php';
 require SLN_THEME_DIR . '/inc/ghl-api.php';
 require SLN_THEME_DIR . '/inc/ghl-form-handler.php';
 require SLN_THEME_DIR . '/inc/seo-page-data.php';
+require SLN_THEME_DIR . '/inc/page-template-admin-helpers.php';
+require SLN_THEME_DIR . '/inc/seo-services-helpers.php';
+require SLN_THEME_DIR . '/inc/seo-services-save.php';
+require SLN_THEME_DIR . '/inc/seo-services-admin-fields.php';
+require SLN_THEME_DIR . '/inc/seo-services-admin.php';
 require SLN_THEME_DIR . '/inc/digital-marketing-page-data.php';
+require SLN_THEME_DIR . '/inc/portfolio-page-helpers.php';
+require SLN_THEME_DIR . '/inc/portfolio-page-save.php';
+require SLN_THEME_DIR . '/inc/portfolio-page-admin-fields.php';
+require SLN_THEME_DIR . '/inc/portfolio-page-admin.php';
+require SLN_THEME_DIR . '/inc/demo-package.php';
+require SLN_THEME_DIR . '/inc/demo-importer.php';
+require SLN_THEME_DIR . '/inc/demo-exporter.php';
 require SLN_THEME_DIR . '/inc/ai-chat-api.php';
 
 /**
@@ -203,6 +214,40 @@ function sln_enqueue_workflow_assets() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_workflow_assets' );
+
+/**
+ * Enqueue new section assets on the front page only.
+ */
+function sln_enqueue_new_section_assets() {
+	if ( ! is_front_page() ) {
+		return;
+	}
+
+	wp_enqueue_style(
+		'sln-new-section',
+		SLN_THEME_URI . '/assets/css/new-section.css',
+		array( 'sln-main' ),
+		SLN_THEME_VERSION
+	);
+}
+add_action( 'wp_enqueue_scripts', 'sln_enqueue_new_section_assets' );
+
+/**
+ * Enqueue team section assets on the front page only.
+ */
+function sln_enqueue_team_assets() {
+	if ( ! is_front_page() ) {
+		return;
+	}
+
+	wp_enqueue_style(
+		'sln-team',
+		SLN_THEME_URI . '/assets/css/team.css',
+		array( 'sln-main' ),
+		SLN_THEME_VERSION
+	);
+}
+add_action( 'wp_enqueue_scripts', 'sln_enqueue_team_assets' );
 
 /**
  * Enqueue starts CTA section assets on the front page only.
@@ -361,10 +406,10 @@ function sln_enqueue_testimonials_assets() {
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_testimonials_assets' );
 
 /**
- * Enqueue credibility section assets on the front page only.
+ * Enqueue credibility section assets on the front page and Portfolio template.
  */
 function sln_enqueue_credibility_assets() {
-	if ( ! is_front_page() ) {
+	if ( ! is_front_page() && ! is_page_template( SLN_PORTFOLIO_TEMPLATE ) ) {
 		return;
 	}
 
@@ -576,3 +621,34 @@ function sln_enqueue_digital_marketing_page_assets() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_digital_marketing_page_assets' );
+
+/**
+ * Enqueue Portfolio page template assets.
+ */
+function sln_enqueue_portfolio_page_assets() {
+	if ( ! is_page_template( SLN_PORTFOLIO_TEMPLATE ) ) {
+		return;
+	}
+
+	wp_enqueue_style(
+		'sln-page-banner',
+		SLN_THEME_URI . '/assets/css/page-banner.css',
+		array( 'sln-main' ),
+		SLN_THEME_VERSION
+	);
+
+	wp_enqueue_style(
+		'sln-our-project',
+		SLN_THEME_URI . '/assets/css/our-project.css',
+		array( 'sln-main' ),
+		SLN_THEME_VERSION
+	);
+
+	wp_enqueue_style(
+		'sln-portfolio-page',
+		SLN_THEME_URI . '/assets/css/portfolio-page.css',
+		array( 'sln-page-banner', 'sln-our-project' ),
+		SLN_THEME_VERSION
+	);
+}
+add_action( 'wp_enqueue_scripts', 'sln_enqueue_portfolio_page_assets' );

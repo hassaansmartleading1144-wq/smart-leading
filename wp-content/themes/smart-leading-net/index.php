@@ -8,8 +8,7 @@
 get_header();
 
 if ( is_front_page() ) {
-	get_template_part( 'template-parts/sections/home', 'hero' );
-	get_footer();
+	locate_template( 'front-page.php', true, false );
 	return;
 }
 

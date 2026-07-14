@@ -1,5 +1,5 @@
 {
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"url_replace_from": [
 		"http://localhost/new-smart-leading",
 		"https://localhost/new-smart-leading",
@@ -29,10 +29,38 @@
 			"content": ""
 		},
 		{
+			"title": "SEO Services",
+			"slug": "seo-services",
+			"status": "publish",
+			"template": "seo-page-template.php",
+			"content": ""
+		},
+		{
 			"title": "Digital Marketing Services",
 			"slug": "digital-marketing-services",
 			"status": "publish",
 			"template": "digital-marketing-page-template.php",
+			"content": ""
+		},
+		{
+			"title": "Portfolio",
+			"slug": "portfolio",
+			"status": "publish",
+			"template": "portfolio-page-template.php",
+			"content": ""
+		},
+		{
+			"title": "Career",
+			"slug": "career",
+			"status": "publish",
+			"template": "",
+			"content": "<!-- wp:heading --><h2>Careers</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Join the Smart Leading team. Check back soon for open roles, or contact us to share your interest.</p><!-- /wp:paragraph -->"
+		},
+		{
+			"title": "Thank You",
+			"slug": "thank-you",
+			"status": "publish",
+			"template": "thank-you-template.php",
 			"content": ""
 		},
 		{
@@ -64,17 +92,26 @@
 			"items": [
 				{ "type": "page", "slug": "home", "title": "Home" },
 				{ "type": "page", "slug": "about-us", "title": "About Us" },
-				{ "type": "custom", "title": "Services", "url": "/#services" },
+				{
+					"type": "custom",
+					"title": "Services",
+					"url": "/#services",
+					"children": [
+						{ "type": "page", "slug": "seo-services", "title": "SEO" }
+					]
+				},
 				{ "type": "page", "slug": "contact-us", "title": "Contact" },
-				{ "type": "custom", "title": "Career", "url": "#" }
+				{ "type": "page", "slug": "career", "title": "Career" },
+				{ "type": "page", "slug": "portfolio", "title": "Portfolio" }
 			]
 		},
 		"footer_services_menu": {
 			"name": "Footer Services Menu",
 			"items": [
 				{ "type": "growth_page", "slug": "revenue-growth", "title": "Revenue Growth" },
+				{ "type": "page", "slug": "seo-services", "title": "SEO Services" },
+				{ "type": "page", "slug": "digital-marketing-services", "title": "Digital Marketing" },
 				{ "type": "custom", "title": "Lead Generation", "url": "/#services" },
-				{ "type": "custom", "title": "SEO Services", "url": "/#services" },
 				{ "type": "custom", "title": "Paid Advertising", "url": "/#services" },
 				{ "type": "custom", "title": "Marketing Automation", "url": "/#services" }
 			]
@@ -84,7 +121,9 @@
 			"items": [
 				{ "type": "page", "slug": "home", "title": "Home" },
 				{ "type": "page", "slug": "about-us", "title": "About Us" },
+				{ "type": "page", "slug": "portfolio", "title": "Portfolio" },
 				{ "type": "page", "slug": "contact-us", "title": "Contact Us" },
+				{ "type": "page", "slug": "career", "title": "Career" },
 				{ "type": "page", "slug": "privacy-policy", "title": "Privacy Policy" },
 				{ "type": "page", "slug": "terms-of-service", "title": "Terms of Service" }
 			]
@@ -93,6 +132,7 @@
 	"wordpress": {
 		"show_on_front": "page",
 		"page_on_front_slug": "home",
+		"page_for_posts_slug": "",
 		"blogname": "Smart Leading Solutions"
 	}
 }

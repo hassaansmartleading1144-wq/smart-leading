@@ -158,37 +158,17 @@ function sln_get_seo_page_client_names() {
  * @return array<int, array<string, string>>
  */
 function sln_get_seo_page_pain_points() {
-	return array(
-		array(
-			'title' => __( 'Invisible On Page One', 'smart-leading-net' ),
-			'text'  => __( 'You rank below the fold — or nowhere — for the high-intent keywords your customers type when they\'re ready to buy.', 'smart-leading-net' ),
-			'icon'  => 'search-minus',
-		),
-		array(
-			'title' => __( 'Traffic That Never Converts', 'smart-leading-net' ),
-			'text'  => __( 'Visitors arrive but don\'t become leads. The wrong keywords, slow pages, and weak intent leave your funnel leaking.', 'smart-leading-net' ),
-			'icon'  => 'chart',
-		),
-		array(
-			'title' => __( 'Technical Issues Holding You Back', 'smart-leading-net' ),
-			'text'  => __( 'Crawl errors, slow Core Web Vitals, and broken architecture quietly cap your rankings no matter how good your content is.', 'smart-leading-net' ),
-			'icon'  => 'technical',
-		),
-		array(
-			'title' => __( 'Agencies That Report Vanity Metrics', 'smart-leading-net' ),
-			'text'  => __( 'Impressions and keyword counts look nice in a deck but never tie back to pipeline, revenue, or return on investment.', 'smart-leading-net' ),
-			'icon'  => 'lock',
-		),
-		array(
-			'title' => __( 'Losing Ground To Competitors', 'smart-leading-net' ),
-			'text'  => __( 'While you wait, competitors publish, earn links, and climb — compounding an advantage that gets harder to overtake.', 'smart-leading-net' ),
-			'icon'  => 'clock',
-		),
-		array(
-			'title' => __( 'Invisible To AI Search', 'smart-leading-net' ),
-			'text'  => __( 'AI Overviews and answer engines now intercept clicks. If your content isn\'t structured for them, you\'re missing the new front page.', 'smart-leading-net' ),
-			'icon'  => 'ai',
-		),
+	$cards = sln_get_seo_services_reality_cards();
+
+	return array_map(
+		static function ( $card ) {
+			return array(
+				'title' => $card['title'] ?? '',
+				'text'  => sln_seo_services_plain_text( $card['description'] ?? '' ),
+				'icon'  => $card['icon_slug'] ?? 'search-minus',
+			);
+		},
+		$cards
 	);
 }
 
@@ -198,61 +178,17 @@ function sln_get_seo_page_pain_points() {
  * @return array<int, array<string, mixed>>
  */
 function sln_get_seo_page_services() {
-	return array(
-		array(
-			'title' => __( 'Technical SEO', 'smart-leading-net' ),
-			'text'  => __( 'We clear the path for search engines and AI crawlers to find, render, and rank every page.', 'smart-leading-net' ),
-			'items' => array(
-				__( 'Core Web Vitals & speed', 'smart-leading-net' ),
-				__( 'Crawl, index & sitemap fixes', 'smart-leading-net' ),
-				__( 'Schema & structured data', 'smart-leading-net' ),
-			),
-		),
-		array(
-			'title' => __( 'Keyword & Intent Strategy', 'smart-leading-net' ),
-			'text'  => __( 'We map the searches your buyers use at every stage and prioritise the ones that drive pipeline.', 'smart-leading-net' ),
-			'items' => array(
-				__( 'High-intent keyword research', 'smart-leading-net' ),
-				__( 'Competitor gap analysis', 'smart-leading-net' ),
-				__( 'Topic clusters & mapping', 'smart-leading-net' ),
-			),
-		),
-		array(
-			'title' => __( 'Content & On-Page SEO', 'smart-leading-net' ),
-			'text'  => __( 'We create and optimise content that ranks, reads well, and earns the trust signals Google rewards.', 'smart-leading-net' ),
-			'items' => array(
-				__( 'Optimised landing pages', 'smart-leading-net' ),
-				__( 'Blog & pillar content', 'smart-leading-net' ),
-				__( 'Title, meta & internal links', 'smart-leading-net' ),
-			),
-		),
-		array(
-			'title' => __( 'Authority & Link Building', 'smart-leading-net' ),
-			'text'  => __( 'We earn relevant, high-quality backlinks that build the domain authority rankings depend on.', 'smart-leading-net' ),
-			'items' => array(
-				__( 'Digital PR & outreach', 'smart-leading-net' ),
-				__( 'Editorial backlinks', 'smart-leading-net' ),
-				__( 'Toxic link cleanup', 'smart-leading-net' ),
-			),
-		),
-		array(
-			'title' => __( 'Local SEO', 'smart-leading-net' ),
-			'text'  => __( 'We help you dominate the map pack and "near me" searches in every market you serve.', 'smart-leading-net' ),
-			'items' => array(
-				__( 'Google Business Profile', 'smart-leading-net' ),
-				__( 'Local landing pages', 'smart-leading-net' ),
-				__( 'Citations & reviews', 'smart-leading-net' ),
-			),
-		),
-		array(
-			'title' => __( 'AI & Answer Engine SEO', 'smart-leading-net' ),
-			'text'  => __( 'We structure your content to win citations in AI Overviews, ChatGPT, and answer engines.', 'smart-leading-net' ),
-			'items' => array(
-				__( 'AI Overview optimisation', 'smart-leading-net' ),
-				__( 'Entity & E-E-A-T signals', 'smart-leading-net' ),
-				__( 'Answer-ready formatting', 'smart-leading-net' ),
-			),
-		),
+	$cards = sln_get_seo_services_program_cards();
+
+	return array_map(
+		static function ( $card ) {
+			return array(
+				'title' => $card['title'] ?? '',
+				'text'  => sln_seo_services_plain_text( $card['description'] ?? '' ),
+				'items' => is_array( $card['bullets'] ?? null ) ? $card['bullets'] : array(),
+			);
+		},
+		$cards
 	);
 }
 
@@ -262,37 +198,17 @@ function sln_get_seo_page_services() {
  * @return array<int, array<string, string>>
  */
 function sln_get_seo_page_why_choose() {
-	return array(
-		array(
-			'number' => '01',
-			'title'  => __( 'Google Partner Certified', 'smart-leading-net' ),
-			'text'   => __( 'Recognised expertise and direct access to best-practice standards — not guesswork or outdated tactics.', 'smart-leading-net' ),
-		),
-		array(
-			'number' => '02',
-			'title'  => __( 'Revenue-First Strategy', 'smart-leading-net' ),
-			'text'   => __( 'We prioritise the keywords and pages that actually move pipeline, tracked through your CRM and analytics.', 'smart-leading-net' ),
-		),
-		array(
-			'number' => '03',
-			'title'  => __( 'Transparent Reporting', 'smart-leading-net' ),
-			'text'   => __( 'Clear monthly reports show what we did, what it earned, and what\'s next. No vanity metrics, no jargon.', 'smart-leading-net' ),
-		),
-		array(
-			'number' => '04',
-			'title'  => __( 'A Dedicated Strategist', 'smart-leading-net' ),
-			'text'   => __( 'One senior point of contact who knows your business — not a rotating cast or a ticket queue.', 'smart-leading-net' ),
-		),
-		array(
-			'number' => '05',
-			'title'  => __( 'Proven Across Industries', 'smart-leading-net' ),
-			'text'   => __( 'From manufacturing to ecommerce, dental to home services — playbooks tailored to how each market searches.', 'smart-leading-net' ),
-		),
-		array(
-			'number' => '06',
-			'title'  => __( 'Try Before You Commit', 'smart-leading-net' ),
-			'text'   => __( 'Start with a 7-day free trial of our strategy and process before signing on to a full SEO program.', 'smart-leading-net' ),
-		),
+	$blocks = sln_get_seo_services_results_blocks();
+
+	return array_map(
+		static function ( $block ) {
+			return array(
+				'number' => $block['number'] ?? '',
+				'title'  => $block['label'] ?? '',
+				'text'   => sln_seo_services_plain_text( $block['description'] ?? '' ),
+			);
+		},
+		$blocks
 	);
 }
 
@@ -302,27 +218,16 @@ function sln_get_seo_page_why_choose() {
  * @return array<int, array<string, string>>
  */
 function sln_get_seo_page_process_steps() {
-	return array(
-		array(
-			'title' => __( 'Audit & Discovery', 'smart-leading-net' ),
-			'text'  => __( 'We dig into your site, rankings, competitors, and goals to find the highest-impact opportunities.', 'smart-leading-net' ),
-		),
-		array(
-			'title' => __( 'Strategy & Roadmap', 'smart-leading-net' ),
-			'text'  => __( 'We build a prioritised 90-day plan tied to the keywords and pages that drive revenue.', 'smart-leading-net' ),
-		),
-		array(
-			'title' => __( 'Optimise & Build', 'smart-leading-net' ),
-			'text'  => __( 'We fix technical issues, optimise pages, publish content, and earn authority links.', 'smart-leading-net' ),
-		),
-		array(
-			'title' => __( 'Measure & Report', 'smart-leading-net' ),
-			'text'  => __( 'We track rankings, traffic, and conversions, reporting results against your goals monthly.', 'smart-leading-net' ),
-		),
-		array(
-			'title' => __( 'Refine & Scale', 'smart-leading-net' ),
-			'text'  => __( 'We double down on what\'s working and adapt to every algorithm and market shift.', 'smart-leading-net' ),
-		),
+	$steps = sln_get_seo_services_process_steps();
+
+	return array_map(
+		static function ( $step ) {
+			return array(
+				'title' => $step['title'] ?? '',
+				'text'  => sln_seo_services_plain_text( $step['description'] ?? '' ),
+			);
+		},
+		$steps
 	);
 }
 
@@ -405,40 +310,7 @@ function sln_get_seo_page_case_studies_cards_raw() {
  * @return array<string, mixed>
  */
 function sln_get_seo_page_case_studies_data() {
-	$section     = sln_get_seo_page_case_studies_section_settings();
-	$cards       = sln_get_seo_page_case_studies_cards_raw();
-	$chart_files = sln_get_growth_page_case_studies_chart_files();
-	$active_cards = array();
-	$chart_index  = 0;
-
-	foreach ( $cards as $card ) {
-		if ( empty( $card['active'] ) ) {
-			continue;
-		}
-
-		$active_cards[] = array(
-			'title'              => $card['title'],
-			'metric_value'       => $card['metric_value'],
-			'metric_description' => $card['metric_description'],
-			'icon_id'            => absint( $card['icon_id'] ?? 0 ),
-			'icon_fallback'      => $card['icon_fallback'] ?? '',
-			'theme_color'        => $card['theme_color'] ?? '#1f4e9e',
-			'tags'               => is_array( $card['tags'] ?? null ) ? $card['tags'] : array(),
-			'chart_file'         => $chart_files[ $chart_index % count( $chart_files ) ],
-		);
-
-		++$chart_index;
-	}
-
-	return array(
-		'label'          => $section['label'],
-		'main_heading'   => $section['main_heading'],
-		'highlight_word' => $section['highlight_word'],
-		'description'    => $section['description'],
-		'more_link_text' => $section['more_link_text'],
-		'more_link_url'  => $section['more_link_url'],
-		'cards'          => $active_cards,
-	);
+	return sln_get_seo_services_case_studies_data();
 }
 
 /**
@@ -525,26 +397,7 @@ function sln_get_seo_page_price_plan_cards_raw() {
  * @return array<string, mixed>
  */
 function sln_get_seo_page_price_plan_data() {
-	$section = sln_get_seo_page_price_plan_section_settings();
-	$cards   = sln_get_seo_page_price_plan_cards_raw();
-	$active_cards = array();
-
-	foreach ( $cards as $card ) {
-		if ( empty( $card['active'] ) ) {
-			continue;
-		}
-
-		$active_cards[] = sln_sanitize_growth_page_price_plan_card( $card );
-	}
-
-	return array(
-		'label'          => $section['label'],
-		'heading_lead'   => $section['heading_lead'],
-		'highlight_word' => $section['highlight_word'],
-		'heading_trail'  => $section['heading_trail'],
-		'description'    => $section['description'],
-		'cards'          => $active_cards,
-	);
+	return sln_get_seo_services_pricing_data();
 }
 
 /**
@@ -653,64 +506,7 @@ function sln_get_seo_page_testimonials_reviews_raw() {
  * @return array<string, mixed>
  */
 function sln_get_seo_page_testimonials_data() {
-	$section = sln_get_seo_page_testimonials_section_settings();
-	$summary = sln_get_seo_page_testimonials_summary_settings();
-	$stats   = sln_get_seo_page_testimonials_stats_raw();
-	$reviews = sln_get_seo_page_testimonials_reviews_raw();
-
-	$active_stats = array();
-
-	foreach ( $stats as $stat ) {
-		$sanitized = sln_sanitize_growth_page_testimonials_stat( $stat );
-
-		if ( '' === trim( $sanitized['counter_value'] ) && '' === trim( $sanitized['label'] ) ) {
-			continue;
-		}
-
-		$icon_fallback = $stat['icon_fallback'] ?? '';
-
-		$active_stats[] = array(
-			'icon_id'          => $sanitized['icon_id'],
-			'icon_fallback'    => $icon_fallback,
-			'counter_value'    => $sanitized['counter_value'],
-			'counter_prefix'   => $sanitized['counter_prefix'],
-			'counter_suffix'   => $sanitized['counter_suffix'],
-			'counter_decimals' => $sanitized['counter_decimals'],
-			'label'            => $sanitized['label'],
-			'display_number'   => sln_growth_page_testimonials_format_stat_number( $sanitized ),
-		);
-	}
-
-	$active_reviews = array();
-
-	foreach ( $reviews as $review ) {
-		$sanitized = sln_sanitize_growth_page_testimonials_review( $review );
-
-		if ( empty( $sanitized['active'] ) ) {
-			continue;
-		}
-
-		$active_reviews[] = $sanitized;
-	}
-
-	$uploads_url = trailingslashit( content_url( '/uploads/' . SLN_GP_TESTIMONIALS_UPLOADS ) );
-	$bg_file     = WP_CONTENT_DIR . '/uploads/' . SLN_GP_TESTIMONIALS_UPLOADS . 'testimonials-bg.webp';
-
-	if ( file_exists( $bg_file ) ) {
-		$background_url = $uploads_url . rawurlencode( 'testimonials-bg.webp' );
-	} else {
-		$background_url = $uploads_url . 'case-studies-bg.webp';
-	}
-
-	return array(
-		'label'          => $section['label'],
-		'heading_lead'   => $section['heading_lead'],
-		'highlight_word' => $section['highlight_word'],
-		'background_url' => $background_url,
-		'stats'          => $active_stats,
-		'summary'        => sln_sanitize_growth_page_testimonials_summary( $summary ),
-		'reviews'        => $active_reviews,
-	);
+	return sln_get_seo_services_testimonials_data();
 }
 
 /**
@@ -719,32 +515,7 @@ function sln_get_seo_page_testimonials_data() {
  * @return array<int, array<string, string>>
  */
 function sln_get_seo_page_faq_items() {
-	return array(
-		array(
-			'question' => __( 'How long until I see SEO results?', 'smart-leading-net' ),
-			'answer'   => __( 'Most clients see early movement in 60–90 days, with meaningful traffic and lead growth between months 4 and 6. SEO compounds — the gains build and become more durable the longer we work together. Your roadmap sets clear expectations for each phase.', 'smart-leading-net' ),
-		),
-		array(
-			'question' => __( 'How do you measure success?', 'smart-leading-net' ),
-			'answer'   => __( 'We tie SEO to business outcomes: organic traffic, keyword rankings, qualified leads, conversions, and revenue tracked through your analytics and CRM. You get a transparent monthly report showing exactly what we did and what it earned.', 'smart-leading-net' ),
-		),
-		array(
-			'question' => __( 'Are there long-term contracts?', 'smart-leading-net' ),
-			'answer'   => __( 'No. Our SEO plans are month-to-month, and you can start with a 7-day free trial of our strategy and process. We earn your business with results, not lock-in clauses.', 'smart-leading-net' ),
-		),
-		array(
-			'question' => __( 'Do you optimise for AI search and Google AI Overviews?', 'smart-leading-net' ),
-			'answer'   => __( 'Yes. We structure your content and entities to earn citations in AI Overviews and answer engines like ChatGPT and Perplexity, alongside traditional rankings — so you stay visible as search evolves.', 'smart-leading-net' ),
-		),
-		array(
-			'question' => __( 'Who will manage my account?', 'smart-leading-net' ),
-			'answer'   => __( 'You\'ll have a dedicated senior strategist as your main point of contact, supported by specialists in technical SEO, content, and link building. No rotating reps and no ticket queues.', 'smart-leading-net' ),
-		),
-		array(
-			'question' => __( 'Will SEO work for my industry?', 'smart-leading-net' ),
-			'answer'   => __( 'We\'ve driven results across manufacturing, ecommerce, hospitality, dental, home services, and more. Your free audit will show the specific organic opportunity in your market before you commit to anything.', 'smart-leading-net' ),
-		),
-	);
+	return sln_get_seo_services_faq_items();
 }
 
 /**
@@ -753,22 +524,5 @@ function sln_get_seo_page_faq_items() {
  * @return array<string, mixed>
  */
 function sln_get_seo_page_faq_schema() {
-	$entities = array();
-
-	foreach ( sln_get_seo_page_faq_items() as $item ) {
-		$entities[] = array(
-			'@type'          => 'Question',
-			'name'           => $item['question'],
-			'acceptedAnswer' => array(
-				'@type' => 'Answer',
-				'text'  => $item['answer'],
-			),
-		);
-	}
-
-	return array(
-		'@context'   => 'https://schema.org',
-		'@type'      => 'FAQPage',
-		'mainEntity' => $entities,
-	);
+	return sln_get_seo_services_faq_schema();
 }
