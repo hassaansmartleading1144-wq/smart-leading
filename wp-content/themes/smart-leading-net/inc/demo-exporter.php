@@ -235,11 +235,13 @@ final class SLN_Demo_Exporter {
 
 		$query = new WP_Query(
 			array(
-				'post_type'      => SLN_GROWTH_PAGE_POST_TYPE,
-				'post_status'    => array( 'publish', 'draft', 'private' ),
-				'posts_per_page' => -1,
-				'orderby'        => 'title',
-				'order'          => 'ASC',
+				'post_type'              => SLN_GROWTH_PAGE_POST_TYPE,
+				'post_status'            => array( 'publish', 'draft', 'private' ),
+				'posts_per_page'         => -1,
+				'orderby'                => 'menu_order title',
+				'order'                  => 'ASC',
+				'no_found_rows'          => true,
+				'update_post_meta_cache' => true,
 			)
 		);
 
@@ -250,28 +252,23 @@ final class SLN_Demo_Exporter {
 				continue;
 			}
 
-			$meta   = array();
-			$banner = array();
+			$meta = sln_demo_package_collect_growth_page_meta( $post->ID );
 
-			if ( function_exists( 'sln_growth_page_get_banner_field_map' ) ) {
-				foreach ( sln_growth_page_get_banner_field_map() as $field => $meta_key ) {
-					$banner[ $field ] = get_post_meta( $post->ID, $meta_key, true );
-				}
-			}
+			$thumbnail_id = absint( get_post_thumbnail_id( $post->ID ) );
 
-			$meta['banner'] = $banner;
-
-			foreach ( sln_demo_package_growth_meta_keys() as $meta_key ) {
-				if ( metadata_exists( 'post', $post->ID, $meta_key ) ) {
-					$meta[ $meta_key ] = get_post_meta( $post->ID, $meta_key, true );
-				}
+			if ( $thumbnail_id ) {
+				$meta['_thumbnail_id'] = $thumbnail_id;
+				$this->attachment_ids[ $thumbnail_id ] = $thumbnail_id;
 			}
 
 			$items[] = array(
-				'title'  => $post->post_title,
-				'slug'   => $post->post_name,
-				'status' => $post->post_status,
-				'meta'   => $meta,
+				'title'      => $post->post_title,
+				'slug'       => $post->post_name,
+				'status'     => $post->post_status,
+				'content'    => $post->post_content,
+				'excerpt'    => $post->post_excerpt,
+				'menu_order' => (int) $post->menu_order,
+				'meta'       => $meta,
 			);
 
 			sln_demo_package_collect_attachment_ids( $meta, $this->attachment_ids );
@@ -293,6 +290,12 @@ final class SLN_Demo_Exporter {
 		foreach ( sln_demo_package_option_keys() as $option_key ) {
 			if ( SLN_GHL_OPTION === $option_key && function_exists( 'sln_ghl_get_settings' ) ) {
 				$value = sln_ghl_get_settings();
+			} elseif ( SLN_OUR_SERVICES_OPTION === $option_key && function_exists( 'sln_get_our_services_settings' ) ) {
+				$value = sln_get_our_services_settings();
+			} elseif ( SLN_OUR_PROJECTS_OPTION === $option_key && function_exists( 'sln_get_our_projects_settings' ) ) {
+				$value = sln_get_our_projects_settings();
+			} elseif ( SLN_CREDIBILITY_OPTION === $option_key && function_exists( 'sln_get_credibility_settings' ) ) {
+				$value = sln_get_credibility_settings();
 			} else {
 				$value = get_option( $option_key, null );
 			}

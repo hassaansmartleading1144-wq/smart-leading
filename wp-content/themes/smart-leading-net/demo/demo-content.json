@@ -84,6 +84,12 @@
 			"slug": "revenue-growth",
 			"status": "publish",
 			"meta_source": "theme_defaults"
+		},
+		{
+			"title": "Conversions Retention",
+			"slug": "conversions-retention",
+			"status": "publish",
+			"meta_source": "theme_defaults"
 		}
 	],
 	"menus": {

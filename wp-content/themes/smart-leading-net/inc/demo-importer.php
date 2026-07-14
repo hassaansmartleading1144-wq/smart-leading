@@ -551,6 +551,18 @@ final class SLN_Demo_Importer {
 	 * @return bool
 	 */
 	private function load_demo_files() {
+		$package_path = SLN_DEMO_DIR . '/sln-demo-export.json';
+
+		// Prefer a full live snapshot package when present (complete Growth Pages + options meta).
+		if ( file_exists( $package_path ) ) {
+			$pkg = sln_demo_package_decode( (string) file_get_contents( $package_path ) );
+
+			if ( ! is_wp_error( $pkg ) && $this->hydrate_from_package( $pkg ) ) {
+				$this->from_package = true;
+				return true;
+			}
+		}
+
 		$content_path = SLN_DEMO_DIR . '/demo-content.json';
 		$options_path = SLN_DEMO_DIR . '/theme-options.json';
 
@@ -893,10 +905,13 @@ final class SLN_Demo_Importer {
 		);
 
 		$postarr = array(
-			'post_title'  => $title,
-			'post_name'   => $slug,
-			'post_status' => sanitize_key( $gp_data['status'] ?? 'publish' ),
-			'post_type'   => SLN_GROWTH_PAGE_POST_TYPE,
+			'post_title'   => $title,
+			'post_name'    => $slug,
+			'post_status'  => sanitize_key( $gp_data['status'] ?? 'publish' ),
+			'post_type'    => SLN_GROWTH_PAGE_POST_TYPE,
+			'post_content' => isset( $gp_data['content'] ) ? $this->replace_urls( (string) $gp_data['content'] ) : '',
+			'post_excerpt' => isset( $gp_data['excerpt'] ) ? sanitize_textarea_field( (string) $gp_data['excerpt'] ) : '',
+			'menu_order'   => isset( $gp_data['menu_order'] ) ? absint( $gp_data['menu_order'] ) : 0,
 		);
 
 		if ( ! empty( $existing[0] ) ) {
@@ -912,7 +927,7 @@ final class SLN_Demo_Importer {
 
 		$post_id = absint( $post_id );
 
-		if ( ! empty( $gp_data['meta'] ) && is_array( $gp_data['meta'] ) ) {
+		if ( array_key_exists( 'meta', $gp_data ) && is_array( $gp_data['meta'] ) ) {
 			$this->apply_growth_page_meta_from_package( $post_id, $gp_data['meta'] );
 		} else {
 			$this->apply_growth_page_meta( $post_id );
@@ -950,12 +965,25 @@ final class SLN_Demo_Importer {
 			}
 		}
 
-		foreach ( sln_demo_package_growth_meta_keys() as $meta_key ) {
-			if ( ! array_key_exists( $meta_key, $meta ) ) {
+		foreach ( $meta as $meta_key => $value ) {
+			if ( 'banner' === $meta_key ) {
 				continue;
 			}
 
-			$value = $meta[ $meta_key ];
+			if ( ! sln_demo_package_is_importable_growth_meta_key( $meta_key ) ) {
+				continue;
+			}
+
+			if ( '_thumbnail_id' === $meta_key ) {
+				$thumb_id = absint( $value );
+
+				if ( $thumb_id && get_post( $thumb_id ) ) {
+					set_post_thumbnail( $post_id, $thumb_id );
+				} else {
+					delete_post_thumbnail( $post_id );
+				}
+				continue;
+			}
 
 			if ( is_string( $value ) ) {
 				$value = $this->replace_urls( $value );
