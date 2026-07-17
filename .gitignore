@@ -8,6 +8,10 @@
 !.github/
 !.github/**
 
+# Browser cricket batting game
+!cricket-game/
+!cricket-game/**
+
 # Keep wp-content with selected subdirectories
 !wp-content/
 wp-content/*

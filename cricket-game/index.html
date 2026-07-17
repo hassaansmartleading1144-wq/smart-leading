@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Cricket Batting Challenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Start / settings overlay -->
+  <div id="start-screen" class="overlay">
+    <div class="panel">
+      <p class="brand">Boundary Blitz</p>
+      <h1>3D Cricket Batting</h1>
+      <p class="subtitle">Face the bowler. Time your shot. Clear the ropes.</p>
+
+      <label class="field">
+        <span>Overs</span>
+        <select id="overs-select">
+          <option value="2">2 Overs</option>
+          <option value="5" selected>5 Overs</option>
+          <option value="10">10 Overs</option>
+          <option value="20">20 Overs</option>
+        </select>
+      </label>
+
+      <div class="controls-help">
+        <h2>Controls</h2>
+        <ul>
+          <li><kbd>←</kbd> Shot to the left</li>
+          <li><kbd>→</kbd> Shot to the right</li>
+          <li><kbd>↑</kbd> Straight drive</li>
+          <li><kbd>↓</kbd> Defensive shot</li>
+          <li><kbd>Space</kbd> Power shot</li>
+        </ul>
+      </div>
+
+      <button id="start-btn" class="btn primary" type="button">Play</button>
+    </div>
+  </div>
+
+  <!-- In-game HUD -->
+  <div id="hud" class="hud hidden" aria-live="polite">
+    <div class="scoreboard">
+      <div class="score-main">
+        <span id="runs-display">0</span>
+        <span class="sep">/</span>
+        <span id="wickets-display">0</span>
+      </div>
+      <div class="score-meta">
+        <div class="stat">
+          <span class="label">Balls</span>
+          <span id="balls-display">0</span>
+        </div>
+        <div class="stat">
+          <span class="label">Overs</span>
+          <span id="overs-display">0.0</span>
+        </div>
+        <div class="stat">
+          <span class="label">SR</span>
+          <span id="sr-display">0.0</span>
+        </div>
+        <div class="stat">
+          <span class="label">Dots</span>
+          <span id="dots-display">0</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="delivery-banner" class="banner"></div>
+    <div id="result-banner" class="banner result"></div>
+    <div id="shot-hint" class="shot-hint">Wait for the ball…</div>
+  </div>
+
+  <!-- Game over overlay -->
+  <div id="game-over" class="overlay hidden">
+    <div class="panel">
+      <p class="brand">Boundary Blitz</p>
+      <h1>Innings Complete</h1>
+      <p id="final-summary" class="subtitle"></p>
+      <div id="final-stats" class="final-stats"></div>
+      <button id="play-again-btn" class="btn primary" type="button">Play Again</button>
+    </div>
+  </div>
+
+  <canvas id="game-canvas"></canvas>
+
+  <!-- Three.js via import map (no build step / no backend) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
