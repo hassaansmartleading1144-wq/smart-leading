@@ -9,45 +9,74 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$dm_contact_url = sln_get_dm_page_contact_url();
-$checks         = sln_get_dm_page_final_checks();
+$cta = sln_get_dm_final_cta();
+
+if ( ! sln_dm_row_is_active( $cta ) ) {
+	return;
+}
+
+$benefits = is_array( $cta['benefits'] ?? null ) ? $cta['benefits'] : array();
 ?>
 
-<section class="dm-page__final" id="dm-contact" aria-labelledby="dm-final-heading">
-	<span class="dm-page__blob dm-page__blob--orange" aria-hidden="true"></span>
-	<div class="dm-page__wrap">
-		<p class="dm-page__eyebrow dm-page__reveal"><?php esc_html_e( 'Your Next Step', 'smart-leading-net' ); ?></p>
-		<h2 id="dm-final-heading" class="dm-page__section-title dm-page__section-title--light dm-page__reveal">
+<section class="sln-dm-final sln-dm-section sln-dm-section--dark" id="dm-contact" aria-labelledby="sln-dm-final-heading">
+	<span class="sln-dm-final__blob sln-dm-final__blob--orange" aria-hidden="true"></span>
+
+	<div class="sls-container sln-dm-wrap">
+		<div class="sln-dm-rule sln-dm-animate" aria-hidden="true"></div>
+
+		<?php if ( ! empty( $cta['small_heading'] ) ) : ?>
+			<p class="sln-dm-eyebrow sln-dm-animate"><?php echo esc_html( $cta['small_heading'] ); ?></p>
+		<?php endif; ?>
+
+		<h2 id="sln-dm-final-heading" class="sln-dm-title sln-dm-title--light sln-dm-animate">
 			<?php
-			echo wp_kses(
-				__( 'Let\'s Build a Clear Path to <span class="dm-page__hl">More Leads &amp; Revenue.</span>', 'smart-leading-net' ),
-				array( 'span' => array( 'class' => true ) )
-			);
+			echo esc_html( $cta['main_heading'] ?? '' );
+			if ( ! empty( $cta['highlighted_text'] ) ) {
+				echo ' <span class="sln-dm-hl">' . esc_html( $cta['highlighted_text'] ) . '</span>';
+			}
 			?>
 		</h2>
-		<p class="dm-page__lead dm-page__lead--light dm-page__reveal">
-			<?php esc_html_e( 'Your next client is already online — searching for what you offer. The only question is whether they find you, or your competitor.', 'smart-leading-net' ); ?>
-		</p>
-		<ul class="dm-page__checks">
-			<?php foreach ( $checks as $check ) : ?>
-				<li class="dm-page__check dm-page__reveal">
-					<span class="dm-page__check-tick" aria-hidden="true">✓</span>
-					<?php echo esc_html( $check ); ?>
-				</li>
-			<?php endforeach; ?>
-		</ul>
-		<div class="dm-page__cta-wrap dm-page__reveal">
-			<a class="dm-page__pill" href="<?php echo esc_url( $dm_contact_url ); ?>">
-				<?php esc_html_e( 'Book a Free Strategy Call', 'smart-leading-net' ); ?>
-				<span class="dm-page__pill-arrow" aria-hidden="true">→</span>
-			</a>
-		</div>
-		<p class="dm-page__web dm-page__reveal">
-			<span class="dm-page__web-icon" aria-hidden="true">⊕</span>
-			<?php esc_html_e( 'www.smartleading.net', 'smart-leading-net' ); ?>
-		</p>
-		<p class="dm-page__finalnote dm-page__reveal">
-			<?php esc_html_e( 'No commitment. No pressure. Just an honest conversation about your growth.', 'smart-leading-net' ); ?>
-		</p>
+
+		<?php if ( sln_dm_plain_text( $cta['description'] ?? '' ) ) : ?>
+			<div class="sln-dm-lead sln-dm-lead--light sln-dm-animate"><?php echo sln_dm_format_content( $cta['description'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $benefits ) ) : ?>
+			<ul class="sln-dm-final__checks">
+				<?php foreach ( $benefits as $benefit ) : ?>
+					<li class="sln-dm-final__check sln-dm-animate">
+						<span class="sln-dm-final__check-tick" aria-hidden="true">✓</span>
+						<?php echo esc_html( $benefit['text'] ?? '' ); ?>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $cta['button_text'] ) ) : ?>
+			<div class="sln-dm-final__cta sln-dm-animate">
+				<a class="sln-dm-pill" href="<?php echo esc_url( $cta['button_url'] ?? '#dm-contact' ); ?>">
+					<span><?php echo esc_html( $cta['button_text'] ); ?></span>
+					<span class="sln-dm-pill__arr" aria-hidden="true">→</span>
+				</a>
+			</div>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $cta['website_text'] ) ) : ?>
+			<?php if ( ! empty( $cta['website_url'] ) ) : ?>
+				<a class="sln-dm-final__web sln-dm-animate" href="<?php echo esc_url( $cta['website_url'] ); ?>" target="_blank" rel="noopener noreferrer">
+					<span class="sln-dm-final__web-icon" aria-hidden="true">⊕</span>
+					<?php echo esc_html( $cta['website_text'] ); ?>
+				</a>
+			<?php else : ?>
+				<p class="sln-dm-final__web sln-dm-animate">
+					<span class="sln-dm-final__web-icon" aria-hidden="true">⊕</span>
+					<?php echo esc_html( $cta['website_text'] ); ?>
+				</p>
+			<?php endif; ?>
+		<?php endif; ?>
+
+		<?php if ( sln_dm_plain_text( $cta['bottom_note'] ?? '' ) ) : ?>
+			<p class="sln-dm-final__note sln-dm-animate"><?php echo esc_html( sln_dm_plain_text( $cta['bottom_note'] ) ); ?></p>
+		<?php endif; ?>
 	</div>
 </section>

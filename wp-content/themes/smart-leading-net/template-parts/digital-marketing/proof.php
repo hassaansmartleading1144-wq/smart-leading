@@ -9,45 +9,76 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$cases = sln_get_dm_page_case_studies();
+$section = sln_get_dm_proof_section();
+$cases   = sln_get_dm_case_studies();
+
+if ( empty( $cases ) ) {
+	return;
+}
 ?>
 
-<section class="dm-page__section dm-page__section--tint" aria-labelledby="dm-proof-heading">
-	<div class="dm-page__wrap">
-		<p class="dm-page__eyebrow dm-page__reveal"><?php esc_html_e( 'Proof of Work', 'smart-leading-net' ); ?></p>
-		<h2 id="dm-proof-heading" class="dm-page__section-title dm-page__reveal">
-			<?php
-			echo wp_kses(
-				__( 'Real Clients. <span class="dm-page__hl">Real Numbers.</span>', 'smart-leading-net' ),
-				array( 'span' => array( 'class' => true ) )
-			);
-			?>
-		</h2>
-		<p class="dm-page__lead dm-page__reveal">
-			<?php esc_html_e( 'These aren\'t projections. They\'re outcomes from businesses just like yours.', 'smart-leading-net' ); ?>
-		</p>
-		<div class="dm-page__cases">
+<section class="sln-dm-section sln-dm-section--tint" id="dm-proof" aria-labelledby="sln-dm-proof-heading">
+	<div class="sls-container sln-dm-wrap">
+		<header class="sln-dm-section__head sln-dm-animate">
+			<div class="sln-dm-rule" aria-hidden="true"></div>
+			<?php if ( ! empty( $section['small_heading'] ) ) : ?>
+				<p class="sln-dm-eyebrow"><?php echo esc_html( $section['small_heading'] ); ?></p>
+			<?php endif; ?>
+			<h2 id="sln-dm-proof-heading" class="sln-dm-title">
+				<?php
+				echo esc_html( $section['main_heading'] ?? '' );
+				if ( ! empty( $section['highlighted_text'] ) ) {
+					echo ' <span class="sln-dm-hl">' . esc_html( $section['highlighted_text'] ) . '</span>';
+				}
+				?>
+			</h2>
+			<?php if ( sln_dm_plain_text( $section['description'] ?? '' ) ) : ?>
+				<div class="sln-dm-lead"><?php echo sln_dm_format_content( $section['description'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+			<?php endif; ?>
+		</header>
+
+		<div class="sln-dm-case-grid">
 			<?php foreach ( $cases as $case ) : ?>
-				<article class="dm-page__case dm-page__reveal">
-					<div class="dm-page__case-head">
-						<h3 class="dm-page__case-name"><?php echo esc_html( $case['name'] ); ?></h3>
-						<span class="dm-page__case-tag"><?php echo esc_html( $case['tag'] ); ?></span>
+				<?php
+				$tag   = ! empty( $case['url'] ) ? 'a' : 'article';
+				$attrs = ' class="sln-dm-case sln-dm-animate"';
+				if ( ! empty( $case['url'] ) ) {
+					$attrs .= ' href="' . esc_url( $case['url'] ) . '"';
+				}
+				$metrics = is_array( $case['metrics'] ?? null ) ? $case['metrics'] : array();
+				?>
+				<<?php echo esc_html( $tag ); ?><?php echo $attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+					<div class="sln-dm-case__head">
+						<h3 class="sln-dm-case__name"><?php echo esc_html( $case['name'] ?? '' ); ?></h3>
+						<?php if ( ! empty( $case['tag'] ) ) : ?>
+							<span class="sln-dm-case__tag"><?php echo esc_html( $case['tag'] ); ?></span>
+						<?php endif; ?>
 					</div>
-					<div class="dm-page__metrics">
-						<?php foreach ( $case['metrics'] as $metric ) : ?>
-							<div class="dm-page__metric">
-								<div class="dm-page__metric-value"><?php echo esc_html( $metric['value'] ); ?></div>
-								<div class="dm-page__metric-label"><?php echo esc_html( $metric['label'] ); ?></div>
-							</div>
-						<?php endforeach; ?>
-					</div>
-					<blockquote class="dm-page__case-quote">“<?php echo esc_html( $case['quote'] ); ?>”</blockquote>
-					<p class="dm-page__case-attr">— <?php echo esc_html( $case['author'] ); ?></p>
-				</article>
+
+					<?php if ( ! empty( $metrics ) ) : ?>
+						<div class="sln-dm-case__metrics">
+							<?php foreach ( $metrics as $metric ) : ?>
+								<div class="sln-dm-case__metric">
+									<div class="sln-dm-case__metric-value"><?php echo esc_html( $metric['value'] ?? '' ); ?></div>
+									<div class="sln-dm-case__metric-label"><?php echo esc_html( $metric['label'] ?? '' ); ?></div>
+								</div>
+							<?php endforeach; ?>
+						</div>
+					<?php endif; ?>
+
+					<?php if ( sln_dm_plain_text( $case['quote'] ?? '' ) ) : ?>
+						<blockquote class="sln-dm-case__quote">“<?php echo esc_html( sln_dm_plain_text( $case['quote'] ) ); ?>”</blockquote>
+					<?php endif; ?>
+
+					<?php if ( ! empty( $case['attribution'] ) ) : ?>
+						<p class="sln-dm-case__attr"><?php echo esc_html( $case['attribution'] ); ?></p>
+					<?php endif; ?>
+				</<?php echo esc_html( $tag ); ?>>
 			<?php endforeach; ?>
 		</div>
-		<p class="dm-page__disc dm-page__reveal">
-			<?php esc_html_e( 'Real client outcomes. Individual results vary by industry, budget and market.', 'smart-leading-net' ); ?>
-		</p>
+
+		<?php if ( sln_dm_plain_text( $section['disclaimer'] ?? '' ) ) : ?>
+			<p class="sln-dm-case__disc sln-dm-animate"><?php echo esc_html( sln_dm_plain_text( $section['disclaimer'] ) ); ?></p>
+		<?php endif; ?>
 	</div>
 </section>

@@ -9,31 +9,67 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$services = sln_get_dm_page_services();
+$section  = sln_get_dm_services_section();
+$services = sln_get_dm_services_items();
+
+if ( empty( $services ) ) {
+	return;
+}
 ?>
 
-<section class="dm-page__section dm-page__section--tint" aria-labelledby="dm-services-heading">
-	<div class="dm-page__wrap">
-		<p class="dm-page__eyebrow dm-page__reveal"><?php esc_html_e( 'What We Do', 'smart-leading-net' ); ?></p>
-		<h2 id="dm-services-heading" class="dm-page__section-title dm-page__reveal">
-			<?php
-			echo wp_kses(
-				__( 'Everything You Need, <span class="dm-page__hl">Under One Roof.</span>', 'smart-leading-net' ),
-				array( 'span' => array( 'class' => true ) )
-			);
-			?>
-		</h2>
-		<p class="dm-page__lead dm-page__reveal">
-			<?php esc_html_e( 'A complete growth system — not scattered tactics. One team, one strategy, one set of numbers.', 'smart-leading-net' ); ?>
-		</p>
-		<ul class="dm-page__list">
+<section class="sln-dm-section sln-dm-section--tint" id="dm-services" aria-labelledby="sln-dm-services-heading">
+	<div class="sls-container sln-dm-wrap">
+		<header class="sln-dm-section__head sln-dm-animate">
+			<div class="sln-dm-rule" aria-hidden="true"></div>
+			<?php if ( ! empty( $section['small_heading'] ) ) : ?>
+				<p class="sln-dm-eyebrow"><?php echo esc_html( $section['small_heading'] ); ?></p>
+			<?php endif; ?>
+			<h2 id="sln-dm-services-heading" class="sln-dm-title">
+				<?php
+				echo esc_html( $section['main_heading'] ?? '' );
+				if ( ! empty( $section['highlighted_text'] ) ) {
+					echo ' <span class="sln-dm-hl">' . esc_html( $section['highlighted_text'] ) . '</span>';
+				}
+				?>
+			</h2>
+			<?php if ( sln_dm_plain_text( $section['description'] ?? '' ) ) : ?>
+				<div class="sln-dm-lead"><?php echo sln_dm_format_content( $section['description'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+			<?php endif; ?>
+		</header>
+
+		<div class="sln-dm-list">
 			<?php foreach ( $services as $service ) : ?>
-				<li class="dm-page__svc dm-page__reveal">
-					<div class="dm-page__svc-icon dm-page__svc-icon--<?php echo esc_attr( $service['variant'] ); ?>" aria-hidden="true"><?php echo esc_html( $service['icon'] ); ?></div>
-					<h3 class="dm-page__svc-title"><?php echo esc_html( $service['title'] ); ?></h3>
-					<p class="dm-page__svc-text"><?php echo esc_html( $service['text'] ); ?></p>
-				</li>
+				<?php
+				$icon_class = 'sln-dm-svc__icon';
+				if ( 'blue' === ( $service['icon_style'] ?? '' ) ) {
+					$icon_class .= ' sln-dm-svc__icon--blue';
+				}
+
+				$tag   = ! empty( $service['url'] ) ? 'a' : 'article';
+				$attrs = ' class="sln-dm-svc sln-dm-animate"';
+				if ( ! empty( $service['url'] ) ) {
+					$attrs .= ' href="' . esc_url( $service['url'] ) . '"';
+					if ( ! empty( $service['new_tab'] ) ) {
+						$attrs .= ' target="_blank" rel="noopener noreferrer"';
+					}
+				}
+				?>
+				<<?php echo esc_html( $tag ); ?><?php echo $attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+					<div class="<?php echo esc_attr( $icon_class ); ?>" aria-hidden="true">
+						<?php
+						if ( ! empty( $service['icon_id'] ) && function_exists( 'sln_get_attachment_inline_svg' ) ) {
+							echo sln_get_attachment_inline_svg( absint( $service['icon_id'] ), '', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						} else {
+							echo esc_html( $service['icon_text'] ?? '' );
+						}
+						?>
+					</div>
+					<h3 class="sln-dm-svc__title"><?php echo esc_html( $service['title'] ?? '' ); ?></h3>
+					<?php if ( sln_dm_plain_text( $service['description'] ?? '' ) ) : ?>
+						<p class="sln-dm-svc__text"><?php echo esc_html( sln_dm_plain_text( $service['description'] ) ); ?></p>
+					<?php endif; ?>
+				</<?php echo esc_html( $tag ); ?>>
 			<?php endforeach; ?>
-		</ul>
+		</div>
 	</div>
 </section>

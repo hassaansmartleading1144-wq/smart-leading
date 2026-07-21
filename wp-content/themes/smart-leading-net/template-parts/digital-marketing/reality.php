@@ -9,37 +9,76 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$cards = sln_get_dm_page_reality_cards();
+$section = sln_get_dm_reality_section();
+$cards   = sln_get_dm_reality_cards();
+
+if ( empty( $cards ) ) {
+	return;
+}
 ?>
 
-<section class="dm-page__section dm-page__reality" id="dm-reality" aria-labelledby="dm-reality-heading">
-	<div class="sls-container">
-		<header class="dm-page__section-head dm-page__reveal">
-			<p class="dm-page__eyebrow"><?php esc_html_e( 'The Reality', 'smart-leading-net' ); ?></p>
-			<h2 id="dm-reality-heading" class="dm-page__section-title">
-				<?php esc_html_e( 'We Understand the Challenges Holding Your Business Back.', 'smart-leading-net' ); ?>
+<section class="sln-dm-section" id="dm-reality" aria-labelledby="sln-dm-reality-heading">
+	<div class="sls-container sln-dm-wrap">
+		<header class="sln-dm-section__head sln-dm-animate">
+			<div class="sln-dm-rule" aria-hidden="true"></div>
+			<?php if ( ! empty( $section['small_heading'] ) ) : ?>
+				<p class="sln-dm-eyebrow"><?php echo esc_html( $section['small_heading'] ); ?></p>
+			<?php endif; ?>
+			<h2 id="sln-dm-reality-heading" class="sln-dm-title">
+				<?php
+				echo esc_html( $section['main_heading'] ?? '' );
+				if ( ! empty( $section['highlighted_text'] ) ) {
+					echo ' <span class="sln-dm-hl">' . esc_html( $section['highlighted_text'] ) . '</span>';
+				}
+				?>
 			</h2>
-			<p class="dm-page__section-desc dm-page__section-desc--italic">
-				<?php esc_html_e( 'Most owners come to us after years of frustration. If any of this feels familiar, you\'re in the right place.', 'smart-leading-net' ); ?>
-			</p>
+			<?php if ( sln_dm_plain_text( $section['description'] ?? '' ) ) : ?>
+				<div class="sln-dm-lead"><?php echo sln_dm_format_content( $section['description'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+			<?php endif; ?>
 		</header>
 
-		<div class="dm-page__reality-grid">
+		<div class="sln-dm-list">
 			<?php foreach ( $cards as $card ) : ?>
-				<article class="dm-page__reality-card dm-page__reveal">
-					<div class="dm-page__reality-card-head">
-						<div class="dm-page__reality-icon" aria-hidden="true">
-							<?php get_template_part( 'template-parts/digital-marketing/icons/reality', null, array( 'icon' => $card['icon'] ) ); ?>
-						</div>
-						<h3 class="dm-page__reality-title"><?php echo esc_html( $card['title'] ); ?></h3>
+				<?php
+				$tag   = ! empty( $card['url'] ) ? 'a' : 'article';
+				$attrs = ' class="sln-dm-pcard sln-dm-animate"';
+				if ( ! empty( $card['url'] ) ) {
+					$attrs .= ' href="' . esc_url( $card['url'] ) . '"';
+				}
+				$icon_class = 'sln-dm-pcard__icon';
+				if ( 'blue' === ( $card['icon_style'] ?? '' ) ) {
+					$icon_class .= ' sln-dm-pcard__icon--blue';
+				}
+				?>
+				<<?php echo esc_html( $tag ); ?><?php echo $attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+					<div class="<?php echo esc_attr( $icon_class ); ?>" aria-hidden="true">
+						<?php
+						if ( ! empty( $card['icon_id'] ) && function_exists( 'sln_get_attachment_inline_svg' ) ) {
+							echo sln_get_attachment_inline_svg( absint( $card['icon_id'] ), '', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						} else {
+							echo esc_html( $card['icon_text'] ?? '!' );
+						}
+						?>
 					</div>
-					<p class="dm-page__reality-text"><?php echo esc_html( $card['text'] ); ?></p>
-				</article>
+					<div>
+						<h3 class="sln-dm-pcard__title"><?php echo esc_html( $card['title'] ?? '' ); ?></h3>
+						<?php if ( sln_dm_plain_text( $card['description'] ?? '' ) ) : ?>
+							<p class="sln-dm-pcard__text"><?php echo esc_html( sln_dm_plain_text( $card['description'] ) ); ?></p>
+						<?php endif; ?>
+					</div>
+				</<?php echo esc_html( $tag ); ?>>
 			<?php endforeach; ?>
 		</div>
 
-		<div class="dm-page__reality-banner dm-page__reveal">
-			<p><?php esc_html_e( 'If even one of these feels familiar — you\'re exactly who we built this for.', 'smart-leading-net' ); ?></p>
-		</div>
+		<?php if ( ! empty( $section['note_active'] ) && ( ! empty( $section['note_text'] ) || ! empty( $section['note_highlight'] ) ) ) : ?>
+			<div class="sln-dm-rule-note sln-dm-animate">
+				<p>
+					<?php echo esc_html( $section['note_text'] ?? '' ); ?>
+					<?php if ( ! empty( $section['note_highlight'] ) ) : ?>
+						<strong><?php echo esc_html( $section['note_highlight'] ); ?></strong>
+					<?php endif; ?>
+				</p>
+			</div>
+		<?php endif; ?>
 	</div>
 </section>
