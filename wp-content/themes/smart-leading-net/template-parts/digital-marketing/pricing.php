@@ -9,52 +9,84 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$plans = sln_get_dm_page_pricing_plans();
+$section = sln_get_dm_pricing_section();
+$plans   = sln_get_dm_pricing_plans();
+
+if ( empty( $plans ) ) {
+	return;
+}
 ?>
 
-<section class="dm-page__section" aria-labelledby="dm-pricing-heading">
-	<div class="dm-page__wrap">
-		<p class="dm-page__eyebrow dm-page__reveal"><?php esc_html_e( 'Investment', 'smart-leading-net' ); ?></p>
-		<h2 id="dm-pricing-heading" class="dm-page__section-title dm-page__reveal">
-			<?php
-			echo wp_kses(
-				__( 'Simple, <span class="dm-page__hl">Transparent Pricing.</span>', 'smart-leading-net' ),
-				array( 'span' => array( 'class' => true ) )
-			);
-			?>
-		</h2>
-		<p class="dm-page__lead dm-page__reveal">
-			<?php esc_html_e( 'No hidden fees. No long contracts. Just results you can measure.', 'smart-leading-net' ); ?>
-		</p>
-		<div class="dm-page__plans">
+<section class="sln-dm-section" id="dm-pricing" aria-labelledby="sln-dm-pricing-heading">
+	<div class="sls-container sln-dm-wrap">
+		<header class="sln-dm-section__head sln-dm-animate">
+			<div class="sln-dm-rule" aria-hidden="true"></div>
+			<?php if ( ! empty( $section['small_heading'] ) ) : ?>
+				<p class="sln-dm-eyebrow"><?php echo esc_html( $section['small_heading'] ); ?></p>
+			<?php endif; ?>
+			<h2 id="sln-dm-pricing-heading" class="sln-dm-title">
+				<?php
+				echo esc_html( $section['main_heading'] ?? '' );
+				if ( ! empty( $section['highlighted_text'] ) ) {
+					echo ' <span class="sln-dm-hl">' . esc_html( $section['highlighted_text'] ) . '</span>';
+				}
+				?>
+			</h2>
+			<?php if ( sln_dm_plain_text( $section['description'] ?? '' ) ) : ?>
+				<div class="sln-dm-lead"><?php echo sln_dm_format_content( $section['description'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+			<?php endif; ?>
+		</header>
+
+		<div class="sln-dm-plan-grid">
 			<?php foreach ( $plans as $plan ) : ?>
-				<article class="dm-page__plan<?php echo ! empty( $plan['popular'] ) ? ' dm-page__plan--popular' : ''; ?> dm-page__reveal">
-					<?php if ( ! empty( $plan['popular_label'] ) ) : ?>
-						<span class="dm-page__plan-popular"><?php echo esc_html( $plan['popular_label'] ); ?></span>
+				<?php
+				$plan_class = 'sln-dm-plan sln-dm-animate';
+				if ( ! empty( $plan['is_popular'] ) ) {
+					$plan_class .= ' sln-dm-plan--popular';
+				}
+				$features = is_array( $plan['features'] ?? null ) ? $plan['features'] : array();
+				$btn_class  = 'sln-dm-pill';
+				if ( 'ghost' === ( $plan['button_style'] ?? '' ) ) {
+					$btn_class .= ' sln-dm-pill--ghost';
+				}
+				?>
+				<article class="<?php echo esc_attr( $plan_class ); ?>">
+					<?php if ( ! empty( $plan['is_popular'] ) && ! empty( $plan['popular_badge'] ) ) : ?>
+						<span class="sln-dm-plan__badge"><?php echo esc_html( $plan['popular_badge'] ); ?></span>
 					<?php endif; ?>
-					<div class="dm-page__plan-tier"><?php echo esc_html( $plan['tier'] ); ?></div>
-					<div class="dm-page__plan-tagline"><?php echo esc_html( $plan['tagline'] ); ?></div>
-					<div class="dm-page__plan-price">
-						<?php echo esc_html( $plan['price'] ); ?>
-						<small><?php echo esc_html( $plan['price_note'] ); ?></small>
+
+					<div class="sln-dm-plan__name"><?php echo esc_html( $plan['name'] ?? '' ); ?></div>
+					<?php if ( ! empty( $plan['tagline'] ) ) : ?>
+						<div class="sln-dm-plan__tagline"><?php echo esc_html( $plan['tagline'] ); ?></div>
+					<?php endif; ?>
+
+					<div class="sln-dm-plan__price">
+						<?php echo esc_html( ( $plan['price_prefix'] ?? '' ) . ( $plan['price'] ?? '' ) ); ?>
+						<?php if ( ! empty( $plan['price_suffix'] ) ) : ?>
+							<small><?php echo esc_html( $plan['price_suffix'] ); ?></small>
+						<?php endif; ?>
 					</div>
-					<ul class="dm-page__plan-features">
-						<?php foreach ( $plan['features'] as $feature ) : ?>
-							<li><?php echo esc_html( $feature ); ?></li>
-						<?php endforeach; ?>
-					</ul>
-					<a
-						class="dm-page__pill<?php echo 'ghost' === $plan['cta_variant'] ? ' dm-page__pill--ghost' : ''; ?>"
-						href="<?php echo esc_url( $plan['cta_url'] ); ?>"
-					>
-						<?php esc_html_e( 'Get Started', 'smart-leading-net' ); ?>
-						<span class="dm-page__pill-arrow" aria-hidden="true">→</span>
-					</a>
+
+					<?php if ( ! empty( $features ) ) : ?>
+						<ul class="sln-dm-plan__features">
+							<?php foreach ( $features as $feature ) : ?>
+								<li><?php echo esc_html( $feature ); ?></li>
+							<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
+
+					<?php if ( ! empty( $plan['button_text'] ) ) : ?>
+						<a class="<?php echo esc_attr( $btn_class ); ?>" href="<?php echo esc_url( $plan['button_url'] ?? '#dm-contact' ); ?>">
+							<span><?php echo esc_html( $plan['button_text'] ); ?></span>
+							<span class="sln-dm-pill__arr" aria-hidden="true">→</span>
+						</a>
+					<?php endif; ?>
 				</article>
 			<?php endforeach; ?>
 		</div>
-		<p class="dm-page__pricenote dm-page__reveal">
-			<?php esc_html_e( 'All plans include onboarding, a strategy session and a dedicated account manager. Custom plans available on request.', 'smart-leading-net' ); ?>
-		</p>
+
+		<?php if ( sln_dm_plain_text( $section['bottom_note'] ?? '' ) ) : ?>
+			<p class="sln-dm-plan__note sln-dm-animate"><?php echo esc_html( sln_dm_plain_text( $section['bottom_note'] ) ); ?></p>
+		<?php endif; ?>
 	</div>
 </section>

@@ -108,6 +108,22 @@ function sln_ensure_digital_marketing_services_page() {
 add_action( 'after_switch_theme', 'sln_ensure_digital_marketing_services_page' );
 
 /**
+ * One-time ensure for the Digital Marketing Services page (no duplicates).
+ */
+function sln_maybe_ensure_digital_marketing_services_page() {
+	if ( get_option( 'sln_dm_page_ensured' ) ) {
+		return;
+	}
+
+	$page_id = sln_ensure_digital_marketing_services_page();
+
+	if ( $page_id ) {
+		update_option( 'sln_dm_page_ensured', (string) $page_id, false );
+	}
+}
+add_action( 'admin_init', 'sln_maybe_ensure_digital_marketing_services_page', 30 );
+
+/**
  * Force front-page.php for the site homepage.
  *
  * @param string $template Current template path.

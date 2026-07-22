@@ -56,6 +56,10 @@ require SLN_THEME_DIR . '/inc/seo-services-save.php';
 require SLN_THEME_DIR . '/inc/seo-services-admin-fields.php';
 require SLN_THEME_DIR . '/inc/seo-services-admin.php';
 require SLN_THEME_DIR . '/inc/digital-marketing-page-data.php';
+require SLN_THEME_DIR . '/inc/digital-marketing-helpers.php';
+require SLN_THEME_DIR . '/inc/digital-marketing-save.php';
+require SLN_THEME_DIR . '/inc/digital-marketing-admin-fields.php';
+require SLN_THEME_DIR . '/inc/digital-marketing-admin.php';
 require SLN_THEME_DIR . '/inc/portfolio-page-helpers.php';
 require SLN_THEME_DIR . '/inc/portfolio-page-save.php';
 require SLN_THEME_DIR . '/inc/portfolio-page-admin-fields.php';
@@ -601,7 +605,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_seo_page_assets' );
  * Enqueue Digital Marketing Services page template assets.
  */
 function sln_enqueue_digital_marketing_page_assets() {
-	if ( ! sln_is_digital_marketing_services_page() ) {
+	if ( ! is_page_template( 'digital-marketing-page-template.php' ) ) {
 		return;
 	}
 

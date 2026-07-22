@@ -9,43 +9,54 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$approach_items = sln_get_dm_page_approach_items();
+$section = sln_get_dm_approach_section();
+$items   = sln_get_dm_approach_items();
+
+if ( empty( $items ) ) {
+	return;
+}
 ?>
 
-<section class="dm-page__section dm-page__section--tint" aria-labelledby="dm-approach-heading">
-	<div class="dm-page__wrap">
-		<p class="dm-page__eyebrow dm-page__reveal"><?php esc_html_e( 'Our Approach', 'smart-leading-net' ); ?></p>
-		<h2 id="dm-approach-heading" class="dm-page__section-title dm-page__reveal">
-			<?php
-			echo wp_kses(
-				__( 'Your Problem. <span class="dm-page__hl">Our Solution.</span>', 'smart-leading-net' ),
-				array( 'span' => array( 'class' => true ) )
-			);
-			?>
-		</h2>
-		<p class="dm-page__lead dm-page__reveal">
-			<?php esc_html_e( 'Every pain point has a direct, practical answer. Here\'s exactly how we solve each one.', 'smart-leading-net' ); ?>
-		</p>
-		<ul class="dm-page__list">
-			<?php foreach ( $approach_items as $item ) : ?>
-				<li class="dm-page__appcard dm-page__reveal">
-					<div class="dm-page__appcard-prob">
-						<span class="dm-page__appcard-x" aria-hidden="true">✕</span>
-						<?php echo esc_html( $item['problem'] ); ?>
+<section class="sln-dm-section sln-dm-section--tint" id="dm-approach" aria-labelledby="sln-dm-approach-heading">
+	<div class="sls-container sln-dm-wrap">
+		<header class="sln-dm-section__head sln-dm-animate">
+			<div class="sln-dm-rule" aria-hidden="true"></div>
+			<?php if ( ! empty( $section['small_heading'] ) ) : ?>
+				<p class="sln-dm-eyebrow"><?php echo esc_html( $section['small_heading'] ); ?></p>
+			<?php endif; ?>
+			<h2 id="sln-dm-approach-heading" class="sln-dm-title">
+				<?php
+				echo esc_html( $section['main_heading'] ?? '' );
+				if ( ! empty( $section['highlighted_text'] ) ) {
+					echo ' <span class="sln-dm-hl">' . esc_html( $section['highlighted_text'] ) . '</span>';
+				}
+				?>
+			</h2>
+			<?php if ( sln_dm_plain_text( $section['description'] ?? '' ) ) : ?>
+				<div class="sln-dm-lead"><?php echo sln_dm_format_content( $section['description'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+			<?php endif; ?>
+		</header>
+
+		<div class="sln-dm-list">
+			<?php foreach ( $items as $item ) : ?>
+				<?php
+				$tag   = ! empty( $item['url'] ) ? 'a' : 'article';
+				$attrs = ' class="sln-dm-appcard sln-dm-animate"';
+				if ( ! empty( $item['url'] ) ) {
+					$attrs .= ' href="' . esc_url( $item['url'] ) . '"';
+				}
+				?>
+				<<?php echo esc_html( $tag ); ?><?php echo $attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+					<div class="sln-dm-appcard__prob">
+						<span class="sln-dm-appcard__x" aria-hidden="true">✕</span>
+						<?php echo esc_html( $item['problem'] ?? '' ); ?>
 					</div>
-					<div class="dm-page__appcard-sol">
-						<span class="dm-page__appcard-arrow" aria-hidden="true">→</span>
-						<span>
-							<?php
-							echo wp_kses(
-								$item['solution'],
-								array( 'b' => array() )
-							);
-							?>
-						</span>
+					<div class="sln-dm-appcard__sol">
+						<span class="sln-dm-appcard__arrow" aria-hidden="true">→</span>
+						<span><?php echo wp_kses_post( $item['solution'] ?? '' ); ?></span>
 					</div>
-				</li>
+				</<?php echo esc_html( $tag ); ?>>
 			<?php endforeach; ?>
-		</ul>
+		</div>
 	</div>
 </section>
