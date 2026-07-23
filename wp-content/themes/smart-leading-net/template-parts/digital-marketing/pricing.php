@@ -45,10 +45,7 @@ if ( empty( $plans ) ) {
 					$plan_class .= ' sln-dm-plan--popular';
 				}
 				$features = is_array( $plan['features'] ?? null ) ? $plan['features'] : array();
-				$btn_class  = 'sln-dm-pill';
-				if ( 'ghost' === ( $plan['button_style'] ?? '' ) ) {
-					$btn_class .= ' sln-dm-pill--ghost';
-				}
+				$btn_variant = ( 'ghost' === ( $plan['button_style'] ?? '' ) ) ? 'outline' : 'primary';
 				?>
 				<article class="<?php echo esc_attr( $plan_class ); ?>">
 					<?php if ( ! empty( $plan['is_popular'] ) && ! empty( $plan['popular_badge'] ) ) : ?>
@@ -76,10 +73,17 @@ if ( empty( $plans ) ) {
 					<?php endif; ?>
 
 					<?php if ( ! empty( $plan['button_text'] ) ) : ?>
-						<a class="<?php echo esc_attr( $btn_class ); ?>" href="<?php echo esc_url( $plan['button_url'] ?? '#dm-contact' ); ?>">
-							<span><?php echo esc_html( $plan['button_text'] ); ?></span>
-							<span class="sln-dm-pill__arr" aria-hidden="true">→</span>
-						</a>
+						<?php
+						sln_render_dm_page_button(
+							array(
+								'text'    => $plan['button_text'],
+								'url'     => $plan['button_url'] ?? '#dm-contact',
+								'variant' => $btn_variant,
+								'arrow'   => true,
+								'class'   => 'sln-dm-cta--plan',
+							)
+						);
+						?>
 					<?php endif; ?>
 				</article>
 			<?php endforeach; ?>

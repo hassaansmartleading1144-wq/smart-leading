@@ -47,10 +47,16 @@ $show_quote = sln_dm_row_is_active( $quote );
 
 				<?php if ( ! empty( $section['button_text'] ) ) : ?>
 					<div class="sln-dm-truth-grid__cta sln-dm-animate">
-						<a class="sln-dm-pill" href="<?php echo esc_url( $section['button_url'] ?? '#dm-contact' ); ?>">
-							<span><?php echo esc_html( $section['button_text'] ); ?></span>
-							<span class="sln-dm-pill__arr" aria-hidden="true">→</span>
-						</a>
+						<?php
+						sln_render_dm_page_button(
+							array(
+								'text'    => $section['button_text'],
+								'url'     => $section['button_url'] ?? '#dm-contact',
+								'variant' => 'primary',
+								'arrow'   => true,
+							)
+						);
+						?>
 					</div>
 				<?php endif; ?>
 			</div>
