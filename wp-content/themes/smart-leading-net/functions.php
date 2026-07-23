@@ -60,6 +60,7 @@ require SLN_THEME_DIR . '/inc/digital-marketing-helpers.php';
 require SLN_THEME_DIR . '/inc/digital-marketing-save.php';
 require SLN_THEME_DIR . '/inc/digital-marketing-admin-fields.php';
 require SLN_THEME_DIR . '/inc/digital-marketing-admin.php';
+require SLN_THEME_DIR . '/inc/ppc-google-ads-helpers.php';
 require SLN_THEME_DIR . '/inc/portfolio-page-helpers.php';
 require SLN_THEME_DIR . '/inc/portfolio-page-save.php';
 require SLN_THEME_DIR . '/inc/portfolio-page-admin-fields.php';
@@ -637,6 +638,31 @@ function sln_enqueue_digital_marketing_page_assets() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_digital_marketing_page_assets' );
+
+/**
+ * Enqueue PPC & Google Ads Management page template assets.
+ */
+function sln_enqueue_ppc_google_ads_page_assets() {
+	if ( ! is_page_template( 'ppc-google-ads-page-template.php' ) ) {
+		return;
+	}
+
+	wp_enqueue_style(
+		'sln-ppc-google-ads-page',
+		SLN_THEME_URI . '/assets/css/ppc-google-ads-page.css',
+		array( 'sln-main', 'sln-buttons' ),
+		SLN_THEME_VERSION
+	);
+
+	wp_enqueue_script(
+		'sln-ppc-google-ads-page',
+		SLN_THEME_URI . '/assets/js/ppc-google-ads-page.js',
+		array(),
+		SLN_THEME_VERSION,
+		true
+	);
+}
+add_action( 'wp_enqueue_scripts', 'sln_enqueue_ppc_google_ads_page_assets' );
 
 /**
  * Enqueue Portfolio page template assets.

@@ -195,6 +195,7 @@ function sln_get_deferred_script_handles() {
 		'sln-price-plan',
 		'sln-contact-form',
 		'sln-seo-page',
+		'sln-ppc-google-ads-page',
 		'sln-ai-chat-loader',
 	);
 
