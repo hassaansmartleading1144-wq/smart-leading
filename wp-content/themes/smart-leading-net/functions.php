@@ -198,10 +198,19 @@ function sln_enqueue_case_studies_assets() {
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_case_studies_assets' );
 
 /**
- * Enqueue workflow section assets on the front page and About Us page.
+ * Enqueue workflow section assets on the front page, About Us, and Digital Marketing pages.
  */
 function sln_enqueue_workflow_assets() {
-	if ( ! is_front_page() && ! is_page_template( array( 'about-us-template.php', 'about-template.php' ) ) ) {
+	if (
+		! is_front_page()
+		&& ! is_page_template(
+			array(
+				'about-us-template.php',
+				'about-template.php',
+				'digital-marketing-page-template.php',
+			)
+		)
+	) {
 		return;
 	}
 
@@ -609,10 +618,13 @@ function sln_enqueue_digital_marketing_page_assets() {
 		return;
 	}
 
+	// Reuse homepage workflow + button systems.
+	sln_enqueue_workflow_assets();
+
 	wp_enqueue_style(
 		'sln-digital-marketing-page',
 		SLN_THEME_URI . '/assets/css/digital-marketing-page.css',
-		array( 'sln-main' ),
+		array( 'sln-main', 'sln-buttons', 'sln-workflow' ),
 		SLN_THEME_VERSION
 	);
 

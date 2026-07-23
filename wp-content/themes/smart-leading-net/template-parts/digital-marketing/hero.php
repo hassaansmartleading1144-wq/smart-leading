@@ -44,10 +44,17 @@ if ( ! sln_dm_row_is_active( $hero ) ) {
 
 				<?php if ( ! empty( $hero['primary_button_text'] ) ) : ?>
 					<div class="sln-dm-hero__cta">
-						<a class="sln-dm-pill" href="<?php echo esc_url( $hero['primary_button_url'] ?? '#dm-contact' ); ?>">
-							<span><?php echo esc_html( $hero['primary_button_text'] ); ?></span>
-							<span class="sln-dm-pill__arr" aria-hidden="true">→</span>
-						</a>
+						<?php
+						sln_render_dm_page_button(
+							array(
+								'text'    => $hero['primary_button_text'],
+								'url'     => $hero['primary_button_url'] ?? '#dm-contact',
+								'variant' => 'primary',
+								'arrow'   => true,
+								'class'   => 'sln-dm-cta--hero',
+							)
+						);
+						?>
 					</div>
 				<?php endif; ?>
 			</div>

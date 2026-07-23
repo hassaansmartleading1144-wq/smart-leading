@@ -1,6 +1,6 @@
 <?php
 /**
- * Digital Marketing page — process timeline.
+ * Digital Marketing page — process (homepage workflow styling).
  *
  * @package Smart_Leading_Net
  */
@@ -17,7 +17,7 @@ if ( empty( $steps ) ) {
 }
 ?>
 
-<section class="sln-dm-section sln-dm-process" id="dm-process" aria-labelledby="sln-dm-process-heading">
+<section class="sln-dm-section sln-dm-process" id="dm-process" aria-labelledby="sln-dm-process-heading" style="background-color:#ecf2fc;">
 	<div class="sls-container sln-dm-wrap">
 		<header class="sln-dm-section__head sln-dm-animate">
 			<div class="sln-dm-rule" aria-hidden="true"></div>
@@ -37,28 +37,36 @@ if ( empty( $steps ) ) {
 			<?php endif; ?>
 		</header>
 
-		<div class="sln-dm-timeline" data-sln-dm-timeline>
-			<span class="sln-dm-timeline__fill" aria-hidden="true"></span>
+		<div class="workflow__grid sln-dm-process__grid" data-sln-dm-timeline>
 			<?php foreach ( $steps as $step ) : ?>
 				<?php
-				$tag   = ! empty( $step['url'] ) ? 'a' : 'div';
-				$attrs = ' class="sln-dm-timeline__step sln-dm-animate"';
+				$tag     = ! empty( $step['url'] ) ? 'a' : 'article';
+				$bullets = is_array( $step['bullets'] ?? null ) ? $step['bullets'] : array();
+				$attrs   = ' class="workflow__card sln-dm-animate"';
 				if ( ! empty( $step['url'] ) ) {
 					$attrs .= ' href="' . esc_url( $step['url'] ) . '"';
 				}
-				$bullets = is_array( $step['bullets'] ?? null ) ? $step['bullets'] : array();
 				?>
 				<<?php echo esc_html( $tag ); ?><?php echo $attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-					<div class="sln-dm-timeline__num" aria-hidden="true"><?php echo esc_html( $step['number'] ?? '' ); ?></div>
-					<div>
-						<h3 class="sln-dm-timeline__title"><?php echo esc_html( $step['title'] ?? '' ); ?></h3>
-						<?php if ( ! empty( $bullets ) ) : ?>
-							<ul class="sln-dm-timeline__list">
-								<?php foreach ( $bullets as $bullet ) : ?>
-									<li><?php echo esc_html( $bullet ); ?></li>
-								<?php endforeach; ?>
-							</ul>
-						<?php endif; ?>
+					<div class="workflow__card-shell">
+						<div class="workflow__badge-group" aria-hidden="true">
+							<div class="workflow__badge">
+								<span class="workflow__badge-number"><?php echo esc_html( $step['number'] ?? '' ); ?></span>
+							</div>
+							<span class="workflow__badge-pointer"></span>
+						</div>
+						<div class="workflow__card-body">
+							<div class="workflow__card-content">
+								<h3 class="workflow__card-title"><?php echo esc_html( $step['title'] ?? '' ); ?></h3>
+								<?php if ( ! empty( $bullets ) ) : ?>
+									<ul class="sln-dm-process__bullets">
+										<?php foreach ( $bullets as $bullet ) : ?>
+											<li><?php echo esc_html( $bullet ); ?></li>
+										<?php endforeach; ?>
+									</ul>
+								<?php endif; ?>
+							</div>
+						</div>
 					</div>
 				</<?php echo esc_html( $tag ); ?>>
 			<?php endforeach; ?>

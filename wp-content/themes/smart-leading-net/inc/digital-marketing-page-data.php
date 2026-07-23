@@ -12,13 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Digital Marketing page button helper.
+ * Digital Marketing page button — reuses homepage/SEO sls-btn CTA.
  *
  * @param array $args {
  *     @type string $text    Button label.
  *     @type string $url     Link URL.
- *     @type string $variant primary|ghost.
+ *     @type string $variant primary|secondary|outline|white|ghost.
  *     @type string $class   Extra classes.
+ *     @type bool   $arrow   Show arrow circle (default true).
  * }
  */
 function sln_render_dm_page_button( $args = array() ) {
@@ -29,6 +30,7 @@ function sln_render_dm_page_button( $args = array() ) {
 			'url'     => '#',
 			'variant' => 'primary',
 			'class'   => '',
+			'arrow'   => true,
 		)
 	);
 
@@ -36,21 +38,24 @@ function sln_render_dm_page_button( $args = array() ) {
 		return;
 	}
 
-	$classes = array( 'sln-dm-pill' );
+	$variant = $args['variant'];
 
-	if ( 'ghost' === $args['variant'] ) {
-		$classes[] = 'sln-dm-pill--ghost';
+	if ( 'ghost' === $variant ) {
+		$variant = 'outline';
 	}
 
-	if ( '' !== $args['class'] ) {
-		$classes[] = $args['class'];
+	if ( ! function_exists( 'sln_render_cta_button' ) ) {
+		return;
 	}
 
-	printf(
-		'<a class="%1$s" href="%2$s"><span>%3$s</span><span class="sln-dm-pill__arr" aria-hidden="true">→</span></a>',
-		esc_attr( implode( ' ', $classes ) ),
-		esc_url( $args['url'] ),
-		esc_html( $args['text'] )
+	sln_render_cta_button(
+		array(
+			'text'       => $args['text'],
+			'url'        => $args['url'],
+			'variant'    => $variant,
+			'show_arrow' => ! empty( $args['arrow'] ),
+			'class'      => trim( 'sln-dm-cta ' . $args['class'] ),
+		)
 	);
 }
 
