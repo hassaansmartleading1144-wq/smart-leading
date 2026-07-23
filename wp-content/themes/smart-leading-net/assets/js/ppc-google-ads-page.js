@@ -144,6 +144,38 @@
 		input.style.background = 'linear-gradient(90deg, var(--sln-ppc-azure) ' + percent + '%, #DCE3EE ' + percent + '%)';
 	}
 
+	function enhanceCounts(root) {
+		if (reducedMotion) {
+			return;
+		}
+
+		root.querySelectorAll('.sln-ppc-count').forEach(function (el) {
+			var pre = el.dataset.pre || '';
+			var suf = el.dataset.suf || '';
+			var dec = Number(el.dataset.dec || 0);
+			var target = parseFloat(el.dataset.val);
+
+			if (isNaN(target)) {
+				return;
+			}
+
+			var duration = 1100;
+			var start = window.performance.now();
+
+			function tick(now) {
+				var progress = Math.min(1, (now - start) / duration);
+				var eased = 1 - Math.pow(1 - progress, 3);
+				el.textContent = pre + (target * eased).toFixed(dec) + suf;
+
+				if (progress < 1) {
+					window.requestAnimationFrame(tick);
+				}
+			}
+
+			window.requestAnimationFrame(tick);
+		});
+	}
+
 	function enhanceRoi(root) {
 		var budgetInput = root.querySelector('[data-sln-ppc-roi-control="budget"] input[type="range"]');
 		var valueInput = root.querySelector('[data-sln-ppc-roi-control="value"] input[type="range"]');
@@ -213,6 +245,7 @@
 	onView('.sln-ppc-reveal', function (node) {
 		node.classList.add('sln-ppc-is-in');
 	}, 0.15);
+	onView('[data-sln-ppc-counts]', enhanceCounts, 0.4);
 	onView('[data-sln-ppc-bars]', ensureBarHeights, 0.35);
 	onView('[data-sln-ppc-process]', function (node) {
 		node.classList.add('sln-ppc-is-in');

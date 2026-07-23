@@ -1290,6 +1290,10 @@
 	margin: 22px 0;
 }
 
+.sln-ppc-page .sln-ppc-figure {
+	min-width: 0;
+}
+
 .sln-ppc-page .sln-ppc-figure-value {
 	font-family: var(--sln-ppc-font);
 	font-size: 25px;
@@ -1915,6 +1919,10 @@
 	flex-direction: column;
 	justify-content: center;
 	gap: 26px;
+}
+
+.sln-ppc-page .sln-ppc-roi-control {
+	width: 100%;
 }
 
 .sln-ppc-page .sln-ppc-roi-control-head {

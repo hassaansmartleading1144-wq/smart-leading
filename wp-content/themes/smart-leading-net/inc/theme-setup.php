@@ -124,6 +124,62 @@ function sln_maybe_ensure_digital_marketing_services_page() {
 add_action( 'admin_init', 'sln_maybe_ensure_digital_marketing_services_page', 30 );
 
 /**
+ * Ensure the PPC & Google Ads Management page exists with the correct template.
+ *
+ * @return int Page ID or 0 on failure.
+ */
+function sln_ensure_ppc_google_ads_page() {
+	$slug  = 'ppc-google-ads-management';
+	$title = __( 'PPC & Google Ads Management', 'smart-leading-net' );
+	$page  = get_page_by_path( $slug, OBJECT, 'page' );
+
+	if ( ! $page ) {
+		$page = get_page_by_title( $title, OBJECT, 'page' );
+	}
+
+	if ( $page instanceof WP_Post ) {
+		$page_id = $page->ID;
+	} else {
+		$page_id = wp_insert_post(
+			array(
+				'post_title'   => $title,
+				'post_name'    => $slug,
+				'post_status'  => 'publish',
+				'post_type'    => 'page',
+				'post_content' => '',
+			),
+			true
+		);
+
+		if ( is_wp_error( $page_id ) || ! $page_id ) {
+			return 0;
+		}
+	}
+
+	$template = defined( 'SLN_PPC_TEMPLATE' ) ? SLN_PPC_TEMPLATE : 'ppc-google-ads-page-template.php';
+	update_post_meta( $page_id, '_wp_page_template', $template );
+
+	return absint( $page_id );
+}
+add_action( 'after_switch_theme', 'sln_ensure_ppc_google_ads_page' );
+
+/**
+ * One-time ensure for the PPC & Google Ads Management page (no duplicates).
+ */
+function sln_maybe_ensure_ppc_google_ads_page() {
+	if ( get_option( 'sln_ppc_page_ensured' ) ) {
+		return;
+	}
+
+	$page_id = sln_ensure_ppc_google_ads_page();
+
+	if ( $page_id ) {
+		update_option( 'sln_ppc_page_ensured', (string) $page_id, false );
+	}
+}
+add_action( 'admin_init', 'sln_maybe_ensure_ppc_google_ads_page', 30 );
+
+/**
  * Force front-page.php for the site homepage.
  *
  * @param string $template Current template path.

@@ -46,6 +46,15 @@ define( 'SLN_PPC_FAQ_ITEMS_META', '_sln_ppc_faq_items' );
 define( 'SLN_PPC_FINAL_CTA_META', '_sln_ppc_final_cta' );
 
 /**
+ * Whether the current request uses the PPC & Google Ads Management template.
+ *
+ * @return bool
+ */
+function sln_is_ppc_google_ads_page() {
+	return is_page_template( SLN_PPC_TEMPLATE );
+}
+
+/**
  * Resolve post ID for PPC & Google Ads data.
  *
  * @param int|null $post_id Optional post ID.
