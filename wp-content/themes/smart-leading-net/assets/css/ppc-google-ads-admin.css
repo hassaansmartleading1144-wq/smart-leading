@@ -1,0 +1,67 @@
+.sln-ppc-admin__table th {
+	width: 220px;
+}
+
+.sln-ppc-admin__repeatable-row {
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	margin: 0 0 16px;
+	background: #fff;
+}
+
+.sln-ppc-admin__row-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 12px 14px;
+	background: #f6f7f7;
+	border-bottom: 1px solid #dcdcde;
+	cursor: move;
+}
+
+.sln-ppc-admin__row-actions {
+	display: inline-flex;
+	gap: 6px;
+	align-items: center;
+}
+
+.sln-ppc-admin__repeatable-row .form-table {
+	margin: 0;
+}
+
+.sln-ppc-admin__toolbar {
+	margin-top: 8px;
+}
+
+.sln-ppc-admin__nested-row,
+.sln-ppc-admin__inline-fields {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	margin-bottom: 8px;
+	flex-wrap: wrap;
+}
+
+.sln-ppc-admin__nested-row .regular-text,
+.sln-ppc-admin__inline-fields .regular-text {
+	flex: 1;
+	min-width: 180px;
+}
+
+.sln-ppc-admin__nested-row--metrics .regular-text,
+.sln-ppc-admin__nested-row--features .regular-text {
+	min-width: 0;
+}
+
+.sln-ppc-admin__nested-row--features label {
+	white-space: nowrap;
+}
+
+.sln-ppc-admin__nested-row--metrics select {
+	max-width: 120px;
+}
+
+.sln-ppc-admin__editor-field .wp-editor-wrap {
+	max-width: 100%;
+}
