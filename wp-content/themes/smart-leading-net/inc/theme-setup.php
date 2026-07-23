@@ -165,6 +165,7 @@ add_action( 'after_switch_theme', 'sln_ensure_ppc_google_ads_page' );
 
 /**
  * One-time ensure for the PPC & Google Ads Management page (no duplicates).
+ * Runs on admin and front-end so FTP deploys still create the page without a theme switch.
  */
 function sln_maybe_ensure_ppc_google_ads_page() {
 	if ( get_option( 'sln_ppc_page_ensured' ) ) {
@@ -178,6 +179,7 @@ function sln_maybe_ensure_ppc_google_ads_page() {
 	}
 }
 add_action( 'admin_init', 'sln_maybe_ensure_ppc_google_ads_page', 30 );
+add_action( 'init', 'sln_maybe_ensure_ppc_google_ads_page', 30 );
 
 /**
  * Force front-page.php for the site homepage.
