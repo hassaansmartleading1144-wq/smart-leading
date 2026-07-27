@@ -60,6 +60,7 @@ require SLN_THEME_DIR . '/inc/digital-marketing-helpers.php';
 require SLN_THEME_DIR . '/inc/digital-marketing-save.php';
 require SLN_THEME_DIR . '/inc/digital-marketing-admin-fields.php';
 require SLN_THEME_DIR . '/inc/digital-marketing-admin.php';
+require SLN_THEME_DIR . '/inc/careers-page-data.php';
 require SLN_THEME_DIR . '/inc/ppc-google-ads-helpers.php';
 require SLN_THEME_DIR . '/inc/ppc-google-ads-save.php';
 require SLN_THEME_DIR . '/inc/ppc-google-ads-admin-fields.php';
@@ -641,6 +642,31 @@ function sln_enqueue_digital_marketing_page_assets() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_digital_marketing_page_assets' );
+
+/**
+ * Enqueue Careers page template assets.
+ */
+function sln_enqueue_careers_page_assets() {
+	if ( ! is_page_template( 'careers-page-template.php' ) ) {
+		return;
+	}
+
+	wp_enqueue_style(
+		'sln-careers-page',
+		SLN_THEME_URI . '/assets/css/careers.css',
+		array( 'sln-main', 'sln-buttons' ),
+		SLN_THEME_VERSION
+	);
+
+	wp_enqueue_script(
+		'sln-careers-page',
+		SLN_THEME_URI . '/assets/js/careers.js',
+		array(),
+		SLN_THEME_VERSION,
+		true
+	);
+}
+add_action( 'wp_enqueue_scripts', 'sln_enqueue_careers_page_assets' );
 
 /**
  * Enqueue PPC & Google Ads Management page template assets.
