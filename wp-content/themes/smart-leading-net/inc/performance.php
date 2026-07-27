@@ -140,6 +140,10 @@ function sln_get_deferred_style_handles() {
 		$handles[] = 'sln-digital-marketing-page';
 	}
 
+	if ( is_page_template( 'ppc-google-ads-page-template.php' ) ) {
+		$handles[] = 'sln-ppc-google-ads-page';
+	}
+
 	if ( is_page_template( SLN_PORTFOLIO_TEMPLATE ) ) {
 		$handles[] = 'sln-page-banner';
 		$handles[] = 'sln-our-project';
@@ -195,6 +199,7 @@ function sln_get_deferred_script_handles() {
 		'sln-price-plan',
 		'sln-contact-form',
 		'sln-seo-page',
+		'sln-ppc-google-ads-page',
 		'sln-ai-chat-loader',
 	);
 
