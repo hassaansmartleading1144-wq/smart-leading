@@ -26,7 +26,7 @@ $positions = sln_get_careers_positions();
 
 		<div class="careers-page__jobs-grid">
 			<?php foreach ( $positions as $job ) : ?>
-				<article class="careers-page__job-card careers-page__reveal">
+				<article class="careers-page__job-card careers-page__reveal" data-careers-position="<?php echo esc_attr( $job['title'] ); ?>">
 					<div class="careers-page__job-meta">
 						<span class="careers-page__job-dept"><?php echo esc_html( $job['department'] ); ?></span>
 						<span class="careers-page__job-type"><?php echo esc_html( $job['type'] ); ?></span>

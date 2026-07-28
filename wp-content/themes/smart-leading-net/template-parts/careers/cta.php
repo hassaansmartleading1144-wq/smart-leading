@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			sln_render_careers_page_button(
 				array(
 					'text'    => __( 'Contact HR', 'smart-leading-net' ),
-					'url'     => 'mailto:hr@smartleading.net',
+					'url'     => sln_get_careers_hr_mailto(),
 					'variant' => 'white',
 				)
 			);

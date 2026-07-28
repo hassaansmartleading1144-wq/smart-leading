@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-	define( 'SLN_THEME_VERSION', '1.7.1' );
+	define( 'SLN_THEME_VERSION', '1.7.4' );
 define( 'SLN_THEME_DIR', get_template_directory() );
 define( 'SLN_THEME_URI', get_template_directory_uri() );
 
@@ -61,6 +61,8 @@ require SLN_THEME_DIR . '/inc/digital-marketing-save.php';
 require SLN_THEME_DIR . '/inc/digital-marketing-admin-fields.php';
 require SLN_THEME_DIR . '/inc/digital-marketing-admin.php';
 require SLN_THEME_DIR . '/inc/careers-page-data.php';
+require SLN_THEME_DIR . '/inc/careers-save.php';
+require SLN_THEME_DIR . '/inc/careers-admin.php';
 require SLN_THEME_DIR . '/inc/ppc-google-ads-helpers.php';
 require SLN_THEME_DIR . '/inc/ppc-google-ads-save.php';
 require SLN_THEME_DIR . '/inc/ppc-google-ads-admin-fields.php';
@@ -234,23 +236,6 @@ function sln_enqueue_workflow_assets() {
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_workflow_assets' );
 
 /**
- * Enqueue new section assets on the front page only.
- */
-function sln_enqueue_new_section_assets() {
-	if ( ! is_front_page() ) {
-		return;
-	}
-
-	wp_enqueue_style(
-		'sln-new-section',
-		SLN_THEME_URI . '/assets/css/new-section.css',
-		array( 'sln-main' ),
-		SLN_THEME_VERSION
-	);
-}
-add_action( 'wp_enqueue_scripts', 'sln_enqueue_new_section_assets' );
-
-/**
  * Enqueue team section assets on the front page only.
  */
 function sln_enqueue_team_assets() {
@@ -288,6 +273,19 @@ function sln_enqueue_starts_cta_assets() {
 		array(),
 		SLN_THEME_VERSION,
 		true
+	);
+
+	wp_localize_script(
+		'sln-starts-cta',
+		'slnStartsCtaForm',
+		array(
+			'ajaxUrl'              => admin_url( 'admin-ajax.php' ),
+			'action'               => SLN_STARTS_CTA_FORM_AJAX_ACTION,
+			'nonce'                => wp_create_nonce( SLN_STARTS_CTA_FORM_NONCE_ACTION ),
+			'submittingLabel'      => __( 'Submitting…', 'smart-leading-net' ),
+			'errorMessage'         => __( 'Something went wrong. Please try again or contact us directly.', 'smart-leading-net' ),
+			'invalidEmailMessage'  => __( 'Please enter a valid email address.', 'smart-leading-net' ),
+		)
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_starts_cta_assets' );
@@ -664,6 +662,18 @@ function sln_enqueue_careers_page_assets() {
 		array(),
 		SLN_THEME_VERSION,
 		true
+	);
+
+	wp_localize_script(
+		'sln-careers-page',
+		'slnCareersForm',
+		array(
+			'ajaxUrl'          => admin_url( 'admin-ajax.php' ),
+			'action'           => SLN_CAREERS_FORM_AJAX_ACTION,
+			'nonce'            => wp_create_nonce( SLN_CAREERS_FORM_NONCE_ACTION ),
+			'submittingLabel'  => __( 'Submitting…', 'smart-leading-net' ),
+			'errorMessage'     => __( 'Something went wrong. Please try again or contact HR directly.', 'smart-leading-net' ),
+		)
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_careers_page_assets' );

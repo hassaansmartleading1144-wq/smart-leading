@@ -139,6 +139,37 @@
 	border: 2px solid #ffffff;
 }
 
+.starts-cta__form-message {
+	margin: 12px 0 0;
+	color: #ffe4e4;
+	font-size: 14px;
+	line-height: 1.4;
+}
+
+.starts-cta__form-message.is-visible {
+	display: block;
+}
+
+.starts-cta__form.is-submitted {
+	position: relative;
+}
+
+.starts-cta__form.is-submitted::after {
+	content: 'Thanks — we will be in touch shortly.';
+	display: block;
+	margin-top: 14px;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+.starts-cta__form.is-submitted .starts-cta__field,
+.starts-cta__form.is-submitted .starts-cta__submit {
+	display: none;
+}
+}
+
 /* --------------------------------------------------------------------------
    Tablet
    -------------------------------------------------------------------------- */

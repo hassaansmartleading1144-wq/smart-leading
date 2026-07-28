@@ -57,7 +57,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 				<div class="careers-page__hero-card-body">
 					<p class="careers-page__hero-card-label"><?php esc_html_e( 'Open roles this month', 'smart-leading-net' ); ?></p>
-					<p class="careers-page__hero-card-metric">12+</p>
+					<p
+						class="careers-page__hero-card-metric"
+						data-careers-counter
+						data-value="<?php echo esc_attr( (string) sln_get_careers_open_roles_counter_value() ); ?>"
+						data-suffix="<?php echo esc_attr( sln_get_careers_open_roles_counter_suffix() ); ?>"
+					><?php echo esc_html( sln_get_careers_open_roles_metric() ); ?></p>
 					<p class="careers-page__hero-card-note"><?php esc_html_e( 'Across growth, engineering, design & people', 'smart-leading-net' ); ?></p>
 					<div class="careers-page__hero-pills">
 						<span><?php esc_html_e( 'SEO', 'smart-leading-net' ); ?></span>

@@ -72,7 +72,7 @@ $starts_cta_underline  = $starts_cta_assets_url . rawurlencode( 'vector_43_strok
 					</p>
 				</div>
 
-				<form class="starts-cta__form" action="#" method="post" novalidate>
+				<form class="starts-cta__form" method="post" novalidate>
 					<label class="starts-cta__field">
 						<span class="screen-reader-text"><?php esc_html_e( 'Your email', 'smart-leading-net' ); ?></span>
 						<input
@@ -89,12 +89,14 @@ $starts_cta_underline  = $starts_cta_assets_url . rawurlencode( 'vector_43_strok
 					sln_render_cta_button(
 						array(
 							'text'    => __( 'Get My Free Proposal', 'smart-leading-net' ),
-							'type'    => 'button',
+							'type'    => 'submit',
 							'variant' => 'secondary',
 							'class'   => 'starts-cta__submit',
 						)
 					);
 					?>
+
+					<p class="starts-cta__form-message" role="alert" aria-live="assertive" hidden></p>
 				</form>
 			</div>
 		</div>

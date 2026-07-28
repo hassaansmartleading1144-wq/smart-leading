@@ -4,6 +4,10 @@
 (function () {
 	'use strict';
 
+	function getConfig() {
+		return window.slnCareersForm || {};
+	}
+
 	function initReveal() {
 		var items = document.querySelectorAll('.careers-page__reveal');
 
@@ -181,9 +185,53 @@
 		});
 	}
 
+	function setPositionSelect(position) {
+		var select = document.getElementById('careers-position');
+
+		if (!select || !position) {
+			return;
+		}
+
+		var options = Array.prototype.slice.call(select.options);
+		var match = options.find(function (option) {
+			return option.value === position;
+		});
+
+		if (match) {
+			select.value = position;
+		}
+	}
+
+	function initJobApplyLinks() {
+		document.querySelectorAll('.careers-page__job-card').forEach(function (card) {
+			var position = card.getAttribute('data-careers-position') || '';
+			var link = card.querySelector('.careers-page__job-btn');
+
+			if (!link || !position) {
+				return;
+			}
+
+			link.addEventListener('click', function () {
+				setPositionSelect(position);
+			});
+		});
+
+		var params = new URLSearchParams(window.location.search);
+		var queryPosition = params.get('position');
+
+		if (queryPosition) {
+			setPositionSelect(queryPosition);
+		}
+
+		if (window.location.hash === '#careers-apply' && queryPosition) {
+			setPositionSelect(queryPosition);
+		}
+	}
+
 	function initApplyForm() {
 		var form = document.getElementById('careers-page-form');
 		var card = form ? form.closest('.careers-page__apply-card') : null;
+		var config = getConfig();
 
 		if (!form || !card) {
 			return;
@@ -194,6 +242,8 @@
 		var defaultLabel = submitText ? submitText.textContent : '';
 		var messageEl = form.querySelector('.careers-page__form-message');
 		var successBox = card.querySelector('.careers-page__success-box');
+		var successTitle = successBox ? successBox.querySelector('.careers-page__success-title') : null;
+		var successTexts = successBox ? successBox.querySelectorAll('.careers-page__success-text') : [];
 
 		function hideMessage() {
 			if (!messageEl) {
@@ -215,7 +265,7 @@
 			messageEl.classList.add('is-error');
 		}
 
-		function showSuccess() {
+		function showSuccess(data) {
 			var scrollY = window.scrollY;
 
 			hideMessage();
@@ -228,6 +278,20 @@
 			form.classList.add('is-hidden');
 
 			if (successBox) {
+				if (successTitle && data && data.title) {
+					successTitle.textContent = data.title;
+				}
+
+				if (successTexts.length && data) {
+					if (data.message) {
+						successTexts[0].textContent = data.message;
+					}
+
+					if (successTexts[1] && data.message_2) {
+						successTexts[1].textContent = data.message_2;
+					}
+				}
+
 				successBox.hidden = false;
 				successBox.setAttribute('tabindex', '-1');
 			}
@@ -259,9 +323,29 @@
 			}
 		}
 
+		function resetSubmitState() {
+			if (form.classList.contains('is-hidden')) {
+				return;
+			}
+
+			if (submitButton) {
+				submitButton.disabled = false;
+				submitButton.removeAttribute('aria-busy');
+			}
+
+			if (submitText) {
+				submitText.textContent = defaultLabel;
+			}
+		}
+
 		form.addEventListener('submit', function (event) {
 			event.preventDefault();
 			hideMessage();
+
+			if (!config.ajaxUrl || !config.action || !config.nonce) {
+				showError(config.errorMessage || 'Something went wrong. Please try again.');
+				return;
+			}
 
 			var name = (form.querySelector('[name="careers_name"]') || {}).value || '';
 			var email = (form.querySelector('[name="careers_email"]') || {}).value || '';
@@ -270,6 +354,7 @@
 			var resume = form.querySelector('[name="careers_resume"]');
 			var linkedin = (form.querySelector('[name="careers_linkedin"]') || {}).value || '';
 			var portfolio = (form.querySelector('[name="careers_portfolio"]') || {}).value || '';
+			var message = (form.querySelector('[name="careers_message"]') || {}).value || '';
 
 			name = name.trim();
 			email = email.trim();
@@ -277,6 +362,7 @@
 			position = position.trim();
 			linkedin = linkedin.trim();
 			portfolio = portfolio.trim();
+			message = message.trim();
 
 			if (!name) {
 				showError('Please enter your full name.');
@@ -333,21 +419,48 @@
 			}
 
 			if (submitText) {
-				submitText.textContent = 'Submitting…';
+				submitText.textContent = config.submittingLabel || 'Submitting…';
 			}
 
-			window.setTimeout(function () {
-				showSuccess();
+			var body = new FormData();
+			body.append('action', config.action);
+			body.append('nonce', config.nonce);
+			body.append('name', name);
+			body.append('email', email);
+			body.append('phone', phone);
+			body.append('position', position);
+			body.append('linkedin', linkedin);
+			body.append('portfolio', portfolio);
+			body.append('message', message);
+			body.append('resume', file);
 
-				if (!form.classList.contains('is-hidden') && submitButton) {
-					submitButton.disabled = false;
-					submitButton.removeAttribute('aria-busy');
-				}
+			fetch(config.ajaxUrl, {
+				method: 'POST',
+				credentials: 'same-origin',
+				body: body,
+			})
+				.then(function (response) {
+					return response.json().then(function (data) {
+						return {
+							ok: response.ok,
+							data: data,
+						};
+					});
+				})
+				.then(function (result) {
+					var data = result.data || {};
 
-				if (!form.classList.contains('is-hidden') && submitText) {
-					submitText.textContent = defaultLabel;
-				}
-			}, 450);
+					if (data.success) {
+						showSuccess(data);
+						return;
+					}
+
+					showError(data.message || config.errorMessage || 'Something went wrong. Please try again.');
+				})
+				.catch(function () {
+					showError(config.errorMessage || 'Something went wrong. Please try again.');
+				})
+				.finally(resetSubmitState);
 		});
 	}
 
@@ -356,6 +469,7 @@
 		initFaq();
 		initCounters();
 		initTestimonials();
+		initJobApplyLinks();
 		initApplyForm();
 	}
 

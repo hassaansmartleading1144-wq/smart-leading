@@ -9,6 +9,45 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+define( 'SLN_CAREERS_TEMPLATE', 'careers-page-template.php' );
+define( 'SLN_CAREERS_META_CULTURE_IMAGE', '_sln_careers_culture_image' );
+define( 'SLN_CAREERS_META_LIFE_IMAGES', '_sln_careers_life_images' );
+define( 'SLN_CAREERS_META_OPEN_ROLES', '_sln_careers_open_roles' );
+define( 'SLN_CAREERS_META_HR_EMAIL', '_sln_careers_hr_email' );
+
+/**
+ * Resolve the Careers page ID for meta lookups.
+ *
+ * @return int
+ */
+function sln_get_careers_page_id() {
+	$page_id = get_queried_object_id();
+
+	if ( $page_id && SLN_CAREERS_TEMPLATE === get_page_template_slug( $page_id ) ) {
+		return (int) $page_id;
+	}
+
+	if ( function_exists( 'get_the_ID' ) ) {
+		$current_id = (int) get_the_ID();
+
+		if ( $current_id && SLN_CAREERS_TEMPLATE === get_page_template_slug( $current_id ) ) {
+			return $current_id;
+		}
+	}
+
+	return 0;
+}
+
+/**
+ * Theme asset URL helper.
+ *
+ * @param string $filename Asset filename under assets/images.
+ * @return string
+ */
+function sln_careers_theme_image_url( $filename ) {
+	return trailingslashit( SLN_THEME_URI ) . 'assets/images/' . ltrim( $filename, '/' );
+}
+
 /**
  * Careers page button — reuses homepage/SEO sls-btn CTA.
  *
@@ -146,7 +185,18 @@ function sln_get_careers_culture() {
  * @return string
  */
 function sln_get_careers_culture_image() {
-	return '';
+	$page_id       = sln_get_careers_page_id();
+	$attachment_id = $page_id ? absint( get_post_meta( $page_id, SLN_CAREERS_META_CULTURE_IMAGE, true ) ) : 0;
+
+	if ( $attachment_id ) {
+		$url = wp_get_attachment_image_url( $attachment_id, 'large' );
+
+		if ( $url ) {
+			return $url;
+		}
+	}
+
+	return sln_careers_theme_image_url( 'in-house-technology.webp' );
 }
 
 /**
@@ -220,37 +270,68 @@ function sln_get_careers_benefits() {
 }
 
 /**
- * Life gallery items.
+ * Default life gallery items (without page-specific media overrides).
  *
  * @return array<int, array<string, string>>
  */
-function sln_get_careers_life_gallery() {
+function sln_get_careers_life_gallery_defaults() {
 	return array(
 		array(
 			'size'  => 'large',
 			'title' => __( 'Strategy Sessions', 'smart-leading-net' ),
 			'text'  => __( 'Cross-functional rooms where growth, creative, and engineering align on outcomes.', 'smart-leading-net' ),
-			'image' => '',
+			'image' => sln_careers_theme_image_url( 'in-house-technology.webp' ),
 		),
 		array(
 			'size'  => 'tall',
 			'title' => __( 'Ship Days', 'smart-leading-net' ),
 			'text'  => __( 'Focused sprints that turn ideas into live campaigns and product releases.', 'smart-leading-net' ),
-			'image' => '',
+			'image' => sln_careers_theme_image_url( 'good-job.webp' ),
 		),
 		array(
 			'size'  => 'wide',
 			'title' => __( 'Team Celebrations', 'smart-leading-net' ),
 			'text'  => __( 'We mark client wins and personal milestones — because culture is built in the moments between meetings.', 'smart-leading-net' ),
-			'image' => '',
+			'image' => sln_careers_theme_image_url( 'Google-Partner.webp' ),
 		),
 		array(
 			'size'  => 'large',
 			'title' => __( 'Learning Labs', 'smart-leading-net' ),
 			'text'  => __( 'Internal workshops on SEO, paid media, UX, and engineering best practices.', 'smart-leading-net' ),
-			'image' => '',
+			'image' => sln_careers_theme_image_url( 'in-house-technology.webp' ),
 		),
 	);
+}
+
+/**
+ * Life gallery items.
+ *
+ * @return array<int, array<string, string>>
+ */
+function sln_get_careers_life_gallery() {
+	$items       = sln_get_careers_life_gallery_defaults();
+	$page_id     = sln_get_careers_page_id();
+	$life_images = $page_id ? get_post_meta( $page_id, SLN_CAREERS_META_LIFE_IMAGES, true ) : array();
+
+	if ( ! is_array( $life_images ) ) {
+		return $items;
+	}
+
+	foreach ( $items as $index => $item ) {
+		$attachment_id = isset( $life_images[ $index ] ) ? absint( $life_images[ $index ] ) : 0;
+
+		if ( ! $attachment_id ) {
+			continue;
+		}
+
+		$url = wp_get_attachment_image_url( $attachment_id, 'large' );
+
+		if ( $url ) {
+			$items[ $index ]['image'] = $url;
+		}
+	}
+
+	return $items;
 }
 
 /**
@@ -289,11 +370,11 @@ function sln_get_careers_hiring_process() {
 }
 
 /**
- * Open positions.
+ * Default open positions.
  *
  * @return array<int, array<string, string>>
  */
-function sln_get_careers_positions() {
+function sln_get_careers_positions_defaults() {
 	return array(
 		array(
 			'department'  => __( 'Growth', 'smart-leading-net' ),
@@ -302,7 +383,7 @@ function sln_get_careers_positions() {
 			'description' => __( 'Own technical and content SEO programs that grow organic traffic and qualified leads.', 'smart-leading-net' ),
 			'location'    => __( 'Hybrid / Austin', 'smart-leading-net' ),
 			'experience'  => __( '2–4 years', 'smart-leading-net' ),
-			'salary'      => '',
+			'salary'      => __( 'Competitive', 'smart-leading-net' ),
 		),
 		array(
 			'department'  => __( 'Paid Media', 'smart-leading-net' ),
@@ -311,7 +392,7 @@ function sln_get_careers_positions() {
 			'description' => __( 'Plan, launch, and optimize paid search/social campaigns with clear ROAS accountability.', 'smart-leading-net' ),
 			'location'    => __( 'Hybrid / Remote-friendly', 'smart-leading-net' ),
 			'experience'  => __( '3+ years', 'smart-leading-net' ),
-			'salary'      => '',
+			'salary'      => __( 'Competitive', 'smart-leading-net' ),
 		),
 		array(
 			'department'  => __( 'Engineering', 'smart-leading-net' ),
@@ -320,7 +401,7 @@ function sln_get_careers_positions() {
 			'description' => __( 'Build high-performance marketing sites and theme features with clean, maintainable code.', 'smart-leading-net' ),
 			'location'    => __( 'Hybrid', 'smart-leading-net' ),
 			'experience'  => __( '2–5 years', 'smart-leading-net' ),
-			'salary'      => '',
+			'salary'      => __( 'Competitive', 'smart-leading-net' ),
 		),
 		array(
 			'department'  => __( 'Design', 'smart-leading-net' ),
@@ -329,9 +410,75 @@ function sln_get_careers_positions() {
 			'description' => __( 'Design conversion-focused websites and landing experiences that feel premium and clear.', 'smart-leading-net' ),
 			'location'    => __( 'Hybrid', 'smart-leading-net' ),
 			'experience'  => __( '2–4 years', 'smart-leading-net' ),
-			'salary'      => '',
+			'salary'      => __( 'Competitive', 'smart-leading-net' ),
 		),
 	);
+}
+
+/**
+ * Open positions.
+ *
+ * @return array<int, array<string, string>>
+ */
+function sln_get_careers_positions() {
+	return sln_get_careers_positions_defaults();
+}
+
+/**
+ * Hero open-roles metric label.
+ *
+ * @return string
+ */
+function sln_get_careers_open_roles_metric() {
+	$page_id = sln_get_careers_page_id();
+	$custom  = $page_id ? get_post_meta( $page_id, SLN_CAREERS_META_OPEN_ROLES, true ) : '';
+
+	if ( is_string( $custom ) && '' !== trim( $custom ) ) {
+		return trim( $custom );
+	}
+
+	$count = count( sln_get_careers_positions() );
+
+	return (string) $count;
+}
+
+/**
+ * Numeric value for animated counters (digits only).
+ *
+ * @return int
+ */
+function sln_get_careers_open_roles_counter_value() {
+	$metric = sln_get_careers_open_roles_metric();
+	$digits = preg_replace( '/\D+/', '', $metric );
+
+	return $digits ? absint( $digits ) : count( sln_get_careers_positions() );
+}
+
+/**
+ * Suffix for the open-roles counter (e.g. "+").
+ *
+ * @return string
+ */
+function sln_get_careers_open_roles_counter_suffix() {
+	$metric = sln_get_careers_open_roles_metric();
+
+	return false !== strpos( $metric, '+' ) ? '+' : '';
+}
+
+/**
+ * HR contact mailto URL.
+ *
+ * @return string
+ */
+function sln_get_careers_hr_mailto() {
+	$page_id = sln_get_careers_page_id();
+	$email   = $page_id ? get_post_meta( $page_id, SLN_CAREERS_META_HR_EMAIL, true ) : '';
+
+	if ( ! is_email( (string) $email ) ) {
+		$email = 'hr@smartleading.net';
+	}
+
+	return 'mailto:' . sanitize_email( $email );
 }
 
 /**

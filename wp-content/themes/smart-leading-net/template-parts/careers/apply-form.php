@@ -1,6 +1,6 @@
 <?php
 /**
- * Careers — application form (client-side validation).
+ * Careers — application form.
  *
  * @package Smart_Leading_Net
  */
