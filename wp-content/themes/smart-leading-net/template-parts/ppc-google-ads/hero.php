@@ -58,8 +58,8 @@ $first_query = $query_strings[0] ?? '';
 
 				<div class="sln-ppc-hero-cta">
 					<?php
-					sln_ppc_part_render_button( $hero['primary_button_text'] ?? '', $hero['primary_button_url'] ?? '#contact' );
-					sln_ppc_part_render_button( $hero['secondary_button_text'] ?? '', $hero['secondary_button_url'] ?? '#process', 'sln-ppc-btn--line', false );
+					sln_ppc_part_render_button( $hero['primary_button_text'] ?? '', $hero['primary_button_url'] ?? '#contact', 'secondary', true );
+					sln_ppc_part_render_button( $hero['secondary_button_text'] ?? '', $hero['secondary_button_url'] ?? '#process', 'white', false );
 					?>
 				</div>
 

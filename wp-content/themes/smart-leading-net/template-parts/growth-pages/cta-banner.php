@@ -55,7 +55,6 @@ $form_method   = ( '' !== $button_url && '#' !== $button_url ) ? 'get' : 'post';
 							name="starts_cta_website"
 							placeholder="<?php echo esc_attr( $data['input_placeholder'] ); ?>"
 							autocomplete="url"
-							required
 						>
 					</label>
 

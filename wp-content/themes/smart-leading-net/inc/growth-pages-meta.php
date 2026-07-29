@@ -471,6 +471,17 @@ function sln_enqueue_growth_page_assets() {
 		true
 	);
 
+	$contact_page = get_page_by_path( 'contact-us' );
+	$contact_url  = $contact_page ? get_permalink( $contact_page ) : home_url( '/contact-us/' );
+
+	wp_localize_script(
+		'sln-starts-cta',
+		'slnStartsCta',
+		array(
+			'contactUrl' => $contact_url,
+		)
+	);
+
 	wp_enqueue_style(
 		'sln-growth-page-mobile',
 		SLN_THEME_URI . '/assets/css/growth-page-mobile.css',

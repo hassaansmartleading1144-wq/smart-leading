@@ -29,7 +29,7 @@ if ( ! sln_ppc_row_is_active( $cta ) ) {
 					<p><?php echo esc_html( $cta['description'] ); ?></p>
 				<?php endif; ?>
 			</div>
-			<?php sln_ppc_part_render_button( $cta['button_text'] ?? '', $cta['button_url'] ?? '#contact' ); ?>
+			<?php sln_ppc_part_render_button( $cta['button_text'] ?? '', $cta['button_url'] ?? '#contact', 'white', true ); ?>
 		</div>
 	</div>
 </section>

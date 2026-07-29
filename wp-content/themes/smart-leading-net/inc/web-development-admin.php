@@ -429,9 +429,27 @@ function sln_wd_render_promises_metabox( $post ) {
 					</div>
 					<table class="form-table" role="presentation">
 						<?php
-						sln_wd_admin_media_field( __( 'Icon', 'smart-leading-net' ), 'sln_wd_promises[' . $index . '][icon_id]', absint( $promise['icon_id'] ?? 0 ) );
-						sln_wd_admin_text_field( __( 'Main Text', 'smart-leading-net' ), 'sln_wd_promises[' . $index . '][main_text]', $promise['main_text'] ?? '' );
-						sln_wd_admin_text_field( __( 'Supporting Text', 'smart-leading-net' ), 'sln_wd_promises[' . $index . '][supporting_text]', $promise['supporting_text'] ?? '' );
+						sln_wd_admin_media_field( __( 'Custom Icon (optional)', 'smart-leading-net' ), 'sln_wd_promises[' . $index . '][icon_id]', absint( $promise['icon_id'] ?? 0 ) );
+						echo '<tr><th scope="row"><label for="sln_wd_promises_' . esc_attr( (string) $index ) . '_icon_key">' . esc_html__( 'Icon Key', 'smart-leading-net' ) . '</label></th><td>';
+						$icon_key = sanitize_key( (string) ( $promise['icon_key'] ?? 'calendar' ) );
+						$icon_options = array(
+							'calendar' => __( 'Calendar', 'smart-leading-net' ),
+							'card'     => __( 'Credit Card', 'smart-leading-net' ),
+							'folder'   => __( 'Folder', 'smart-leading-net' ),
+							'clock'    => __( 'Clock', 'smart-leading-net' ),
+						);
+						echo '<select name="sln_wd_promises[' . esc_attr( (string) $index ) . '][icon_key]" id="sln_wd_promises_' . esc_attr( (string) $index ) . '_icon_key">';
+						foreach ( $icon_options as $value => $label ) {
+							printf(
+								'<option value="%1$s"%2$s>%3$s</option>',
+								esc_attr( $value ),
+								selected( $icon_key, $value, false ),
+								esc_html( $label )
+							);
+						}
+						echo '</select></td></tr>';
+						sln_wd_admin_text_field( __( 'Main Text (dark)', 'smart-leading-net' ), 'sln_wd_promises[' . $index . '][main_text]', $promise['main_text'] ?? '' );
+						sln_wd_admin_text_field( __( 'Highlighted Text (orange)', 'smart-leading-net' ), 'sln_wd_promises[' . $index . '][supporting_text]', $promise['supporting_text'] ?? '' );
 						sln_wd_admin_checkbox_field( __( 'Status', 'smart-leading-net' ), 'sln_wd_promises[' . $index . '][active]', ! empty( $promise['active'] ) );
 						?>
 					</table>
