@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-	define( 'SLN_THEME_VERSION', '1.7.1' );
+	define( 'SLN_THEME_VERSION', '1.8.2' );
 define( 'SLN_THEME_DIR', get_template_directory() );
 define( 'SLN_THEME_URI', get_template_directory_uri() );
 
@@ -60,6 +60,11 @@ require SLN_THEME_DIR . '/inc/digital-marketing-helpers.php';
 require SLN_THEME_DIR . '/inc/digital-marketing-save.php';
 require SLN_THEME_DIR . '/inc/digital-marketing-admin-fields.php';
 require SLN_THEME_DIR . '/inc/digital-marketing-admin.php';
+require SLN_THEME_DIR . '/inc/web-development-page-data.php';
+require SLN_THEME_DIR . '/inc/web-development-helpers.php';
+require SLN_THEME_DIR . '/inc/web-development-save.php';
+require SLN_THEME_DIR . '/inc/web-development-admin-fields.php';
+require SLN_THEME_DIR . '/inc/web-development-admin.php';
 require SLN_THEME_DIR . '/inc/careers-page-data.php';
 require SLN_THEME_DIR . '/inc/ppc-google-ads-helpers.php';
 require SLN_THEME_DIR . '/inc/ppc-google-ads-save.php';
@@ -95,6 +100,17 @@ function sln_enqueue_hero_banner_assets() {
 		array(),
 		SLN_THEME_VERSION,
 		true
+	);
+
+	$contact_page = get_page_by_path( 'contact-us' );
+	$contact_url  = $contact_page ? get_permalink( $contact_page ) : home_url( '/contact-us/' );
+
+	wp_localize_script(
+		'sln-hero-banner',
+		'slnHeroBanner',
+		array(
+			'contactUrl' => $contact_url,
+		)
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_hero_banner_assets' );
@@ -288,6 +304,17 @@ function sln_enqueue_starts_cta_assets() {
 		array(),
 		SLN_THEME_VERSION,
 		true
+	);
+
+	$contact_page = get_page_by_path( 'contact-us' );
+	$contact_url  = $contact_page ? get_permalink( $contact_page ) : home_url( '/contact-us/' );
+
+	wp_localize_script(
+		'sln-starts-cta',
+		'slnStartsCta',
+		array(
+			'contactUrl' => $contact_url,
+		)
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_starts_cta_assets' );
@@ -642,6 +669,43 @@ function sln_enqueue_digital_marketing_page_assets() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_digital_marketing_page_assets' );
+
+/**
+ * Enqueue Web Development Services page template assets.
+ */
+function sln_enqueue_web_development_page_assets() {
+	if ( ! is_page_template( 'web-development-page-template.php' ) ) {
+		return;
+	}
+
+	wp_enqueue_style(
+		'sln-web-development-page',
+		SLN_THEME_URI . '/assets/css/web-development-page.css',
+		array( 'sln-main', 'sln-buttons' ),
+		SLN_THEME_VERSION
+	);
+
+	wp_enqueue_script(
+		'sln-web-development-page',
+		SLN_THEME_URI . '/assets/js/web-development-page.js',
+		array(),
+		SLN_THEME_VERSION,
+		true
+	);
+
+	wp_localize_script(
+		'sln-web-development-page',
+		'slnWebDevForm',
+		array(
+			'ajaxUrl'      => admin_url( 'admin-ajax.php' ),
+			'action'       => defined( 'SLN_WD_FORM_AJAX_ACTION' ) ? SLN_WD_FORM_AJAX_ACTION : 'sln_wd_submit_lead',
+			'nonce'        => wp_create_nonce( defined( 'SLN_WD_FORM_NONCE_ACTION' ) ? SLN_WD_FORM_NONCE_ACTION : 'sln_wd_form' ),
+			'sendingLabel' => __( 'Sending…', 'smart-leading-net' ),
+			'errorMessage' => __( 'Something went wrong. Please try again or contact us directly.', 'smart-leading-net' ),
+		)
+	);
+}
+add_action( 'wp_enqueue_scripts', 'sln_enqueue_web_development_page_assets' );
 
 /**
  * Enqueue Careers page template assets.

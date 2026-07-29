@@ -15,6 +15,8 @@ define( 'SLN_CONTACT_FORM_NONCE_ACTION', 'sln_contact_form' );
 define( 'SLN_CONTACT_FORM_AJAX_ACTION', 'sln_contact_submit_lead' );
 define( 'SLN_SEO_FORM_NONCE_ACTION', 'sln_seo_form' );
 define( 'SLN_SEO_FORM_AJAX_ACTION', 'sln_seo_submit_lead' );
+define( 'SLN_WD_FORM_NONCE_ACTION', 'sln_wd_form' );
+define( 'SLN_WD_FORM_AJAX_ACTION', 'sln_wd_submit_lead' );
 
 /**
  * Register growing form AJAX handlers.
@@ -26,6 +28,8 @@ function sln_growing_form_register_ajax() {
 	add_action( 'wp_ajax_nopriv_' . SLN_CONTACT_FORM_AJAX_ACTION, 'sln_contact_form_submit_handler' );
 	add_action( 'wp_ajax_' . SLN_SEO_FORM_AJAX_ACTION, 'sln_seo_form_submit_handler' );
 	add_action( 'wp_ajax_nopriv_' . SLN_SEO_FORM_AJAX_ACTION, 'sln_seo_form_submit_handler' );
+	add_action( 'wp_ajax_' . SLN_WD_FORM_AJAX_ACTION, 'sln_wd_form_submit_handler' );
+	add_action( 'wp_ajax_nopriv_' . SLN_WD_FORM_AJAX_ACTION, 'sln_wd_form_submit_handler' );
 }
 add_action( 'init', 'sln_growing_form_register_ajax' );
 
@@ -399,6 +403,155 @@ function sln_seo_form_submit_handler() {
 			'message'   => __( 'Your SEO proposal request has been submitted successfully.', 'smart-leading-net' ),
 			'message_2' => __( 'A Smart Leading strategist will review your site and contact you within one business day.', 'smart-leading-net' ),
 			'contact_id' => $result['contact_id'] ?? '',
+		)
+	);
+}
+
+/**
+ * Handle Web Development Services page form submission.
+ */
+function sln_wd_form_submit_handler() {
+	sln_ghl_log( 'Form received: Web Development page AJAX endpoint reached.' );
+	sln_ghl_log_environment_checks( 'wd_form_submit' );
+
+	if ( ! check_ajax_referer( SLN_WD_FORM_NONCE_ACTION, 'nonce', false ) ) {
+		sln_ghl_log(
+			'Submission failed — invalid nonce',
+			array(
+				'event' => 'wd_form_failure',
+			)
+		);
+		wp_send_json(
+			array(
+				'success' => false,
+				'message' => __( 'Security check failed. Please refresh the page and try again.', 'smart-leading-net' ),
+			),
+			403
+		);
+	}
+
+	$name    = isset( $_POST['name'] ) ? sanitize_text_field( wp_unslash( $_POST['name'] ) ) : '';
+	$email   = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
+	$website = isset( $_POST['website'] ) ? sanitize_text_field( wp_unslash( $_POST['website'] ) ) : '';
+	$country = isset( $_POST['country'] ) ? sanitize_text_field( wp_unslash( $_POST['country'] ) ) : '';
+	$need    = isset( $_POST['need'] ) ? sanitize_text_field( wp_unslash( $_POST['need'] ) ) : '';
+	$budget  = isset( $_POST['budget'] ) ? sanitize_text_field( wp_unslash( $_POST['budget'] ) ) : '';
+	$message = isset( $_POST['message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['message'] ) ) : '';
+
+	sln_ghl_log(
+		'Data received from Web Development form',
+		array(
+			'name'    => $name,
+			'email'   => $email,
+			'website' => $website,
+			'country' => $country,
+			'need'    => $need,
+			'budget'  => $budget,
+			'message' => $message,
+		)
+	);
+
+	if ( '' === trim( $name ) ) {
+		wp_send_json(
+			array(
+				'success' => false,
+				'message' => __( 'Please enter your name.', 'smart-leading-net' ),
+			),
+			400
+		);
+	}
+
+	if ( ! is_email( $email ) ) {
+		wp_send_json(
+			array(
+				'success' => false,
+				'message' => __( 'Please enter a valid email address.', 'smart-leading-net' ),
+			),
+			400
+		);
+	}
+
+	if ( '' === trim( $message ) ) {
+		wp_send_json(
+			array(
+				'success' => false,
+				'message' => __( 'Please tell us a few words about your project.', 'smart-leading-net' ),
+			),
+			400
+		);
+	}
+
+	$website = sln_ghl_normalize_website( $website );
+
+	$note_lines = array( __( 'Lead submitted via Web Development Services page.', 'smart-leading-net' ) );
+
+	if ( '' !== $country ) {
+		/* translators: %s: country name */
+		$note_lines[] = sprintf( __( 'Country: %s', 'smart-leading-net' ), $country );
+	}
+
+	if ( '' !== $need ) {
+		/* translators: %s: project need */
+		$note_lines[] = sprintf( __( 'What they need: %s', 'smart-leading-net' ), $need );
+	}
+
+	if ( '' !== $budget ) {
+		/* translators: %s: budget range */
+		$note_lines[] = sprintf( __( 'Budget range: %s', 'smart-leading-net' ), $budget );
+	}
+
+	if ( '' !== trim( $message ) ) {
+		/* translators: %s: project message */
+		$note_lines[] = sprintf( __( 'Project details: %s', 'smart-leading-net' ), $message );
+	}
+
+	$result = sln_ghl_upsert_contact(
+		array(
+			'name'    => $name,
+			'email'   => $email,
+			'website' => $website,
+			'source'  => 'Smart Leading Web Development Page',
+			'tags'    => array( 'Website Lead', 'Web Development', 'Website Quote' ),
+			'note'    => implode( "\n", $note_lines ),
+		)
+	);
+
+	if ( is_wp_error( $result ) ) {
+		sln_ghl_log(
+			'Submission failed — GHL contact was not created',
+			array(
+				'event'         => 'wd_form_failure',
+				'email'         => $email,
+				'error_code'    => $result->get_error_code(),
+				'error_message' => $result->get_error_message(),
+			)
+		);
+
+		wp_send_json(
+			array(
+				'success' => false,
+				'message' => __( 'Something went wrong. Please try again or contact us directly.', 'smart-leading-net' ),
+			),
+			500
+		);
+	}
+
+	sln_ghl_log(
+		'Submission succeeded — GHL contact created',
+		array(
+			'event'      => 'wd_form_success',
+			'email'      => $email,
+			'contact_id' => $result['contact_id'] ?? '',
+		)
+	);
+
+	$redirect = function_exists( 'sln_get_thank_you_page_url' ) ? sln_get_thank_you_page_url() : home_url( '/thank-you/' );
+
+	wp_send_json(
+		array(
+			'success'      => true,
+			'redirect_url' => $redirect,
+			'contact_id'   => $result['contact_id'] ?? '',
 		)
 	);
 }

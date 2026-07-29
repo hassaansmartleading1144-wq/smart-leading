@@ -10,9 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $sln_google_partner_url = 'https://www.google.com/partners/agency?id=7238450490';
-$sln_phone_number       = '+1 512 764 7877';
+$sln_phone_number       = '512 764 7877';
 $sln_phone_href         = 'tel:+15127647877';
-$sln_email              = 'admin@smartleading.net';
+$sln_email              = 'business@smartleading.net';
 
 $sln_social_links = array(
 	'instagram' => 'https://www.instagram.com/smartleading_solutions/',
@@ -43,7 +43,7 @@ $sln_social_links = array(
 						<span class="header-top__icon" aria-hidden="true">
 							<?php sln_inline_svg( 'address-map.svg', 'header-top__svg' ); ?>
 						</span>
-						<span class="header-top__text"><?php esc_html_e( 'USA, Australia, UK, Norway, Finland, Pakistan', 'smart-leading-net' ); ?></span>
+						<span class="header-top__text"><?php esc_html_e( 'USA, Australia, UK, Norway', 'smart-leading-net' ); ?></span>
 					</div>
 
 					<div class="header-top__contact">

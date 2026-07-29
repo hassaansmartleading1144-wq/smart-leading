@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" fill="none" role="img" aria-label="USA Marble and Granite project preview">
+  <rect width="800" height="500" fill="#E8DCC8"/>
+  <rect x="48" y="56" width="320" height="28" rx="8" fill="#2B2B2B"/>
+  <rect x="48" y="100" width="260" height="16" rx="6" fill="#5A5A5A"/>
+  <rect x="48" y="140" width="110" height="36" rx="8" fill="#C0392B"/>
+  <rect x="170" y="140" width="110" height="36" rx="8" fill="#1F4E9E"/>
+  <rect x="420" y="80" width="320" height="340" rx="20" fill="#D2C2A8"/>
+  <rect x="460" y="140" width="240" height="220" rx="8" fill="#F3EADF"/>
+  <rect x="500" y="180" width="60" height="140" fill="#C4B49A"/>
+  <rect x="580" y="200" width="60" height="120" fill="#B8A68A"/>
+  <rect x="660" y="160" width="20" height="160" fill="#A89578"/>
+  <text x="48" y="420" fill="#2B2B2B" font-family="Arial, sans-serif" font-size="22" font-weight="700">Custom Spaces Preview</text>
+</svg>

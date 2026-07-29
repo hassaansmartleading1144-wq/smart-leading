@@ -37,7 +37,7 @@
 	min-height: 0;
 	min-width: 0;
 	max-width: 100%;
-	padding-bottom: 48px;
+	padding-bottom: 24px;
 }
 
 .hero-banner__content {
@@ -145,7 +145,7 @@
 }
 
 .hero-banner__description {
-	margin: 0 0 40px;
+	margin: 0 0 28px;
 	max-width: 100%;
 	font-size: var(--paragraph-size);
 	font-weight: var(--paragraph-weight);
@@ -330,114 +330,61 @@
 }
 
 /* --------------------------------------------------------------------------
-   Chat Input
+   Hero CTA — website input + button (inline under description)
    -------------------------------------------------------------------------- */
 
-.hero-banner__chat {
-	width: 100%;
-	max-width: 100%;
-	margin-top: -48px;
-	margin-left: auto;
-	margin-right: auto;
-	position: relative;
-	z-index: 2;
-}
-
-.hero-banner__chat.sls-ai-chat--has-messages {
-	margin-top: 20px;
-}
-
-.hero-banner__chat-form {
+.hero-banner__cta-form {
 	display: flex;
-	align-items: center;
-	gap: 16px;
+	flex-direction: row;
+	align-items: stretch;
 	width: 100%;
-	height: 78px;
-	min-height: 78px;
-	padding: 0 16px 0 28px;
-	background: rgba(255, 255, 255, 0.45);
-	border: 1px solid #c9d8f5;
-	border-radius: 12px;
-	box-shadow: none;
+	max-width: 540px;
+	gap: 0;
+	margin: 0;
 }
 
-.hero-banner__chat-icon {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	flex-shrink: 0;
-	width: 24px;
-	height: 24px;
-	color: var(--primary-color);
-}
-
-.hero-banner__chat-icon svg {
+.hero-banner__cta-field {
 	display: block;
-	width: 24px;
-	height: 24px;
+	flex: 1 1 auto;
+	min-width: 0;
 }
 
-.hero-banner__chat-input {
-	flex: 1;
-	min-width: 0;
-	border: none;
-	background: transparent;
-	padding: 0;
+.hero-banner__cta-input {
+	display: block;
+	width: 100%;
+	height: 64px;
+	padding: 0 18px;
+	border: 1px solid var(--light-blue-3);
+	border-right: 0;
+	border-radius: 10px 0 0 10px;
+	background: var(--white);
 	font-family: var(--font-family-base);
-	font-size: 16px;
-	font-weight: 400;
+	font-size: var(--button-font-size);
+	font-weight: var(--font-weight-regular);
+	line-height: 1.2;
 	color: var(--heading-color);
 	outline: none;
+	box-sizing: border-box;
 }
 
-.hero-banner__chat-input::placeholder {
-	color: #9a9a9a;
-	font-size: 16px;
-	font-weight: 400;
+.hero-banner__cta-input::placeholder {
+	color: #8b8b8b;
 }
 
-.hero-banner__chat-submit {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	flex-shrink: 0;
-	width: 44px;
-	height: 44px;
-	border: none;
-	border-radius: 6px;
-	background: #000000;
-	color: var(--white);
+.hero-banner__cta-input:focus {
+	border-color: var(--primary-color);
+	box-shadow: inset 0 0 0 1px var(--primary-color);
+}
+
+.hero-banner__cta-submit {
+	flex: 0 0 auto;
+	width: auto !important;
+	min-width: 0;
+	height: 64px;
+	border-radius: 0 10px 10px 0 !important;
+	box-sizing: border-box;
 	cursor: pointer;
-	transition:
-		background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-		transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hero-banner__chat-submit svg {
-	display: block;
-	width: 18px;
-	height: 18px;
-}
-
-.hero-banner__chat-submit:hover,
-.hero-banner__chat-submit:focus-visible {
-	background: #000000;
-	transform: translateY(-1px);
-}
-
-.hero-banner__chat-submit:disabled {
-	opacity: 0.55;
-	cursor: not-allowed;
-	transform: none;
-}
-
-.hero-banner__chat-response {
-	margin-top: 12px;
-	padding: 10px 16px;
-	border-radius: var(--card-radius);
-	background: var(--white);
-	font-size: var(--paragraph-size);
-	color: var(--heading-color);
+	white-space: nowrap;
 }
 
 /* --------------------------------------------------------------------------
@@ -459,8 +406,7 @@
 .hero-banner.is-ready .hero-banner__badge[data-animate="fade-up"] { animation-delay: 0.05s; }
 .hero-banner.is-ready .hero-banner__heading[data-animate="fade-up"] { animation-delay: 0.15s; }
 .hero-banner.is-ready .hero-banner__description[data-animate="fade-up"] { animation-delay: 0.25s; }
-.hero-banner.is-ready .hero-banner__cta[data-animate="fade-up"] { animation-delay: 0.35s; }
-.hero-banner.is-ready .hero-banner__chat[data-animate="fade-up"] { animation-delay: 0.55s; }
+.hero-banner.is-ready .hero-banner__cta-form[data-animate="fade-up"] { animation-delay: 0.35s; }
 
 .hero-banner.is-ready .hero-banner__artwork {
 	animation: heroBannerArtworkEnter 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -642,15 +588,17 @@
 	.hero-banner__description {
 		margin-left: auto;
 		margin-right: auto;
-		margin-bottom: 32px;
+		margin-bottom: 28px;
 	}
 
 	.hero-banner__heading-line--accent {
 		white-space: normal;
 	}
 
-	.hero-banner__cta {
-		margin: 0 auto;
+	.hero-banner__cta-form {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 520px;
 	}
 
 	.hero-banner__visual {
@@ -735,7 +683,7 @@
 		line-height: 1.6;
 		margin-left: 0;
 		margin-right: 0;
-		margin-bottom: 32px;
+		margin-bottom: 24px;
 		width: auto;
 	}
 
@@ -743,24 +691,26 @@
 		display: none;
 	}
 
-	.hero-banner__chat {
-		width: 100%;
-		max-width: 100%;
-		margin-top: 40px;
-		margin-left: auto;
-		margin-right: auto;
+	.hero-banner__cta-form {
+		flex-direction: column;
+		max-width: none;
+		gap: 12px;
+		margin-left: 0;
+		margin-right: 0;
 	}
 
-	.hero-banner__chat-form {
+	.hero-banner__cta-input {
 		width: 100%;
-		height: 64px;
-		min-height: 64px;
-		padding: 0 16px;
+		height: 54px;
+		border-right: 1px solid var(--light-blue-3);
+		border-radius: 10px;
 	}
 
-	.hero-banner__chat-submit {
-		width: 42px;
-		height: 42px;
+	.hero-banner__cta-submit,
+	.hero-banner__cta-submit.sls-btn {
+		width: 100% !important;
+		height: 54px;
+		border-radius: 10px !important;
 	}
 }
 

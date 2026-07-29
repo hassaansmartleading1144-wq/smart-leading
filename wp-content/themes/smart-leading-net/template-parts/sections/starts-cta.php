@@ -74,14 +74,13 @@ $starts_cta_underline  = $starts_cta_assets_url . rawurlencode( 'vector_43_strok
 
 				<form class="starts-cta__form" action="#" method="post" novalidate>
 					<label class="starts-cta__field">
-						<span class="screen-reader-text"><?php esc_html_e( 'Your email', 'smart-leading-net' ); ?></span>
+						<span class="screen-reader-text"><?php esc_html_e( 'Your website', 'smart-leading-net' ); ?></span>
 						<input
 							class="starts-cta__input"
-							type="email"
-							name="starts_cta_email"
-							placeholder="<?php esc_attr_e( 'Enter your email', 'smart-leading-net' ); ?>"
-							autocomplete="email"
-							required
+							type="url"
+							name="starts_cta_website"
+							placeholder="<?php esc_attr_e( 'Enter your website', 'smart-leading-net' ); ?>"
+							autocomplete="url"
 						>
 					</label>
 
