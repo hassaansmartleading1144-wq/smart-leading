@@ -875,30 +875,81 @@ function sln_wd_default_promises_section() {
 function sln_wd_default_promises() {
 	return array(
 		array(
-			'icon_id'          => 0,
-			'main_text'        => __( 'Most sites live in 3–6 weeks', 'smart-leading-net' ),
-			'supporting_text'  => '',
-			'active'           => true,
+			'icon_id'         => 0,
+			'icon_key'        => 'calendar',
+			'main_text'       => __( 'Most sites live in', 'smart-leading-net' ),
+			'supporting_text' => __( '3–6 weeks', 'smart-leading-net' ),
+			'active'          => true,
 		),
 		array(
-			'icon_id'          => 0,
-			'main_text'        => __( 'Pay in stages, never one lump sum', 'smart-leading-net' ),
-			'supporting_text'  => '',
-			'active'           => true,
+			'icon_id'         => 0,
+			'icon_key'        => 'card',
+			'main_text'       => __( 'Pay in stages,', 'smart-leading-net' ),
+			'supporting_text' => __( 'never one lump sum', 'smart-leading-net' ),
+			'active'          => true,
 		),
 		array(
-			'icon_id'          => 0,
-			'main_text'        => __( 'You own all files & content', 'smart-leading-net' ),
-			'supporting_text'  => '',
-			'active'           => true,
+			'icon_id'         => 0,
+			'icon_key'        => 'folder',
+			'main_text'       => __( 'You own all', 'smart-leading-net' ),
+			'supporting_text' => __( 'files & content', 'smart-leading-net' ),
+			'active'          => true,
 		),
 		array(
-			'icon_id'          => 0,
-			'main_text'        => __( 'We work around your hours', 'smart-leading-net' ),
-			'supporting_text'  => '',
-			'active'           => true,
+			'icon_id'         => 0,
+			'icon_key'        => 'clock',
+			'main_text'       => __( 'We work around', 'smart-leading-net' ),
+			'supporting_text' => __( 'your hours', 'smart-leading-net' ),
+			'active'          => true,
 		),
 	);
+}
+
+/**
+ * Normalize a promise row against defaults (legacy one-line text → split + icon keys).
+ *
+ * @param array<string, mixed> $row     Stored row.
+ * @param int                  $index   Row index.
+ * @param array<int, array>    $defaults Default rows.
+ * @return array<string, mixed>
+ */
+function sln_wd_normalize_promise_row( $row, $index, $defaults ) {
+	$default = ( isset( $defaults[ $index ] ) && is_array( $defaults[ $index ] ) ) ? $defaults[ $index ] : array();
+	$row     = is_array( $row ) ? $row : array();
+
+	$legacy_map = array(
+		'Most sites live in 3–6 weeks'      => array( 'Most sites live in', '3–6 weeks' ),
+		'Pay in stages, never one lump sum' => array( 'Pay in stages,', 'never one lump sum' ),
+		'You own all files & content'       => array( 'You own all', 'files & content' ),
+		'We work around your hours'         => array( 'We work around', 'your hours' ),
+	);
+
+	$main = trim( (string) ( $row['main_text'] ?? '' ) );
+	$support = trim( (string) ( $row['supporting_text'] ?? '' ) );
+
+	if ( '' === $support && isset( $legacy_map[ $main ] ) ) {
+		$row['main_text']       = $legacy_map[ $main ][0];
+		$row['supporting_text'] = $legacy_map[ $main ][1];
+	} elseif ( '' === $main && ! empty( $default['main_text'] ) ) {
+		$row['main_text']       = $default['main_text'];
+		$row['supporting_text'] = $default['supporting_text'] ?? '';
+	} elseif ( '' === $support && ! empty( $default['supporting_text'] ) && $main === ( $default['main_text'] ?? '' ) ) {
+		$row['supporting_text'] = $default['supporting_text'];
+	}
+
+	if ( empty( $row['icon_key'] ) ) {
+		$row['icon_key'] = $default['icon_key'] ?? 'calendar';
+	}
+
+	if ( ! isset( $row['icon_id'] ) ) {
+		$row['icon_id'] = $default['icon_id'] ?? 0;
+	}
+
+	if ( ! isset( $row['active'] ) ) {
+		$row['active'] = true;
+	}
+
+	return $row;
 }
 
 /**
@@ -915,10 +966,12 @@ function sln_get_wd_promises_section( $post_id = null ) {
 		return $defaults;
 	}
 
-	return sln_wd_merge_section(
+	$section = sln_wd_merge_section(
 		$defaults,
 		sln_wd_get_meta_or_default( $post_id, SLN_WD_PROMISES_SECTION_META, $defaults )
 	);
+
+	return $section;
 }
 
 /**
@@ -932,12 +985,18 @@ function sln_get_wd_promises( $post_id = null ) {
 	$defaults = sln_wd_default_promises();
 
 	if ( ! $post_id || ! sln_wd_uses_template( $post_id ) ) {
-		return sln_wd_filter_active_rows( $defaults, $defaults );
+		$rows = $defaults;
+	} else {
+		$stored = sln_wd_get_meta_or_default( $post_id, SLN_WD_PROMISES_META, $defaults );
+		$rows   = is_array( $stored ) && ! empty( $stored ) ? $stored : $defaults;
 	}
 
-	$stored = sln_wd_get_meta_or_default( $post_id, SLN_WD_PROMISES_META, $defaults );
+	$normalized = array();
+	foreach ( array_values( $rows ) as $index => $row ) {
+		$normalized[] = sln_wd_normalize_promise_row( $row, $index, $defaults );
+	}
 
-	return sln_wd_filter_active_rows( $stored, $defaults );
+	return sln_wd_filter_active_rows( $normalized, $defaults );
 }
 
 /**

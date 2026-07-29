@@ -537,8 +537,16 @@ function sln_wd_sanitize_promises_section( $raw ) {
  * @return array<string, mixed>
  */
 function sln_wd_sanitize_promise_row( $raw ) {
+	$allowed_icons = array( 'calendar', 'card', 'folder', 'clock', 'shield', 'generic' );
+	$icon_key      = sanitize_key( (string) ( $raw['icon_key'] ?? 'calendar' ) );
+
+	if ( ! in_array( $icon_key, $allowed_icons, true ) ) {
+		$icon_key = 'calendar';
+	}
+
 	$row = array(
 		'icon_id'         => sln_sanitize_media_attachment_id( $raw['icon_id'] ?? 0 ),
+		'icon_key'        => $icon_key,
 		'main_text'       => sanitize_text_field( $raw['main_text'] ?? '' ),
 		'supporting_text' => sanitize_text_field( $raw['supporting_text'] ?? '' ),
 		'active'          => ! empty( $raw['active'] ),

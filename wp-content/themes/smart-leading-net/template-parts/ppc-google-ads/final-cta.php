@@ -41,8 +41,8 @@ if ( ! sln_ppc_row_is_active( $section ) ) {
 
 			<div class="sln-ppc-cta-row">
 				<?php
-				sln_ppc_part_render_button( $section['primary_button_text'] ?? '', $section['primary_button_url'] ?? '#contact' );
-				sln_ppc_part_render_button( $section['secondary_button_text'] ?? '', $section['secondary_button_url'] ?? '#process', 'sln-ppc-btn--line', false );
+				sln_ppc_part_render_button( $section['primary_button_text'] ?? '', $section['primary_button_url'] ?? '#contact', 'secondary', true );
+				sln_ppc_part_render_button( $section['secondary_button_text'] ?? '', $section['secondary_button_url'] ?? '#process', 'white', false );
 				?>
 			</div>
 

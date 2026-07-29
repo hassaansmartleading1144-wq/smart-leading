@@ -29,7 +29,7 @@ if ( ! sln_ppc_row_is_active( $section ) ) {
 					<?php
 					$is_popular   = ! empty( $plan['is_popular'] );
 					$plan_classes = $is_popular ? 'sln-ppc-plan sln-ppc-plan--popular sln-ppc-reveal' : 'sln-ppc-plan sln-ppc-reveal';
-					$button_class = 'primary' === ( $plan['button_style'] ?? '' ) ? 'sln-ppc-btn--orange' : 'sln-ppc-btn--line sln-ppc-btn--dark';
+					$button_variant = 'primary' === ( $plan['button_style'] ?? '' ) ? 'secondary' : 'outline';
 					?>
 					<article class="<?php echo esc_attr( $plan_classes ); ?>">
 						<div class="sln-ppc-plan-top">
@@ -71,7 +71,7 @@ if ( ! sln_ppc_row_is_active( $section ) ) {
 							</ul>
 						<?php endif; ?>
 
-						<?php sln_ppc_part_render_button( $plan['button_text'] ?? '', $plan['button_url'] ?? '#contact', $button_class ); ?>
+						<?php sln_ppc_part_render_button( $plan['button_text'] ?? '', $plan['button_url'] ?? '#contact', $button_variant . ' plan', true ); ?>
 					</article>
 				<?php endforeach; ?>
 			</div>

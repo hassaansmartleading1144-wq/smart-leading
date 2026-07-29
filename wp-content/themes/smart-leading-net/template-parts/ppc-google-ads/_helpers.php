@@ -47,25 +47,57 @@ if ( ! function_exists( 'sln_ppc_part_render_heading' ) ) {
 
 if ( ! function_exists( 'sln_ppc_part_render_button' ) ) {
 	/**
-	 * Render a PPC page button.
+	 * Render a PPC page button using the global theme sls-btn CTA.
+	 *
+	 * Accepts theme variants (primary|secondary|outline|white) or legacy
+	 * modifier classes (sln-ppc-btn--orange|sln-ppc-btn--line|… ) for back-compat.
 	 *
 	 * @param string $text  Button text.
 	 * @param string $url   Button URL.
-	 * @param string $class Modifier classes.
-	 * @param bool   $arrow Whether to show the arrow span.
+	 * @param string $class Variant slug or legacy modifier classes.
+	 * @param bool   $arrow Whether to show the arrow icon.
 	 */
-	function sln_ppc_part_render_button( $text, $url, $class = 'sln-ppc-btn--orange', $arrow = true ) {
+	function sln_ppc_part_render_button( $text, $url, $class = 'secondary', $arrow = true ) {
 		if ( '' === (string) $text ) {
 			return;
 		}
-		?>
-		<a class="sln-ppc-btn <?php echo esc_attr( $class ); ?>" href="<?php echo esc_url( $url ); ?>">
-			<?php echo esc_html( $text ); ?>
-			<?php if ( $arrow ) : ?>
-				<span class="sln-ppc-btn__arrow" aria-hidden="true">→</span>
-			<?php endif; ?>
-		</a>
-		<?php
+
+		if ( ! function_exists( 'sln_render_cta_button' ) ) {
+			return;
+		}
+
+		$class   = (string) $class;
+		$variant = 'secondary';
+		$extra   = 'sln-ppc-cta';
+
+		$known = array( 'primary', 'secondary', 'outline', 'white' );
+		if ( in_array( $class, $known, true ) ) {
+			$variant = $class;
+		} elseif ( preg_match( '/\b(primary|secondary|outline|white)\b/', $class, $matches ) ) {
+			$variant = $matches[1];
+		} elseif ( false !== strpos( $class, 'sln-ppc-btn--line' ) ) {
+			$variant = ( false !== strpos( $class, 'sln-ppc-btn--dark' ) ) ? 'outline' : 'white';
+		} elseif ( false !== strpos( $class, 'sln-ppc-btn--orange' ) ) {
+			$variant = 'secondary';
+		}
+
+		if ( false !== strpos( $class, 'sln-ppc-cta--plan' ) || false !== strpos( $class, 'plan' ) ) {
+			$extra .= ' sln-ppc-cta--plan';
+		}
+
+		if ( 'primary' === $variant ) {
+			$variant = 'secondary';
+		}
+
+		sln_render_cta_button(
+			array(
+				'text'       => $text,
+				'url'        => $url,
+				'variant'    => $variant,
+				'show_arrow' => (bool) $arrow,
+				'class'      => $extra,
+			)
+		);
 	}
 }
 

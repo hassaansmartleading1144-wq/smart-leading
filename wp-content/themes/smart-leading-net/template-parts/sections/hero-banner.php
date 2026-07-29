@@ -92,10 +92,11 @@ $hero_sizes  = sln_get_hero_lcp_image_sizes();
 					<?php
 					sln_render_cta_button(
 						array(
-							'text'    => __( 'Get My Free Proposal', 'smart-leading-net' ),
-							'type'    => 'submit',
-							'variant' => 'primary',
-							'class'   => 'hero-banner__cta-submit',
+							'text'       => __( 'Get My Free Proposal', 'smart-leading-net' ),
+							'type'       => 'submit',
+							'variant'    => 'primary',
+							'class'      => 'hero-banner__cta-submit',
+							'show_arrow' => false,
 						)
 					);
 					?>
