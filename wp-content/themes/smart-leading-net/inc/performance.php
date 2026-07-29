@@ -254,26 +254,11 @@ function sln_defer_script_loader_tag( $tag, $handle, $src ) {
 add_filter( 'script_loader_tag', 'sln_defer_script_loader_tag', 10, 3 );
 
 /**
- * Enqueue the lightweight AI chat loader on the homepage.
+ * AI chat loader disabled — homepage hero chat input was removed.
+ * Keep the function stub so existing hooks/calls fail closed safely.
  */
 function sln_enqueue_ai_chat_loader() {
-	if ( ! is_front_page() || ! function_exists( 'sln_get_ai_chat_loader_config' ) ) {
-		return;
-	}
-
-	wp_enqueue_script(
-		'sln-ai-chat-loader',
-		SLN_THEME_URI . '/assets/js/ai-chat-loader.js',
-		array(),
-		SLN_THEME_VERSION,
-		true
-	);
-
-	wp_localize_script(
-		'sln-ai-chat-loader',
-		'slsAiChatLoader',
-		sln_get_ai_chat_loader_config()
-	);
+	return;
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_ai_chat_loader', 25 );
 

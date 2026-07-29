@@ -1,21 +1,26 @@
 /**
- * Smart Leading Net — Starts CTA section
+ * Smart Leading Net — Starts CTA (Quote CTA)
+ *
+ * Redirects to Contact Us and passes the website query param when provided.
  */
 (function () {
 	'use strict';
 
-	function normalizeWebsite(value) {
-		var trimmed = value.trim();
+	function getContactUrl() {
+		var config = window.slnStartsCta || {};
+		return config.contactUrl || '/contact-us/';
+	}
+
+	function buildRedirectUrl(website) {
+		var base = getContactUrl();
+		var trimmed = website ? String(website).trim() : '';
 
 		if (!trimmed) {
-			return '';
+			return base;
 		}
 
-		if (!/^https?:\/\//i.test(trimmed)) {
-			return 'https://' + trimmed;
-		}
-
-		return trimmed;
+		var separator = base.indexOf('?') === -1 ? '?' : '&';
+		return base + separator + 'website=' + encodeURIComponent(trimmed);
 	}
 
 	function initStartsCtaForm() {
@@ -30,19 +35,8 @@
 		form.addEventListener('submit', function (event) {
 			event.preventDefault();
 
-			if (!input) {
-				return;
-			}
-
-			var website = normalizeWebsite(input.value);
-
-			if (!website) {
-				input.focus();
-				return;
-			}
-
-			input.value = website;
-			form.classList.add('is-submitted');
+			var website = input ? input.value.trim() : '';
+			window.location.href = buildRedirectUrl(website);
 		});
 	}
 

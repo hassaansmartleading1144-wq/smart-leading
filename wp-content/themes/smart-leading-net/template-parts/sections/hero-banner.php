@@ -1,6 +1,6 @@
 <?php
 /**
- * Hero banner section — homepage hero with composite artwork and chat input.
+ * Hero banner section — homepage hero with quote CTA panel.
  *
  * @package Smart_Leading_Net
  */
@@ -76,19 +76,30 @@ $hero_sizes  = sln_get_hero_lcp_image_sizes();
 					?>
 				</p>
 
-				<?php
-				sln_render_cta_button(
-					array(
-						'text'       => __( 'Get My Free Proposal', 'smart-leading-net' ),
-						'url'        => '#contact',
-						'variant'    => 'primary',
-						'class'      => 'hero-banner__cta',
-						'attributes' => array(
-							'data-animate' => 'fade-up',
-						),
-					)
-				);
-				?>
+				<form class="hero-banner__cta-form" action="#" method="get" novalidate data-animate="fade-up">
+					<label class="hero-banner__cta-field">
+						<span class="screen-reader-text"><?php esc_html_e( 'Your website', 'smart-leading-net' ); ?></span>
+						<input
+							id="hero-banner-website"
+							class="hero-banner__cta-input"
+							type="url"
+							name="website"
+							placeholder="<?php esc_attr_e( 'Enter your website', 'smart-leading-net' ); ?>"
+							autocomplete="url"
+						>
+					</label>
+
+					<?php
+					sln_render_cta_button(
+						array(
+							'text'    => __( 'Get My Free Proposal', 'smart-leading-net' ),
+							'type'    => 'submit',
+							'variant' => 'primary',
+							'class'   => 'hero-banner__cta-submit',
+						)
+					);
+					?>
+				</form>
 			</div>
 
 			<div class="hero-banner__visual">
@@ -170,36 +181,6 @@ $hero_sizes  = sln_get_hero_lcp_image_sizes();
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="hero-banner__chat sls-ai-chat" data-animate="fade-up">
-			<div class="sls-ai-chat__history" id="sls-ai-chat-history" hidden>
-				<div class="sls-ai-chat__messages" id="sls-ai-chat-messages" aria-live="polite" aria-relevant="additions"></div>
-				<div class="sls-ai-chat__typing" id="sls-ai-chat-typing" hidden><?php esc_html_e( 'A Smart Leading Team Member is typing...', 'smart-leading-net' ); ?></div>
-			</div>
-			<form class="hero-banner__chat-form sls-ai-chat__form" action="#" method="post" novalidate>
-				<span class="hero-banner__chat-icon" aria-hidden="true">
-					<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M11 2.5L12.4 8.4L18.5 7.6L14.2 11.8L16.2 17.8L11 14.5L5.8 17.8L7.8 11.8L3.5 7.6L9.6 8.4L11 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-						<path d="M4.5 19H17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-					</svg>
-				</span>
-				<label class="visually-hidden" for="hero-banner-chat-input"><?php esc_html_e( 'Message Smart Leading', 'smart-leading-net' ); ?></label>
-				<input
-					id="hero-banner-chat-input"
-					class="hero-banner__chat-input sls-ai-chat__input"
-					type="text"
-					name="project_message"
-					placeholder="<?php esc_attr_e( 'Tell us about your project..', 'smart-leading-net' ); ?>"
-					autocomplete="off"
-					maxlength="1000"
-				>
-				<button type="submit" class="hero-banner__chat-submit sls-ai-chat__submit" aria-label="<?php esc_attr_e( 'Send message', 'smart-leading-net' ); ?>">
-					<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M9 14V4M9 4L5 8M9 4L13 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
-				</button>
-			</form>
 		</div>
 	</div>
 </section>

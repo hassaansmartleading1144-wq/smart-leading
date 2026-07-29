@@ -9,14 +9,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$contact_phone_display = '+1 (512) 764-7877';
-$contact_phone_href    = 'tel:+15127647877';
-$contact_email         = 'admin@smartleading.net';
+$contact_phone_display = '(512) 764-7877';
+$contact_phone_href    = 'tel:(512) 764-7877';
+$contact_email         = 'business@smartleading.net';
 $contact_locations     = array(
 	__( 'Australia', 'smart-leading-net' ),
 	__( 'United Kingdom', 'smart-leading-net' ),
 	__( 'Norway', 'smart-leading-net' ),
-	__( 'Finland', 'smart-leading-net' ),
+	
 );
 
 $contact_card_bg_image = SLN_THEME_URI . '/assets/images/call-shap1.webp';
@@ -229,13 +229,7 @@ while ( have_posts() ) :
 		</div>
 	</section>
 
-	<section class="contact-page__added-section section-padding" aria-labelledby="contact-page-added-section-heading">
-		<div class="sls-container">
-			<h2 id="contact-page-added-section-heading" class="contact-page__added-section-title">
-				<?php esc_html_e( 'Section added1', 'smart-leading-net' ); ?>
-			</h2>
-		</div>
-	</section>
+	
 </div>
 
 	<?php

@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$sln_footer_phone_number = '+1 512 764 7877';
+$sln_footer_phone_number = '512 764 7877';
 $sln_footer_phone_href   = 'tel:+15127647877';
-$sln_footer_email        = 'admin@smartleading.com';
+$sln_footer_email        = 'business@smartleading.net';
 
 $sln_social_links = array(
 	'facebook'  => 'https://www.facebook.com/smartleadingsolutionsllc',
@@ -30,7 +30,7 @@ $sln_social_links = array(
 							<img src="<?php echo esc_url( SLN_THEME_URI . '/assets/images/Smart Leading white logo.webp' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" width="150" height="80" loading="eager" decoding="async">
 						</a>
 					</div>
-					<div class="footer-title"><?php esc_html_e( 'About Company', 'smart-leading-net' ); ?></div>
+					<div class="footer-title"><?php esc_html_e( '', 'smart-leading-net' ); ?></div>
 					<p class="site-footer__text">
 						<?php esc_html_e( 'Partner with Smart Leading Solutions for a personalized suite of services that drive measurable results and ensure your digital success', 'smart-leading-net' ); ?>
 					</p>
@@ -77,7 +77,7 @@ $sln_social_links = array(
 								<?php sln_inline_svg( 'call-us-icon-footer.svg', 'site-footer__svg', true ); ?>
 							</span>
 							<span class="site-footer__contact-content">
-								<span class="site-footer__contact-label"><?php esc_html_e( 'Call Us', 'smart-leading-net' ); ?></span>
+								<span class="site-footer__contact-label"><?php esc_html_e( '', 'smart-leading-net' ); ?></span>
 								<span class="site-footer__contact-value"><?php echo esc_html( $sln_footer_phone_number ); ?></span>
 							</span>
 						</a>
@@ -87,7 +87,7 @@ $sln_social_links = array(
 								<?php sln_inline_svg( 'envelope-icon-footer.svg', 'site-footer__svg', true ); ?>
 							</span>
 							<span class="site-footer__contact-content">
-								<span class="site-footer__contact-label"><?php esc_html_e( 'E-Mail Address', 'smart-leading-net' ); ?></span>
+								<span class="site-footer__contact-label"><?php esc_html_e( '', 'smart-leading-net' ); ?></span>
 								<span class="site-footer__contact-value"><?php echo esc_html( $sln_footer_email ); ?></span>
 							</span>
 						</a>

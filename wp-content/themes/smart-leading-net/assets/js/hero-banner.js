@@ -4,6 +4,40 @@
 (function () {
 	'use strict';
 
+	function getContactUrl() {
+		var config = window.slnHeroBanner || {};
+		return config.contactUrl || '/contact-us/';
+	}
+
+	function buildRedirectUrl(website) {
+		var base = getContactUrl();
+		var trimmed = website ? String(website).trim() : '';
+
+		if (!trimmed) {
+			return base;
+		}
+
+		var separator = base.indexOf('?') === -1 ? '?' : '&';
+		return base + separator + 'website=' + encodeURIComponent(trimmed);
+	}
+
+	function initHeroCtaForm(hero) {
+		var form = hero.querySelector('.hero-banner__cta-form');
+
+		if (!form) {
+			return;
+		}
+
+		var input = form.querySelector('.hero-banner__cta-input');
+
+		form.addEventListener('submit', function (event) {
+			event.preventDefault();
+
+			var website = input ? input.value.trim() : '';
+			window.location.href = buildRedirectUrl(website);
+		});
+	}
+
 	function initHeroBanner() {
 		var hero = document.querySelector('.hero-banner');
 
@@ -21,6 +55,8 @@
 
 			progressFill.style.setProperty('--hero-progress-end', String(endOffset));
 		}
+
+		initHeroCtaForm(hero);
 
 		window.requestAnimationFrame(function () {
 			hero.classList.add('is-ready');

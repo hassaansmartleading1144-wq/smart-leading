@@ -179,6 +179,36 @@
 			});
 	}
 
+	function prefillWebsiteFromQuery(form) {
+		var websiteInput = form.querySelector('[name="contact_website"]');
+
+		if (!websiteInput) {
+			return;
+		}
+
+		var params;
+
+		try {
+			params = new URLSearchParams(window.location.search);
+		} catch (error) {
+			return;
+		}
+
+		var website = params.get('website');
+
+		if (!website) {
+			return;
+		}
+
+		website = String(website).trim();
+
+		if (!website) {
+			return;
+		}
+
+		websiteInput.value = website;
+	}
+
 	function initContactForm() {
 		var form = document.getElementById('contact-page-form');
 
@@ -187,6 +217,7 @@
 		}
 
 		iti = initPhone(form.querySelector('[name="contact_phone"]'));
+		prefillWebsiteFromQuery(form);
 		form.addEventListener('submit', handleSubmit);
 	}
 

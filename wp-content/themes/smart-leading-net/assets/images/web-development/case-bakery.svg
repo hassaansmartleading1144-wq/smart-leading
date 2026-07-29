@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" fill="none" role="img" aria-label="Dan Bakery and Cafe project preview">
+  <rect width="800" height="500" fill="#F7F1E8"/>
+  <circle cx="620" cy="160" r="90" fill="#E8C9A8"/>
+  <circle cx="520" cy="280" r="70" fill="#D7B08A"/>
+  <circle cx="680" cy="300" r="55" fill="#C99B6D"/>
+  <rect x="56" y="72" width="300" height="28" rx="8" fill="#3A2A1F"/>
+  <rect x="56" y="118" width="240" height="16" rx="6" fill="#7A5A42"/>
+  <rect x="56" y="170" width="140" height="40" rx="10" fill="#F36B32"/>
+  <rect x="56" y="260" width="220" height="120" rx="16" fill="#FFFFFF"/>
+  <rect x="80" y="290" width="120" height="12" rx="6" fill="#3A2A1F"/>
+  <rect x="80" y="318" width="160" height="10" rx="5" fill="#A08068"/>
+  <text x="56" y="440" fill="#3A2A1F" font-family="Arial, sans-serif" font-size="22" font-weight="700">Bakery Website Preview</text>
+</svg>
