@@ -53,7 +53,7 @@ $our_projects_items = sln_get_our_projects_items();
 						sln_render_cta_button(
 							array(
 								'text'    => __( 'View All Project', 'smart-leading-net' ),
-								'url'     => '#',
+								'url'     => 'https://smartleading.net/portfolio/',
 								'variant' => 'primary',
 							)
 						);
