@@ -32,7 +32,7 @@ $sln_social_links = array(
 					</div>
 					<div class="footer-title"><?php esc_html_e( '', 'smart-leading-net' ); ?></div>
 					<p class="site-footer__text">
-						<?php esc_html_e( 'Partner with Smart Leading Solutions for a personalized suite of services that drive measurable results and ensure your digital success', 'smart-leading-net' ); ?>
+						<?php esc_html_e( 'Partner with Smart Leading Solutions, delivering AI-powered digital solutions to help you grow your business with a larger audience, more sales and higher conversions.', 'smart-leading-net' ); ?>
 					</p>
 				</div>
 
