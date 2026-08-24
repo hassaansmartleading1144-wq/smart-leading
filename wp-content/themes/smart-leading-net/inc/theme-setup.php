@@ -237,6 +237,94 @@ function sln_maybe_ensure_web_development_services_page() {
 add_action( 'admin_init', 'sln_maybe_ensure_web_development_services_page', 31 );
 
 /**
+ * Ensure the AEO Services page exists as a child of Digital Marketing Services.
+ *
+ * @return int Page ID or 0 on failure.
+ */
+function sln_ensure_aeo_services_page() {
+	$slug      = defined( 'SLN_AEO_SLUG' ) ? SLN_AEO_SLUG : 'answer-engine-optimization-aeo';
+	$parent    = defined( 'SLN_AEO_PARENT_SLUG' ) ? SLN_AEO_PARENT_SLUG : 'digital-marketing-services';
+	$title     = __( 'Answer Engine Optimization (AEO) Services', 'smart-leading-net' );
+	$template  = defined( 'SLN_AEO_TEMPLATE' ) ? SLN_AEO_TEMPLATE : 'aeo-page-template.php';
+	$excerpt   = defined( 'SLN_AEO_META_DESCRIPTION' ) ? SLN_AEO_META_DESCRIPTION : '';
+	$parent_id = 0;
+
+	if ( function_exists( 'sln_ensure_digital_marketing_services_page' ) ) {
+		$parent_id = sln_ensure_digital_marketing_services_page();
+	}
+
+	if ( ! $parent_id ) {
+		$parent_page = get_page_by_path( $parent, OBJECT, 'page' );
+		$parent_id   = $parent_page instanceof WP_Post ? (int) $parent_page->ID : 0;
+	}
+
+	$page = get_page_by_path( $parent . '/' . $slug, OBJECT, 'page' );
+
+	if ( ! $page ) {
+		$page = get_page_by_path( $slug, OBJECT, 'page' );
+	}
+
+	if ( $page instanceof WP_Post ) {
+		$page_id = $page->ID;
+	} else {
+		$page_id = wp_insert_post(
+			array(
+				'post_title'   => $title,
+				'post_name'    => $slug,
+				'post_status'  => 'publish',
+				'post_type'    => 'page',
+				'post_parent'  => $parent_id,
+				'post_excerpt' => $excerpt,
+				'post_content' => '',
+			),
+			true
+		);
+
+		if ( is_wp_error( $page_id ) || ! $page_id ) {
+			return 0;
+		}
+	}
+
+	$updates = array(
+		'ID' => absint( $page_id ),
+	);
+
+	if ( $parent_id && (int) get_post_field( 'post_parent', $page_id ) !== (int) $parent_id ) {
+		$updates['post_parent'] = $parent_id;
+	}
+
+	if ( $excerpt && '' === (string) get_post_field( 'post_excerpt', $page_id ) ) {
+		$updates['post_excerpt'] = $excerpt;
+	}
+
+	if ( count( $updates ) > 1 ) {
+		wp_update_post( $updates );
+	}
+
+	update_post_meta( $page_id, '_wp_page_template', $template );
+
+	return absint( $page_id );
+}
+add_action( 'after_switch_theme', 'sln_ensure_aeo_services_page' );
+
+/**
+ * One-time ensure for the AEO Services page (no duplicates).
+ */
+function sln_maybe_ensure_aeo_services_page() {
+	if ( get_option( 'sln_aeo_page_ensured' ) ) {
+		return;
+	}
+
+	$page_id = sln_ensure_aeo_services_page();
+
+	if ( $page_id ) {
+		update_option( 'sln_aeo_page_ensured', (string) $page_id, false );
+	}
+}
+add_action( 'admin_init', 'sln_maybe_ensure_aeo_services_page', 32 );
+add_action( 'init', 'sln_maybe_ensure_aeo_services_page', 32 );
+
+/**
  * Force front-page.php for the site homepage.
  *
  * @param string $template Current template path.
