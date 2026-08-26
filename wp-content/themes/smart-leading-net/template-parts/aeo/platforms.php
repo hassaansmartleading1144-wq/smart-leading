@@ -9,14 +9,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$section   = sln_aeo_get_platforms_section();
 $platforms = sln_aeo_get_platforms();
 ?>
 
 <section class="sln-aeo-section sln-aeo-section--tint" aria-labelledby="sln-aeo-platforms-heading">
 	<div class="sls-container">
 		<header class="sln-aeo-head sln-aeo-head--center sln-aeo-reveal">
-			<p class="sln-aeo-eyebrow"><?php esc_html_e( 'Where you\'ll show up', 'smart-leading-net' ); ?></p>
-			<h2 id="sln-aeo-platforms-heading" class="sln-aeo-title"><?php esc_html_e( 'Built for every major answer engine', 'smart-leading-net' ); ?></h2>
+			<p class="sln-aeo-eyebrow"><?php echo esc_html( $section['eyebrow'] ); ?></p>
+			<h2 id="sln-aeo-platforms-heading" class="sln-aeo-title"><?php echo esc_html( $section['heading'] ); ?></h2>
 		</header>
 
 		<div class="sln-aeo-plats sln-aeo-reveal">

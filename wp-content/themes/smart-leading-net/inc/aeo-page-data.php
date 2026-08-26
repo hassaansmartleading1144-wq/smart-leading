@@ -1,6 +1,6 @@
 <?php
 /**
- * AEO Services page — helpers, URLs, and section content.
+ * AEO Services page — helpers, URLs, and icons.
  *
  * @package Smart_Leading_Net
  */
@@ -151,369 +151,37 @@ function sln_aeo_icon( $icon ) {
 }
 
 /**
- * Search evolution stages.
+ * Icon keys available in AEO admin selects.
  *
- * @return array<int, array<string, string>>
+ * @return array<string, string>
  */
-function sln_aeo_get_evolution_stages() {
+function sln_aeo_get_icon_choices() {
 	return array(
-		array(
-			'icon'        => 'list',
-			'label'       => __( 'Stage 01', 'smart-leading-net' ),
-			'title'       => __( 'Traditional Search', 'smart-leading-net' ),
-			'description' => __( 'Ten blue links. The user clicks through, compares pages, and decides for themselves.', 'smart-leading-net' ),
-			'modifier'    => '',
-		),
-		array(
-			'icon'        => 'star',
-			'label'       => __( 'Stage 02', 'smart-leading-net' ),
-			'title'       => __( 'AI-Powered Search', 'smart-leading-net' ),
-			'description' => __( 'Google, Bing, and assistants read across many sources and synthesize a summary before any link appears.', 'smart-leading-net' ),
-			'modifier'    => 'mid',
-		),
-		array(
-			'icon'        => 'check',
-			'label'       => __( 'Stage 03', 'smart-leading-net' ),
-			'title'       => __( 'Direct Answers', 'smart-leading-net' ),
-			'description' => __( 'The user gets a complete answer with citations — sometimes never visiting a website at all.', 'smart-leading-net' ),
-			'modifier'    => 'final',
-		),
-	);
-}
-
-/**
- * Why AEO matters cards.
- *
- * @return array<int, array<string, string|bool>>
- */
-function sln_aeo_get_why_cards() {
-	return array(
-		array(
-			'icon'        => 'star',
-			'title'       => __( 'Google AI Overviews', 'smart-leading-net' ),
-			'description' => __( 'Now appear above traditional results for a large share of informational queries, often answering the question before a click ever happens.', 'smart-leading-net' ),
-			'wide'        => true,
-		),
-		array(
-			'icon'        => 'help',
-			'title'       => __( 'ChatGPT', 'smart-leading-net' ),
-			'description' => __( 'Used as a search substitute for research and recommendations.', 'smart-leading-net' ),
-			'wide'        => false,
-		),
-		array(
-			'icon'        => 'plus',
-			'title'       => __( 'Perplexity', 'smart-leading-net' ),
-			'description' => __( 'Built entirely around cited, conversational answers.', 'smart-leading-net' ),
-			'wide'        => false,
-		),
-		array(
-			'icon'        => 'mic',
-			'title'       => __( 'Voice Assistants', 'smart-leading-net' ),
-			'description' => __( 'Read back a single answer — there\'s no "page two."', 'smart-leading-net' ),
-			'wide'        => false,
-		),
-		array(
-			'icon'        => 'lines',
-			'title'       => __( 'Zero-click & conversational search', 'smart-leading-net' ),
-			'description' => __( 'More searches now end without a click-through. Brand visibility increasingly depends on being the source an AI system chooses to cite, not just the page it links to.', 'smart-leading-net' ),
-			'wide'        => true,
-		),
-	);
-}
-
-/**
- * Strategy timeline steps.
- *
- * @return array<int, array<string, string>>
- */
-function sln_aeo_get_strategy_steps() {
-	return array(
-		array(
-			'number'      => '01',
-			'title'       => __( 'Research & Question Mapping', 'smart-leading-net' ),
-			'description' => __( 'We identify the real questions your audience asks answer engines, in their own words.', 'smart-leading-net' ),
-		),
-		array(
-			'number'      => '02',
-			'title'       => __( 'Search Intent Analysis', 'smart-leading-net' ),
-			'description' => __( 'We map each question to what the asker actually needs — a fact, a comparison, or a decision.', 'smart-leading-net' ),
-		),
-		array(
-			'number'      => '03',
-			'title'       => __( 'Content Optimization', 'smart-leading-net' ),
-			'description' => __( 'Pages are restructured to answer clearly and directly, in a format AI systems can extract.', 'smart-leading-net' ),
-		),
-		array(
-			'number'      => '04',
-			'title'       => __( 'Entity Optimization', 'smart-leading-net' ),
-			'description' => __( 'We clarify who you are and what you offer so AI systems correctly identify your brand as an entity.', 'smart-leading-net' ),
-		),
-		array(
-			'number'      => '05',
-			'title'       => __( 'Structured Data', 'smart-leading-net' ),
-			'description' => __( 'Schema markup makes your content machine-readable, not just human-readable.', 'smart-leading-net' ),
-		),
-		array(
-			'number'      => '06',
-			'title'       => __( 'Authority Signals', 'smart-leading-net' ),
-			'description' => __( 'We build the citations and mentions that answer engines use to judge trustworthiness.', 'smart-leading-net' ),
-		),
-		array(
-			'number'      => '07',
-			'title'       => __( 'AI Visibility Tracking', 'smart-leading-net' ),
-			'description' => __( 'We monitor where and how your brand appears across AI Overviews, ChatGPT, and Perplexity.', 'smart-leading-net' ),
-		),
-	);
-}
-
-/**
- * AEO services cards.
- *
- * @return array<int, array<string, string>>
- */
-function sln_aeo_get_services() {
-	return array(
-		array(
-			'icon'        => 'star',
-			'title'       => __( 'AI Search Optimization', 'smart-leading-net' ),
-			'description' => __( 'Optimizing your site to be understood, indexed, and quoted by AI-driven search systems.', 'smart-leading-net' ),
-		),
-		array(
-			'icon'        => 'doc',
-			'title'       => __( 'Featured Snippet Optimization', 'smart-leading-net' ),
-			'description' => __( 'Structuring content to win the answer box position in traditional search.', 'smart-leading-net' ),
-		),
-		array(
-			'icon'        => 'lines',
-			'title'       => __( 'AI Overview Optimization', 'smart-leading-net' ),
-			'description' => __( 'Formatting and sourcing content so it\'s a strong candidate for Google\'s AI Overviews.', 'smart-leading-net' ),
-		),
-		array(
-			'icon'        => 'help',
-			'title'       => __( 'Q&A Content Strategy', 'smart-leading-net' ),
-			'description' => __( 'Building content around the exact questions your customers ask AI assistants.', 'smart-leading-net' ),
-		),
-		array(
-			'icon'        => 'mic',
-			'title'       => __( 'Conversational Search Optimization', 'smart-leading-net' ),
-			'description' => __( 'Writing for natural, multi-turn, spoken-language queries — not just keywords.', 'smart-leading-net' ),
-		),
-		array(
-			'icon'        => 'graph',
-			'title'       => __( 'Entity & Knowledge Graph Optimization', 'smart-leading-net' ),
-			'description' => __( 'Strengthening how AI systems identify and connect your brand as a distinct entity.', 'smart-leading-net' ),
-		),
-		array(
-			'icon'        => 'blocks',
-			'title'       => __( 'Structured Data Optimization', 'smart-leading-net' ),
-			'description' => __( 'Implementing schema so machines can accurately parse your content.', 'smart-leading-net' ),
-		),
-		array(
-			'icon'        => 'lines',
-			'title'       => __( 'Semantic Content Optimization', 'smart-leading-net' ),
-			'description' => __( 'Writing with the topical depth and clarity language models reward.', 'smart-leading-net' ),
-		),
-		array(
-			'icon'        => 'crosshair',
-			'title'       => __( 'Topical Authority Development', 'smart-leading-net' ),
-			'description' => __( 'Building content clusters that establish deep expertise on your core subjects.', 'smart-leading-net' ),
-		),
-		array(
-			'icon'        => 'voice',
-			'title'       => __( 'Voice Search Optimization', 'smart-leading-net' ),
-			'description' => __( 'Targeting the natural-language, question-based phrasing voice search relies on.', 'smart-leading-net' ),
-		),
-		array(
-			'icon'        => 'check',
-			'title'       => __( 'Brand Mention & Citation Strategy', 'smart-leading-net' ),
-			'description' => __( 'Earning the third-party mentions AI models use as trust signals.', 'smart-leading-net' ),
-		),
-	);
-}
-
-/**
- * How AEO works flow nodes.
- *
- * @return array<int, array<string, string|bool>>
- */
-function sln_aeo_get_flow_nodes() {
-	return array(
-		array(
-			'icon'        => 'search',
-			'title'       => __( 'User Question', 'smart-leading-net' ),
-			'description' => __( 'Someone asks a real question, often in natural language.', 'smart-leading-net' ),
-			'highlight'   => true,
-		),
-		array(
-			'icon'        => 'square',
-			'title'       => __( 'Search / AI System', 'smart-leading-net' ),
-			'description' => __( 'The engine parses intent and searches its index.', 'smart-leading-net' ),
-			'highlight'   => false,
-		),
-		array(
-			'icon'        => 'lines',
-			'title'       => __( 'Relevant Sources', 'smart-leading-net' ),
-			'description' => __( 'It shortlists pages that clearly answer the question.', 'smart-leading-net' ),
-			'highlight'   => false,
-		),
-		array(
-			'icon'        => 'nodes',
-			'title'       => __( 'Understanding / Entities', 'smart-leading-net' ),
-			'description' => __( 'It confirms who you are and whether you\'re a credible source.', 'smart-leading-net' ),
-			'highlight'   => false,
-		),
-		array(
-			'icon'        => 'star',
-			'title'       => __( 'Generated Answer', 'smart-leading-net' ),
-			'description' => __( 'It synthesizes an answer, drawing from top sources.', 'smart-leading-net' ),
-			'highlight'   => false,
-		),
-		array(
-			'icon'        => 'check',
-			'title'       => __( 'Brand Visibility', 'smart-leading-net' ),
-			'description' => __( 'Your brand appears in the answer, with or without a click.', 'smart-leading-net' ),
-			'highlight'   => true,
-		),
-	);
-}
-
-/**
- * Traditional SEO vs AEO rows.
- *
- * @return array<int, array<string, string>>
- */
-function sln_aeo_get_comparison_rows() {
-	return array(
-		array(
-			'seo' => __( 'Ranking pages', 'smart-leading-net' ),
-			'aeo' => __( 'Being referenced inside answers', 'smart-leading-net' ),
-		),
-		array(
-			'seo' => __( 'Keyword targeting', 'smart-leading-net' ),
-			'aeo' => __( 'Questions & underlying intent', 'smart-leading-net' ),
-		),
-		array(
-			'seo' => __( 'Blue links', 'smart-leading-net' ),
-			'aeo' => __( 'AI-generated responses', 'smart-leading-net' ),
-		),
-		array(
-			'seo' => __( 'SERPs', 'smart-leading-net' ),
-			'aeo' => __( 'AI search experiences', 'smart-leading-net' ),
-		),
-		array(
-			'seo' => __( 'Click-through rankings', 'smart-leading-net' ),
-			'aeo' => __( 'Brand visibility & citations', 'smart-leading-net' ),
-		),
-	);
-}
-
-/**
- * Answer engine platforms.
- *
- * @return array<int, string>
- */
-function sln_aeo_get_platforms() {
-	return array(
-		__( 'Google AI Overviews', 'smart-leading-net' ),
-		__( 'ChatGPT', 'smart-leading-net' ),
-		__( 'Perplexity', 'smart-leading-net' ),
-		__( 'Microsoft Copilot', 'smart-leading-net' ),
-		__( 'Google Gemini', 'smart-leading-net' ),
-		__( 'Voice Search', 'smart-leading-net' ),
-	);
-}
-
-/**
- * Industries served.
- *
- * @return array<int, array<string, string>>
- */
-function sln_aeo_get_industries() {
-	return array(
-		array( 'icon' => 'square', 'title' => __( 'SaaS', 'smart-leading-net' ) ),
-		array( 'icon' => 'bag', 'title' => __( 'Ecommerce', 'smart-leading-net' ) ),
-		array( 'icon' => 'health', 'title' => __( 'Healthcare', 'smart-leading-net' ) ),
-		array( 'icon' => 'home', 'title' => __( 'Professional Services', 'smart-leading-net' ) ),
-		array( 'icon' => 'pin', 'title' => __( 'Local Businesses', 'smart-leading-net' ) ),
-		array( 'icon' => 'card', 'title' => __( 'B2B', 'smart-leading-net' ) ),
-		array( 'icon' => 'award', 'title' => __( 'Technology', 'smart-leading-net' ) ),
-		array( 'icon' => 'trend', 'title' => __( 'Finance', 'smart-leading-net' ) ),
-	);
-}
-
-/**
- * Expected results.
- *
- * @return array<int, array<string, string>>
- */
-function sln_aeo_get_results() {
-	return array(
-		array(
-			'title'       => __( 'Increased AI search visibility', 'smart-leading-net' ),
-			'description' => __( 'More consistent appearances inside AI Overviews and assistant answers.', 'smart-leading-net' ),
-		),
-		array(
-			'title'       => __( 'More brand mentions', 'smart-leading-net' ),
-			'description' => __( 'Wider citation of your brand across AI-generated responses.', 'smart-leading-net' ),
-		),
-		array(
-			'title'       => __( 'Increased qualified traffic', 'smart-leading-net' ),
-			'description' => __( 'Visitors arriving already primed with intent, from answer citations.', 'smart-leading-net' ),
-		),
-		array(
-			'title'       => __( 'Greater topical authority', 'smart-leading-net' ),
-			'description' => __( 'A stronger footprint across the questions that matter to your industry.', 'smart-leading-net' ),
-		),
-		array(
-			'title'       => __( 'Better conversational visibility', 'smart-leading-net' ),
-			'description' => __( 'Stronger presence in multi-turn, natural-language queries.', 'smart-leading-net' ),
-		),
-		array(
-			'title'       => __( 'More zero-click opportunity', 'smart-leading-net' ),
-			'description' => __( 'Presence and trust built even when the user never clicks through.', 'smart-leading-net' ),
-		),
-	);
-}
-
-/**
- * FAQ items.
- *
- * @return array<int, array<string, string>>
- */
-function sln_aeo_get_faq_items() {
-	return array(
-		array(
-			'question' => __( 'What is Answer Engine Optimization?', 'smart-leading-net' ),
-			'answer'   => __( 'AEO is the practice of structuring and positioning content so AI-powered search tools — like Google AI Overviews, ChatGPT, and Perplexity — can understand it, trust it, and cite it directly in the answers they generate.', 'smart-leading-net' ),
-		),
-		array(
-			'question' => __( 'How is AEO different from SEO?', 'smart-leading-net' ),
-			'answer'   => __( 'SEO focuses on ranking pages in a list of links. AEO focuses on being the source an AI system references when it writes a direct answer, which requires different content structure, entity clarity, and technical markup.', 'smart-leading-net' ),
-		),
-		array(
-			'question' => __( 'Does AEO replace SEO?', 'smart-leading-net' ),
-			'answer'   => __( 'No. AEO builds on strong technical and on-page SEO foundations — it doesn\'t work as a standalone replacement for them.', 'smart-leading-net' ),
-		),
-		array(
-			'question' => __( 'How does AEO work with Google AI Overviews?', 'smart-leading-net' ),
-			'answer'   => __( 'We structure content to directly and clearly answer specific questions, use supporting schema, and build the authority signals AI Overviews weigh when selecting which sources to summarize and cite.', 'smart-leading-net' ),
-		),
-		array(
-			'question' => __( 'Can AEO help my brand appear in ChatGPT?', 'smart-leading-net' ),
-			'answer'   => __( 'AEO improves the underlying signals — clarity, structure, third-party mentions — that models draw on when trained or when retrieving live information, which can improve how often your brand is referenced.', 'smart-leading-net' ),
-		),
-		array(
-			'question' => __( 'Does AEO work for ecommerce websites?', 'smart-leading-net' ),
-			'answer'   => __( 'Yes. Product Q&A content, comparison content, and structured product data all help ecommerce brands surface in AI-driven shopping and research queries.', 'smart-leading-net' ),
-		),
-		array(
-			'question' => __( 'How long does AEO take?', 'smart-leading-net' ),
-			'answer'   => __( 'Timelines vary by site size, current authority, and competitiveness of your space. As with SEO, AEO is an ongoing process rather than a one-time project.', 'smart-leading-net' ),
-		),
-		array(
-			'question' => __( 'Why is AEO important for future search?', 'smart-leading-net' ),
-			'answer'   => __( 'As more queries are resolved directly inside AI answers, brands that aren\'t structured to be cited risk losing visibility even while still ranking well in traditional search.', 'smart-leading-net' ),
-		),
+		'star'      => __( 'Star', 'smart-leading-net' ),
+		'list'      => __( 'List', 'smart-leading-net' ),
+		'check'     => __( 'Check', 'smart-leading-net' ),
+		'arrow'     => __( 'Arrow', 'smart-leading-net' ),
+		'help'      => __( 'Help', 'smart-leading-net' ),
+		'plus'      => __( 'Plus', 'smart-leading-net' ),
+		'mic'       => __( 'Microphone', 'smart-leading-net' ),
+		'lines'     => __( 'Lines', 'smart-leading-net' ),
+		'doc'       => __( 'Document', 'smart-leading-net' ),
+		'search'    => __( 'Search', 'smart-leading-net' ),
+		'square'    => __( 'Square', 'smart-leading-net' ),
+		'nodes'     => __( 'Nodes', 'smart-leading-net' ),
+		'graph'     => __( 'Graph', 'smart-leading-net' ),
+		'blocks'    => __( 'Blocks', 'smart-leading-net' ),
+		'crosshair' => __( 'Crosshair', 'smart-leading-net' ),
+		'voice'     => __( 'Voice', 'smart-leading-net' ),
+		'bag'       => __( 'Bag', 'smart-leading-net' ),
+		'health'    => __( 'Health', 'smart-leading-net' ),
+		'home'      => __( 'Home', 'smart-leading-net' ),
+		'pin'       => __( 'Pin', 'smart-leading-net' ),
+		'card'      => __( 'Card', 'smart-leading-net' ),
+		'award'     => __( 'Award', 'smart-leading-net' ),
+		'trend'     => __( 'Trend', 'smart-leading-net' ),
+		'tick'      => __( 'Tick', 'smart-leading-net' ),
+		'faq'       => __( 'FAQ', 'smart-leading-net' ),
 	);
 }
 
