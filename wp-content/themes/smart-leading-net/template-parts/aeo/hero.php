@@ -9,8 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$contact_url = sln_aeo_get_contact_url();
-$dm_url      = sln_aeo_get_digital_marketing_url();
+$hero          = sln_aeo_get_hero();
+$proof         = sln_aeo_get_hero_proof();
+$dm_url        = sln_aeo_get_digital_marketing_url();
+$primary_url   = sln_aeo_resolve_cta_url( $hero['primary_cta_url'] ?? '', sln_aeo_get_contact_url() );
+$secondary_url = sln_aeo_resolve_cta_url( $hero['secondary_cta_url'] ?? '', '#how-it-works' );
 ?>
 
 <section class="sln-aeo-hero sln-aeo-section" aria-labelledby="sln-aeo-hero-heading">
@@ -33,21 +36,21 @@ $dm_url      = sln_aeo_get_digital_marketing_url();
 
 		<div class="sln-aeo-hero__grid">
 			<div class="sln-aeo-hero__copy sln-aeo-reveal">
-				<p class="sln-aeo-eyebrow"><?php esc_html_e( 'SEO Services / AEO', 'smart-leading-net' ); ?></p>
+				<p class="sln-aeo-eyebrow"><?php echo esc_html( $hero['eyebrow'] ); ?></p>
 				<h1 id="sln-aeo-hero-heading" class="sln-aeo-hero__title">
-					<?php esc_html_e( 'Answer Engine Optimization', 'smart-leading-net' ); ?>
-					<span class="sln-aeo-hl"><?php esc_html_e( '(AEO)', 'smart-leading-net' ); ?></span>
-					<?php esc_html_e( 'Services', 'smart-leading-net' ); ?>
+					<?php echo esc_html( $hero['heading'] ); ?>
+					<span class="sln-aeo-hl"><?php echo esc_html( $hero['accent'] ); ?></span>
+					<?php echo esc_html( $hero['heading_suffix'] ); ?>
 				</h1>
 				<p class="sln-aeo-lead sln-aeo-hero__lead">
-					<?php esc_html_e( 'Search doesn\'t end in a list of blue links anymore. AI Overviews, ChatGPT, and Perplexity now hand people a finished answer — and only a few brands get quoted in it. AEO is how we get yours in that answer.', 'smart-leading-net' ); ?>
+					<?php echo esc_html( sln_aeo_plain_text( $hero['description'] ) ); ?>
 				</p>
 				<div class="sln-aeo-hero__ctas">
 					<?php
 					sln_render_aeo_page_button(
 						array(
-							'text'    => __( 'Get a Free AEO Audit', 'smart-leading-net' ),
-							'url'     => $contact_url,
+							'text'    => $hero['primary_cta_text'],
+							'url'     => $primary_url,
 							'variant' => 'primary',
 							'arrow'   => true,
 							'class'   => 'sln-aeo-cta--hero',
@@ -55,8 +58,8 @@ $dm_url      = sln_aeo_get_digital_marketing_url();
 					);
 					sln_render_aeo_page_button(
 						array(
-							'text'    => __( 'See How It Works', 'smart-leading-net' ),
-							'url'     => '#how-it-works',
+							'text'    => $hero['secondary_cta_text'],
+							'url'     => $secondary_url,
 							'variant' => 'outline',
 							'arrow'   => false,
 							'class'   => 'sln-aeo-cta--hero',
@@ -64,11 +67,13 @@ $dm_url      = sln_aeo_get_digital_marketing_url();
 					);
 					?>
 				</div>
-				<div class="sln-aeo-hero__proof">
-					<span class="sln-aeo-hero__proof-item"><?php esc_html_e( 'Google Partner agency', 'smart-leading-net' ); ?></span>
-					<span class="sln-aeo-hero__proof-item"><?php esc_html_e( 'Works alongside your existing SEO', 'smart-leading-net' ); ?></span>
-					<span class="sln-aeo-hero__proof-item"><?php esc_html_e( 'No fabricated guarantees, just process', 'smart-leading-net' ); ?></span>
-				</div>
+				<?php if ( ! empty( $proof ) ) : ?>
+					<div class="sln-aeo-hero__proof">
+						<?php foreach ( $proof as $item ) : ?>
+							<span class="sln-aeo-hero__proof-item"><?php echo esc_html( $item ); ?></span>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
 			</div>
 
 			<div class="sln-aeo-mock sln-aeo-reveal" aria-hidden="true">

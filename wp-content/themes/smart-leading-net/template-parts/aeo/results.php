@@ -9,15 +9,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$section = sln_aeo_get_results_section();
 $results = sln_aeo_get_results();
 ?>
 
 <section class="sln-aeo-section sln-aeo-section--dark sln-aeo-results" aria-labelledby="sln-aeo-results-heading">
 	<div class="sls-container sln-aeo-results__grid">
 		<div class="sln-aeo-reveal">
-			<p class="sln-aeo-eyebrow sln-aeo-eyebrow--light"><?php esc_html_e( 'What you can expect', 'smart-leading-net' ); ?></p>
-			<h2 id="sln-aeo-results-heading" class="sln-aeo-title sln-aeo-title--light"><?php esc_html_e( 'What AEO makes possible', 'smart-leading-net' ); ?></h2>
-			<p class="sln-aeo-lead sln-aeo-lead--light"><?php esc_html_e( 'Outcomes are directional, not guaranteed overnight — AEO is an ongoing discipline, not a one-time fix.', 'smart-leading-net' ); ?></p>
+			<p class="sln-aeo-eyebrow sln-aeo-eyebrow--light"><?php echo esc_html( $section['eyebrow'] ); ?></p>
+			<h2 id="sln-aeo-results-heading" class="sln-aeo-title sln-aeo-title--light"><?php echo esc_html( $section['heading'] ); ?></h2>
+			<p class="sln-aeo-lead sln-aeo-lead--light"><?php echo esc_html( sln_aeo_plain_text( $section['description'] ) ); ?></p>
 			<ul class="sln-aeo-results__list">
 				<?php foreach ( $results as $result ) : ?>
 					<li>
@@ -25,8 +26,8 @@ $results = sln_aeo_get_results();
 							<?php echo sln_aeo_icon( 'tick' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</span>
 						<div>
-							<strong><?php echo esc_html( $result['title'] ); ?></strong>
-							<span><?php echo esc_html( $result['description'] ); ?></span>
+							<strong><?php echo esc_html( $result['title'] ?? '' ); ?></strong>
+							<span><?php echo esc_html( sln_aeo_plain_text( $result['description'] ?? '' ) ); ?></span>
 						</div>
 					</li>
 				<?php endforeach; ?>

@@ -9,22 +9,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$contact_url = sln_aeo_get_contact_url();
-$seo_url     = sln_aeo_get_seo_services_url();
+$cta           = sln_aeo_get_final_cta();
+$primary_url   = sln_aeo_resolve_cta_url( $cta['primary_cta_url'] ?? '', sln_aeo_get_contact_url() );
+$secondary_url = sln_aeo_resolve_cta_url( $cta['secondary_cta_url'] ?? '', sln_aeo_get_seo_services_url() );
 ?>
 
 <section class="sln-aeo-section" aria-labelledby="sln-aeo-final-heading">
 	<div class="sls-container">
 		<div class="sln-aeo-final sln-aeo-reveal">
-			<p class="sln-aeo-eyebrow sln-aeo-eyebrow--light"><?php esc_html_e( 'Ready when you are', 'smart-leading-net' ); ?></p>
-			<h2 id="sln-aeo-final-heading" class="sln-aeo-title sln-aeo-title--light"><?php esc_html_e( 'Get Your Brand Ready for AI Search', 'smart-leading-net' ); ?></h2>
-			<p class="sln-aeo-lead sln-aeo-lead--light"><?php esc_html_e( 'Answer engines are already deciding which brands get quoted and which get skipped. The sooner your content is structured for that, the sooner you start showing up in it.', 'smart-leading-net' ); ?></p>
+			<p class="sln-aeo-eyebrow sln-aeo-eyebrow--light"><?php echo esc_html( $cta['eyebrow'] ); ?></p>
+			<h2 id="sln-aeo-final-heading" class="sln-aeo-title sln-aeo-title--light"><?php echo esc_html( $cta['heading'] ); ?></h2>
+			<p class="sln-aeo-lead sln-aeo-lead--light"><?php echo esc_html( sln_aeo_plain_text( $cta['description'] ) ); ?></p>
 			<div class="sln-aeo-final__ctas">
 				<?php
 				sln_render_aeo_page_button(
 					array(
-						'text'    => __( 'Get Started', 'smart-leading-net' ),
-						'url'     => $contact_url,
+						'text'    => $cta['primary_cta_text'],
+						'url'     => $primary_url,
 						'variant' => 'secondary',
 						'arrow'   => true,
 						'class'   => 'sln-aeo-cta--final',
@@ -32,8 +33,8 @@ $seo_url     = sln_aeo_get_seo_services_url();
 				);
 				sln_render_aeo_page_button(
 					array(
-						'text'    => __( 'Explore All SEO Services', 'smart-leading-net' ),
-						'url'     => $seo_url,
+						'text'    => $cta['secondary_cta_text'],
+						'url'     => $secondary_url,
 						'variant' => 'white',
 						'arrow'   => false,
 						'class'   => 'sln-aeo-cta--final',
