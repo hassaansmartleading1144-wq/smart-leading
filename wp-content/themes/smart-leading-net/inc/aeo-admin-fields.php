@@ -61,7 +61,17 @@ function sln_aeo_admin_is_target_page( $post = null ) {
 		return true;
 	}
 
-	if ( defined( 'SLN_AEO_SLUG' ) && SLN_AEO_SLUG === $post->post_name ) {
+	$slugs = array(
+		'answer-engine-optimization-aeo',
+		'aeo-services',
+		'aeo',
+	);
+
+	if ( defined( 'SLN_AEO_SLUG' ) ) {
+		array_unshift( $slugs, SLN_AEO_SLUG );
+	}
+
+	if ( in_array( $post->post_name, array_unique( $slugs ), true ) ) {
 		return true;
 	}
 
@@ -71,7 +81,10 @@ function sln_aeo_admin_is_target_page( $post = null ) {
 		return true;
 	}
 
-	return false !== stripos( (string) $post->post_title, 'Answer Engine Optimization' );
+	$title = (string) $post->post_title;
+
+	return false !== stripos( $title, 'Answer Engine Optimization' )
+		|| false !== stripos( $title, 'AEO Services' );
 }
 
 /**

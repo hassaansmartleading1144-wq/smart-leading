@@ -13,34 +13,52 @@ if ( ! defined( 'ABSPATH' ) ) {
 $GLOBALS['sln_aeo_registered_meta_boxes'] = 0;
 
 /**
+ * AEO section meta box IDs.
+ *
+ * @return string[]
+ */
+function sln_aeo_meta_box_ids() {
+	return array(
+		'sln_aeo_hero',
+		'sln_aeo_evolution',
+		'sln_aeo_why',
+		'sln_aeo_strategy',
+		'sln_aeo_services',
+		'sln_aeo_how',
+		'sln_aeo_comparison',
+		'sln_aeo_platforms',
+		'sln_aeo_industries',
+		'sln_aeo_results',
+		'sln_aeo_faq',
+		'sln_aeo_final_cta',
+	);
+}
+
+/**
  * Register AEO Services meta boxes.
  */
-function sln_aeo_register_meta_boxes( $post_type_or_post = null, $post = null ) {
-	static $registered = false;
-
-	if ( $registered ) {
-		return;
-	}
-
-	if ( $post_type_or_post instanceof WP_Post ) {
-		$editing = $post_type_or_post;
-	} elseif ( $post instanceof WP_Post ) {
-		$editing = $post;
-	} else {
-		$editing = sln_aeo_admin_resolve_editing_post();
-	}
-
-	if ( $editing instanceof WP_Post && 'page' !== $editing->post_type ) {
-		return;
-	}
+function sln_aeo_register_meta_boxes() {
+	global $post;
 
 	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
 
-	if ( $screen && 'page' !== $screen->post_type && 'page' !== $screen->id ) {
+	if ( ! $screen || 'page' !== $screen->post_type ) {
 		return;
 	}
 
-	if ( $editing instanceof WP_Post && $editing->ID && ! sln_aeo_admin_is_target_page( $editing ) ) {
+	if ( ! $post instanceof WP_Post ) {
+		$resolved = sln_aeo_admin_resolve_editing_post();
+
+		if ( $resolved instanceof WP_Post ) {
+			$post = $resolved;
+		}
+	}
+
+	if ( function_exists( 'sln_page_admin_should_register_template_boxes' ) ) {
+		if ( ! sln_page_admin_should_register_template_boxes( 'sln_aeo_admin_is_target_page' ) ) {
+			return;
+		}
+	} elseif ( $post instanceof WP_Post && $post->ID && ! sln_aeo_admin_is_target_page( $post ) ) {
 		return;
 	}
 
@@ -81,18 +99,12 @@ function sln_aeo_register_meta_boxes( $post_type_or_post = null, $post = null ) 
 			$callbacks[ $id ],
 			'page',
 			'normal',
-			'high',
-			array(
-				'__block_editor_compatible_meta_box' => true,
-			)
+			'high'
 		);
 		++$GLOBALS['sln_aeo_registered_meta_boxes'];
 	}
-
-	$registered = true;
 }
 add_action( 'add_meta_boxes', 'sln_aeo_register_meta_boxes' );
-add_action( 'add_meta_boxes_page', 'sln_aeo_register_meta_boxes' );
 
 /**
  * Enqueue admin assets on AEO page edit screen.
@@ -111,6 +123,9 @@ function sln_aeo_enqueue_admin_assets( $hook ) {
 	}
 
 	$post = sln_aeo_admin_resolve_editing_post();
+	$ver  = defined( 'SLN_THEME_VERSION' ) ? SLN_THEME_VERSION : '1.0.0';
+	$css  = SLN_THEME_DIR . '/assets/css/aeo-admin.css';
+	$js   = SLN_THEME_DIR . '/assets/js/aeo-admin.js';
 
 	wp_enqueue_script( 'jquery-ui-sortable' );
 
@@ -118,28 +133,55 @@ function sln_aeo_enqueue_admin_assets( $hook ) {
 		'sln-aeo-admin',
 		SLN_THEME_URI . '/assets/css/aeo-admin.css',
 		array(),
-		SLN_THEME_VERSION
+		file_exists( $css ) ? (string) filemtime( $css ) : $ver
 	);
 
 	wp_enqueue_script(
 		'sln-aeo-admin',
 		SLN_THEME_URI . '/assets/js/aeo-admin.js',
 		array( 'jquery', 'jquery-ui-sortable' ),
-		SLN_THEME_VERSION,
+		file_exists( $js ) ? (string) filemtime( $js ) : $ver,
 		true
 	);
+
+	$is_target = ( $post instanceof WP_Post ) && sln_aeo_admin_is_target_page( $post );
 
 	wp_localize_script(
 		'sln-aeo-admin',
 		'slnAeoAdmin',
 		array(
-			'template'        => SLN_AEO_TEMPLATE,
-			'currentTemplate' => ( $post instanceof WP_Post ) ? get_page_template_slug( $post->ID ) : '',
-			'isTargetPage'    => ( $post instanceof WP_Post ) ? sln_aeo_admin_is_target_page( $post ) : false,
+			'template'        => defined( 'SLN_AEO_TEMPLATE' ) ? SLN_AEO_TEMPLATE : 'aeo-page-template.php',
+			'currentTemplate' => ( $post instanceof WP_Post ) ? (string) get_page_template_slug( $post->ID ) : '',
+			'isTargetPage'    => $is_target ? '1' : '',
 		)
 	);
 }
 add_action( 'admin_enqueue_scripts', 'sln_aeo_enqueue_admin_assets' );
+
+/**
+ * Keep AEO section boxes visible in Screen Options / user hidden-metabox prefs.
+ *
+ * @param string[]   $hidden Hidden meta box IDs.
+ * @param WP_Screen $screen Current screen.
+ * @return string[]
+ */
+function sln_aeo_unhide_meta_boxes( $hidden, $screen ) {
+	if ( ! $screen || 'page' !== $screen->post_type ) {
+		return $hidden;
+	}
+
+	if ( ! sln_aeo_admin_is_target_page() ) {
+		return $hidden;
+	}
+
+	if ( ! is_array( $hidden ) ) {
+		return $hidden;
+	}
+
+	return array_values( array_diff( $hidden, sln_aeo_meta_box_ids() ) );
+}
+add_filter( 'hidden_meta_boxes', 'sln_aeo_unhide_meta_boxes', 999, 2 );
+add_filter( 'default_hidden_meta_boxes', 'sln_aeo_unhide_meta_boxes', 999, 2 );
 
 /**
  * Point editors to the AEO section fields below the block editor.

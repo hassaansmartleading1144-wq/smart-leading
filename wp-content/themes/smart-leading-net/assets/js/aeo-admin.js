@@ -73,10 +73,18 @@
 		});
 	}
 
+	function normalizeTemplate(template) {
+		if (!template || template === 'default' || template === 'default.php') {
+			return '';
+		}
+
+		return String(template).split('/').pop();
+	}
+
 	function getCurrentTemplate() {
 		var classic = $('#page_template').val();
 
-		if (classic) {
+		if (classic && classic !== 'default' && classic !== 'default.php') {
 			return classic;
 		}
 
@@ -94,14 +102,19 @@
 			} catch (error) {}
 		}
 
-		return '';
+		return classic || '';
 	}
 
 	function shouldShowMetaBoxes() {
 		var config = window.slnAeoAdmin || {};
-		var expected = config.template || 'aeo-page-template.php';
+		var expected = normalizeTemplate(config.template || 'aeo-page-template.php');
+		var template = normalizeTemplate(getCurrentTemplate());
 
-		return getCurrentTemplate() === expected || !!config.isTargetPage;
+		if (config.isTargetPage) {
+			return !template || template === expected;
+		}
+
+		return template === expected;
 	}
 
 	function toggleMetaBoxes() {
