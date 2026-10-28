@@ -105,6 +105,23 @@ function sln_enqueue_assets() {
 		SLN_THEME_VERSION,
 		true
 	);
+
+	if ( is_singular( 'post' ) ) {
+		wp_enqueue_style(
+			'sln-single-post',
+			SLN_THEME_URI . '/assets/css/single-post.css',
+			array( 'sln-style' ),
+			SLN_THEME_VERSION
+		);
+
+		wp_enqueue_script(
+			'sln-single-post',
+			SLN_THEME_URI . '/assets/js/single-post.js',
+			array(),
+			SLN_THEME_VERSION,
+			true
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_assets' );
 

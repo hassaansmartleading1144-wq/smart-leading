@@ -1,0 +1,52 @@
+/* Gutenberg editor — match single-post article typography. */
+.editor-styles-wrapper {
+	font-family: var(--font-family, Inter, sans-serif);
+}
+
+.editor-styles-wrapper .wp-block-post-content p,
+.editor-styles-wrapper .block-editor-block-list__layout > p,
+.editor-styles-wrapper .wp-block-list li {
+	font-size: 16px;
+	line-height: 1.78;
+}
+
+.editor-styles-wrapper .wp-block-heading h2,
+.editor-styles-wrapper h2.wp-block-heading {
+	font-size: 28px;
+	font-weight: 700;
+	line-height: 1.25;
+	color: #222222;
+}
+
+.editor-styles-wrapper .wp-block-heading h3,
+.editor-styles-wrapper h3.wp-block-heading,
+.editor-styles-wrapper .wp-block-heading h4,
+.editor-styles-wrapper h4.wp-block-heading,
+.editor-styles-wrapper .wp-block-heading h5,
+.editor-styles-wrapper h5.wp-block-heading {
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1.35;
+	color: #222222;
+}
+
+.editor-styles-wrapper .wp-block-quote {
+	border-left: 4px solid #f36b32;
+	padding-left: 28px;
+}
+
+.editor-styles-wrapper .is-style-sln-callout-tip,
+.editor-styles-wrapper .callout--tip {
+	background: #f4f7ff;
+	box-shadow: inset 4px 0 0 #1f4e9e;
+	padding: 20px 22px;
+	border-radius: 12px;
+}
+
+.editor-styles-wrapper .is-style-sln-callout-warn,
+.editor-styles-wrapper .callout--warn {
+	background: #ffeee8;
+	box-shadow: inset 4px 0 0 #f36b32;
+	padding: 20px 22px;
+	border-radius: 12px;
+}
