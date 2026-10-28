@@ -9,13 +9,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-	define( 'SLN_THEME_VERSION', '1.8.2' );
+	define( 'SLN_THEME_VERSION', '1.8.12' );
 define( 'SLN_THEME_DIR', get_template_directory() );
 define( 'SLN_THEME_URI', get_template_directory_uri() );
 
 require SLN_THEME_DIR . '/inc/theme-setup.php';
 require SLN_THEME_DIR . '/inc/template-tags.php';
 require SLN_THEME_DIR . '/inc/enqueue-assets.php';
+require SLN_THEME_DIR . '/inc/blog-post-helpers.php';
+require SLN_THEME_DIR . '/inc/blog-post-meta.php';
+require SLN_THEME_DIR . '/inc/blog-block-patterns.php';
 require SLN_THEME_DIR . '/inc/performance.php';
 require SLN_THEME_DIR . '/inc/class-bootstrap-nav-walker.php';
 require SLN_THEME_DIR . '/inc/upload-restrictions.php';

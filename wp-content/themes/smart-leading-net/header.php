@@ -151,7 +151,7 @@ $sln_social_links = array(
 
 		<div class="offcanvas offcanvas-end sln-mobile-menu" tabindex="-1" id="slnMobileMenu" aria-labelledby="slnMobileMenuLabel">
 			<div class="offcanvas-header">
-				<h2 class="offcanvas-title visually-hidden" id="slnMobileMenuLabel"><?php esc_html_e( 'Menu', 'smart-leading-net' ); ?></h2>
+				<span class="offcanvas-title visually-hidden" id="slnMobileMenuLabel"><?php esc_html_e( 'Menu', 'smart-leading-net' ); ?></span>
 				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="<?php esc_attr_e( 'Close', 'smart-leading-net' ); ?>"></button>
 			</div>
 			<div class="offcanvas-body">

@@ -6,20 +6,10 @@
  */
 
 get_header();
-?>
 
-<div class="container py-5">
-	<div class="row justify-content-center">
-		<div class="col-lg-8">
-			<?php
-			while ( have_posts() ) :
-				the_post();
-				get_template_part( 'template-parts/global/content', 'single' );
-			endwhile;
-			?>
-		</div>
-	</div>
-</div>
+while ( have_posts() ) :
+	the_post();
+	get_template_part( 'template-parts/blog/content', 'single' );
+endwhile;
 
-<?php
 get_footer();

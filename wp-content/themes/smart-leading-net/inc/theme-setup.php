@@ -46,6 +46,24 @@ function sln_theme_setup() {
 			'footer_quick_links_menu'  => esc_html__( 'Footer Quick Links Menu', 'smart-leading-net' ),
 		)
 	);
+
+	add_image_size( 'sln-blog-featured', 1200, 520, true );
+
+	register_block_style(
+		'core/group',
+		array(
+			'name'  => 'sln-callout-tip',
+			'label' => __( 'Callout tip', 'smart-leading-net' ),
+		)
+	);
+
+	register_block_style(
+		'core/group',
+		array(
+			'name'  => 'sln-callout-warn',
+			'label' => __( 'Callout warning', 'smart-leading-net' ),
+		)
+	);
 }
 add_action( 'after_setup_theme', 'sln_theme_setup' );
 
