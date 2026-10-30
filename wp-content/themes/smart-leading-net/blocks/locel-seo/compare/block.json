@@ -1,0 +1,74 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/locel-seo-compare",
+  "title": "Local SEO — Comparison",
+  "category": "smartleading-locel-seo",
+  "description": "Local SEO — Comparison",
+  "icon": "table-col-after",
+  "keywords": [
+    "local seo",
+    "locale seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "Your Options"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Compare Your Local SEO Options."
+    },
+    "lead": {
+      "type": "string",
+      "default": "Each option can work. The right one depends on your time, budget and the skills already on your team."
+    },
+    "caption": {
+      "type": "string",
+      "default": "Comparison of working with SLS, another SEO agency, or in-house and DIY local SEO"
+    },
+    "col1Name": {
+      "type": "string",
+      "default": "Working with SLS"
+    },
+    "col1Sub": {
+      "type": "string",
+      "default": "Local SEO agency"
+    },
+    "col2Name": {
+      "type": "string",
+      "default": "Another SEO agency"
+    },
+    "col2Sub": {
+      "type": "string",
+      "default": "Varies by provider"
+    },
+    "col3Name": {
+      "type": "string",
+      "default": "In-house or DIY"
+    },
+    "col3Sub": {
+      "type": "string",
+      "default": "Your own team and tools"
+    },
+    "foot": {
+      "type": "string",
+      "default": "Not sure which fits? The free audit is a low-commitment way to see where you stand. <a href=\"#local-seo-audit-request\">Request your audit</a>."
+    }
+  },
+  "editorScript": "smartleading-locel-seo-editor",
+  "editorStyle": "smartleading-locel-seo-editor-style",
+  "style": "sln-locel-seo"
+}

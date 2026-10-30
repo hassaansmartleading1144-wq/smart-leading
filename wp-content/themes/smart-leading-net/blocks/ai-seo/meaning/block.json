@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-meaning",
+  "title": "AI SEO Meaning",
+  "category": "smartleading-ai-seo",
+  "description": "SEO, GEO and AEO terminology section.",
+  "icon": "info",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "background": {
+      "type": "string",
+      "default": "default"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "The terminology"
+    },
+    "heading": {
+      "type": "string",
+      "default": "What Does AI Search Optimization Actually Mean?"
+    },
+    "lead": {
+      "type": "string",
+      "default": "AI SEO connects familiar search foundations with the ways people research through generated answers. Generative engine optimization, or GEO, focuses on how a business and its information may appear in those answers."
+    },
+    "body": {
+      "type": "string",
+      "default": "The starting point is useful, accessible information—not a promise of a recommendation. In practice, the work builds on the same foundations as <a class=\"sls-tbc\" href=\"/seo-services/\">SEO services</a> and <a class=\"sls-tbc\" href=\"/local-seo-services/\">local SEO services</a>: pages that are easy to reach, facts that are easy to verify and answers that genuinely help."
+    },
+    "note": {
+      "type": "string",
+      "default": "When we talk about LLM optimization on this page, we mean improving how clearly your public website and brand information can be found and understood. It does not mean training, fine-tuning or building language models."
+    },
+    "overlapText": {
+      "type": "string",
+      "default": "These labels overlap and describe related priorities. None of them replaces a sound website or genuinely useful content."
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style"
+}

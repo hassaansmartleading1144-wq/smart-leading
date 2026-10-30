@@ -30,18 +30,21 @@ function sln_enqueue_ai_seo_assets() {
 		return;
 	}
 
+	$css_path = SLN_THEME_DIR . '/assets/css/ai-seo.css';
+	$js_path  = SLN_THEME_DIR . '/assets/js/ai-seo.js';
+
 	wp_enqueue_style(
 		'sln-ai-seo',
 		SLN_THEME_URI . '/assets/css/ai-seo.css',
 		array( 'sln-style' ),
-		SLN_THEME_VERSION
+		file_exists( $css_path ) ? (string) filemtime( $css_path ) : SLN_THEME_VERSION
 	);
 
 	wp_enqueue_script(
 		'sln-ai-seo',
 		SLN_THEME_URI . '/assets/js/ai-seo.js',
 		array(),
-		SLN_THEME_VERSION,
+		file_exists( $js_path ) ? (string) filemtime( $js_path ) : SLN_THEME_VERSION,
 		true
 	);
 
@@ -81,10 +84,28 @@ function sln_enqueue_ai_seo_editor_assets() {
 		return;
 	}
 
+	if ( ! wp_style_is( 'sln-variables', 'registered' ) ) {
+		wp_register_style(
+			'sln-variables',
+			SLN_THEME_URI . '/assets/css/variables.css',
+			array(),
+			SLN_THEME_VERSION
+		);
+	}
+	if ( ! wp_style_is( 'sln-buttons', 'registered' ) ) {
+		wp_register_style(
+			'sln-buttons',
+			SLN_THEME_URI . '/assets/css/buttons.css',
+			array( 'sln-variables' ),
+			SLN_THEME_VERSION
+		);
+	}
+	wp_enqueue_style( 'sln-buttons' );
+
 	wp_enqueue_style(
 		'sln-ai-seo-editor',
 		SLN_THEME_URI . '/assets/css/ai-seo.css',
-		array(),
+		array( 'sln-buttons' ),
 		SLN_THEME_VERSION
 	);
 
@@ -270,17 +291,27 @@ function sln_ensure_ai_seo_page( $seed_pattern = true ) {
 
 /**
  * One-time ensure for the AI SEO Services page (no content overwrite).
+ * Runs on front-end and admin so FTP/git deploys create the page without a theme switch.
+ *
+ * @return bool True when a stored page ID was written this request.
  */
 function sln_maybe_ensure_ai_seo_page() {
-	if ( get_option( 'sln_ai_seo_page_ensured' ) ) {
-		return;
+	$stored = absint( get_option( 'sln_ai_seo_page_ensured' ) );
+	if ( $stored && 'page' === get_post_type( $stored ) && 'trash' !== get_post_status( $stored ) ) {
+		if ( SLN_AI_SEO_TEMPLATE !== get_page_template_slug( $stored ) ) {
+			update_post_meta( $stored, '_wp_page_template', SLN_AI_SEO_TEMPLATE );
+		}
+		return false;
 	}
 
 	$page_id = sln_ensure_ai_seo_page( true );
 
 	if ( $page_id ) {
 		update_option( 'sln_ai_seo_page_ensured', (string) $page_id, false );
+		return true;
 	}
+
+	return false;
 }
 add_action( 'admin_init', 'sln_maybe_ensure_ai_seo_page', 30 );
 add_action( 'after_switch_theme', 'sln_ensure_ai_seo_page' );

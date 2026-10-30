@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/founders-principle",
+  "title": "Principle",
+  "category": "smartleading-founders",
+  "description": "Principle",
+  "icon": "yes-alt",
+  "keywords": [
+    "founders",
+    "smart leading"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "text": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "smartleading-founders-editor",
+  "editorStyle": "smartleading-founders-editor-style",
+  "style": "sln-founders-behind",
+  "parent": [
+    "smartleading/founders-principles"
+  ]
+}

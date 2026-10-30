@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/locel-seo-stat",
+  "title": "Local SEO — CRM Stat",
+  "category": "smartleading-locel-seo",
+  "description": "Local SEO — CRM Stat",
+  "icon": "chart-bar",
+  "keywords": [
+    "local seo",
+    "locale seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "value": {
+      "type": "string",
+      "default": "[Stat]"
+    },
+    "label": {
+      "type": "string",
+      "default": "Verified metric"
+    },
+    "note": {
+      "type": "string",
+      "default": "Placeholder — add only a sourced, verified figure"
+    }
+  },
+  "editorScript": "smartleading-locel-seo-editor",
+  "editorStyle": "smartleading-locel-seo-editor-style",
+  "style": "sln-locel-seo",
+  "parent": [
+    "smartleading/locel-seo-tech"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/locel-seo-map-card",
+  "title": "Search Journey Card",
+  "category": "smartleading-locel-seo",
+  "description": "Search Journey Card",
+  "icon": "index-card",
+  "keywords": [
+    "local seo",
+    "locale seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "variant": {
+      "type": "string",
+      "default": "search"
+    },
+    "number": {
+      "type": "string",
+      "default": "1"
+    },
+    "label": {
+      "type": "string",
+      "default": "A nearby customer searches"
+    },
+    "searchText": {
+      "type": "string",
+      "default": "[your service] near me"
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "meta": {
+      "type": "string",
+      "default": ""
+    },
+    "chips": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "smartleading-locel-seo-editor",
+  "editorStyle": "smartleading-locel-seo-editor-style",
+  "style": "sln-locel-seo",
+  "parent": [
+    "smartleading/locel-seo-hero"
+  ]
+}

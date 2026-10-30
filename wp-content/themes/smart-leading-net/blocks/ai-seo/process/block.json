@@ -1,0 +1,80 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-process",
+  "title": "AI SEO Process",
+  "category": "smartleading-ai-seo",
+  "description": "Four-step process with CTA.",
+  "icon": "editor-ol",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "background": {
+      "type": "string",
+      "default": "tint"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "How it works"
+    },
+    "heading": {
+      "type": "string",
+      "default": "From an Initial Picture to Clear Priorities"
+    },
+    "lead": {
+      "type": "string",
+      "default": "A practical sequence that keeps decisions visible: what was looked at, what was found and what happens next."
+    },
+    "ctaText": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryLabel": {
+      "type": "string",
+      "default": "Discuss My AI Search Goals"
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": "#ai-search-enquiry"
+    },
+    "primaryNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "primaryShow": {
+      "type": "boolean",
+      "default": true
+    },
+    "secondaryLabel": {
+      "type": "string",
+      "default": "Explore the Approach"
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": "#ai-search-approach"
+    },
+    "secondaryNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "secondaryShow": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style"
+}

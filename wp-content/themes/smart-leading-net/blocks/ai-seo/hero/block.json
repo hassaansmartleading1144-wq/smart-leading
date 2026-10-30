@@ -1,0 +1,125 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-hero",
+  "title": "AI SEO Hero",
+  "category": "smartleading-ai-seo",
+  "description": "Hero with eyebrow, heading tag control, CTAs and discovery journey.",
+  "icon": "cover-image",
+  "keywords": [
+    "ai seo",
+    "hero"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h1"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "AI SEO & LLM Visibility"
+    },
+    "heading": {
+      "type": "string",
+      "default": "AI SEO Services for a Clearer Presence in AI Search"
+    },
+    "description": {
+      "type": "string",
+      "default": "Help people find clear, useful information about your business as they research through AI-assisted search. Start a conversation about the content, technical foundations and measurement your strategy needs."
+    },
+    "showBreadcrumb": {
+      "type": "boolean",
+      "default": true
+    },
+    "crumbHomeLabel": {
+      "type": "string",
+      "default": "Home"
+    },
+    "crumbHomeUrl": {
+      "type": "string",
+      "default": "/"
+    },
+    "crumbMidLabel": {
+      "type": "string",
+      "default": "SEO Services"
+    },
+    "crumbMidUrl": {
+      "type": "string",
+      "default": "/seo-services/"
+    },
+    "crumbCurrent": {
+      "type": "string",
+      "default": "AI SEO Services"
+    },
+    "journeyTitle": {
+      "type": "string",
+      "default": "Illustrative discovery journey"
+    },
+    "journeySub": {
+      "type": "string",
+      "default": "A conceptual example, not a real result"
+    },
+    "showJourney": {
+      "type": "boolean",
+      "default": true
+    },
+    "imageId": {
+      "type": "number",
+      "default": 0
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "imagePosition": {
+      "type": "string",
+      "default": "none"
+    },
+    "primaryLabel": {
+      "type": "string",
+      "default": "Discuss My AI Search Goals"
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": "#ai-search-enquiry"
+    },
+    "primaryNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "primaryShow": {
+      "type": "boolean",
+      "default": true
+    },
+    "secondaryLabel": {
+      "type": "string",
+      "default": "Explore the Approach"
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": "#ai-search-approach"
+    },
+    "secondaryNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "secondaryShow": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style"
+}

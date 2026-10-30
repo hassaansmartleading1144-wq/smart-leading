@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/locel-seo-slide",
+  "title": "Local SEO — CRM Slide",
+  "category": "smartleading-locel-seo",
+  "description": "Local SEO — CRM Slide",
+  "icon": "slides",
+  "keywords": [
+    "local seo",
+    "locale seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "tag": {
+      "type": "string",
+      "default": "Concept"
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "text": {
+      "type": "string",
+      "default": ""
+    },
+    "item1": {
+      "type": "string",
+      "default": ""
+    },
+    "item2": {
+      "type": "string",
+      "default": ""
+    },
+    "item3": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "smartleading-locel-seo-editor",
+  "editorStyle": "smartleading-locel-seo-editor-style",
+  "style": "sln-locel-seo",
+  "parent": [
+    "smartleading/locel-seo-tech"
+  ]
+}

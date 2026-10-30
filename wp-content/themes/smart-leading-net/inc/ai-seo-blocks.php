@@ -14,6 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Register AI SEO custom blocks.
  */
 function sln_ai_seo_register_blocks() {
+	if ( WP_Block_Type_Registry::get_instance()->is_registered( 'sln/ai-seo-mini-lead' ) ) {
+		return;
+	}
+
 	$script_path = SLN_THEME_DIR . '/assets/js/ai-seo-blocks.js';
 	$script_ver  = file_exists( $script_path ) ? (string) filemtime( $script_path ) : SLN_THEME_VERSION;
 
@@ -144,28 +148,29 @@ function sln_render_ai_seo_mini_lead_block( $attributes ) {
 	$note        = isset( $attributes['note'] ) ? $attributes['note'] : '';
 	$show_arrow  = ! empty( $attributes['showArrow'] );
 
-	$btn_class = 'sls-btn sls-btn--primary';
-	if ( 'onblue' === $variant ) {
-		$btn_class .= ' sls-btn--onblue';
-	} elseif ( $show_arrow ) {
-		$btn_class .= ' sls-btn--arrow';
-	}
+	$btn_style = 'onblue' === $variant ? 'onblue' : ( $show_arrow ? 'primary-arrow' : 'primary' );
 
 	ob_start();
 	?>
 	<form class="sls-mini" aria-label="<?php echo esc_attr( $aria ); ?>">
 		<label class="sls-sr" for="<?php echo esc_attr( $input_id ); ?>"><?php esc_html_e( 'Your website', 'smart-leading-net' ); ?></label>
 		<input class="sls-input" id="<?php echo esc_attr( $input_id ); ?>" name="website" type="text" inputmode="url" autocomplete="url" spellcheck="false" placeholder="<?php echo esc_attr( $placeholder ); ?>">
-		<button type="submit" class="<?php echo esc_attr( $btn_class ); ?>">
-			<?php echo esc_html( $button ); ?>
-			<?php
-			if ( $show_arrow && 'onblue' !== $variant ) {
-				echo sln_ai_seo_btn_arrow_svg(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			}
-			?>
-		</button>
+		<?php
+		echo sln_ai_seo_render_button( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			array(
+				'label'  => $button,
+				'url'    => '',
+				'show'   => true,
+				'button' => true,
+				'style'  => $btn_style,
+			)
+		);
+		?>
 	</form>
-	<?php if ( $note ) : ?>
+	<?php
+	$skip_note = 'Continues to the short enquiry form below. Nothing is sent at this step.';
+	if ( $note && $skip_note !== trim( $note ) ) :
+		?>
 		<p class="sls-mini__note"><?php echo esc_html( $note ); ?></p>
 	<?php endif; ?>
 	<?php
@@ -216,10 +221,17 @@ function sln_render_ai_seo_enquiry_form_block( $attributes ) {
 			<p class="sls-err" id="ai-enq-goal-error" hidden></p>
 		</div>
 		<div class="sls-form__foot">
-			<button type="submit" class="sls-btn sls-btn--primary sls-btn--arrow">
-				<?php echo esc_html( $button_label ); ?>
-				<?php echo sln_ai_seo_btn_arrow_svg(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			</button>
+			<?php
+			echo sln_ai_seo_render_button( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				array(
+					'label'  => $button_label,
+					'url'    => '',
+					'show'   => true,
+					'button' => true,
+					'style'  => 'primary-arrow',
+				)
+			);
+			?>
 			<div role="status" aria-live="polite">
 				<p class="sls-status" data-ai-seo-status hidden></p>
 			</div>

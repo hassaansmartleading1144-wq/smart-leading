@@ -1,0 +1,114 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/locel-seo-reporting",
+  "title": "Local SEO — Reporting",
+  "category": "smartleading-locel-seo",
+  "description": "Local SEO — Reporting",
+  "icon": "chart-area",
+  "keywords": [
+    "local seo",
+    "locale seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "Reporting"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Look Beyond Visibility to Business Enquiries."
+    },
+    "lead": {
+      "type": "string",
+      "default": "Being seen is a start. What matters is whether people get in touch, and whether those enquiries are the right fit for your business."
+    },
+    "crmAria": {
+      "type": "string",
+      "default": "SLS Leads CRM reporting concept, demo illustration with no real data"
+    },
+    "crmNote": {
+      "type": "string",
+      "default": "Reporting concept — demo, not a live product screenshot"
+    },
+    "crmBrand": {
+      "type": "string",
+      "default": "SLS Leads CRM"
+    },
+    "tab1": {
+      "type": "string",
+      "default": "Visibility"
+    },
+    "tab2": {
+      "type": "string",
+      "default": "Enquiries"
+    },
+    "tab3": {
+      "type": "string",
+      "default": "Outcomes"
+    },
+    "kpi1": {
+      "type": "string",
+      "default": "Visibility"
+    },
+    "kpi2": {
+      "type": "string",
+      "default": "Recorded enquiries"
+    },
+    "kpi3": {
+      "type": "string",
+      "default": "Qualified"
+    },
+    "col1": {
+      "type": "string",
+      "default": "Source"
+    },
+    "col2": {
+      "type": "string",
+      "default": "Enquiry"
+    },
+    "col3": {
+      "type": "string",
+      "default": "Status"
+    },
+    "row1Source": {
+      "type": "string",
+      "default": "Call"
+    },
+    "row1Status": {
+      "type": "string",
+      "default": "New"
+    },
+    "row2Source": {
+      "type": "string",
+      "default": "Form"
+    },
+    "row2Status": {
+      "type": "string",
+      "default": "Qualified"
+    },
+    "row3Source": {
+      "type": "string",
+      "default": "Quote request"
+    },
+    "row3Status": {
+      "type": "string",
+      "default": "Not a fit"
+    }
+  },
+  "editorScript": "smartleading-locel-seo-editor",
+  "editorStyle": "smartleading-locel-seo-editor-style",
+  "style": "sln-locel-seo"
+}

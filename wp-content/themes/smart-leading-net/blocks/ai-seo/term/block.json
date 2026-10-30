@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-term",
+  "title": "AI SEO Term",
+  "category": "smartleading-ai-seo",
+  "description": "A terminology definition row.",
+  "icon": "editor-ul",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "abbr": {
+      "type": "string",
+      "default": "SEO"
+    },
+    "full": {
+      "type": "string",
+      "default": "Search engine optimization"
+    },
+    "title": {
+      "type": "string",
+      "default": "Supports organic discovery"
+    },
+    "text": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style",
+  "parent": [
+    "smartleading/ai-seo-meaning"
+  ]
+}

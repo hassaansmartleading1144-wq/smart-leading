@@ -207,3 +207,196 @@
 		gap: 40px;
 	}
 }
+
+/* Heading tag can change; visual size stays with these classes */
+.ai-seo-page .sls-title-hero,
+.editor-styles-wrapper .sls-title-hero {
+	font-size: 55px !important;
+	font-weight: 700;
+	line-height: 1.15;
+	letter-spacing: -0.02em;
+	color: #222222;
+	margin: 0;
+}
+.ai-seo-page .sls-title-section,
+.editor-styles-wrapper .sls-title-section {
+	font-size: 40px !important;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: -0.015em;
+	color: #222222;
+	margin: 0;
+}
+.ai-seo-page .sls-sec--blue .sls-title-section,
+.ai-seo-page .sls-banner .sls-title-section,
+.editor-styles-wrapper .sls-sec--blue .sls-title-section,
+.editor-styles-wrapper .sls-banner .sls-title-section {
+	color: #ffffff;
+}
+.ai-seo-page .sls-title-card,
+.editor-styles-wrapper .sls-title-card {
+	font-size: 22px !important;
+	font-weight: 600;
+	line-height: 1.25;
+	color: #222222;
+	margin: 0;
+}
+.ai-seo-page .sls-sec--blue .sls-title-card {
+	color: #ffffff;
+}
+@media (max-width: 1024px) {
+	.ai-seo-page .sls-title-hero, .editor-styles-wrapper .sls-title-hero { font-size: 44px !important; }
+	.ai-seo-page .sls-title-section, .editor-styles-wrapper .sls-title-section { font-size: 34px !important; }
+}
+@media (max-width: 767px) {
+	.ai-seo-page .sls-title-hero, .editor-styles-wrapper .sls-title-hero { font-size: 32px !important; }
+	.ai-seo-page .sls-title-section, .editor-styles-wrapper .sls-title-section { font-size: 28px !important; }
+	.ai-seo-page .sls-title-card, .editor-styles-wrapper .sls-title-card { font-size: 20px !important; }
+}
+
+/* Hero heading: no decorative orange underlines */
+.ai-seo-page .sls-title-hero,
+.ai-seo-page .sls-title-hero .sls-hl,
+.ai-seo-page .sls-title-hero span,
+.editor-styles-wrapper .sls-title-hero,
+.editor-styles-wrapper .sls-title-hero .sls-hl,
+.editor-styles-wrapper .sls-title-hero span {
+	text-decoration: none !important;
+	text-decoration-color: transparent !important;
+	background-image: none !important;
+	border-bottom: 0 !important;
+	box-shadow: none !important;
+}
+.ai-seo-page .sls-title-hero::after,
+.ai-seo-page .sls-title-hero .sls-hl::after,
+.editor-styles-wrapper .sls-title-hero::after,
+.editor-styles-wrapper .sls-title-hero .sls-hl::after {
+	content: none !important;
+	display: none !important;
+}
+
+/* Scope section default: white, keep inspector warm/tint/blue if chosen */
+.ai-seo-page .wp-block-smartleading-ai-seo-scope.sls-sec:not(.sls-sec--tint):not(.sls-sec--warm):not(.sls-sec--blue),
+.editor-styles-wrapper .wp-block-smartleading-ai-seo-scope.sls-sec:not(.sls-sec--tint):not(.sls-sec--warm):not(.sls-sec--blue) {
+	background-color: #FFFFFF;
+}
+
+/* Process CTA is button-only, centered, no divider */
+.ai-seo-page .sls-process__cta,
+.editor-styles-wrapper .sls-process__cta {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 40px;
+	padding-top: 0;
+	border-top: 0;
+	gap: 0;
+}
+
+/* FAQ: plus / minus, hide native marker */
+.ai-seo-page .sls-faq .wp-block-details > summary {
+	list-style: none;
+}
+.ai-seo-page .sls-faq .wp-block-details > summary::-webkit-details-marker {
+	display: none;
+}
+.ai-seo-page .sls-faq .wp-block-details[open] > summary::after {
+	transform: none;
+	background-color: #1F4E9E;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M5 12h14'/%3E%3C/svg%3E");
+}
+
+/* Benefits heading: keep blue “Your Visibility”, no orange underline */
+.ai-seo-page .sls-title-section .sls-hl2,
+.editor-styles-wrapper .sls-title-section .sls-hl2 {
+	color: #1F4E9E;
+	text-decoration: none !important;
+	text-decoration-color: transparent !important;
+	background-image: none !important;
+	border-bottom: 0 !important;
+	box-shadow: none !important;
+}
+.ai-seo-page .sls-title-section .sls-hl2::after,
+.editor-styles-wrapper .sls-title-section .sls-hl2::after {
+	content: none !important;
+	display: none !important;
+}
+
+/*
+ * AI SEO buttons: 1px border always (no layout shift).
+ * Primary rest = blue fill. Outline rest = white + blue border.
+ * Hover/focus-visible = orange fill, white text, no blue ring.
+ */
+.ai-seo-page .sls-btn,
+.editor-styles-wrapper .ai-seo-page .sls-btn {
+	overflow: hidden;
+	border-style: solid;
+	border-width: 1px;
+	box-shadow: none;
+	isolation: isolate;
+}
+.ai-seo-page .sls-mini .sls-btn,
+.editor-styles-wrapper .sls-mini .sls-btn {
+	overflow: hidden;
+}
+.ai-seo-page .btn-primary-custom.sls-btn,
+.editor-styles-wrapper .ai-seo-page .btn-primary-custom.sls-btn {
+	background-color: #1F4E9E;
+	border-color: #1F4E9E;
+	color: #ffffff;
+}
+.ai-seo-page .btn-outline-custom.sls-btn,
+.editor-styles-wrapper .ai-seo-page .btn-outline-custom.sls-btn {
+	background-color: #ffffff;
+	border-color: #2452A0;
+	color: #1F4E9E;
+}
+.ai-seo-page .btn-white-custom.sls-btn,
+.editor-styles-wrapper .ai-seo-page .btn-white-custom.sls-btn {
+	background-color: #ffffff;
+	border-color: #ffffff;
+	color: #1F4E9E;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.ai-seo-page .btn-primary-custom.sls-btn:hover,
+	.ai-seo-page .btn-outline-custom.sls-btn:hover,
+	.ai-seo-page .btn-white-custom.sls-btn:hover,
+	.ai-seo-page .sls-btn:hover {
+		background-color: #F36B32;
+		border-color: #F36B32;
+		color: #ffffff;
+		outline: none;
+		box-shadow: none;
+	}
+}
+
+.ai-seo-page .btn-primary-custom.sls-btn:focus-visible,
+.ai-seo-page .btn-outline-custom.sls-btn:focus-visible,
+.ai-seo-page .btn-white-custom.sls-btn:focus-visible,
+.ai-seo-page .sls-btn:focus-visible {
+	background-color: #F36B32;
+	border-color: #F36B32;
+	color: #ffffff;
+	outline: 3px solid #1F4E9E;
+	outline-offset: 3px;
+	box-shadow: none;
+}
+
+.ai-seo-page .sls-btn__arrow,
+.ai-seo-page .sls-btn__arrow-copy {
+	width: auto;
+	height: auto;
+	border-radius: 0;
+	background: transparent;
+	color: inherit;
+}
+.ai-seo-page .btn-primary-custom.sls-btn .sls-btn__arrow,
+.ai-seo-page .btn-primary-custom.sls-btn .sls-btn__arrow-copy {
+	color: var(--primary-color, #1F4E9E);
+}
+.ai-seo-page .sls-btn:hover .sls-btn__bubble,
+.ai-seo-page .sls-btn:focus-visible .sls-btn__bubble {
+	background-color: #F36B32;
+}

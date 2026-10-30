@@ -1,0 +1,74 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/founders-cta",
+  "title": "Founders Behind — Closing CTA",
+  "category": "smartleading-founders",
+  "description": "Founders Behind — Closing CTA",
+  "icon": "megaphone",
+  "keywords": [
+    "founders",
+    "smart leading"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Let’s Talk About Your Business."
+    },
+    "lead": {
+      "type": "string",
+      "default": "Tell us what you’re working toward and where you need support."
+    },
+    "primaryLabel": {
+      "type": "string",
+      "default": "Start a Conversation"
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": "/contact-us/"
+    },
+    "primaryNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "primaryShow": {
+      "type": "boolean",
+      "default": true
+    },
+    "secondaryLabel": {
+      "type": "string",
+      "default": "About Smart Leading"
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": "/about-us/"
+    },
+    "secondaryNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "secondaryShow": {
+      "type": "boolean",
+      "default": true
+    },
+    "isPublished": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "editorScript": "smartleading-founders-editor",
+  "editorStyle": "smartleading-founders-editor-style",
+  "style": "sln-founders-behind"
+}

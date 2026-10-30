@@ -1,0 +1,64 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-measurement",
+  "title": "AI SEO Measurement",
+  "category": "smartleading-ai-seo",
+  "description": "Visibility measurement table.",
+  "icon": "chart-bar",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "background": {
+      "type": "string",
+      "default": "default"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "AI visibility tracking"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Measure Visibility Alongside Business Outcomes"
+    },
+    "lead": {
+      "type": "string",
+      "default": "A mention is useful context. An enquiry tells a different part of the story. A measurement plan should keep those signals distinct."
+    },
+    "caption": {
+      "type": "string",
+      "default": "Four measurement signals, what each can tell a team, and its limits"
+    },
+    "colSignal": {
+      "type": "string",
+      "default": "Signal"
+    },
+    "colCan": {
+      "type": "string",
+      "default": "What it can tell your team"
+    },
+    "colCannot": {
+      "type": "string",
+      "default": "What it cannot show"
+    },
+    "caveat": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style"
+}

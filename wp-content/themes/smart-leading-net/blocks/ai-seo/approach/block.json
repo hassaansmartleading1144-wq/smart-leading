@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-approach",
+  "title": "AI SEO Approach",
+  "category": "smartleading-ai-seo",
+  "description": "Six foundation modules.",
+  "icon": "grid-view",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "background": {
+      "type": "string",
+      "default": "tint"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "Proposed scope"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Build an AI Search Strategy Around the Right Foundations"
+    },
+    "lead": {
+      "type": "string",
+      "default": "Six areas of work that can shape an AI search optimization program. Which modules apply to your business, and who carries out each part, is agreed during scoping."
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style"
+}

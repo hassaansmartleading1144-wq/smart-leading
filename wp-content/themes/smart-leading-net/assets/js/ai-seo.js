@@ -40,6 +40,25 @@
 		}
 	}
 
+	var faqRoot = root.querySelector('.sls-faq');
+	if (faqRoot) {
+		faqRoot.querySelectorAll('details').forEach(function (item) {
+			item.open = false;
+		});
+		faqRoot.addEventListener('click', function (event) {
+			var summary = event.target.closest('summary');
+			if (!summary || !faqRoot.contains(summary)) {
+				return;
+			}
+			var item = summary.closest('details');
+			faqRoot.querySelectorAll('details').forEach(function (other) {
+				if (other !== item) {
+					other.open = false;
+				}
+			});
+		});
+	}
+
 	root.querySelectorAll('form.sls-mini').forEach(function (form) {
 		form.addEventListener('submit', function (event) {
 			event.preventDefault();

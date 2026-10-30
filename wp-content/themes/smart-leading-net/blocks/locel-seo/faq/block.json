@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/locel-seo-faq",
+  "title": "Local SEO — FAQ",
+  "category": "smartleading-locel-seo",
+  "description": "Local SEO — FAQ",
+  "icon": "editor-help",
+  "keywords": [
+    "local seo",
+    "locale seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "FAQs"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Local SEO Questions, Answered."
+    },
+    "lead": {
+      "type": "string",
+      "default": "Straight answers to the questions business owners ask most before choosing a local SEO service."
+    }
+  },
+  "editorScript": "smartleading-locel-seo-editor",
+  "editorStyle": "smartleading-locel-seo-editor-style",
+  "style": "sln-locel-seo"
+}

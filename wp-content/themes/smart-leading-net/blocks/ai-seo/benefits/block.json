@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-benefits",
+  "title": "AI SEO Benefits",
+  "category": "smartleading-ai-seo",
+  "description": "Three benefit cards.",
+  "icon": "star-filled",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "background": {
+      "type": "string",
+      "default": "tint"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Strengthen <span class=\"sls-hl2\">Your Visibility</span> With AI SEO Services"
+    },
+    "lead": {
+      "type": "string",
+      "default": "When you work with Smart Leading Solutions, the work is aimed at helping you:"
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style"
+}
