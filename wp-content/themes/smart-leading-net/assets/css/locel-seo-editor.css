@@ -1,0 +1,539 @@
+/**
+ * Gutenberg canvas for Locale SEO — keep the preview close to the published page.
+ */
+
+.editor-styles-wrapper .sls-locel-seo,
+.editor-styles-wrapper .wp-block[data-type^="smartleading/locel-seo"],
+.block-editor-block-list__layout .hero,
+.block-editor-block-list__layout .lseo-sec,
+.block-editor-block-list__layout .ticket-sec {
+	max-width: none !important;
+	width: 100%;
+}
+
+.editor-styles-wrapper .lseo-wrap {
+	max-width: 1320px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.editor-styles-wrapper .map > .block-editor-inner-blocks,
+.editor-styles-wrapper .map > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .road > .block-editor-inner-blocks,
+.editor-styles-wrapper .road > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .signs > .block-editor-inner-blocks,
+.editor-styles-wrapper .signs > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .bento > .block-editor-inner-blocks,
+.editor-styles-wrapper .bento > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .stairs > .block-editor-inner-blocks,
+.editor-styles-wrapper .stairs > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .funnel > .block-editor-inner-blocks,
+.editor-styles-wrapper .funnel > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .values > .block-editor-inner-blocks,
+.editor-styles-wrapper .values > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .faq-list > .block-editor-inner-blocks,
+.editor-styles-wrapper .faq-list > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .points > .block-editor-inner-blocks,
+.editor-styles-wrapper .points > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .story > .block-editor-inner-blocks,
+.editor-styles-wrapper .story > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .slider__track > .block-editor-inner-blocks,
+.editor-styles-wrapper .slider__track > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .lseo-discovery-edit > .block-editor-inner-blocks,
+.editor-styles-wrapper .lseo-discovery-edit > .block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper .lseo-compare-edit > .block-editor-inner-blocks,
+.editor-styles-wrapper .lseo-compare-edit > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	display: contents;
+}
+
+/* Keep a two-column hero in typical editor canvas widths (frontend uses 1199px). */
+@media (min-width: 721px) {
+	.editor-styles-wrapper .sls-locel-seo .hero__grid {
+		display: grid !important;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr) !important;
+		gap: 32px !important;
+		align-items: center;
+	}
+
+	.editor-styles-wrapper .sls-locel-seo .hero__fig {
+		max-width: none !important;
+		width: 100%;
+		margin: 0;
+	}
+
+	.editor-styles-wrapper .sls-locel-seo .map {
+		position: relative !important;
+		height: 520px !important;
+		display: block !important;
+		padding: 0 !important;
+		overflow: visible !important;
+	}
+
+	.editor-styles-wrapper .sls-locel-seo .map__route,
+	.editor-styles-wrapper .sls-locel-seo .map__pin {
+		display: block !important;
+	}
+
+	.editor-styles-wrapper .sls-locel-seo .map .mcard,
+	.editor-styles-wrapper .map .wp-block.mcard {
+		position: absolute !important;
+		margin: 0 !important;
+		max-width: none !important;
+		z-index: 2;
+	}
+
+	.editor-styles-wrapper .sls-locel-seo .mcard--search,
+	.editor-styles-wrapper .map .wp-block.mcard--search {
+		left: 5% !important;
+		top: 26px !important;
+		width: 60% !important;
+		right: auto !important;
+		bottom: auto !important;
+	}
+
+	.editor-styles-wrapper .sls-locel-seo .mcard--profile,
+	.editor-styles-wrapper .map .wp-block.mcard--profile {
+		right: 5% !important;
+		top: 142px !important;
+		width: 45% !important;
+		left: auto !important;
+		bottom: auto !important;
+	}
+
+	.editor-styles-wrapper .sls-locel-seo .mcard--site,
+	.editor-styles-wrapper .map .wp-block.mcard--site {
+		left: 5% !important;
+		top: 250px !important;
+		width: 43% !important;
+		right: auto !important;
+		bottom: auto !important;
+	}
+
+	.editor-styles-wrapper .sls-locel-seo .mcard--goal,
+	.editor-styles-wrapper .map .wp-block.mcard--goal {
+		left: 20% !important;
+		right: 5% !important;
+		bottom: 24px !important;
+		top: auto !important;
+		width: auto !important;
+	}
+}
+
+.editor-styles-wrapper .lseo-map-deco,
+.editor-styles-wrapper .lseo-map-deco .map__streets,
+.editor-styles-wrapper .lseo-map-deco .map__route {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.editor-styles-wrapper .hero__cta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+	margin-top: 8px;
+}
+
+.editor-styles-wrapper .lseo-btn,
+.editor-styles-wrapper .sls-btn,
+.editor-styles-wrapper .btn-primary-custom,
+.editor-styles-wrapper .btn-outline-custom,
+.editor-styles-wrapper .btn-white-custom {
+	pointer-events: none;
+	text-decoration: none !important;
+	box-sizing: border-box;
+}
+
+.editor-styles-wrapper .sls-btn {
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	min-height: 56px;
+	padding: 16px 28px;
+	border-radius: 10px;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.2;
+	width: fit-content;
+	max-width: 100%;
+}
+
+.editor-styles-wrapper .btn-primary-custom.sls-btn {
+	background-color: #1f4e9e !important;
+	border: 1px solid #1f4e9e !important;
+	color: #fff !important;
+}
+
+.editor-styles-wrapper .btn-outline-custom.sls-btn {
+	background-color: #fff !important;
+	border: 1px solid #1f4e9e !important;
+	color: #1f4e9e !important;
+	justify-content: center;
+}
+
+.editor-styles-wrapper .btn-white-custom.sls-btn {
+	background-color: #fff !important;
+	border: 1px solid #fff !important;
+	color: #1f4e9e !important;
+}
+
+.editor-styles-wrapper .sls-btn__text {
+	color: inherit !important;
+	white-space: nowrap;
+}
+
+.editor-styles-wrapper .signs {
+	display: grid !important;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 20px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.editor-styles-wrapper .bento {
+	display: grid !important;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 18px;
+	width: 100%;
+}
+
+.editor-styles-wrapper .stairs {
+	display: grid !important;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 18px;
+	align-items: end;
+	width: 100%;
+}
+
+.editor-styles-wrapper .values {
+	display: grid !important;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	width: 100%;
+}
+
+.editor-styles-wrapper .points {
+	display: grid !important;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 36px;
+	width: 100%;
+}
+
+.editor-styles-wrapper .lseo-discovery-edit {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 24px 32px;
+	width: 100%;
+}
+
+.editor-styles-wrapper .lseo-discovery-edit .wp-block[data-type="smartleading/locel-seo-stop"] {
+	grid-row: 1;
+}
+
+.editor-styles-wrapper .lseo-discovery-edit .wp-block[data-type="smartleading/locel-seo-merge-col"] {
+	grid-row: 2;
+}
+
+.editor-styles-wrapper .lseo-discovery-edit .wp-block[data-type="smartleading/locel-seo-factor"] {
+	grid-row: 3;
+}
+
+.editor-styles-wrapper .lseo-compare-edit {
+	display: grid;
+	gap: 12px;
+	width: 100%;
+}
+
+.editor-styles-wrapper .wp-block[data-type="smartleading/locel-seo-challenge"] .signcard,
+.editor-styles-wrapper .wp-block[data-type="smartleading/locel-seo-challenge"] {
+	height: 100%;
+	min-width: 0;
+}
+
+.editor-styles-wrapper .signs .wp-block {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.editor-styles-wrapper .stop {
+	display: flex;
+	gap: 14px;
+	align-items: flex-start;
+}
+
+.editor-styles-wrapper .stop__pin {
+	flex: 0 0 auto;
+}
+
+.editor-styles-wrapper .factor__art svg {
+	display: block;
+	width: 100%;
+	max-width: 200px;
+	height: auto;
+}
+
+.editor-styles-wrapper .lseo-card-icon {
+	display: inline-flex;
+	margin-bottom: 8px;
+}
+
+.editor-styles-wrapper .lseo-card-icon .ic,
+.editor-styles-wrapper .signcard__icon .ic,
+.editor-styles-wrapper .stop__pin .ic {
+	width: 28px;
+	height: 28px;
+}
+
+.editor-styles-wrapper .band .title,
+.editor-styles-wrapper .audit .title,
+.editor-styles-wrapper .ticket h2 {
+	color: #fff;
+}
+
+.editor-styles-wrapper p,
+.editor-styles-wrapper .lead,
+.editor-styles-wrapper .hero__lead {
+	font-size: 16px;
+	line-height: 1.6;
+}
+
+.editor-styles-wrapper .rich-text:focus {
+	outline: 2px solid #1f4e9e;
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+.editor-styles-wrapper .chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin: 10px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.editor-styles-wrapper .chips li {
+	padding: 4px 10px;
+	border-radius: 999px;
+	background: #e2eeff;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.editor-styles-wrapper .bento .wp-block.tile--wide {
+	grid-column: span 2;
+}
+
+.editor-styles-wrapper .points .wp-block,
+.editor-styles-wrapper .funnel .wp-block {
+	display: grid;
+	grid-template-columns: 44px minmax(0, 1fr);
+	gap: 16px;
+	align-items: start;
+}
+
+.editor-styles-wrapper .funnel .wp-block {
+	padding: 16px 20px;
+	background: #f4f7ff;
+}
+
+.editor-styles-wrapper .ticket {
+	display: grid !important;
+	grid-template-columns: minmax(0, 1fr) minmax(180px, 280px);
+	align-items: center;
+}
+
+.editor-styles-wrapper .case {
+	display: grid !important;
+	grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+	gap: 32px;
+}
+
+.editor-styles-wrapper .report {
+	display: grid !important;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: 32px;
+	align-items: start;
+}
+
+.editor-styles-wrapper .audit .lseo-wrap {
+	display: grid !important;
+	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+	gap: 32px;
+}
+
+.editor-styles-wrapper .slider {
+	overflow: visible !important;
+}
+
+.editor-styles-wrapper .slider__track {
+	display: grid !important;
+	gap: 16px;
+	transform: none !important;
+}
+
+.editor-styles-wrapper .slide {
+	flex: none !important;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(120px, 0.6fr);
+	gap: 20px;
+	padding: 24px;
+	background: #f4f7ff;
+	border-radius: 12px;
+}
+
+.editor-styles-wrapper .lseo-compare-head,
+.editor-styles-wrapper .lseo-compare-row {
+	display: grid;
+	grid-template-columns: minmax(100px, 0.8fr) repeat(3, minmax(0, 1fr));
+	gap: 12px;
+	align-items: start;
+}
+
+.editor-styles-wrapper .lseo-compare-head .is-sls,
+.editor-styles-wrapper .lseo-compare-row .is-sls {
+	background: #1f4e9e;
+	color: #fff;
+	padding: 12px;
+	border-radius: 8px;
+}
+
+.editor-styles-wrapper .lseo-compare-head .is-sls span,
+.editor-styles-wrapper .lseo-compare-head .is-sls strong,
+.editor-styles-wrapper .lseo-compare-row .is-sls span,
+.editor-styles-wrapper .lseo-compare-row .is-sls p,
+.editor-styles-wrapper .cell.is-sls span {
+	color: #fff;
+}
+
+.editor-styles-wrapper .lseo-sec--faq,
+.editor-styles-wrapper .wp-block-smartleading-locel-seo-faq {
+	background: #ffffff;
+}
+
+.editor-styles-wrapper .lseo-compare-row .cell {
+	padding: 10px;
+	border: 1px solid #e2eeff;
+	border-radius: 8px;
+}
+
+.editor-styles-wrapper .quote-mark {
+	width: 48px;
+	height: 36px;
+	color: #1f4e9e;
+	margin: 8px auto 16px;
+	display: block;
+}
+
+.editor-styles-wrapper .form-card {
+	background: #fff;
+	color: #222;
+	padding: 24px;
+	border-radius: 12px;
+}
+
+.editor-styles-wrapper .form-card label {
+	display: block;
+	margin-bottom: 10px;
+	font-weight: 600;
+}
+
+.editor-styles-wrapper .slider__bar {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+	margin-top: 12px;
+	align-items: center;
+}
+
+.editor-styles-wrapper .lseo-slider-btn {
+	display: inline-flex;
+	width: 36px;
+	height: 36px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background: #1f4e9e;
+	color: #fff;
+	margin-left: 6px;
+}
+
+@media (max-width: 1100px) {
+	.editor-styles-wrapper .signs,
+	.editor-styles-wrapper .lseo-discovery-edit {
+		grid-template-columns: 1fr;
+	}
+
+	.editor-styles-wrapper .lseo-discovery-edit .wp-block[data-type="smartleading/locel-seo-stop"],
+	.editor-styles-wrapper .lseo-discovery-edit .wp-block[data-type="smartleading/locel-seo-merge-col"],
+	.editor-styles-wrapper .lseo-discovery-edit .wp-block[data-type="smartleading/locel-seo-factor"] {
+		grid-row: auto;
+	}
+
+	.editor-styles-wrapper .bento,
+	.editor-styles-wrapper .stairs,
+	.editor-styles-wrapper .values,
+	.editor-styles-wrapper .points,
+	.editor-styles-wrapper .ticket,
+	.editor-styles-wrapper .case,
+	.editor-styles-wrapper .report,
+	.editor-styles-wrapper .audit .lseo-wrap,
+	.editor-styles-wrapper .lseo-compare-head,
+	.editor-styles-wrapper .lseo-compare-row,
+	.editor-styles-wrapper .slide {
+		grid-template-columns: 1fr;
+	}
+
+	.editor-styles-wrapper .bento .wp-block.tile--wide {
+		grid-column: auto;
+	}
+}
+
+.editor-styles-wrapper .video__frame.is-reel {
+	aspect-ratio: 9 / 16;
+	width: min(280px, 100%);
+	margin: 0 auto;
+	display: grid;
+	place-items: center;
+	background: #143670;
+	border-radius: 16px;
+	color: #fff;
+}
+
+.editor-styles-wrapper .video__watch-preview {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.editor-styles-wrapper .video__watch-preview a {
+	color: #ffb896;
+}
+
+@media (max-width: 720px) {
+	.editor-styles-wrapper .sls-locel-seo .hero__grid {
+		grid-template-columns: 1fr !important;
+	}
+
+	.editor-styles-wrapper .sls-locel-seo .map {
+		height: auto !important;
+		display: grid !important;
+		gap: 12px !important;
+		padding: 16px !important;
+	}
+
+	.editor-styles-wrapper .sls-locel-seo .map .mcard,
+	.editor-styles-wrapper .map .wp-block.mcard {
+		position: relative !important;
+		left: auto !important;
+		right: auto !important;
+		top: auto !important;
+		bottom: auto !important;
+		width: 100% !important;
+	}
+}

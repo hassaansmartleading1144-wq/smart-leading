@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-chip",
+  "title": "AI SEO Chip",
+  "category": "smartleading-ai-seo",
+  "description": "A platform chip.",
+  "icon": "tag",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "ChatGPT Search"
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style",
+  "parent": [
+    "smartleading/ai-seo-platforms"
+  ]
+}

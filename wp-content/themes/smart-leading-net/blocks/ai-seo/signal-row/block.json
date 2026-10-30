@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-signal-row",
+  "title": "AI SEO Signal Row",
+  "category": "smartleading-ai-seo",
+  "description": "A measurement table row.",
+  "icon": "minus",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "number": {
+      "type": "string",
+      "default": "01"
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "canTell": {
+      "type": "string",
+      "default": ""
+    },
+    "cannotShow": {
+      "type": "string",
+      "default": ""
+    },
+    "canLabel": {
+      "type": "string",
+      "default": "What it can tell your team"
+    },
+    "cannotLabel": {
+      "type": "string",
+      "default": "What it cannot show"
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style",
+  "parent": [
+    "smartleading/ai-seo-measurement"
+  ]
+}

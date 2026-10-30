@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-process-step",
+  "title": "AI SEO Process Step",
+  "category": "smartleading-ai-seo",
+  "description": "A numbered process step.",
+  "icon": "marker",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h3"
+    },
+    "number": {
+      "type": "string",
+      "default": "1"
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "text": {
+      "type": "string",
+      "default": ""
+    },
+    "outputLabel": {
+      "type": "string",
+      "default": "Output:"
+    },
+    "output": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style",
+  "parent": [
+    "smartleading/ai-seo-process"
+  ]
+}

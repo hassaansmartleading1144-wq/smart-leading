@@ -1,0 +1,96 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-enquiry",
+  "title": "AI SEO Enquiry",
+  "category": "smartleading-ai-seo",
+  "description": "Enquiry copy and form.",
+  "icon": "email",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "background": {
+      "type": "string",
+      "default": "tint"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "Start a conversation"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Let’s Discuss Your AI Search Goals"
+    },
+    "lead": {
+      "type": "string",
+      "default": "Tell us about your business, your website and what you want to understand about AI search."
+    },
+    "point1": {
+      "type": "string",
+      "default": "The services and markets that matter most to you"
+    },
+    "point2": {
+      "type": "string",
+      "default": "Questions you would like to see your business answer well"
+    },
+    "point3": {
+      "type": "string",
+      "default": "Any existing SEO work or tracking already in place"
+    },
+    "nextText": {
+      "type": "string",
+      "default": "After you send this form, a Smart Leading team member will review your details and follow up to discuss fit and next steps."
+    },
+    "nameLabel": {
+      "type": "string",
+      "default": "Name"
+    },
+    "emailLabel": {
+      "type": "string",
+      "default": "Business email"
+    },
+    "websiteLabel": {
+      "type": "string",
+      "default": "Website"
+    },
+    "websiteHint": {
+      "type": "string",
+      "default": "For example, yourcompany.com"
+    },
+    "goalLabel": {
+      "type": "string",
+      "default": "What would you like to understand about AI search?"
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": "Send My Enquiry"
+    },
+    "privacyText": {
+      "type": "string",
+      "default": "How we handle your information is described in our privacy policy."
+    },
+    "privacyUrl": {
+      "type": "string",
+      "default": "/privacy-policy/"
+    },
+    "privacyLinkLabel": {
+      "type": "string",
+      "default": "Privacy policy"
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style"
+}

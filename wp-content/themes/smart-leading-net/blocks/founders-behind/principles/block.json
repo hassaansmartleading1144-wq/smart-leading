@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/founders-principles",
+  "title": "Founders Behind — Principles",
+  "category": "smartleading-founders",
+  "description": "Founders Behind — Principles",
+  "icon": "editor-ol",
+  "keywords": [
+    "founders",
+    "smart leading"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": "What Guides Our Work"
+    },
+    "isPublished": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "editorScript": "smartleading-founders-editor",
+  "editorStyle": "smartleading-founders-editor-style",
+  "style": "sln-founders-behind"
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-pricing",
+  "title": "AI SEO Pricing",
+  "category": "smartleading-ai-seo",
+  "description": "Pricing copy, mini lead form and price card.",
+  "icon": "money-alt",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "background": {
+      "type": "string",
+      "default": "default"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "Pricing"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Transparent Pricing for AI SEO Services, Scoped to Your Goals"
+    },
+    "lead": {
+      "type": "string",
+      "default": "AI SEO programs are priced around the work your website and goals require: content, technical foundations and measurement across the AI search experiences your customers use. Share your website to start a conversation about fit and a tailored proposal."
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "Enter your website"
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": "Send Me a Proposal"
+    },
+    "variant": {
+      "type": "string",
+      "default": "default"
+    },
+    "ariaLabel": {
+      "type": "string",
+      "default": "Start a proposal request"
+    },
+    "inputId": {
+      "type": "string",
+      "default": "ai-mini-website-1"
+    },
+    "note": {
+      "type": "string",
+      "default": ""
+    },
+    "showArrow": {
+      "type": "boolean",
+      "default": true
+    },
+    "priceLabel": {
+      "type": "string",
+      "default": "AI SEO Programs Starting At"
+    },
+    "priceAmount": {
+      "type": "string",
+      "default": "[$X,XXX]"
+    },
+    "pricePeriod": {
+      "type": "string",
+      "default": "/month"
+    },
+    "priceFor": {
+      "type": "string",
+      "default": "For businesses ready to adapt their search strategy"
+    },
+    "priceFine": {
+      "type": "string",
+      "default": "Final pricing depends on the scope agreed for your business."
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style"
+}

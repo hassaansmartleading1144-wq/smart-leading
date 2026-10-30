@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-principles",
+  "title": "AI SEO Principles",
+  "category": "smartleading-ai-seo",
+  "description": "Blue principles section.",
+  "icon": "lightbulb",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "background": {
+      "type": "string",
+      "default": "blue"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "How we approach the work"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Start With Clear Questions. Agree on Clear Work."
+    },
+    "text": {
+      "type": "string",
+      "default": "AI search is still changing. These principles are meant to keep the work understandable as it develops, for your team and for ours."
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style"
+}

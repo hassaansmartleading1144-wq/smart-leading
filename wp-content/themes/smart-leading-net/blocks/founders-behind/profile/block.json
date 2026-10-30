@@ -1,0 +1,81 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/founders-profile",
+  "title": "Founder Profile",
+  "category": "smartleading-founders",
+  "description": "Founder Profile",
+  "icon": "admin-users",
+  "keywords": [
+    "founders",
+    "smart leading"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "role1": {
+      "type": "string",
+      "default": ""
+    },
+    "role2": {
+      "type": "string",
+      "default": ""
+    },
+    "role3": {
+      "type": "string",
+      "default": ""
+    },
+    "bio": {
+      "type": "string",
+      "default": ""
+    },
+    "extra": {
+      "type": "string",
+      "default": ""
+    },
+    "imageId": {
+      "type": "number",
+      "default": 0
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "socialUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "socialLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "socialNewTab": {
+      "type": "boolean",
+      "default": true
+    },
+    "reverse": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "editorScript": "smartleading-founders-editor",
+  "editorStyle": "smartleading-founders-editor-style",
+  "style": "sln-founders-behind",
+  "parent": [
+    "smartleading/founders-profiles"
+  ]
+}

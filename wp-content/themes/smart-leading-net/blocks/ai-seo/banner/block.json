@@ -1,0 +1,84 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-banner",
+  "title": "AI SEO Banner CTA",
+  "category": "smartleading-ai-seo",
+  "description": "Proof banner with image, stats and lead form.",
+  "icon": "megaphone",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Be Visible Wherever Your Customers Research"
+    },
+    "text": {
+      "type": "string",
+      "default": "Build a clearer presence across Google, ChatGPT, Perplexity and the other AI search experiences your audience uses. Share your website to request a custom strategy conversation."
+    },
+    "imageId": {
+      "type": "number",
+      "default": 0
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": "SLS team member"
+    },
+    "photoPlaceholder": {
+      "type": "string",
+      "default": "[SLS team photo]"
+    },
+    "statKicker": {
+      "type": "string",
+      "default": "SLS AI Search Results"
+    },
+    "statNumber": {
+      "type": "string",
+      "default": "[Verified figure]"
+    },
+    "statLabel": {
+      "type": "string",
+      "default": "[What the figure measures]"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "Enter your website"
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": "Request My Custom Strategy"
+    },
+    "ariaLabel": {
+      "type": "string",
+      "default": "Start a strategy request"
+    },
+    "inputId": {
+      "type": "string",
+      "default": "ai-mini-website-2"
+    },
+    "note": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style"
+}

@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-	define( 'SLN_THEME_VERSION', '1.8.12' );
+	define( 'SLN_THEME_VERSION', '1.8.13' );
 define( 'SLN_THEME_DIR', get_template_directory() );
 define( 'SLN_THEME_URI', get_template_directory_uri() );
 
@@ -19,6 +19,42 @@ require SLN_THEME_DIR . '/inc/enqueue-assets.php';
 require SLN_THEME_DIR . '/inc/blog-post-helpers.php';
 require SLN_THEME_DIR . '/inc/blog-post-meta.php';
 require SLN_THEME_DIR . '/inc/blog-block-patterns.php';
+require SLN_THEME_DIR . '/inc/ai-seo-helpers.php';
+require SLN_THEME_DIR . '/inc/ai-seo-blocks.php';
+require SLN_THEME_DIR . '/inc/ai-seo-gutenberg.php';
+require SLN_THEME_DIR . '/inc/ai-seo-block-patterns.php';
+require SLN_THEME_DIR . '/inc/locel-seo-helpers.php';
+require SLN_THEME_DIR . '/inc/locel-seo-gutenberg.php';
+require SLN_THEME_DIR . '/inc/locel-seo-block-patterns.php';
+require SLN_THEME_DIR . '/inc/founders-behind-helpers.php';
+require SLN_THEME_DIR . '/inc/founders-behind-gutenberg.php';
+require SLN_THEME_DIR . '/inc/founders-behind-block-patterns.php';
+
+/**
+ * Create Gutenberg landing pages after blocks register.
+ * Runs on front-end and admin so a theme file deploy still publishes the pages.
+ */
+function sln_bootstrap_gutenberg_landing_pages() {
+	if ( wp_installing() ) {
+		return;
+	}
+
+	$created = false;
+	if ( function_exists( 'sln_maybe_ensure_ai_seo_page' ) ) {
+		$created = sln_maybe_ensure_ai_seo_page() || $created;
+	}
+	if ( function_exists( 'sln_maybe_ensure_locel_seo_page' ) ) {
+		$created = sln_maybe_ensure_locel_seo_page() || $created;
+	}
+	if ( function_exists( 'sln_maybe_ensure_founders_behind_page' ) ) {
+		$created = sln_maybe_ensure_founders_behind_page() || $created;
+	}
+
+	if ( $created ) {
+		flush_rewrite_rules( false );
+	}
+}
+add_action( 'init', 'sln_bootstrap_gutenberg_landing_pages', 30 );
 require SLN_THEME_DIR . '/inc/performance.php';
 require SLN_THEME_DIR . '/inc/class-bootstrap-nav-walker.php';
 require SLN_THEME_DIR . '/inc/upload-restrictions.php';

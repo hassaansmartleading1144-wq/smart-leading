@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-journey-step",
+  "title": "AI SEO Journey Step",
+  "category": "smartleading-ai-seo",
+  "description": "A step in the illustrative discovery journey.",
+  "icon": "editor-ol",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "number": {
+      "type": "string",
+      "default": "1"
+    },
+    "title": {
+      "type": "string",
+      "default": "Customer question"
+    },
+    "text": {
+      "type": "string",
+      "default": ""
+    },
+    "isEnd": {
+      "type": "boolean",
+      "default": false
+    },
+    "showAnswer": {
+      "type": "boolean",
+      "default": false
+    },
+    "sourceA": {
+      "type": "string",
+      "default": "Source A"
+    },
+    "sourceB": {
+      "type": "string",
+      "default": "Source B"
+    },
+    "sourceC": {
+      "type": "string",
+      "default": "Source C"
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style",
+  "parent": [
+    "smartleading/ai-seo-hero"
+  ]
+}

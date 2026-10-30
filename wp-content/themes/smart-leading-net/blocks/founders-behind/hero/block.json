@@ -1,0 +1,94 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/founders-hero",
+  "title": "Founders Behind — Hero",
+  "category": "smartleading-founders",
+  "description": "Founders Behind — Hero",
+  "icon": "groups",
+  "keywords": [
+    "founders",
+    "smart leading"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h1"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "Our Founders"
+    },
+    "heading": {
+      "type": "string",
+      "default": "The Founders Behind Smart Leading"
+    },
+    "lead": {
+      "type": "string",
+      "default": "Meet the people behind Smart Leading Solutions."
+    },
+    "note": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryLabel": {
+      "type": "string",
+      "default": "Start a Conversation"
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": "/contact-us/"
+    },
+    "primaryNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "primaryShow": {
+      "type": "boolean",
+      "default": true
+    },
+    "secondaryLabel": {
+      "type": "string",
+      "default": "Meet the Founders"
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": "#founders"
+    },
+    "secondaryNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "secondaryShow": {
+      "type": "boolean",
+      "default": true
+    },
+    "imageId": {
+      "type": "number",
+      "default": 0
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "isPublished": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "editorScript": "smartleading-founders-editor",
+  "editorStyle": "smartleading-founders-editor-style",
+  "style": "sln-founders-behind"
+}

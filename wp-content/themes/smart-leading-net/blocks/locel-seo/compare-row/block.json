@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/locel-seo-compare-row",
+  "title": "Local SEO — Comparison Row",
+  "category": "smartleading-locel-seo",
+  "description": "Local SEO — Comparison Row",
+  "icon": "table-row-after",
+  "keywords": [
+    "local seo",
+    "locale seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": ""
+    },
+    "sls": {
+      "type": "string",
+      "default": ""
+    },
+    "agency": {
+      "type": "string",
+      "default": ""
+    },
+    "diy": {
+      "type": "string",
+      "default": ""
+    },
+    "col1Label": {
+      "type": "string",
+      "default": "Working with SLS"
+    },
+    "col2Label": {
+      "type": "string",
+      "default": "Another SEO agency"
+    },
+    "col3Label": {
+      "type": "string",
+      "default": "In-house or DIY"
+    }
+  },
+  "editorScript": "smartleading-locel-seo-editor",
+  "editorStyle": "smartleading-locel-seo-editor-style",
+  "style": "sln-locel-seo",
+  "parent": [
+    "smartleading/locel-seo-compare"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-faq-item",
+  "title": "AI SEO FAQ Item",
+  "category": "smartleading-ai-seo",
+  "description": "An editable FAQ question and answer.",
+  "icon": "plus",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "question": {
+      "type": "string",
+      "default": ""
+    },
+    "answer": {
+      "type": "string",
+      "default": ""
+    },
+    "open": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style",
+  "parent": [
+    "smartleading/ai-seo-faq"
+  ]
+}

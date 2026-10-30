@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-platforms",
+  "title": "AI SEO Platforms",
+  "category": "smartleading-ai-seo",
+  "description": "Illustrative AI research surfaces.",
+  "icon": "networking",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "background": {
+      "type": "string",
+      "default": "default"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "Platform context"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Focus on the Search Experiences Your Customers Use"
+    },
+    "text": {
+      "type": "string",
+      "default": "Different questions lead people to different search tools. Platform selection should follow your audience, market and research needs."
+    },
+    "note": {
+      "type": "string",
+      "default": "The names shown are examples of where AI-assisted research happens. They do not indicate a partnership or integration with Smart Leading Solutions, and the platforms included in any engagement are agreed during scoping."
+    },
+    "chipsHeading": {
+      "type": "string",
+      "default": "Illustrative research surfaces"
+    },
+    "chipsLabel": {
+      "type": "string",
+      "default": "Examples of AI-assisted research surfaces"
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style"
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/locel-seo-tech",
+  "title": "Local SEO — CRM Slider",
+  "category": "smartleading-locel-seo",
+  "description": "Local SEO — CRM Slider",
+  "icon": "desktop",
+  "keywords": [
+    "local seo",
+    "locale seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "Technology"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Technology That Connects Local SEO to Your Enquiries."
+    },
+    "lead": {
+      "type": "string",
+      "default": "SLS Leads CRM is our platform for bringing marketing and lead data together, so local SEO work can be reviewed alongside the enquiries it supports."
+    },
+    "conceptTag": {
+      "type": "string",
+      "default": "Product concept — features pending confirmation"
+    },
+    "linkLabel": {
+      "type": "string",
+      "default": "Discover SLS Leads CRM"
+    },
+    "linkPending": {
+      "type": "string",
+      "default": "[link pending]"
+    },
+    "sliderLabel": {
+      "type": "string",
+      "default": "SLS Leads CRM concept features"
+    }
+  },
+  "editorScript": "smartleading-locel-seo-editor",
+  "editorStyle": "smartleading-locel-seo-editor-style",
+  "style": "sln-locel-seo"
+}

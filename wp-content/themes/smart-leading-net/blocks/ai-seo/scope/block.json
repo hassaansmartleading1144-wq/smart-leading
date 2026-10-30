@@ -1,0 +1,80 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-scope",
+  "title": "AI SEO Scope",
+  "category": "smartleading-ai-seo",
+  "description": "Scope considerations and CTA.",
+  "icon": "clipboard",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "background": {
+      "type": "string",
+      "default": "default"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "Scope and engagement"
+    },
+    "heading": {
+      "type": "string",
+      "default": "What Would the Right Scope Look Like for Your Business?"
+    },
+    "lead": {
+      "type": "string",
+      "default": "The right starting point depends on your website, audience, existing search work and the questions you want to assess. Share that context to begin a discussion about fit."
+    },
+    "listLabel": {
+      "type": "string",
+      "default": "What shapes the scope"
+    },
+    "primaryLabel": {
+      "type": "string",
+      "default": "Discuss My AI Search Goals"
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": "#ai-search-enquiry"
+    },
+    "primaryNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "primaryShow": {
+      "type": "boolean",
+      "default": true
+    },
+    "secondaryLabel": {
+      "type": "string",
+      "default": "Explore the Approach"
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": "#ai-search-approach"
+    },
+    "secondaryNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "secondaryShow": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style"
+}

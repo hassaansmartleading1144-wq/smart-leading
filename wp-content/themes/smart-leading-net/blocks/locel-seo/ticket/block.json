@@ -1,0 +1,70 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/locel-seo-ticket",
+  "title": "Local SEO — Audit CTA",
+  "category": "smartleading-locel-seo",
+  "description": "Local SEO — Audit CTA",
+  "icon": "tickets-alt",
+  "keywords": [
+    "local seo",
+    "locale seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Start With a Free Local SEO Audit."
+    },
+    "text": {
+      "type": "string",
+      "default": "Tell us about your business and the areas you serve."
+    },
+    "primaryLabel": {
+      "type": "string",
+      "default": "Get My Free Local SEO Audit"
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": "#local-seo-audit-request"
+    },
+    "primaryNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "primaryShow": {
+      "type": "boolean",
+      "default": true
+    },
+    "secondaryLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "secondaryShow": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "editorScript": "smartleading-locel-seo-editor",
+  "editorStyle": "smartleading-locel-seo-editor-style",
+  "style": "sln-locel-seo"
+}

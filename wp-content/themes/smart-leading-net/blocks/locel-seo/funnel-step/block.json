@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/locel-seo-funnel-step",
+  "title": "Local SEO — Reporting Step",
+  "category": "smartleading-locel-seo",
+  "description": "Local SEO — Reporting Step",
+  "icon": "filter",
+  "keywords": [
+    "local seo",
+    "locale seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "default": "eye"
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "text": {
+      "type": "string",
+      "default": ""
+    },
+    "question": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "smartleading-locel-seo-editor",
+  "editorStyle": "smartleading-locel-seo-editor-style",
+  "style": "sln-locel-seo",
+  "parent": [
+    "smartleading/locel-seo-reporting"
+  ]
+}

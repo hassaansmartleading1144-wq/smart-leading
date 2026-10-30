@@ -1,0 +1,110 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/locel-seo-hero",
+  "title": "Local SEO — Hero",
+  "category": "smartleading-locel-seo",
+  "description": "Hero with breadcrumb, CTAs and local customer journey map.",
+  "icon": "location-alt",
+  "keywords": [
+    "local seo",
+    "locale seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h1"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "Local SEO Services"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Local SEO Services Built Around Your Next Customer."
+    },
+    "description": {
+      "type": "string",
+      "default": "Help nearby customers find your business and take the next step. Request a free audit to start the conversation."
+    },
+    "note": {
+      "type": "string",
+      "default": ""
+    },
+    "mapCaption": {
+      "type": "string",
+      "default": ""
+    },
+    "showBreadcrumb": {
+      "type": "boolean",
+      "default": true
+    },
+    "crumbHomeLabel": {
+      "type": "string",
+      "default": "Home"
+    },
+    "crumbHomeUrl": {
+      "type": "string",
+      "default": "/"
+    },
+    "crumbMid1Label": {
+      "type": "string",
+      "default": "Services"
+    },
+    "crumbMid2Label": {
+      "type": "string",
+      "default": "SEO"
+    },
+    "crumbMid2Url": {
+      "type": "string",
+      "default": "/digital-marketing-services/search-engine-optimization-seo/"
+    },
+    "crumbCurrent": {
+      "type": "string",
+      "default": "Local SEO"
+    },
+    "primaryLabel": {
+      "type": "string",
+      "default": "Get My Free Local SEO Audit"
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": "#local-seo-audit-request"
+    },
+    "primaryNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "primaryShow": {
+      "type": "boolean",
+      "default": true
+    },
+    "secondaryLabel": {
+      "type": "string",
+      "default": "See Our Approach"
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": "#local-seo-approach"
+    },
+    "secondaryNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "secondaryShow": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "editorScript": "smartleading-locel-seo-editor",
+  "editorStyle": "smartleading-locel-seo-editor-style",
+  "style": "sln-locel-seo"
+}

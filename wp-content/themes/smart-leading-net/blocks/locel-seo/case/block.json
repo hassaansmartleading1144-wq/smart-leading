@@ -1,0 +1,70 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/locel-seo-case",
+  "title": "Local SEO — Case Study",
+  "category": "smartleading-locel-seo",
+  "description": "Local SEO — Case Study",
+  "icon": "awards",
+  "keywords": [
+    "local seo",
+    "locale seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "banner": {
+      "type": "string",
+      "default": "DEMO CASE STUDY — illustrative content, not verified client results."
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "Case Study"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Epoxyshine: From Local Discovery to Enquiries."
+    },
+    "metricAria": {
+      "type": "string",
+      "default": "Demo metric card, illustrative layout only"
+    },
+    "metricTag": {
+      "type": "string",
+      "default": "Demo · not real data"
+    },
+    "metricFrom": {
+      "type": "string",
+      "default": "20"
+    },
+    "metricTo": {
+      "type": "string",
+      "default": "35"
+    },
+    "metricUnit": {
+      "type": "string",
+      "default": "enquiries"
+    },
+    "metricCap": {
+      "type": "string",
+      "default": "Illustrative equal-length periods. Layout sample only — these figures are not achieved results."
+    },
+    "metricLogo": {
+      "type": "string",
+      "default": "[Client logo — only with written permission]"
+    }
+  },
+  "editorScript": "smartleading-locel-seo-editor",
+  "editorStyle": "smartleading-locel-seo-editor-style",
+  "style": "sln-locel-seo"
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/locel-seo-audit",
+  "title": "Local SEO — Audit Form",
+  "category": "smartleading-locel-seo",
+  "description": "Local SEO — Audit Form",
+  "icon": "email",
+  "keywords": [
+    "local seo",
+    "locale seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "Free Audit"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Get My Free Local SEO Audit."
+    },
+    "lead": {
+      "type": "string",
+      "default": "Tell us about your business and the area you serve."
+    },
+    "tick1": {
+      "type": "string",
+      "default": "No passwords or account access needed"
+    },
+    "tick2": {
+      "type": "string",
+      "default": "No website yet? You can still request one"
+    },
+    "nameLabel": {
+      "type": "string",
+      "default": "Full name"
+    },
+    "emailLabel": {
+      "type": "string",
+      "default": "Business email"
+    },
+    "websiteLabel": {
+      "type": "string",
+      "default": "Website"
+    },
+    "optionalLabel": {
+      "type": "string",
+      "default": "(optional)"
+    },
+    "websiteHint": {
+      "type": "string",
+      "default": "Leave blank if you don’t have one."
+    },
+    "areaLabel": {
+      "type": "string",
+      "default": "City or service area"
+    },
+    "extraLabel": {
+      "type": "string",
+      "default": "Business Profile link or anything else we should know"
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": "Request My Free Audit"
+    },
+    "privacyText": {
+      "type": "string",
+      "default": "By submitting, you agree to how we handle your information as described in our"
+    },
+    "privacyUrl": {
+      "type": "string",
+      "default": "/privacy-policy/"
+    },
+    "privacyLinkLabel": {
+      "type": "string",
+      "default": "Privacy Policy"
+    }
+  },
+  "editorScript": "smartleading-locel-seo-editor",
+  "editorStyle": "smartleading-locel-seo-editor-style",
+  "style": "sln-locel-seo"
+}

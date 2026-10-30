@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/ai-seo-faq",
+  "title": "AI SEO FAQ",
+  "category": "smartleading-ai-seo",
+  "description": "FAQ accordion section.",
+  "icon": "editor-help",
+  "keywords": [
+    "ai seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "background": {
+      "type": "string",
+      "default": "default"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "FAQs"
+    },
+    "heading": {
+      "type": "string",
+      "default": "AI SEO Services: Common Questions"
+    },
+    "intro": {
+      "type": "string",
+      "default": "Have a question that is not covered here? Include it in your <a href=\"#ai-search-enquiry\">AI search enquiry</a>."
+    }
+  },
+  "editorScript": "smartleading-ai-seo-editor",
+  "editorStyle": "smartleading-ai-seo-editor-style"
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/locel-seo-discovery",
+  "title": "Local SEO — Customer Journey",
+  "category": "smartleading-locel-seo",
+  "description": "Local SEO — Customer Journey",
+  "icon": "share",
+  "keywords": [
+    "local seo",
+    "locale seo"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Make It Easier for Nearby Customers to Find You."
+    },
+    "lead": {
+      "type": "string",
+      "default": "Local SEO is about the whole path a customer takes: finding your profile, understanding what you offer and where, and knowing exactly how to get in touch."
+    },
+    "connectorLabel": {
+      "type": "string",
+      "default": "Connected,<br>but different"
+    },
+    "goalText": {
+      "type": "string",
+      "default": "Both feed the same goal: more of the right people getting in touch."
+    },
+    "factorsTitle": {
+      "type": "string",
+      "default": "Google says local results depend mainly on three things."
+    },
+    "factorsNote": {
+      "type": "string",
+      "default": "No one can guarantee visibility for every search or every location."
+    }
+  },
+  "editorScript": "smartleading-locel-seo-editor",
+  "editorStyle": "smartleading-locel-seo-editor-style",
+  "style": "sln-locel-seo"
+}

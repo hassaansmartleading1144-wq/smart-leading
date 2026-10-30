@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "smartleading/founders-role",
+  "title": "Founder Role",
+  "category": "smartleading-founders",
+  "description": "Founder Role",
+  "icon": "nametag",
+  "keywords": [
+    "founders",
+    "smart leading"
+  ],
+  "textdomain": "smart-leading-net",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false,
+    "align": false,
+    "className": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "role": {
+      "type": "string",
+      "default": ""
+    },
+    "text": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "smartleading-founders-editor",
+  "editorStyle": "smartleading-founders-editor-style",
+  "style": "sln-founders-behind",
+  "parent": [
+    "smartleading/founders-roles"
+  ]
+}
