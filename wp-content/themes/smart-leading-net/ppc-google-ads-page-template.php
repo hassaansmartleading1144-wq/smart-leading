@@ -33,6 +33,7 @@ while ( have_posts() ) :
 	get_template_part( 'template-parts/ppc-google-ads/proof' );
 	get_template_part( 'template-parts/ppc-google-ads/industries' );
 	get_template_part( 'template-parts/ppc-google-ads/roi-estimator' );
+	sln_render_lead_analytics_section();
 	get_template_part( 'template-parts/ppc-google-ads/pricing' );
 	get_template_part( 'template-parts/ppc-google-ads/faq' );
 	get_template_part( 'template-parts/ppc-google-ads/final-cta' );

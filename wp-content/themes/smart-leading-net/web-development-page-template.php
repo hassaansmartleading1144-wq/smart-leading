@@ -30,6 +30,7 @@ while ( have_posts() ) :
 	get_template_part( 'template-parts/web-development/comparison' );
 	get_template_part( 'template-parts/web-development/benefit-summary' );
 	get_template_part( 'template-parts/web-development/case-studies' );
+	sln_render_lead_analytics_section();
 	get_template_part( 'template-parts/web-development/pricing' );
 	get_template_part( 'template-parts/web-development/care-plans' );
 	get_template_part( 'template-parts/web-development/faq' );

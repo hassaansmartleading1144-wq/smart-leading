@@ -27,6 +27,7 @@ while ( have_posts() ) :
 	get_template_part( 'template-parts/digital-marketing/paid-advertising' );
 	get_template_part( 'template-parts/digital-marketing/process' );
 	get_template_part( 'template-parts/digital-marketing/proof' );
+	sln_render_lead_analytics_section();
 	get_template_part( 'template-parts/digital-marketing/pricing' );
 	get_template_part( 'template-parts/digital-marketing/faq' );
 	get_template_part( 'template-parts/digital-marketing/final-cta' );

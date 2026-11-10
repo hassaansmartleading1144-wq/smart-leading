@@ -52,6 +52,7 @@ function sln_demo_package_seo_meta_keys() {
 		SLN_SEO_SVC_CTA_FORM_META,
 		SLN_SEO_SVC_FAQ_SECTION_META,
 		SLN_SEO_SVC_FAQ_ITEMS_META,
+		SLN_SEO_SVC_HIDDEN_SECTIONS_META,
 	);
 }
 

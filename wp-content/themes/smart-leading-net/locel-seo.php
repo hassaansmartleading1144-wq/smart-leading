@@ -20,7 +20,7 @@ while ( have_posts() ) :
 	?>
 
 <main id="primary" <?php post_class( 'site-main sls-locel-seo' ); ?>>
-	<?php the_content(); ?>
+	<?php the_content(); sln_render_lead_analytics_section(); ?>
 </main>
 
 	<?php

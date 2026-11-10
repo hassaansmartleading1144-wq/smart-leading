@@ -209,6 +209,7 @@ final class SLN_Demo_Exporter {
 			$pages[] = array(
 				'title'    => $post->post_title,
 				'slug'     => $post->post_name,
+				'parent'   => $post->post_parent ? get_page_uri( $post->post_parent ) : '',
 				'status'   => $post->post_status,
 				'template' => $template,
 				'content'  => $post->post_content,
@@ -219,6 +220,14 @@ final class SLN_Demo_Exporter {
 		}
 
 		wp_reset_postdata();
+
+		// Parents first, so the importer can attach child pages to them.
+		usort(
+			$pages,
+			static function ( $a, $b ) {
+				return substr_count( $a['parent'], '/' ) + ( '' !== $a['parent'] ) <=> substr_count( $b['parent'], '/' ) + ( '' !== $b['parent'] );
+			}
+		);
 
 		return $pages;
 	}

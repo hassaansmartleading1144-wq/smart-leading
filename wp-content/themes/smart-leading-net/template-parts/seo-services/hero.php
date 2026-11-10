@@ -23,6 +23,22 @@ $google_url      = ! empty( $hero['google_partner_url'] ) ? $hero['google_partne
 	<div class="seo-page__hero-grid" aria-hidden="true"></div>
 	<div class="sls-container seo-page__hero-inner">
 		<div class="seo-page__hero-copy seo-page__reveal">
+			<?php $breadcrumbs = sln_seo_services_breadcrumbs(); ?>
+			<?php if ( $breadcrumbs ) : ?>
+				<nav class="seo-page__crumbs" aria-label="<?php esc_attr_e( 'Breadcrumb', 'smart-leading-net' ); ?>">
+					<ol>
+						<?php foreach ( $breadcrumbs as $crumb ) : ?>
+							<li>
+								<?php if ( '' !== $crumb['url'] ) : ?>
+									<a href="<?php echo esc_url( $crumb['url'] ); ?>"><?php echo esc_html( $crumb['label'] ); ?></a>
+								<?php else : ?>
+									<span aria-current="page"><?php echo esc_html( $crumb['label'] ); ?></span>
+								<?php endif; ?>
+							</li>
+						<?php endforeach; ?>
+					</ol>
+				</nav>
+			<?php endif; ?>
 			<?php if ( ! empty( $hero['small_heading'] ) ) : ?>
 				<p class="seo-page__eyebrow seo-page__eyebrow--light"><?php echo esc_html( $hero['small_heading'] ); ?></p>
 			<?php endif; ?>

@@ -10,6 +10,7 @@ get_header();
 while ( have_posts() ) :
 	the_post();
 	sln_render_growth_page_sections();
+	sln_render_lead_analytics_section();
 endwhile;
 
 get_footer();
