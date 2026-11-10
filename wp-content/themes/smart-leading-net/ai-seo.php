@@ -20,7 +20,7 @@ while ( have_posts() ) :
 	?>
 
 <main id="primary" class="site-main ai-seo-page" <?php post_class(); ?>>
-	<?php the_content(); ?>
+	<?php the_content(); sln_render_lead_analytics_section(); ?>
 </main>
 
 	<?php

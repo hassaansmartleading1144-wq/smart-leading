@@ -771,15 +771,24 @@ final class SLN_Demo_Importer {
 			return 0;
 		}
 
-		$existing = get_page_by_path( $slug, OBJECT, 'page' );
+		$parent_path = trim( (string) ( $page_data['parent'] ?? '' ), '/' );
+		$parent_id   = 0;
 
-		if ( ! $existing ) {
+		if ( '' !== $parent_path ) {
+			$parent    = get_page_by_path( $parent_path, OBJECT, 'page' );
+			$parent_id = $parent instanceof WP_Post ? (int) $parent->ID : 0;
+		}
+
+		$existing = get_page_by_path( $parent_id ? $parent_path . '/' . $slug : $slug, OBJECT, 'page' );
+
+		if ( ! $existing && ! $parent_id ) {
 			$existing = get_page_by_title( $title, OBJECT, 'page' );
 		}
 
 		$postarr = array(
 			'post_title'   => $title,
 			'post_name'    => $slug,
+			'post_parent'  => $parent_id,
 			'post_status'  => sanitize_key( $page_data['status'] ?? 'publish' ),
 			'post_type'    => 'page',
 			'post_content' => $this->replace_urls( (string) ( $page_data['content'] ?? '' ) ),

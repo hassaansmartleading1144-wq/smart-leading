@@ -1,0 +1,36 @@
+.sln-careers-jobs-admin__row {
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	margin: 0 0 16px;
+	background: #fff;
+}
+
+.sln-careers-jobs-admin__row-head {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 12px 14px;
+	background: #f6f7f7;
+	border-bottom: 1px solid #dcdcde;
+}
+
+.sln-careers-jobs-admin__handle {
+	cursor: move;
+	color: #787c82;
+}
+
+.sln-careers-jobs-admin__label {
+	flex: 1;
+}
+
+.sln-careers-jobs-admin__row .form-table {
+	margin: 0;
+}
+
+.sln-careers-jobs-admin__row .form-table th {
+	width: 180px;
+}
+
+.sln-careers-jobs-admin__template {
+	display: none;
+}

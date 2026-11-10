@@ -29,6 +29,7 @@ while ( have_posts() ) :
 	get_template_part( 'template-parts/aeo/platforms' );
 	get_template_part( 'template-parts/aeo/industries' );
 	get_template_part( 'template-parts/aeo/results' );
+	sln_render_lead_analytics_section();
 	get_template_part( 'template-parts/aeo/faq' );
 	get_template_part( 'template-parts/aeo/final-cta' );
 	?>
