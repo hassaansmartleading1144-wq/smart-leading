@@ -9,7 +9,8 @@ get_header();
 
 get_template_part( 'template-parts/sections/hero', 'banner' );
 get_template_part( 'template-parts/sections/accomplishments' );
-get_template_part( 'template-parts/sections/businesses', 'choose' );
+// Replaced the old "Businesses Choose" block (its 7-Day Free Trial card conflicts with the 3-month offer).
+get_template_part( 'template-parts/sections/why-choose', 'us' );
 get_template_part( 'template-parts/sections/our', 'services' );
 get_template_part( 'template-parts/sections/case', 'studies' );
 get_template_part( 'template-parts/sections/expertise' );

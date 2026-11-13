@@ -1,0 +1,289 @@
+/**
+ * Smart Leading Net — Why Choose Us (homepage)
+ * Scoped styles only. Uses theme tokens — no global overrides.
+ */
+
+.why-choose-us {
+	padding-top: var(--section-spacing);
+	padding-bottom: var(--section-spacing);
+	background-color: var(--light-blue-1);
+}
+
+.why-choose-us,
+.why-choose-us * {
+	box-sizing: border-box;
+}
+
+.why-choose-us__header {
+	max-width: 820px;
+	margin: 0 auto 48px;
+	text-align: center;
+}
+
+.why-choose-us__label {
+	margin: 0 0 16px;
+	font-size: 14px;
+	font-weight: var(--font-weight-semibold);
+	line-height: 1.2;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--primary-color);
+}
+
+.why-choose-us__title {
+	margin: 0 0 20px;
+	font-size: var(--section-title-size);
+	font-weight: var(--section-title-weight);
+	line-height: 1.15;
+	color: var(--heading-color);
+}
+
+.why-choose-us__accent {
+	color: var(--secondary-color);
+}
+
+.why-choose-us__intro {
+	margin: 0 auto 28px;
+	max-width: 620px;
+	font-size: var(--paragraph-size);
+	line-height: 1.6;
+	color: var(--text-color);
+}
+
+.why-choose-us__trust {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.why-choose-us__trust-item {
+	padding: 8px 16px;
+	font-size: 14px;
+	font-weight: var(--font-weight-semibold);
+	line-height: 1.2;
+	color: var(--primary-color);
+	background: var(--white);
+	border: 1px solid var(--light-blue-3);
+	border-radius: 999px;
+}
+
+/* Offer (featured guarantee) */
+.why-choose-us__offer {
+	display: grid;
+	grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+	gap: 40px;
+	align-items: center;
+	margin-bottom: 24px;
+	padding: 44px;
+	color: var(--white);
+	background: var(--primary-color);
+	border-radius: 15px;
+}
+
+.why-choose-us__offer-tag {
+	display: inline-block;
+	margin: 0 0 16px;
+	padding: 6px 14px;
+	font-size: 13px;
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--white);
+	background: var(--secondary-color);
+	border-radius: 999px;
+}
+
+.why-choose-us__offer-title {
+	margin: 0 0 16px;
+	font-size: 30px;
+	font-weight: var(--font-weight-bold);
+	line-height: 1.2;
+	color: var(--white);
+}
+
+.why-choose-us__offer-text {
+	margin: 0 0 18px;
+	font-size: var(--paragraph-size);
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.why-choose-us__offer-terms {
+	margin: 0;
+	padding-top: 16px;
+	font-size: 14px;
+	line-height: 1.55;
+	color: rgba(255, 255, 255, 0.8);
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.why-choose-us__steps {
+	display: grid;
+	gap: 12px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.why-choose-us__step {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 16px 18px;
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	border-radius: 12px;
+}
+
+.why-choose-us__step:last-child {
+	background: var(--white);
+	border-color: var(--white);
+}
+
+.why-choose-us__step:last-child .why-choose-us__step-text {
+	color: var(--heading-color);
+}
+
+.why-choose-us__step-num {
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	width: 34px;
+	height: 34px;
+	font-size: 15px;
+	font-weight: var(--font-weight-bold);
+	color: var(--white);
+	background: var(--secondary-color);
+	border-radius: 50%;
+}
+
+.why-choose-us__step-text {
+	font-size: 16px;
+	font-weight: var(--font-weight-semibold);
+	line-height: 1.35;
+	color: var(--white);
+}
+
+/* Supporting cards */
+.why-choose-us__cards {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 20px;
+}
+
+.why-choose-us__card {
+	display: flex;
+	flex-direction: column;
+	padding: 28px 24px;
+	background: var(--white);
+	border: 1px solid transparent;
+	border-radius: 15px;
+	transition:
+		border-color 0.3s ease,
+		transform 0.3s ease;
+}
+
+.why-choose-us__card:hover {
+	border-color: var(--light-blue-3);
+	transform: translateY(-3px);
+}
+
+.why-choose-us__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	margin-bottom: 20px;
+	color: var(--primary-color);
+	background: var(--light-blue-1);
+	border-radius: 10px;
+}
+
+.why-choose-us__icon svg {
+	width: 26px;
+	height: 26px;
+}
+
+.why-choose-us__card-title {
+	margin: 0 0 12px;
+	font-size: var(--h4-size);
+	font-weight: var(--h4-weight);
+	line-height: 1.3;
+	color: var(--heading-color);
+}
+
+.why-choose-us__card-text {
+	margin: 0;
+	font-size: 15px;
+	line-height: 1.6;
+	color: var(--text-color);
+}
+
+/* CTA */
+.why-choose-us__cta {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	margin-top: 44px;
+	text-align: center;
+}
+
+.why-choose-us__cta-note {
+	margin: 0;
+	font-size: 14px;
+	font-weight: var(--font-weight-semibold);
+	color: var(--primary-color);
+}
+
+@media (max-width: 1199px) {
+	.why-choose-us__cards {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 991px) {
+	.why-choose-us__offer {
+		grid-template-columns: 1fr;
+		gap: 28px;
+		padding: 32px 28px;
+	}
+}
+
+@media (max-width: 767px) {
+	.why-choose-us {
+		padding-top: var(--section-spacing-mobile, 60px);
+		padding-bottom: var(--section-spacing-mobile, 60px);
+	}
+
+	.why-choose-us__header {
+		margin-bottom: 32px;
+	}
+
+	.why-choose-us__title {
+		font-size: var(--section-title-size-mobile);
+		line-height: var(--section-title-line-height-mobile);
+	}
+
+	.why-choose-us__offer {
+		padding: 28px 20px;
+	}
+
+	.why-choose-us__offer-title {
+		font-size: 24px;
+	}
+
+	.why-choose-us__cards {
+		grid-template-columns: 1fr;
+	}
+
+	.why-choose-us__cta-btn {
+		width: 100%;
+	}
+}

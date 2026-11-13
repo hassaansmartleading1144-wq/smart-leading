@@ -100,6 +100,7 @@ function sln_get_deferred_style_handles() {
 			array(
 				'sln-accomplishments',
 				'sln-businesses-choose',
+				'sln-why-choose-us',
 				'sln-our-services',
 				'sln-case-studies',
 				'sln-expertise',

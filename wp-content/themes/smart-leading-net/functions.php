@@ -121,6 +121,9 @@ require SLN_THEME_DIR . '/inc/portfolio-page-helpers.php';
 require SLN_THEME_DIR . '/inc/portfolio-page-save.php';
 require SLN_THEME_DIR . '/inc/portfolio-page-admin-fields.php';
 require SLN_THEME_DIR . '/inc/portfolio-page-admin.php';
+require SLN_THEME_DIR . '/inc/case-study-cpt.php';
+require SLN_THEME_DIR . '/inc/case-study-admin.php';
+require SLN_THEME_DIR . '/inc/case-study-watermark.php';
 require SLN_THEME_DIR . '/inc/demo-package.php';
 require SLN_THEME_DIR . '/inc/demo-importer.php';
 require SLN_THEME_DIR . '/inc/demo-exporter.php';
@@ -211,6 +214,23 @@ function sln_enqueue_businesses_choose_assets() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_businesses_choose_assets' );
+
+/**
+ * Enqueue Why Choose Us section styles on the front page only.
+ */
+function sln_enqueue_why_choose_us_assets() {
+	if ( ! is_front_page() ) {
+		return;
+	}
+
+	wp_enqueue_style(
+		'sln-why-choose-us',
+		SLN_THEME_URI . '/assets/css/why-choose-us.css',
+		array( 'sln-main' ),
+		SLN_THEME_VERSION
+	);
+}
+add_action( 'wp_enqueue_scripts', 'sln_enqueue_why_choose_us_assets' );
 
 /**
  * Enqueue our services section assets on the front page only.
