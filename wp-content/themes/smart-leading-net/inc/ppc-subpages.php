@@ -24,10 +24,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return WP_Post|null
  */
 function sln_ppc_subpages_hub() {
-	$ppc = get_page_by_path( 'ppc', OBJECT, 'page' );
+	// The redesigned hub: /ppc/ once switched over, or the /ppc-new/ draft
+	// while the old live page still holds /ppc/.
+	foreach ( array( 'ppc', 'ppc-new' ) as $sln_slug ) {
+		$ppc = get_page_by_path( $sln_slug, OBJECT, 'page' );
 
-	if ( $ppc instanceof WP_Post && SLN_PPC_TEMPLATE === get_page_template_slug( $ppc->ID ) ) {
-		return $ppc;
+		if ( $ppc instanceof WP_Post && SLN_PPC_TEMPLATE === get_page_template_slug( $ppc->ID ) && '1' === (string) get_post_meta( $ppc->ID, SLN_PPC_V2_META, true ) ) {
+			return $ppc;
+		}
 	}
 
 	$pages = get_posts(
@@ -602,20 +606,23 @@ function sln_ppc_write_seo_plugin_meta( $page_id, $meta ) {
  * page keeps its URL, content and old design until the owner switches.
  */
 function sln_ppc_seed_draft_pages() {
-	if ( wp_doing_ajax() || ! current_user_can( 'publish_pages' ) || get_option( 'sln_ppc_v2_seeded' ) ) {
+	if ( wp_doing_ajax() || ! current_user_can( 'publish_pages' ) || get_option( 'sln_ppc_v2_seeded_2' ) ) {
 		return;
 	}
 
 	require_once SLN_THEME_DIR . '/inc/ppc-subpages-content.php';
 
-	$hub = get_page_by_path( 'ppc', OBJECT, 'page' );
+	$hub = sln_ppc_subpages_hub();
 
-	if ( ! $hub instanceof WP_Post ) {
+	if ( ! $hub instanceof WP_Post || '1' !== (string) get_post_meta( $hub->ID, SLN_PPC_V2_META, true ) ) {
+		// /ppc/ is taken by the current live page, so the redesign starts as a
+		// draft at /ppc-new/. The owner switches it to /ppc/ when ready.
+		$taken  = get_page_by_path( 'ppc', OBJECT, 'page' ) instanceof WP_Post;
 		$hub_id = wp_insert_post(
 			array(
 				'post_type'   => 'page',
 				'post_title'  => 'Performance Marketing (PPC)',
-				'post_name'   => 'ppc',
+				'post_name'   => $taken ? 'ppc-new' : 'ppc',
 				'post_status' => 'draft',
 			),
 			true
@@ -633,12 +640,25 @@ function sln_ppc_seed_draft_pages() {
 			update_post_meta( $hub_id, $meta_key, wp_slash( $value ) );
 		}
 		sln_ppc_write_seo_plugin_meta( $hub_id, $hub_meta );
+
+		$hub = get_post( $hub_id );
+	}
+
+	// If an earlier version created the service drafts under the old live
+	// page, move them under the redesigned hub (drafts only).
+	$old = get_page_by_path( 'ppc', OBJECT, 'page' );
+	if ( $old instanceof WP_Post && (int) $old->ID !== (int) $hub->ID ) {
+		foreach ( get_pages( array( 'parent' => $old->ID, 'post_status' => 'draft' ) ) as $child ) {
+			if ( '1' === (string) get_post_meta( $child->ID, SLN_PPC_V2_META, true ) ) {
+				wp_update_post( array( 'ID' => $child->ID, 'post_parent' => $hub->ID ) );
+			}
+		}
 	}
 
 	$report = sln_ppc_subpages_create( 'draft' );
 
 	if ( '' === $report['error'] ) {
-		update_option( 'sln_ppc_v2_seeded', gmdate( 'c' ), false );
+		update_option( 'sln_ppc_v2_seeded_2', gmdate( 'c' ), false );
 	}
 }
 add_action( 'admin_init', 'sln_ppc_seed_draft_pages' );
