@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $accomplishments_uploads = '2026/05/';
+$sln_args                = isset( $args ) && is_array( $args ) ? $args : array();
 
 $accomplishments_cards = array(
 	array(
@@ -63,7 +64,7 @@ $accomplishments_cards = array(
 			</h2>
 
 			<p class="accomplishments__description section-description">
-				<?php esc_html_e( 'We create data-driven strategies that help businesses generate leads, increase revenue, and scale with confidence.', 'smart-leading-net' ); ?>
+				<?php echo esc_html( $sln_args['description'] ?? __( 'We create data-driven strategies that help businesses generate leads, increase revenue, and scale with confidence.', 'smart-leading-net' ) ); ?>
 			</p>
 		</header>
 

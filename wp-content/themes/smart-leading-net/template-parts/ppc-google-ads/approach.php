@@ -19,7 +19,7 @@ if ( ! sln_ppc_row_is_active( $section ) ) {
 }
 ?>
 
-<section class="sln-ppc-section" aria-labelledby="sln-ppc-approach-heading">
+<section id="approach" class="sln-ppc-section" aria-labelledby="sln-ppc-approach-heading">
 	<div class="sls-container">
 		<?php sln_ppc_part_render_heading( $section, 'sln-ppc-approach-heading', false, 'azure' ); ?>
 

@@ -13,7 +13,8 @@ $expertise_uploads_url = trailingslashit( content_url( '/uploads/2026/05' ) );
 $expertise_gif         = $expertise_uploads_url . rawurlencode( 'video file.gif' );
 $expertise_icon        = '2026/05/Group trick.svg';
 
-$expertise_items = array(
+$sln_args        = isset( $args ) && is_array( $args ) ? $args : array();
+$expertise_items = ! empty( $sln_args['items'] ) ? $sln_args['items'] : array(
 	__( 'We help ambitious brands grow through paid ads, search visibility, content, and conversion-focused strategy.', 'smart-leading-net' ),
 	__( 'Our team combines creative execution, performance insight, and platform expertise to turn traffic into qualified leads and sales.', 'smart-leading-net' ),
 	__( 'From paid media and SEO to websites, automation, and analytics, every solution is built to support measurable business growth.', 'smart-leading-net' ),
@@ -35,8 +36,8 @@ $expertise_items = array(
 						echo wp_kses(
 							sprintf(
 								/* translators: %s: highlighted word */
-								__( 'Our %s', 'smart-leading-net' ),
-								'<span class="expertise__heading-accent">' . esc_html__( 'Expertise', 'smart-leading-net' ) . '</span>'
+								$sln_args['heading_format'] ?? __( 'Our %s', 'smart-leading-net' ),
+								'<span class="expertise__heading-accent">' . esc_html( $sln_args['heading_accent'] ?? __( 'Expertise', 'smart-leading-net' ) ) . '</span>'
 							),
 							array(
 								'span' => array(
@@ -63,8 +64,8 @@ $expertise_items = array(
 					<?php
 					sln_render_cta_button(
 						array(
-							'text'    => __( 'Explore Our Expertise', 'smart-leading-net' ),
-							'url'     => '#',
+							'text'    => $sln_args['cta_text'] ?? __( 'Explore Our Expertise', 'smart-leading-net' ),
+							'url'     => $sln_args['cta_url'] ?? '#',
 							'variant' => 'primary',
 							'class'   => 'expertise__cta',
 						)

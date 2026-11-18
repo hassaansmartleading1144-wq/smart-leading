@@ -21,7 +21,7 @@ if ( ! sln_ppc_row_is_active( $section ) ) {
 
 <section id="services" class="sln-ppc-section sln-ppc-grid-bg" aria-labelledby="sln-ppc-services-heading">
 	<div class="sls-container">
-		<?php sln_ppc_part_render_heading( $section, 'sln-ppc-services-heading', false, 'azure' ); ?>
+		<?php sln_ppc_part_render_heading( $section, 'sln-ppc-services-heading', function_exists( 'sln_ppc_new_design' ) && sln_ppc_new_design(), 'azure' ); ?>
 
 		<?php if ( ! empty( $items ) ) : ?>
 			<div class="sln-ppc-modules">
