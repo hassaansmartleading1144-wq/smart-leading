@@ -25,12 +25,13 @@ if ( ! sln_ppc_row_is_active( $section ) ) {
 		<div class="sln-ppc-reveal">
 			<div class="sln-ppc-truth-rule" aria-hidden="true"></div>
 
-			<div class="sln-ppc-truth-statement">
+			<?php $sln_truth_tag = function_exists( 'sln_ppc_new_design' ) && sln_ppc_new_design() ? 'h2' : 'div'; ?>
+			<<?php echo $sln_truth_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> class="sln-ppc-truth-statement">
 				<?php echo esc_html( $section['statement'] ?? '' ); ?>
 				<?php if ( ! empty( $section['highlighted_text'] ) ) : ?>
 					<span class="sln-ppc-highlight--azure"><?php echo esc_html( $section['highlighted_text'] ); ?></span>
 				<?php endif; ?>
-			</div>
+			</<?php echo $sln_truth_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 
 			<?php if ( sln_ppc_plain_text( $section['body'] ?? '' ) ) : ?>
 				<div class="sln-ppc-truth-body"><?php echo sln_ppc_format_content( $section['body'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>

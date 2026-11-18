@@ -117,6 +117,8 @@ require SLN_THEME_DIR . '/inc/ppc-google-ads-helpers.php';
 require SLN_THEME_DIR . '/inc/ppc-google-ads-save.php';
 require SLN_THEME_DIR . '/inc/ppc-google-ads-admin-fields.php';
 require SLN_THEME_DIR . '/inc/ppc-google-ads-admin.php';
+require SLN_THEME_DIR . '/inc/ppc-subpages.php';
+require SLN_THEME_DIR . '/inc/ppc-subpage-ui.php';
 require SLN_THEME_DIR . '/inc/portfolio-page-helpers.php';
 require SLN_THEME_DIR . '/inc/portfolio-page-save.php';
 require SLN_THEME_DIR . '/inc/portfolio-page-admin-fields.php';

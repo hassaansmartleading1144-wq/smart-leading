@@ -27,7 +27,7 @@ if ( ! sln_ppc_row_is_active( $section ) ) {
 			<div class="sln-ppc-industry-grid">
 				<?php foreach ( $items as $item ) : ?>
 					<article class="sln-ppc-industry sln-ppc-reveal">
-						<div class="sln-ppc-industry-icon" aria-hidden="true"><?php echo esc_html( $item['icon_text'] ?? '•' ); ?></div>
+						<div class="sln-ppc-industry-icon" aria-hidden="true"><?php sln_ppc_icon_or_text( $item['icon_text'] ?? '•' ); ?></div>
 						<?php if ( ! empty( $item['title'] ) ) : ?>
 							<h3><?php echo esc_html( $item['title'] ); ?></h3>
 						<?php endif; ?>

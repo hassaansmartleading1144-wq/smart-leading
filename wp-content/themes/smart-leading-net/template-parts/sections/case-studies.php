@@ -13,7 +13,8 @@ $case_studies_uploads     = '2026/05/';
 $case_studies_uploads_url = trailingslashit( content_url( '/uploads/2026/05' ) );
 $case_studies_bg        = $case_studies_uploads_url . 'case-studies-bg.webp';
 
-$case_studies_cards = array(
+$sln_args           = isset( $args ) && is_array( $args ) ? $args : array();
+$case_studies_cards = ! empty( $sln_args['cards'] ) ? $sln_args['cards'] : array(
 	array(
 		'theme'  => 'teal',
 		'title'  => __( 'Case Study: Manufacturing', 'smart-leading-net' ),
@@ -62,8 +63,8 @@ $case_studies_cards = array(
 					echo wp_kses(
 						sprintf(
 							/* translators: %s: highlighted phrase */
-							__( 'Proven Results For %s', 'smart-leading-net' ),
-							'<span class="case-studies__heading-accent">' . esc_html__( 'Growth-Focused Businesses', 'smart-leading-net' ) . '</span>'
+							$sln_args['heading_format'] ?? __( 'Proven Results For %s', 'smart-leading-net' ),
+							'<span class="case-studies__heading-accent">' . esc_html( $sln_args['heading_accent'] ?? __( 'Growth-Focused Businesses', 'smart-leading-net' ) ) . '</span>'
 						),
 						array(
 							'span' => array(
@@ -75,14 +76,14 @@ $case_studies_cards = array(
 				</h2>
 
 				<p class="case-studies__description">
-					<?php esc_html_e( 'See how we help brands turn strategy, paid media, websites, and optimisation into measurable growth through smart execution and data-backed decisions.', 'smart-leading-net' ); ?>
+					<?php echo esc_html( $sln_args['description'] ?? __( 'See how we help brands turn strategy, paid media, websites, and optimisation into measurable growth through smart execution and data-backed decisions.', 'smart-leading-net' ) ); ?>
 				</p>
 			</header>
 		</div>
 
 		<div class="case-studies__cards-area">
-			<div class="case-studies__grid">
-				<a class="case-studies__link" href="#">
+			<div class="case-studies__grid<?php echo 2 === count( $case_studies_cards ) ? ' case-studies__grid--two' : ''; ?>">
+				<a class="case-studies__link" href="<?php echo esc_url( $sln_args['more_url'] ?? '#' ); ?>">
 					<?php esc_html_e( 'More Case Studies', 'smart-leading-net' ); ?>
 					<span aria-hidden="true">&rarr;</span>
 				</a>

@@ -21,14 +21,18 @@ if ( ! sln_ppc_row_is_active( $section ) ) {
 
 <section id="process" class="sln-ppc-section sln-ppc-section--dark sln-ppc-grid-bg" aria-labelledby="sln-ppc-process-heading">
 	<div class="sls-container">
-		<?php sln_ppc_part_render_heading( $section, 'sln-ppc-process-heading', false, 'azure' ); ?>
+		<?php sln_ppc_part_render_heading( $section, 'sln-ppc-process-heading', function_exists( 'sln_ppc_new_design' ) && sln_ppc_new_design(), 'azure' ); ?>
 
 		<?php if ( ! empty( $steps ) ) : ?>
 			<div class="sln-ppc-process-rail sln-ppc-reveal" data-sln-ppc-process>
 				<div class="sln-ppc-process-line" aria-hidden="true"><span class="sln-ppc-process-fill"></span></div>
-				<?php foreach ( $steps as $step ) : ?>
+				<?php $sln_process_icons = function_exists( 'sln_ppc_new_design' ) && sln_ppc_new_design() ? sln_ppc_process_icons() : array(); ?>
+				<?php foreach ( $steps as $sln_step_i => $step ) : ?>
 					<div class="sln-ppc-process-phase">
 						<div class="sln-ppc-process-number"><?php echo esc_html( $step['number'] ?? '' ); ?></div>
+						<?php if ( ! empty( $sln_process_icons[ $sln_step_i ] ) ) : ?>
+							<div class="sln-ppc-process-icon"><?php echo sln_ppc_icon( $sln_process_icons[ $sln_step_i ] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+						<?php endif; ?>
 						<?php if ( ! empty( $step['title'] ) ) : ?>
 							<h3><?php echo esc_html( $step['title'] ); ?></h3>
 						<?php endif; ?>

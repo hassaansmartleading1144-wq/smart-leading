@@ -25,7 +25,7 @@ $working_percent = max( 0, min( 100, (int) ( $budget['working_percent'] ?? ( 100
 
 <section id="reality" class="sln-ppc-section sln-ppc-grid-bg" aria-labelledby="sln-ppc-reality-heading">
 	<div class="sls-container">
-		<?php sln_ppc_part_render_heading( $section, 'sln-ppc-reality-heading', false, 'azure' ); ?>
+		<?php sln_ppc_part_render_heading( $section, 'sln-ppc-reality-heading', function_exists( 'sln_ppc_new_design' ) && sln_ppc_new_design(), 'azure' ); ?>
 
 		<?php if ( sln_ppc_row_is_active( $budget ) ) : ?>
 			<div class="sln-ppc-leakpanel sln-ppc-reveal">
@@ -83,7 +83,7 @@ $working_percent = max( 0, min( 100, (int) ( $budget['working_percent'] ?? ( 100
 			<div class="sln-ppc-reality-grid">
 				<?php foreach ( $challenges as $challenge ) : ?>
 					<div class="sln-ppc-reality-card sln-ppc-reveal">
-						<div class="sln-ppc-reality-icon"><?php echo esc_html( $challenge['icon_text'] ?? '!' ); ?></div>
+						<div class="sln-ppc-reality-icon"><?php sln_ppc_icon_or_text( $challenge['icon_text'] ?? '!', '!' ); ?></div>
 						<?php if ( ! empty( $challenge['title'] ) ) : ?>
 							<h3><?php echo esc_html( $challenge['title'] ); ?></h3>
 						<?php endif; ?>
