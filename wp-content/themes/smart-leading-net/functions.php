@@ -813,14 +813,14 @@ function sln_enqueue_ppc_google_ads_page_assets() {
 		'sln-ppc-google-ads-page',
 		SLN_THEME_URI . '/assets/css/ppc-google-ads-page.css',
 		array( 'sln-main', 'sln-buttons' ),
-		SLN_THEME_VERSION
+		(string) filemtime( SLN_THEME_DIR . '/assets/css/ppc-google-ads-page.css' )
 	);
 
 	wp_enqueue_script(
 		'sln-ppc-google-ads-page',
 		SLN_THEME_URI . '/assets/js/ppc-google-ads-page.js',
 		array(),
-		SLN_THEME_VERSION,
+		(string) filemtime( SLN_THEME_DIR . '/assets/js/ppc-google-ads-page.js' ),
 		true
 	);
 }
