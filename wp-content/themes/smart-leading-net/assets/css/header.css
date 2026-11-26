@@ -48,6 +48,97 @@
 	white-space: nowrap;
 }
 
+/* Offer pills (replaces the old location line) */
+.header-top__promo {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	min-width: 0;
+}
+
+.header-top__promo-text {
+	margin-right: 4px;
+	font-size: 14px;
+	font-weight: 500;
+	color: rgba(255, 255, 255, 0.85);
+	white-space: nowrap;
+}
+
+.header-top__pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	height: 30px;
+	padding: 0 14px;
+	border-radius: 30px;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1;
+	white-space: nowrap;
+	text-decoration: none;
+	transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.header-top__pill--audit {
+	border: 1px solid rgba(255, 255, 255, 0.45);
+	color: var(--white);
+}
+
+.header-top__pill--audit:hover,
+.header-top__pill--audit:focus-visible {
+	background-color: var(--white);
+	color: var(--primary-color);
+}
+
+.header-top__pill--growth {
+	background-color: var(--secondary-color);
+	color: var(--white);
+}
+
+.header-top__pill--growth:hover,
+.header-top__pill--growth:focus-visible {
+	background-color: #ff7f4a;
+	color: var(--white);
+	transform: translateY(-1px);
+}
+
+.header-top__pill:focus-visible {
+	outline: 2px solid var(--white);
+	outline-offset: 2px;
+}
+
+.header-top__pill-dot {
+	position: relative;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background-color: #4ade80;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.header-top__pill-dot::after {
+		content: "";
+		position: absolute;
+		inset: -4px;
+		border-radius: 50%;
+		border: 2px solid #4ade80;
+		animation: header-top-pulse 2s ease-out infinite;
+	}
+
+	.header-top__pill--growth .header-top__pill-arrow {
+		transition: transform 0.25s ease;
+	}
+
+	.header-top__pill--growth:hover .header-top__pill-arrow {
+		transform: translateX(3px);
+	}
+}
+
+@keyframes header-top-pulse {
+	0% { transform: scale(0.5); opacity: 0.8; }
+	100% { transform: scale(1.4); opacity: 0; }
+}
+
 .header-top__contact {
 	display: flex;
 	align-items: center;
@@ -407,12 +498,127 @@
 	line-height: 0;
 }
 
-.header-main__partner img {
+.header-main__partner {
+	gap: 9px;
+	padding: 6px 14px 6px 10px;
+	border: 1px solid #dadce0;
+	border-radius: 12px;
+	background: #fff;
+	line-height: 1;
+	text-decoration: none;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.header-main__partner:hover,
+.header-main__partner:focus-visible {
+	border-color: #4285f4;
+	box-shadow: 0 6px 18px rgb(66 133 244 / 0.16);
+	transform: translateY(-1px);
+}
+
+.header-main__partner-g {
 	display: block;
-	width: auto;
-	height: 36px;
-	max-width: 120px;
-	object-fit: contain;
+	flex-shrink: 0;
+	width: 26px;
+	height: 26px;
+}
+
+.header-main__partner-text {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	text-align: left;
+}
+
+.header-main__partner-brand {
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	color: #5f6368;
+}
+
+.header-main__partner-label {
+	font-size: 16px;
+	font-weight: 700;
+	color: #202124;
+}
+
+.header-main__ctas {
+	align-items: center;
+	gap: 10px;
+	flex-shrink: 0;
+}
+
+.header-main__cta {
+	align-items: center;
+	gap: 8px;
+	min-height: 46px;
+	padding: 0 18px;
+	border-radius: 999px;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1;
+	white-space: nowrap;
+	text-decoration: none;
+	transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.header-main__cta--expert {
+	display: inline-flex;
+	padding-left: 6px;
+	color: #fff;
+	background: var(--secondary-color, #f36b32);
+}
+
+.header-main__cta--expert:hover,
+.header-main__cta--expert:focus-visible {
+	color: #fff;
+	transform: translateY(-1px);
+	box-shadow: 0 10px 22px rgb(243 107 50 / 0.32);
+}
+
+.header-main__cta-icon {
+	display: grid;
+	place-items: center;
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	color: var(--secondary-color, #f36b32);
+	background: #fff;
+}
+
+.header-main__cta--expert:hover .header-main__cta-icon {
+	animation: sln-header-ring 0.6s ease;
+}
+
+@keyframes sln-header-ring {
+	0%, 100% { transform: rotate(0); }
+	20% { transform: rotate(-14deg); }
+	40% { transform: rotate(12deg); }
+	60% { transform: rotate(-8deg); }
+	80% { transform: rotate(5deg); }
+}
+
+.header-main__cta--analytics {
+	border: 1.5px solid var(--primary-color, #1f4e9e);
+	color: var(--primary-color, #1f4e9e);
+	background: #fff;
+}
+
+.header-main__cta--analytics:hover,
+.header-main__cta--analytics:focus-visible {
+	color: #fff;
+	background: var(--primary-color, #1f4e9e);
+	transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.header-main__cta,
+	.header-main__cta--expert:hover .header-main__cta-icon {
+		transition: none;
+		animation: none;
+		transform: none;
+	}
 }
 
 .header-main__divider {
@@ -612,18 +818,39 @@
 		height: auto;
 	}
 
+	@media (max-width: 767.98px) {
+		.header-top__promo {
+			justify-content: center;
+		}
+
+		.header-top__pill {
+			height: 28px;
+			padding: 0 12px;
+			font-size: 12px;
+		}
+	}
+
 	.header-top__inner {
 		height: auto;
 		padding: 10px 0;
 	}
 
+	.header-top__inner {
+		gap: 12px;
+	}
+
 	.header-top__contact {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		width: 100%;
+		justify-content: flex-end;
+		width: auto;
 		margin-left: 0;
 		gap: 12px;
+	}
+
+	.header-top__contact:empty,
+	.header-top__promo {
+		flex: 1 1 auto;
 	}
 
 	.header-top__email {
@@ -654,12 +881,73 @@
 		max-height: 70px;
 	}
 
-	.header-main__partner img {
-		height: 30px;
-		max-width: 100px;
+	.header-main__partner {
+		gap: 7px;
+		padding: 5px 10px 5px 8px;
+		border-radius: 10px;
+	}
+
+	.header-main__partner-g {
+		width: 22px;
+		height: 22px;
+	}
+
+	.header-main__partner-brand {
+		font-size: 11px;
+	}
+
+	.header-main__partner-label {
+		font-size: 14px;
 	}
 
 	.header-main__actions {
 		gap: 10px;
 	}
+}
+
+/* Header CTAs — step down as the desktop header narrows. */
+@media (min-width: 992px) and (max-width: 1399.98px) {
+	.header-main__menu {
+		gap: 26px;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	.header-main__menu {
+		gap: 18px;
+	}
+
+	.header-main__menu > .nav-item > .nav-link {
+		font-size: 15px;
+	}
+
+	.header-main__divider,
+	.header-main__partner {
+		display: none !important;
+	}
+
+	.header-main__cta {
+		min-height: 42px;
+		padding-right: 14px;
+		font-size: 14px;
+	}
+
+	.header-main__cta-icon {
+		width: 30px;
+		height: 30px;
+	}
+}
+
+.sln-mobile-menu__ctas {
+	display: grid;
+	gap: 12px;
+	margin-top: 28px;
+	padding-top: 24px;
+	border-top: 1px solid #e4e9f4;
+}
+
+.sln-mobile-menu__ctas .header-main__cta {
+	display: inline-flex;
+	justify-content: center;
+	min-height: 50px;
 }
