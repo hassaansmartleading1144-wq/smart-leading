@@ -28,12 +28,21 @@ function sln_enqueue_founders_behind_assets() {
 		return;
 	}
 
-	$css_path = SLN_THEME_DIR . '/assets/css/founders-behind.css';
+	$css_path = SLN_THEME_DIR . '/assets/css/founders-page.css';
 	wp_enqueue_style(
-		'sln-founders-behind',
-		SLN_THEME_URI . '/assets/css/founders-behind.css',
-		array( 'sln-style', 'sln-buttons' ),
+		'sln-founders-page',
+		SLN_THEME_URI . '/assets/css/founders-page.css',
+		array( 'sln-style' ),
 		file_exists( $css_path ) ? (string) filemtime( $css_path ) : SLN_THEME_VERSION
+	);
+
+	$js_path = SLN_THEME_DIR . '/assets/js/founders-behind.js';
+	wp_enqueue_script(
+		'sln-founders-page',
+		SLN_THEME_URI . '/assets/js/founders-behind.js',
+		array(),
+		file_exists( $js_path ) ? (string) filemtime( $js_path ) : SLN_THEME_VERSION,
+		true
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sln_enqueue_founders_behind_assets' );

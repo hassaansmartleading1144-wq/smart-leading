@@ -1,0 +1,480 @@
+/* Founders page — merged from Pages/sls-founders-page-prototype.html (13 Nov 2026). Scoped to .sls-founders-page. */
+.sls-founders-page{
+  --primary:#1F4E9E;
+  --primary-dark:#183E7E;
+  --accent:#F36B32;
+  --heading:#222222;
+  --body:#6F6F6F;
+  --paper:#FFFFFF;
+  --surface:#F4F7FF;
+  --soft-orange:#FFF9F7;
+  --line:rgba(34,34,34,.12);
+  --panel-radius:15px;
+  --button-radius:10px;
+  --section-y:50px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  background:var(--paper);
+  overflow-x:clip;
+}
+@media (min-width:768px){.sls-founders-page{--section-y:60px;font-size:17px}}
+@media (min-width:1200px){.sls-founders-page{--section-y:80px}}
+
+.sls-founders-page *,
+.sls-founders-page *::before,
+.sls-founders-page *::after{box-sizing:border-box}
+
+.sls-founders-page h1,
+.sls-founders-page h2,
+.sls-founders-page h3,
+.sls-founders-page p,
+.sls-founders-page ol,
+.sls-founders-page ul,
+.sls-founders-page dl,
+.sls-founders-page dd,
+.sls-founders-page figure{margin:0;padding:0}
+.sls-founders-page ol,
+.sls-founders-page ul{list-style:none}
+
+.sls-founders-page h1,
+.sls-founders-page h2,
+.sls-founders-page h3{color:var(--heading);font-weight:700;letter-spacing:-.02em}
+.sls-founders-page h1{font-size:clamp(2rem,1.25rem + 3.1vw,3.4375rem);line-height:1.15}
+.sls-founders-page h2{font-size:clamp(1.75rem,1.3rem + 1.9vw,2.5rem);line-height:1.2}
+.sls-founders-page .sfp-em{color:var(--accent)}
+
+.sls-founders-page .sfp-section{padding-block:var(--section-y)}
+.sls-founders-page .sfp-surface{background:var(--surface)}
+
+.sls-founders-page .sfp-label{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--primary);
+}
+.sls-founders-page .sfp-label::before{
+  content:"";width:22px;height:2px;border-radius:2px;background:var(--accent);flex:none;
+}
+
+.sls-founders-page a:focus-visible{
+  outline:3px solid var(--accent);outline-offset:4px;border-radius:4px;
+}
+.sls-founders-page .sfp-visually-hidden{
+  position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;
+}
+
+/* ---------- Portraits (shared) ---------- */
+.sls-founders-page .sfp-portrait{
+  position:relative;aspect-ratio:4/5;width:100%;
+  border-radius:var(--panel-radius);overflow:hidden;background:var(--surface);
+}
+.sls-founders-page .sfp-portrait img{
+  width:100%;height:100%;object-fit:cover;object-position:50% 25%;
+}
+/* Review placeholder — remove before publishing */
+.sls-founders-page .sfp-placeholder{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  padding:20px;text-align:center;
+  border:1.5px dashed #9AA9C7;border-radius:inherit;
+  background:
+    repeating-linear-gradient(135deg,rgba(31,78,158,.04) 0 12px,transparent 12px 24px),
+    var(--surface);
+  color:#4A5A7A;font-size:13px;line-height:1.45;
+}
+.sls-founders-page .sfp-placeholder svg{width:44px;height:44px;color:#9AA9C7}
+.sls-founders-page .sfp-placeholder strong{display:block;color:var(--heading);font-size:14px;font-weight:600}
+
+/* =====================================================================
+   1. HERO
+   ===================================================================== */
+.sls-founders-page .sfp-hero{padding-block:calc(var(--section-y) - 6px) var(--section-y)}
+.sls-founders-page .sfp-hero__grid{display:grid;gap:40px;align-items:center}
+.sls-founders-page .sfp-hero__copy{max-width:600px}
+.sls-founders-page .sfp-hero h1{margin-top:18px}
+.sls-founders-page .sfp-hero__intro{margin-top:22px;font-size:1.0625em;max-width:54ch}
+.sls-founders-page .sfp-hero__since{
+  margin-top:28px;padding-top:18px;border-top:1px solid var(--line);
+  display:flex;align-items:baseline;gap:12px;
+  font-size:15px;color:var(--heading);font-weight:500;
+}
+.sls-founders-page .sfp-hero__since span{
+  font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);
+}
+
+.sls-founders-page .sfp-hero__pair{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;
+}
+.sls-founders-page .sfp-hero__pair figure:last-child{margin-top:40px}
+.sls-founders-page .sfp-hero__pair figcaption{
+  margin-top:12px;font-size:14px;line-height:1.35;color:var(--heading);font-weight:600;
+}
+.sls-founders-page .sfp-hero__pair figcaption span{display:block;font-weight:400;color:var(--body);font-size:13px}
+
+@media (min-width:992px){
+  .sls-founders-page .sfp-hero__grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:72px}
+  .sls-founders-page .sfp-hero__pair{gap:24px;width:100%;max-width:560px;margin-left:auto}
+  .sls-founders-page .sfp-hero__pair figure:last-child{margin-top:56px}
+}
+
+/* =====================================================================
+   2. SHARED FOCUS
+   ===================================================================== */
+.sls-founders-page .sfp-focus__grid{display:grid;gap:20px}
+.sls-founders-page .sfp-focus__body{margin-top:20px;max-width:62ch;font-size:1.0625em}
+.sls-founders-page .sfp-flow{
+  margin-top:44px;padding-top:28px;border-top:1px solid var(--line);
+  display:grid;gap:0;counter-reset:sfp-flow;
+}
+.sls-founders-page .sfp-flow li{
+  position:relative;display:flex;align-items:center;gap:14px;
+  padding:12px 0;color:var(--heading);font-weight:600;font-size:15px;line-height:1.35;
+}
+.sls-founders-page .sfp-flow li::before{
+  counter-increment:sfp-flow;content:counter(sfp-flow);
+  flex:none;width:30px;height:30px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--paper);border:1px solid rgba(31,78,158,.25);
+  color:var(--primary);font-size:13px;font-weight:600;
+}
+.sls-founders-page .sfp-flow li:last-child::before{background:var(--primary);border-color:var(--primary);color:#fff}
+/* vertical connector on mobile */
+.sls-founders-page .sfp-flow li:not(:last-child)::after{
+  content:"";position:absolute;left:14.5px;top:42px;height:calc(100% - 30px);width:1px;background:rgba(31,78,158,.25);
+}
+.sls-founders-page .sfp-flow__arrow{display:none}
+
+@media (min-width:768px){
+  .sls-founders-page .sfp-flow{grid-template-columns:repeat(4,auto);justify-content:start;align-items:center;column-gap:0}
+  .sls-founders-page .sfp-flow li{padding:0}
+  .sls-founders-page .sfp-flow li:not(:last-child)::after{display:none}
+  .sls-founders-page .sfp-flow__arrow{
+    display:inline-block;margin:0 18px;color:var(--accent);font-weight:500;
+  }
+}
+@media (min-width:992px){
+  .sls-founders-page .sfp-focus__grid{grid-template-columns:220px minmax(0,1fr);gap:72px}
+  .sls-founders-page .sfp-focus__label{padding-top:10px}
+  .sls-founders-page .sfp-focus h2{max-width:20ch}
+}
+
+/* =====================================================================
+   3–4. FOUNDER PROFILES
+   ===================================================================== */
+.sls-founders-page .sfp-profile + .sfp-profile .sfp-profile__grid{
+  padding-top:var(--section-y);border-top:1px solid var(--line);
+}
+.sls-founders-page .sfp-profile + .sfp-profile{padding-top:0}
+.sls-founders-page .sfp-profile__grid{display:grid;gap:32px;align-items:center}
+.sls-founders-page .sfp-profile__media{max-width:520px;width:100%}
+.sls-founders-page .sfp-profile h2{
+  margin-top:14px;font-size:clamp(1.875rem,1.6rem + 1vw,2.25rem);line-height:1.15;
+}
+.sls-founders-page .sfp-profile__meta{
+  margin-top:24px;border-top:1px solid var(--line);
+}
+.sls-founders-page .sfp-profile__meta div{
+  display:grid;grid-template-columns:140px 1fr;gap:16px;
+  padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline;
+}
+.sls-founders-page .sfp-profile__meta dt{
+  font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--body);
+}
+.sls-founders-page .sfp-profile__meta dd{color:var(--heading);font-weight:600;font-size:17px;line-height:1.4}
+.sls-founders-page .sfp-profile__meta dd.sfp-role{color:var(--primary)}
+.sls-founders-page .sfp-profile__intro{margin-top:24px;max-width:58ch;font-size:1.0625em}
+
+.sls-founders-page .sfp-link{
+  margin-top:26px;display:inline-flex;align-items:center;gap:10px;min-height:44px;
+  color:var(--primary);font-weight:600;font-size:16px;text-decoration:none;
+  border-bottom:1.5px solid rgba(31,78,158,.3);padding-bottom:2px;
+  transition:color .2s var(--ease),border-color .2s var(--ease);
+}
+.sls-founders-page .sfp-link svg{width:16px;height:16px;transition:transform .2s var(--ease)}
+.sls-founders-page .sfp-link:hover{color:var(--accent);border-color:var(--accent)}
+.sls-founders-page .sfp-link:hover svg{transform:translate(2px,-2px)}
+
+/* Reserved slot for approved extended biography — review only */
+.sls-founders-page .sfp-bio-slot{
+  margin-top:28px;max-width:58ch;padding:14px 16px;
+  border:1.5px dashed #9AA9C7;border-radius:var(--button-radius);
+  font-size:13px;line-height:1.5;color:#4A5A7A;background:var(--paper);
+}
+.sls-founders-page .sfp-bio-slot strong{color:var(--heading);font-weight:600}
+
+@media (max-width:479px){
+  .sls-founders-page .sfp-profile__meta div{grid-template-columns:1fr;gap:4px}
+}
+@media (min-width:992px){
+  .sls-founders-page .sfp-profile__grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:88px}
+  .sls-founders-page .sfp-profile--reverse .sfp-profile__grid{grid-template-columns:minmax(0,6fr) minmax(0,5fr)}
+  .sls-founders-page .sfp-profile--reverse .sfp-profile__media{order:2;justify-self:end}
+  .sls-founders-page .sfp-profile--reverse .sfp-profile__content{order:1}
+}
+
+/* =====================================================================
+   5. PRINCIPLES
+   ===================================================================== */
+.sls-founders-page .sfp-principles__head{display:grid;gap:16px}
+.sls-founders-page .sfp-principles__list{margin-top:40px;border-top:1px solid var(--line)}
+.sls-founders-page .sfp-principle{
+  display:grid;grid-template-columns:56px 1fr;gap:6px 20px;
+  padding:28px 0;border-bottom:1px solid var(--line);
+}
+.sls-founders-page .sfp-principle__num{
+  font-size:28px;font-weight:700;line-height:1.1;color:var(--accent);letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;
+}
+.sls-founders-page .sfp-principle h3{font-size:clamp(1.25rem,1.1rem + .6vw,1.5rem);line-height:1.3}
+.sls-founders-page .sfp-principle p{grid-column:2;max-width:60ch}
+
+@media (min-width:992px){
+  .sls-founders-page .sfp-principles__head{grid-template-columns:220px minmax(0,1fr);gap:72px;align-items:end}
+  .sls-founders-page .sfp-principles__list{margin-left:292px}
+  .sls-founders-page .sfp-principle{grid-template-columns:72px minmax(0,1fr) minmax(0,1.2fr);gap:32px;padding:34px 0;align-items:baseline}
+  .sls-founders-page .sfp-principle__num{font-size:34px}
+  .sls-founders-page .sfp-principle p{grid-column:auto}
+}
+
+/* =====================================================================
+   6. CLOSING CTA
+   ===================================================================== */
+.sls-founders-page .sfp-cta__panel{
+  position:relative;overflow:hidden;
+  background:var(--primary);color:rgba(255,255,255,.88);
+  border-radius:var(--panel-radius);
+  padding:40px 24px;
+  display:grid;gap:28px;align-items:center;
+}
+.sls-founders-page .sfp-cta__panel::after{
+  /* single restrained accent rule */
+  content:"";position:absolute;left:0;top:0;width:96px;height:4px;background:var(--accent);
+}
+.sls-founders-page .sfp-cta h2{color:#fff}
+.sls-founders-page .sfp-cta p{margin-top:14px;max-width:56ch}
+.sls-founders-page .sfp-button{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;min-height:56px;padding:14px 28px;
+  background:#fff;color:var(--primary);
+  font-size:18px;font-weight:600;line-height:1.2;text-decoration:none;
+  border-radius:var(--button-radius);
+  transition:background-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease);
+}
+.sls-founders-page .sfp-button svg{width:18px;height:18px;transition:transform .2s var(--ease)}
+.sls-founders-page .sfp-button:hover{background:var(--soft-orange);color:var(--primary-dark);transform:translateY(-1px)}
+.sls-founders-page .sfp-button:hover svg{transform:translateX(3px)}
+.sls-founders-page .sfp-cta .sfp-button:focus-visible{outline-color:#fff}
+
+@media (min-width:768px){
+  .sls-founders-page .sfp-cta__panel{padding:56px 48px}
+  .sls-founders-page .sfp-button{width:auto;justify-self:start}
+}
+@media (min-width:992px){
+  .sls-founders-page .sfp-cta__panel{grid-template-columns:minmax(0,1fr) auto;gap:56px;padding:64px}
+  .sls-founders-page .sfp-button{justify-self:end}
+}
+
+/* =====================================================================
+   MOTION — progressive enhancement only.
+   Content is visible by default; .sfp-motion is added by JS.
+   ===================================================================== */
+@media (prefers-reduced-motion:no-preference){
+  .sls-founders-page.sfp-motion .sfp-reveal{
+    opacity:0;transform:translateY(14px);
+    transition:opacity .7s var(--ease),transform .7s var(--ease);
+  }
+  .sls-founders-page.sfp-motion .sfp-reveal.is-visible{opacity:1;transform:none}
+  .sls-founders-page.sfp-motion .sfp-reveal[data-delay="1"]{transition-delay:.08s}
+  .sls-founders-page.sfp-motion .sfp-reveal[data-delay="2"]{transition-delay:.16s}
+}
+@media (prefers-reduced-motion:reduce){
+  .sls-founders-page *{transition:none!important}
+}
+
+/* =====================================================================
+   WORDPRESS ADDITIONS — hero jump links, photo fallbacks, bio,
+   socials and courses.
+   ===================================================================== */
+.sls-founders-page img{max-width:100%;display:block}
+.sls-founders-page .sfp-portrait{transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.sls-founders-page .sfp-portrait img{transition:transform .8s var(--ease)}
+
+/* Hero: portraits link to profiles */
+.sls-founders-page .sfp-hero__person{display:block;color:inherit;text-decoration:none;border-radius:var(--panel-radius)}
+.sls-founders-page .sfp-hero__person:hover .sfp-portrait{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(31,78,158,.45)}
+.sls-founders-page .sfp-hero__person:hover .sfp-portrait img{transform:scale(1.03)}
+.sls-founders-page .sfp-hero__person:hover figcaption{color:var(--primary)}
+.sls-founders-page .sfp-hero__joint{border-radius:var(--panel-radius);overflow:hidden}
+.sls-founders-page .sfp-hero__joint img{width:100%;height:auto}
+
+.sls-founders-page .sfp-hero__jump{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}
+.sls-founders-page .sfp-hero__jump a{
+  display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 16px;
+  border:1px solid rgba(31,78,158,.25);border-radius:999px;
+  color:var(--primary);font-weight:600;font-size:15px;text-decoration:none;
+  transition:background-color .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease);
+}
+.sls-founders-page .sfp-hero__jump a svg{width:14px;height:14px;transition:transform .2s var(--ease)}
+.sls-founders-page .sfp-hero__jump a:hover{background:var(--surface);border-color:var(--primary)}
+.sls-founders-page .sfp-hero__jump a:hover svg{transform:translateY(2px)}
+
+/* Monogram shown to visitors until a photo is added */
+.sls-founders-page .sfp-monogram{
+  position:absolute;inset:0;display:grid;place-items:center;
+  background:linear-gradient(150deg,var(--primary) 0%,var(--primary-dark) 100%);
+  color:#fff;font-size:clamp(2.5rem,1.5rem + 4vw,5rem);font-weight:700;letter-spacing:.02em;
+}
+.sls-founders-page .sfp-monogram::after{
+  content:"";position:absolute;left:0;bottom:0;width:30%;height:4px;background:var(--accent);
+}
+
+/* Focus flow icons */
+.sls-founders-page .sfp-flow li::before{display:none}
+.sls-founders-page .sfp-flow__icon{
+  flex:none;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
+  background:var(--paper);border:1px solid rgba(31,78,158,.2);color:var(--primary);
+}
+.sls-founders-page .sfp-flow li:last-child .sfp-flow__icon{background:var(--primary);border-color:var(--primary);color:#fff}
+.sls-founders-page .sfp-flow__icon svg{width:18px;height:18px}
+.sls-founders-page .sfp-flow li:not(:last-child)::after{left:17.5px;top:48px;height:calc(100% - 36px)}
+
+/* Profile spacing for the new container wrapper */
+.sls-founders-page .sfp-profile .sfp-profile__media .sfp-portrait:hover img{transform:scale(1.02)}
+
+/* Extended biography */
+.sls-founders-page .sfp-profile__bio{margin-top:18px;max-width:62ch}
+.sls-founders-page .sfp-profile__bio p + p{margin-top:14px}
+.sls-founders-page .sfp-profile__bio a{color:var(--primary)}
+
+/* Social links */
+.sls-founders-page .sfp-socials{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.sls-founders-page .sfp-social{
+  display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:10px 16px 10px 12px;
+  border:1px solid var(--line);border-radius:var(--button-radius);background:var(--paper);
+  color:var(--heading);font-size:15px;font-weight:600;text-decoration:none;
+  transition:transform .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease),box-shadow .2s var(--ease);
+}
+.sls-founders-page .sfp-social svg{width:20px;height:20px;color:var(--primary);transition:color .2s var(--ease)}
+.sls-founders-page .sfp-social:hover{transform:translateY(-2px);border-color:var(--primary);color:var(--primary);box-shadow:0 10px 22px -14px rgba(31,78,158,.6)}
+.sls-founders-page .sfp-social--linkedin:hover svg{color:#0A66C2}
+.sls-founders-page .sfp-social--youtube:hover svg{color:#E11D2A}
+.sls-founders-page .sfp-social--instagram:hover svg,
+.sls-founders-page .sfp-social--email:hover svg,
+.sls-founders-page .sfp-social--website:hover svg{color:var(--accent)}
+
+/* Courses & certifications */
+.sls-founders-page .sfp-courses{margin-top:48px}
+.sls-founders-page .sfp-courses__head{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;
+  padding-bottom:18px;border-bottom:1px solid var(--line);
+}
+.sls-founders-page .sfp-courses__head h3{
+  display:flex;align-items:center;gap:12px;font-size:clamp(1.25rem,1.1rem + .6vw,1.5rem);line-height:1.3;
+}
+.sls-founders-page .sfp-courses__icon{
+  width:40px;height:40px;border-radius:10px;display:grid;place-items:center;
+  background:var(--soft-orange);color:var(--accent);
+}
+.sls-founders-page .sfp-courses__icon svg{width:22px;height:22px}
+.sls-founders-page .sfp-courses__count{
+  font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);
+  background:var(--surface);border-radius:999px;padding:6px 12px;
+}
+.sls-founders-page .sfp-courses__list{margin-top:22px;display:grid;gap:14px}
+@media (min-width:640px){.sls-founders-page .sfp-courses__list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1100px){.sls-founders-page .sfp-courses__list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.sls-founders-page .sfp-course{
+  position:relative;display:flex;gap:14px;align-items:flex-start;
+  padding:18px;border:1px solid var(--line);border-radius:var(--panel-radius);background:var(--paper);
+  transition:transform .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease);
+}
+.sls-founders-page .sfp-course::before{
+  content:"";position:absolute;left:18px;right:18px;top:-1px;height:3px;border-radius:0 0 3px 3px;
+  background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);
+}
+.sls-founders-page .sfp-course:hover{transform:translateY(-3px);border-color:rgba(31,78,158,.35);box-shadow:0 16px 32px -20px rgba(31,78,158,.5)}
+.sls-founders-page .sfp-course:hover::before{transform:scaleX(1)}
+.sls-founders-page .sfp-course__badge{
+  flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
+  background:var(--surface);color:var(--primary);transition:background-color .25s var(--ease),color .25s var(--ease);
+}
+.sls-founders-page .sfp-course:hover .sfp-course__badge{background:var(--primary);color:#fff}
+.sls-founders-page .sfp-course__badge svg{width:22px;height:22px}
+.sls-founders-page .sfp-course__body{min-width:0}
+.sls-founders-page .sfp-course__title{color:var(--heading);font-weight:600;font-size:16px;line-height:1.4}
+.sls-founders-page .sfp-course__meta{margin-top:4px;font-size:14px;line-height:1.45}
+.sls-founders-page .sfp-course__link{
+  margin-top:10px;display:inline-flex;align-items:center;gap:6px;
+  color:var(--primary);font-size:14px;font-weight:600;text-decoration:none;
+}
+.sls-founders-page .sfp-course__link svg{width:14px;height:14px;transition:transform .2s var(--ease)}
+.sls-founders-page .sfp-course__link:hover{color:var(--accent)}
+.sls-founders-page .sfp-course__link:hover svg{transform:translate(2px,-2px)}
+/* Stretch the certificate link over the whole card */
+.sls-founders-page .sfp-course__link::after{content:"";position:absolute;inset:0;border-radius:inherit}
+
+.sls-founders-page .sfp-courses__list.is-collapsed .sfp-course.is-extra{display:none}
+.sls-founders-page .sfp-courses__toggle{
+  margin-top:18px;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 18px;
+  border:1px solid rgba(31,78,158,.3);border-radius:var(--button-radius);background:var(--paper);
+  color:var(--primary);font:600 15px/1.2 inherit;cursor:pointer;
+  transition:background-color .2s var(--ease),border-color .2s var(--ease);
+}
+.sls-founders-page .sfp-courses__toggle:hover{background:var(--surface);border-color:var(--primary)}
+.sls-founders-page .sfp-courses__toggle svg{width:14px;height:14px;transition:transform .25s var(--ease)}
+.sls-founders-page .sfp-courses__toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+.sls-founders-page .sfp-courses__toggle:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+@media (prefers-reduced-motion:reduce){
+  .sls-founders-page .sfp-portrait,
+  .sls-founders-page .sfp-portrait img,
+  .sls-founders-page .sfp-course,
+  .sls-founders-page .sfp-social{transform:none!important}
+}
+
+/* Official badge image on a course card */
+.sls-founders-page .sfp-course__badge--img{width:56px;height:56px;background:#fff;border:1px solid var(--line);padding:3px;overflow:hidden}
+.sls-founders-page .sfp-course__badge--img img{width:100%;height:100%;object-fit:contain;border-radius:50%;transition:transform .35s var(--ease)}
+.sls-founders-page .sfp-course:hover .sfp-course__badge--img{background:#fff}
+.sls-founders-page .sfp-course:hover .sfp-course__badge--img img{transform:rotate(-8deg) scale(1.06)}
+
+/* Certificate preview on a course card (whole card links to the certificate) */
+.sls-founders-page .sfp-course--cert{flex-direction:column;gap:16px;padding:12px 12px 18px}
+.sls-founders-page .sfp-course__row{display:flex;gap:14px;align-items:flex-start;width:100%;padding:0 6px}
+.sls-founders-page .sfp-course:not(.sfp-course--cert) .sfp-course__row{padding:0}
+.sls-founders-page .sfp-course__cert{
+  position:relative;margin:0;width:100%;aspect-ratio:4/3;overflow:hidden;
+  border-radius:10px;border:1px solid var(--line);background:var(--surface);
+}
+.sls-founders-page .sfp-course__cert img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;transition:transform .6s var(--ease)}
+.sls-founders-page .sfp-course__cert::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(24,62,126,0) 40%,rgba(24,62,126,.78) 100%);
+  opacity:0;transition:opacity .35s var(--ease);
+}
+.sls-founders-page .sfp-course__cert-cta{
+  position:absolute;left:14px;bottom:12px;z-index:1;
+  display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;
+  background:#fff;color:var(--primary);font-size:13px;font-weight:600;
+  opacity:0;transform:translateY(8px);transition:opacity .3s var(--ease),transform .3s var(--ease);
+}
+.sls-founders-page .sfp-course__cert-cta svg{width:12px;height:12px}
+.sls-founders-page .sfp-course--cert:hover .sfp-course__cert img,
+.sls-founders-page .sfp-course--cert:focus-within .sfp-course__cert img{transform:scale(1.05)}
+.sls-founders-page .sfp-course--cert:hover .sfp-course__cert::after,
+.sls-founders-page .sfp-course--cert:focus-within .sfp-course__cert::after{opacity:1}
+.sls-founders-page .sfp-course--cert:hover .sfp-course__cert-cta,
+.sls-founders-page .sfp-course--cert:focus-within .sfp-course__cert-cta{opacity:1;transform:none}
+@media (hover:none){
+  .sls-founders-page .sfp-course__cert-cta{opacity:1;transform:none}
+}
+.sls-founders-page .sfp-course--cert::before{top:-1px}
+
+/* Cards with a certificate image: no duplicate text link, the card itself is the link */
+.sls-founders-page .sfp-course__link--overlay{margin:0;display:block;width:0;height:0;overflow:visible}
+.sls-founders-page .sfp-course__link--overlay:focus-visible{outline:none}
+.sls-founders-page .sfp-course__link--overlay:focus-visible::after{outline:3px solid var(--accent);outline-offset:3px}
+.sls-founders-page .sfp-course--cert{cursor:pointer}

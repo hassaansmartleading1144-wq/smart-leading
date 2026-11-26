@@ -28,6 +28,9 @@ require SLN_THEME_DIR . '/inc/locel-seo-helpers.php';
 require SLN_THEME_DIR . '/inc/locel-seo-gutenberg.php';
 require SLN_THEME_DIR . '/inc/locel-seo-block-patterns.php';
 require SLN_THEME_DIR . '/inc/founders-behind-helpers.php';
+require SLN_THEME_DIR . '/inc/founders-page-data.php';
+require SLN_THEME_DIR . '/inc/founders-page-render.php';
+require SLN_THEME_DIR . '/inc/founders-page-admin.php';
 require SLN_THEME_DIR . '/inc/founders-behind-gutenberg.php';
 require SLN_THEME_DIR . '/inc/founders-behind-block-patterns.php';
 
@@ -130,12 +133,25 @@ require SLN_THEME_DIR . '/inc/demo-package.php';
 require SLN_THEME_DIR . '/inc/demo-importer.php';
 require SLN_THEME_DIR . '/inc/demo-exporter.php';
 require SLN_THEME_DIR . '/inc/ai-chat-api.php';
+require SLN_THEME_DIR . '/inc/home-helpers.php';
+require SLN_THEME_DIR . '/inc/referral-partners.php';
+require SLN_THEME_DIR . '/inc/home-pages-seed.php';
+
+/**
+ * Pages that render the previous homepage sections (template-parts/sections/):
+ * the front page and the "Previous Homepage" draft kept for reference.
+ *
+ * @return bool
+ */
+function sln_is_home_sections_page() {
+	return is_front_page() || is_page_template( 'previous-homepage-template.php' );
+}
 
 /**
  * Enqueue hero banner assets on the front page only.
  */
 function sln_enqueue_hero_banner_assets() {
-	if ( ! is_front_page() ) {
+	if ( ! sln_is_home_sections_page() ) {
 		return;
 	}
 
@@ -171,7 +187,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_hero_banner_assets' );
  * Enqueue accomplishments section assets on the front page only.
  */
 function sln_enqueue_accomplishments_assets() {
-	if ( ! is_front_page() ) {
+	if ( ! sln_is_home_sections_page() ) {
 		return;
 	}
 
@@ -196,7 +212,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_accomplishments_assets' );
  * Enqueue businesses choose section assets on the front page only.
  */
 function sln_enqueue_businesses_choose_assets() {
-	if ( ! is_front_page() ) {
+	if ( ! sln_is_home_sections_page() ) {
 		return;
 	}
 
@@ -221,7 +237,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_businesses_choose_assets' );
  * Enqueue Why Choose Us section styles on the front page only.
  */
 function sln_enqueue_why_choose_us_assets() {
-	if ( ! is_front_page() ) {
+	if ( ! sln_is_home_sections_page() ) {
 		return;
 	}
 
@@ -238,7 +254,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_why_choose_us_assets' );
  * Enqueue our services section assets on the front page only.
  */
 function sln_enqueue_our_services_assets() {
-	if ( ! is_front_page() ) {
+	if ( ! sln_is_home_sections_page() ) {
 		return;
 	}
 
@@ -274,7 +290,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_our_services_assets' );
  * Enqueue case studies section assets on the front page only.
  */
 function sln_enqueue_case_studies_assets() {
-	if ( ! is_front_page() ) {
+	if ( ! sln_is_home_sections_page() ) {
 		return;
 	}
 
@@ -292,7 +308,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_case_studies_assets' );
  */
 function sln_enqueue_workflow_assets() {
 	if (
-		! is_front_page()
+		! sln_is_home_sections_page()
 		&& ! is_page_template(
 			array(
 				'about-us-template.php',
@@ -322,7 +338,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_workflow_assets' );
  * Enqueue new section assets on the front page only.
  */
 function sln_enqueue_new_section_assets() {
-	if ( ! is_front_page() ) {
+	if ( ! sln_is_home_sections_page() ) {
 		return;
 	}
 
@@ -339,7 +355,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_new_section_assets' );
  * Enqueue team section assets on the front page only.
  */
 function sln_enqueue_team_assets() {
-	if ( ! is_front_page() ) {
+	if ( ! sln_is_home_sections_page() ) {
 		return;
 	}
 
@@ -356,7 +372,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_team_assets' );
  * Enqueue starts CTA section assets on the front page only.
  */
 function sln_enqueue_starts_cta_assets() {
-	if ( ! is_front_page() ) {
+	if ( ! sln_is_home_sections_page() ) {
 		return;
 	}
 
@@ -419,7 +435,7 @@ function sln_enqueue_swiper_assets() {
  * Enqueue expertise section assets on the front page only.
  */
 function sln_enqueue_expertise_assets() {
-	if ( ! is_front_page() ) {
+	if ( ! sln_is_home_sections_page() ) {
 		return;
 	}
 
@@ -436,7 +452,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_expertise_assets' );
  * Enqueue growing section assets on the front page only.
  */
 function sln_enqueue_growing_assets() {
-	if ( ! is_front_page() ) {
+	if ( ! sln_is_home_sections_page() ) {
 		return;
 	}
 
@@ -479,7 +495,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_growing_assets' );
  * Enqueue our projects section assets on the front page only.
  */
 function sln_enqueue_our_project_assets() {
-	if ( ! is_front_page() ) {
+	if ( ! sln_is_home_sections_page() ) {
 		return;
 	}
 
@@ -506,7 +522,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_our_project_assets' );
  * Enqueue testimonials section assets on the front page only.
  */
 function sln_enqueue_testimonials_assets() {
-	if ( ! is_front_page() ) {
+	if ( ! sln_is_home_sections_page() ) {
 		return;
 	}
 
@@ -523,7 +539,7 @@ add_action( 'wp_enqueue_scripts', 'sln_enqueue_testimonials_assets' );
  * Enqueue credibility section assets on the front page and Portfolio template.
  */
 function sln_enqueue_credibility_assets() {
-	if ( ! is_front_page() && ! is_page_template( SLN_PORTFOLIO_TEMPLATE ) ) {
+	if ( ! sln_is_home_sections_page() && ! is_page_template( SLN_PORTFOLIO_TEMPLATE ) ) {
 		return;
 	}
 
