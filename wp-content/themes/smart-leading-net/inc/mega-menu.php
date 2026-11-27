@@ -3,9 +3,11 @@
  * Services mega menu.
  *
  * The primary menu's "Services" item (or any top-level item with the CSS
- * class "sln-mega") opens a full-width panel with the SEO, Paid Ads, Revenue
- * Growth and Web & AI pages plus two free-audit offers. The panel content
- * lives here, like the footer links, so it ships the same way to every site.
+ * class "sln-mega") is replaced by three service categories in the bar
+ * (Digital Marketing, SEO & AI, Paid Ads) and a Resources menu. Each opens a
+ * full-width panel of link cards and a client result. About Us follows them.
+ * The content lives here, like the footer links, so it ships the same way to
+ * every site.
  * A top-level "Revenue Platform" item (or CSS class "sln-mega-merge") is
  * folded into the panel and removed from the bar.
  *
@@ -21,99 +23,270 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Service groups shown in the panel. Paths are relative to the site root.
+ * Service categories shown in the menu bar (option B, WebFX style). Each
+ * opens its own panel: up to three light cards (coloured icon, heading, a
+ * plain list of links) and a blue client-result card with one call to
+ * action. Result figures are owner-confirmed (17 Nov 2026,
+ * project-context/business-facts.md); the Hospitality figure is an SEO
+ * result, so it stays on the SEO panel only.
  *
  * @return array<int, array<string, mixed>>
  */
-function sln_mega_menu_groups() {
-	$groups = array(
+function sln_mega_menu_categories() {
+	$categories = array(
 		array(
-			'title' => 'SEO',
-			'url'   => '/seo-services/',
-			'icon'  => 'search',
-			'tone'  => 'blue',
-			'desc'  => 'Get found on Google, Maps and AI search',
-			'links' => array(
-				array( 'Local SEO', '/seo-services/local-seo/' ),
-				array( 'Technical SEO', '/seo-services/technical-seo/' ),
-				array( 'SEO Audit', '/seo-services/seo-audit/' ),
-				array( 'Ecommerce SEO', '/seo-services/ecommerce-seo/' ),
-				array( 'International SEO', '/seo-services/international-seo/' ),
-				array( 'Link Building', '/seo-services/link-building/' ),
+			'key'    => 'digital',
+			'label'  => 'Digital Marketing',
+			'url'    => '/digital-marketing-services/',
+			'cards'  => array(
+				array(
+					'title' => 'Revenue growth',
+					'icon'  => 'trend',
+					'tone'  => 'green',
+					'links' => array(
+						array( 'Revenue Growth', '/revenue-growth/' ),
+						array( 'Lead Generation', '/lead-generation/' ),
+						array( 'Brand Visibility', '/brand-visibility/' ),
+					),
+				),
+				array(
+					'title' => 'Automation',
+					'icon'  => 'pipeline',
+					'tone'  => 'violet',
+					'links' => array(
+						array( 'Growth & Automation', '/growth-automation/' ),
+						array( 'Conversions & Retention', '/conversions-retention/' ),
+					),
+				),
+				array(
+					'title' => 'Marketing & web',
+					'icon'  => 'code',
+					'tone'  => 'blue',
+					'links' => array(
+						array( 'Digital Marketing Services', '/digital-marketing-services/' ),
+						array( 'Web Development', '/web-development-services/' ),
+					),
+				),
+			),
+			'result' => array(
+				'value' => '$50M+',
+				'label' => 'revenue tracked through CRM and analytics',
+				'cta'   => 'Talk to an expert',
+				'url'   => '/contact-us/',
 			),
 		),
 		array(
-			'title' => 'Paid Ads (PPC)',
-			'url'   => '/ppc/',
-			'icon'  => 'target',
-			'tone'  => 'orange',
-			'desc'  => 'Ads that bring calls, leads and sales',
-			'links' => array(
-				array( 'Google Ads Management', '/ppc/google-ads-management/' ),
-				array( 'Facebook & Instagram Ads', '/ppc/facebook-ads-management/' ),
-				array( 'Local Services Ads', '/ppc/local-service-ads/' ),
-				array( 'Ecommerce PPC', '/ppc/ecommerce-ppc/' ),
+			'key'    => 'seo',
+			'label'  => 'SEO & AI',
+			'url'    => '/seo-services/',
+			'cards'  => array(
+				array(
+					'title' => 'Local and search',
+					'icon'  => 'pin',
+					'tone'  => 'blue',
+					'links' => array(
+						array( 'Local SEO', '/seo-services/local-seo/' ),
+						array( 'Technical SEO', '/seo-services/technical-seo/' ),
+						array( 'SEO Audit', '/seo-services/seo-audit/' ),
+					),
+				),
+				array(
+					'title' => 'Growth SEO',
+					'icon'  => 'globe',
+					'tone'  => 'blue',
+					'links' => array(
+						array( 'Ecommerce SEO', '/seo-services/ecommerce-seo/' ),
+						array( 'International SEO', '/seo-services/international-seo/' ),
+						array( 'Link Building', '/seo-services/link-building/' ),
+					),
+				),
+				array(
+					'title' => 'AI search',
+					'icon'  => 'sparkle',
+					'tone'  => 'violet',
+					'links' => array(
+						array( 'AI SEO Services', '/ai-seo-services/' ),
+						array( 'Generative Engine Optimization', '/generative-engine-optimization/' ),
+					),
+				),
+			),
+			'result' => array(
+				'value' => '260%',
+				'label' => 'more organic revenue (hospitality)',
+				'cta'   => 'Get my free SEO audit',
+				'url'   => '/seo-services/local-seo/',
 			),
 		),
 		array(
-			'title' => 'Revenue Growth',
-			'url'   => '/revenue-growth/',
-			'icon'  => 'trend',
-			'tone'  => 'green',
-			'desc'  => 'Turn more of your leads into customers',
-			'links' => array(
-				array( 'Lead Generation', '/lead-generation/' ),
-				array( 'Brand Visibility', '/brand-visibility/' ),
-				array( 'Growth & Automation', '/growth-automation/' ),
-				array( 'Conversions & Retention', '/conversions-retention/' ),
+			'key'    => 'ppc',
+			'label'  => 'Paid Ads',
+			'url'    => '/ppc/',
+			'cards'  => array(
+				array(
+					'title' => 'Google ads',
+					'icon'  => 'target',
+					'tone'  => 'orange',
+					'links' => array(
+						array( 'Google Ads Management', '/ppc/google-ads-management/' ),
+						array( 'Local Services Ads', '/ppc/local-service-ads/' ),
+						array( 'Ecommerce PPC', '/ppc/ecommerce-ppc/' ),
+					),
+				),
+				array(
+					'title' => 'Social ads',
+					'icon'  => 'social',
+					'tone'  => 'blue',
+					'links' => array(
+						array( 'Facebook & Instagram Ads', '/ppc/facebook-ads-management/' ),
+					),
+				),
+				array(
+					'title' => 'Start here',
+					'icon'  => 'check',
+					'tone'  => 'green',
+					'links' => array(
+						array( 'Free PPC Audit', '/ppc/free-ppc-audit/' ),
+						array( 'All Paid Ads Services', '/ppc/' ),
+					),
+				),
 			),
-		),
-		array(
-			'title' => 'Web & AI',
-			'url'   => '',
-			'icon'  => 'code',
-			'tone'  => 'violet',
-			'desc'  => 'Websites and visibility in AI answers',
-			'links' => array(
-				array( 'Web Development', '/web-development-services/' ),
-				array( 'AI SEO Services', '/ai-seo-services/' ),
-				array( 'Generative Engine Optimization', '/generative-engine-optimization/' ),
-				array( 'Digital Marketing', '/digital-marketing-services/' ),
+			'result' => array(
+				'value' => '4.2X',
+				'label' => 'higher ROAS (ecommerce)',
+				'cta'   => 'Get my free PPC audit',
+				'url'   => '/ppc/free-ppc-audit/',
 			),
 		),
 	);
 
-	return apply_filters( 'sln_mega_menu_groups', $groups );
+	$categories[] = sln_mega_menu_resources();
+
+	return apply_filters( 'sln_mega_menu_categories', $categories );
 }
 
 /**
- * Free offers shown beside the service groups. Free PPC Audit terms are
- * owner-confirmed (18 Nov 2026); the Local SEO audit is owner-confirmed with
- * its scope deferred, so its line makes no promise about format or timing.
+ * Whether a published page exists at a path (Case Studies is a WordPress page
+ * that is not on every site yet, so its link only shows where it exists).
  *
- * @return array<int, array<string, string>>
+ * @param string $path Page path.
+ * @return bool
  */
-function sln_mega_menu_offers() {
-	$offers = array(
+function sln_mega_menu_page_exists( $path ) {
+	$page = get_page_by_path( trim( $path, '/' ) );
+
+	return $page && 'publish' === $page->post_status;
+}
+
+/**
+ * Latest published guides (blog posts), newest first. WordPress's sample
+ * "Hello world!" post is skipped.
+ *
+ * @param int $count How many.
+ * @return array<int, array{0:string,1:string}>
+ */
+function sln_mega_menu_guides( $count = 3 ) {
+	$links = array();
+	$posts = get_posts(
 		array(
-			'label' => 'Free PPC Audit',
-			'text'  => 'PDF report, video walkthrough and a call within 2–3 business days.',
-			'cta'   => 'Get my PPC audit',
-			'url'   => '/ppc/free-ppc-audit/',
-			'icon'  => 'target',
+			'numberposts'      => $count + 1,
+			'post_status'      => 'publish',
+			'suppress_filters' => false,
+		)
+	);
+
+	foreach ( $posts as $post ) {
+		if ( 'hello-world' === $post->post_name || count( $links ) >= $count ) {
+			continue;
+		}
+		$links[] = array( get_the_title( $post ), wp_make_link_relative( get_permalink( $post ) ) );
+	}
+
+	return $links;
+}
+
+/**
+ * Resources menu: our work, guides and free tools, in the same card style.
+ *
+ * @return array<string, mixed>
+ */
+function sln_mega_menu_resources() {
+	$has_cases = sln_mega_menu_page_exists( '/case-studies/' );
+
+	$work = array();
+	if ( $has_cases ) {
+		$work[] = array( 'Case Studies', '/case-studies/' );
+	}
+	$work[] = array( 'Portfolio', '/portfolio/' );
+
+	$cards = array(
+		array(
+			'title' => 'Our work',
+			'icon'  => 'award',
 			'tone'  => 'orange',
-		),
-		array(
-			'label' => 'Free Local SEO Audit',
-			'text'  => 'See what is stopping local customers from finding you.',
-			'cta'   => 'Get my SEO audit',
-			'url'   => '/seo-services/local-seo/',
-			'icon'  => 'pin',
-			'tone'  => 'blue',
+			'links' => $work,
 		),
 	);
 
-	return apply_filters( 'sln_mega_menu_offers', $offers );
+	$guides = sln_mega_menu_guides();
+	if ( $guides ) {
+		$cards[] = array(
+			'title' => 'Guides',
+			'icon'  => 'form',
+			'tone'  => 'blue',
+			'links' => $guides,
+		);
+	}
+
+	$cards[] = array(
+		'title' => 'Free tools',
+		'icon'  => 'sparkle',
+		'tone'  => 'violet',
+		'links' => array(
+			array( 'Free PPC Audit', '/ppc/free-ppc-audit/' ),
+			array( 'Lead Analytics', 'https://leads.smartleading.net/' ),
+			array( 'Become a Partner', '/referral-partners/' ),
+		),
+	);
+
+	return array(
+		'key'    => 'resources',
+		'label'  => 'Resources',
+		'url'    => $has_cases ? '/case-studies/' : '/portfolio/',
+		'cards'  => $cards,
+		'result' => array(
+			'value' => '100k+',
+			'label' => 'leads generated across 47+ client campaigns',
+			'cta'   => 'See our work',
+			'url'   => $has_cases ? '/case-studies/' : '/portfolio/',
+		),
+	);
+}
+
+/**
+ * About Us dropdown links. Home is dropped from the bar (the logo links home);
+ * Portfolio lives in the Resources menu.
+ *
+ * @return array<int, array{0:string,1:string}>
+ */
+function sln_about_menu_links() {
+	return apply_filters(
+		'sln_about_menu_links',
+		array(
+			array( 'About Us', '/about-us/' ),
+			array( 'Our Founders', '/founders-behind/' ),
+			array( 'Career', '/careers/' ),
+		)
+	);
+}
+
+/**
+ * Normalised menu item title.
+ *
+ * @param WP_Post $item Menu item.
+ * @return string
+ */
+function sln_menu_item_title( $item ) {
+	return strtolower( trim( wp_strip_all_tags( $item->title ) ) );
 }
 
 /**
@@ -154,6 +327,7 @@ function sln_mega_menu_filter_items( $items, $args ) {
 	}
 
 	$trigger_id = 0;
+	$about_id   = 0;
 	$drop_roots = array();
 
 	foreach ( $items as $item ) {
@@ -161,14 +335,18 @@ function sln_mega_menu_filter_items( $items, $args ) {
 			continue;
 		}
 
+		$title = sln_menu_item_title( $item );
+
 		if ( ! $trigger_id && sln_mega_menu_is_trigger( $item ) ) {
 			$trigger_id = (int) $item->ID;
-		} elseif ( sln_mega_menu_is_merged( $item ) ) {
+		} elseif ( ! $about_id && in_array( $title, array( 'about us', 'about' ), true ) ) {
+			$about_id = (int) $item->ID;
+		} elseif ( sln_mega_menu_is_merged( $item ) || in_array( $title, array( 'home', 'career', 'careers', 'portfolio', 'case studies', 'resources', 'blog', 'guides' ), true ) ) {
 			$drop_roots[] = (int) $item->ID;
 		}
 	}
 
-	if ( ! $trigger_id ) {
+	if ( ! $trigger_id && ! $about_id ) {
 		return $items;
 	}
 
@@ -177,7 +355,7 @@ function sln_mega_menu_filter_items( $items, $args ) {
 		$parents[ (int) $item->ID ] = (int) $item->menu_item_parent;
 	}
 
-	$cut  = array_merge( array( $trigger_id ), $drop_roots );
+	$cut  = array_merge( array_filter( array( $trigger_id, $about_id ) ), $drop_roots );
 	$kept = array();
 
 	foreach ( $items as $item ) {
@@ -207,9 +385,34 @@ function sln_mega_menu_filter_items( $items, $args ) {
 		if ( $id === $trigger_id ) {
 			$item->classes   = array_diff( (array) $item->classes, array( 'menu-item-has-children' ) );
 			$item->classes[] = 'sln-mega-item';
+		} elseif ( $id === $about_id ) {
+			$item->classes   = array_diff( (array) $item->classes, array( 'menu-item-has-children' ) );
+			$item->classes[] = 'sln-about-item';
 		}
 
 		$kept[] = $item;
+	}
+
+	// About Us sits right after the service menus and Resources.
+	if ( $trigger_id && $about_id ) {
+		$about = null;
+		foreach ( $kept as $i => $item ) {
+			if ( (int) $item->ID === $about_id ) {
+				$about = $item;
+				unset( $kept[ $i ] );
+			}
+		}
+		$ordered = array();
+		foreach ( $kept as $item ) {
+			$ordered[] = $item;
+			if ( $about && (int) $item->ID === $trigger_id ) {
+				$ordered[] = $about;
+			}
+		}
+		foreach ( $ordered as $i => $item ) {
+			$item->menu_order = $i + 1;
+		}
+		$kept = $ordered;
 	}
 
 	return $kept;
@@ -243,35 +446,47 @@ function sln_mega_menu_current_path() {
  * @return string
  */
 function sln_mega_menu_link( $path, $label, $class, $inner = '' ) {
-	$current = sln_mega_menu_current_path() === trailingslashit( $path );
+	$external = 0 === strpos( $path, 'http' );
+	$current  = ! $external && sln_mega_menu_current_path() === trailingslashit( $path );
+	$attrs    = $current ? ' aria-current="page"' : '';
+	$after    = '';
+
+	if ( $external ) {
+		$attrs .= ' target="_blank" rel="noopener"';
+		$after  = '<span class="screen-reader-text">' . esc_html__( '(opens in a new tab)', 'smart-leading-net' ) . '</span>';
+	}
 
 	return sprintf(
-		'<a class="%1$s%2$s" href="%3$s"%4$s>%5$s<span>%6$s</span></a>',
+		'<a class="%1$s%2$s" href="%3$s"%4$s>%5$s<span>%6$s</span>%7$s</a>',
 		esc_attr( $class ),
 		$current ? ' is-current' : '',
-		esc_url( home_url( $path ) ),
-		$current ? ' aria-current="page"' : '',
+		esc_url( $external ? $path : home_url( $path ) ),
+		$attrs,
 		$inner,
-		esc_html( $label )
+		esc_html( $label ),
+		$after
 	);
 }
 
 /**
- * Whether the current page is one of the panel's pages.
+ * Whether the current page belongs to a category.
  *
+ * @param array<string, mixed> $category Category.
  * @return bool
  */
-function sln_mega_menu_has_current() {
-	$path = sln_mega_menu_current_path();
+function sln_mega_menu_category_has_current( $category ) {
+	$path  = sln_mega_menu_current_path();
+	$paths = array( $category['url'] );
 
-	foreach ( sln_mega_menu_groups() as $group ) {
-		if ( $group['url'] && trailingslashit( $group['url'] ) === $path ) {
-			return true;
+	foreach ( $category['cards'] as $card ) {
+		foreach ( $card['links'] as $link ) {
+			$paths[] = $link[1];
 		}
-		foreach ( $group['links'] as $link ) {
-			if ( trailingslashit( $link[1] ) === $path ) {
-				return true;
-			}
+	}
+
+	foreach ( $paths as $candidate ) {
+		if ( trailingslashit( $candidate ) === $path ) {
+			return true;
 		}
 	}
 
@@ -288,99 +503,145 @@ function sln_mega_menu_chevron() {
 }
 
 /**
- * Offer cards.
+ * Card heading: coloured icon and title.
  *
+ * @param array<string, mixed> $card Card.
+ * @param string               $tag  Wrapper tag.
+ * @param string               $class CSS class.
  * @return string
  */
-function sln_mega_menu_offers_html() {
+function sln_mega_menu_card_head( $card, $tag, $class ) {
+	return sprintf(
+		'<%1$s class="%2$s"><span class="sln-mega-card__icon sln-mega-card__icon--%3$s" aria-hidden="true">%4$s</span><span>%5$s</span></%1$s>',
+		$tag,
+		esc_attr( $class ),
+		esc_attr( $card['tone'] ),
+		sln_home_icon( $card['icon'] ),
+		esc_html( $card['title'] )
+	);
+}
+
+/**
+ * Card link list. The arrow sits after the label (CSS order).
+ *
+ * @param array<int, array{0:string,1:string}> $links Links.
+ * @param string                               $class Link CSS class.
+ * @return string
+ */
+function sln_mega_menu_card_links( $links, $class ) {
 	$html = '';
 
-	foreach ( sln_mega_menu_offers() as $offer ) {
-		$html .= sprintf(
-			'<a class="sln-mega__offer sln-mega__offer--%1$s" href="%2$s"><span class="sln-mega__offer-icon">%3$s</span><span class="sln-mega__offer-body"><strong>%4$s</strong><span>%5$s</span><span class="sln-mega__offer-cta">%6$s %7$s</span></span></a>',
-			esc_attr( $offer['tone'] ),
-			esc_url( home_url( $offer['url'] ) ),
-			sln_home_icon( $offer['icon'] ),
-			esc_html( $offer['label'] ),
-			esc_html( $offer['text'] ),
-			esc_html( $offer['cta'] ),
-			sln_home_icon( 'arrow' )
-		);
+	foreach ( $links as $link ) {
+		$html .= '<li>' . sln_mega_menu_link( $link[1], $link[0], $class, sln_home_icon( 'arrow' ) ) . '</li>';
 	}
 
 	return $html;
 }
 
 /**
- * Render the trigger <li> (opening tag and contents; the walker closes it).
+ * Render the service categories in place of the "Services" item: one <li>
+ * per category. The last <li> is left open; the walker closes it.
  *
  * @param WP_Post $item    Menu item.
  * @param string  $context desktop or mobile.
  * @return string
  */
 function sln_mega_menu_render( $item, $context ) {
-	$title   = apply_filters( 'the_title', $item->title, $item->ID );
-	$active  = sln_mega_menu_has_current();
-	$groups  = sln_mega_menu_groups();
+	$categories = sln_mega_menu_categories();
+	$html       = '';
+	$last       = count( $categories ) - 1;
 
-	if ( 'mobile' === $context ) {
-		$html  = '<li class="nav-item menu-item sln-mega-item sln-mega-m">';
-		$html .= '<details class="sln-mega-m__root"' . ( $active ? ' open' : '' ) . '>';
-		$html .= '<summary class="nav-link sln-mega-m__summary' . ( $active ? ' active' : '' ) . '">' . esc_html( $title ) . sln_mega_menu_chevron() . '</summary>';
-		$html .= '<div class="sln-mega-m__body">';
+	foreach ( $categories as $index => $category ) {
+		$active = sln_mega_menu_category_has_current( $category );
+		$result = $category['result'];
 
-		foreach ( $groups as $group ) {
-			$html .= '<details class="sln-mega-m__group">';
-			$html .= '<summary class="sln-mega-m__group-title"><span class="sln-mega__icon sln-mega__icon--' . esc_attr( $group['tone'] ) . '">' . sln_home_icon( $group['icon'] ) . '</span><span>' . esc_html( $group['title'] ) . '</span>' . sln_mega_menu_chevron() . '</summary>';
-			$html .= '<ul class="sln-mega-m__links">';
-			if ( $group['url'] ) {
-				/* translators: %s: service group name. */
-				$html .= '<li>' . sln_mega_menu_link( $group['url'], sprintf( __( 'All %s services', 'smart-leading-net' ), $group['title'] ), 'sln-mega-m__link sln-mega-m__link--all' ) . '</li>';
+		if ( 'mobile' === $context ) {
+			$html .= '<li class="nav-item menu-item sln-mega-item sln-mega-m">';
+			$html .= '<details class="sln-mega-m__root"' . ( $active ? ' open' : '' ) . '>';
+			$html .= '<summary class="nav-link sln-mega-m__summary' . ( $active ? ' active' : '' ) . '">' . esc_html( $category['label'] ) . sln_mega_menu_chevron() . '</summary>';
+			$html .= '<div class="sln-mega-m__body">';
+
+			foreach ( $category['cards'] as $card ) {
+				$html .= '<div class="sln-mega-m__card">';
+				$html .= sln_mega_menu_card_head( $card, 'p', 'sln-mega-m__card-title' );
+				$html .= '<ul class="sln-mega-m__links">' . sln_mega_menu_card_links( $card['links'], 'sln-mega-m__link' ) . '</ul>';
+				$html .= '</div>';
 			}
-			foreach ( $group['links'] as $link ) {
-				$html .= '<li>' . sln_mega_menu_link( $link[1], $link[0], 'sln-mega-m__link' ) . '</li>';
+
+			$html .= '<a class="sln-mega-m__result" href="' . esc_url( home_url( $result['url'] ) ) . '"><strong>' . esc_html( $result['value'] ) . '</strong><span>' . esc_html( $result['label'] ) . '</span><span class="sln-mega-m__result-cta">' . esc_html( $result['cta'] ) . '</span></a>';
+			$html .= '</div></details>';
+		} else {
+			$panel_id = 'sln-mega-panel-' . $category['key'];
+
+			$html .= '<li class="nav-item menu-item sln-mega-item" data-sln-mega>';
+			$html .= '<button type="button" class="nav-link sln-mega__toggle' . ( $active ? ' active' : '' ) . '" aria-expanded="false" aria-controls="' . esc_attr( $panel_id ) . '"><span class="sln-mega__label">' . esc_html( $category['label'] ) . '</span>' . sln_mega_menu_chevron() . '</button>';
+			$html .= '<div class="sln-mega" id="' . esc_attr( $panel_id ) . '" hidden>';
+			$html .= '<div class="container sln-mega__inner" style="--cards: ' . count( $category['cards'] ) . '">';
+
+			foreach ( $category['cards'] as $i => $card ) {
+				$html .= '<div class="sln-mega-card" style="--i: ' . (int) $i . '">';
+				$html .= sln_mega_menu_card_head( $card, 'p', 'sln-mega-card__title' );
+				$html .= '<ul class="sln-mega-card__links">' . sln_mega_menu_card_links( $card['links'], 'sln-mega-card__link' ) . '</ul>';
+				$html .= '</div>';
 			}
-			$html .= '</ul></details>';
+
+			$html .= '<div class="sln-mega-result" style="--i: ' . count( $category['cards'] ) . '">';
+			$html .= '<strong class="sln-mega-result__value">' . esc_html( $result['value'] ) . '</strong>';
+			$html .= '<span class="sln-mega-result__label">' . esc_html( $result['label'] ) . '</span>';
+			$html .= '<a class="sln-mega-result__cta" href="' . esc_url( home_url( $result['url'] ) ) . '">' . esc_html( $result['cta'] ) . sln_home_icon( 'arrow' ) . '</a>';
+			$html .= '</div>';
+			$html .= '</div></div>';
 		}
 
-		$html .= '<div class="sln-mega-m__offers">' . sln_mega_menu_offers_html() . '</div>';
-		$html .= '</div></details>';
+		if ( $index !== $last ) {
+			$html .= "</li>\n";
+		}
+	}
+
+	return $html;
+}
+
+/**
+ * Render the About Us <li> with its small dropdown (the walker closes it).
+ *
+ * @param WP_Post $item    Menu item.
+ * @param string  $context desktop or mobile.
+ * @return string
+ */
+function sln_about_menu_render( $item, $context ) {
+	$title  = apply_filters( 'the_title', $item->title, $item->ID );
+	$links  = sln_about_menu_links();
+	$path   = sln_mega_menu_current_path();
+	$active = false;
+
+	foreach ( $links as $link ) {
+		if ( trailingslashit( $link[1] ) === $path ) {
+			$active = true;
+		}
+	}
+
+	if ( 'mobile' === $context ) {
+		$html  = '<li class="nav-item menu-item sln-mega-m sln-about-m">';
+		$html .= '<details class="sln-mega-m__root"' . ( $active ? ' open' : '' ) . '>';
+		$html .= '<summary class="nav-link sln-mega-m__summary' . ( $active ? ' active' : '' ) . '">' . esc_html( $title ) . sln_mega_menu_chevron() . '</summary>';
+		$html .= '<ul class="sln-mega-m__links sln-about-m__links">';
+		foreach ( $links as $link ) {
+			$html .= '<li>' . sln_mega_menu_link( $link[1], $link[0], 'sln-mega-m__link' ) . '</li>';
+		}
+		$html .= '</ul></details>';
 
 		return $html;
 	}
 
-	$panel_id = 'sln-mega-panel-' . (int) $item->ID;
+	$panel_id = 'sln-about-panel-' . (int) $item->ID;
 
-	$html  = '<li class="nav-item menu-item sln-mega-item" data-sln-mega>';
+	$html  = '<li class="nav-item menu-item sln-about-item" data-sln-mega>';
 	$html .= '<button type="button" class="nav-link sln-mega__toggle' . ( $active ? ' active' : '' ) . '" aria-expanded="false" aria-controls="' . esc_attr( $panel_id ) . '">' . esc_html( $title ) . sln_mega_menu_chevron() . '</button>';
-	$html .= '<div class="sln-mega" id="' . esc_attr( $panel_id ) . '" hidden>';
-	$html .= '<div class="container sln-mega__inner">';
-	$html .= '<div class="sln-mega__groups">';
-
-	foreach ( $groups as $group ) {
-		$head_inner = '<span class="sln-mega__icon sln-mega__icon--' . esc_attr( $group['tone'] ) . '">' . sln_home_icon( $group['icon'] ) . '</span>';
-
-		$html .= '<div class="sln-mega__group">';
-		if ( $group['url'] ) {
-			$html .= sln_mega_menu_link( $group['url'], $group['title'], 'sln-mega__group-head', $head_inner );
-		} else {
-			$html .= '<span class="sln-mega__group-head">' . $head_inner . '<span>' . esc_html( $group['title'] ) . '</span></span>';
-		}
-		$html .= '<p class="sln-mega__group-desc">' . esc_html( $group['desc'] ) . '</p>';
-		$html .= '<ul class="sln-mega__links">';
-		foreach ( $group['links'] as $link ) {
-			$html .= '<li>' . sln_mega_menu_link( $link[1], $link[0], 'sln-mega__link' ) . '</li>';
-		}
-		$html .= '</ul></div>';
+	$html .= '<div class="sln-mega sln-mega--small" id="' . esc_attr( $panel_id ) . '" hidden><ul class="sln-mega__links">';
+	foreach ( $links as $link ) {
+		$html .= '<li>' . sln_mega_menu_link( $link[1], $link[0], 'sln-mega__link', sln_home_icon( 'arrow' ) ) . '</li>';
 	}
-
-	$html .= '</div>';
-	$html .= '<aside class="sln-mega__side" aria-label="' . esc_attr__( 'Free offers', 'smart-leading-net' ) . '">';
-	$html .= '<span class="sln-mega__side-label">' . esc_html__( 'Free offers', 'smart-leading-net' ) . '</span>';
-	$html .= sln_mega_menu_offers_html();
-	$html .= '<a class="sln-mega__expert" href="' . esc_url( home_url( '/contact-us/' ) ) . '">' . esc_html__( 'Not sure where to start? Talk to an expert', 'smart-leading-net' ) . sln_home_icon( 'arrow' ) . '</a>';
-	$html .= '</aside>';
-	$html .= '</div></div>';
+	$html .= '</ul></div>';
 
 	return $html;
 }

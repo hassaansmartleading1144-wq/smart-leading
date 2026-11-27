@@ -1,5 +1,6 @@
 /**
- * Services mega menu (inc/mega-menu.php).
+ * Services mega menu and About Us dropdown (inc/mega-menu.php).
+ * One panel open at a time.
  * Opens on click / Enter / Space, or on hover after a short delay (mouse
  * only). Closes on Esc (focus returns to the toggle), click outside, focus
  * leaving the menu, or the pointer leaving for a moment.
@@ -9,6 +10,8 @@
 
 	var OPEN_DELAY = 120;
 	var CLOSE_DELAY = 280;
+	// Each item's close function, so opening one closes the others.
+	var closers = [];
 
 	function init(item) {
 		var toggle = item.querySelector('.sln-mega__toggle');
@@ -28,16 +31,34 @@
 			}
 			toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 			if (open) {
-				panel.hidden = false;
-				// Next frame so the fade-in transition runs.
-				window.requestAnimationFrame(function () {
-					item.classList.add('is-open');
+				var wasOpen = closers.some(function (close) {
+					return close !== closeNow && close();
 				});
+				panel.hidden = false;
+				// Switching between categories: no fade, the panel just swaps.
+				item.classList.toggle('is-switch', wasOpen);
+				// Apply the closed styles first so the open animation runs.
+				void panel.offsetHeight;
+				item.classList.add('is-open');
 			} else {
 				item.classList.remove('is-open');
 				panel.hidden = true;
 			}
 		}
+
+		// Close at once; returns whether it was open.
+		function closeNow() {
+			var was = item.classList.contains('is-open') || !panel.hidden;
+			window.clearTimeout(openTimer);
+			window.clearTimeout(closeTimer);
+			if (was) {
+				toggle.setAttribute('aria-expanded', 'false');
+				item.classList.remove('is-open', 'is-switch');
+				panel.hidden = true;
+			}
+			return was;
+		}
+		closers.push(closeNow);
 
 		toggle.addEventListener('click', function () {
 			setOpen(!item.classList.contains('is-open'));
@@ -48,9 +69,11 @@
 				return;
 			}
 			window.clearTimeout(closeTimer);
+			// Moving across the bar while a panel is open: switch right away.
+			var anyOpen = document.querySelector('[data-sln-mega].is-open');
 			openTimer = window.setTimeout(function () {
 				setOpen(true);
-			}, OPEN_DELAY);
+			}, anyOpen && anyOpen !== item ? 40 : OPEN_DELAY);
 		});
 
 		item.addEventListener('pointerleave', function (event) {
