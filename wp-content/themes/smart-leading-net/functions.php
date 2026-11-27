@@ -136,6 +136,7 @@ require SLN_THEME_DIR . '/inc/ai-chat-api.php';
 require SLN_THEME_DIR . '/inc/home-helpers.php';
 require SLN_THEME_DIR . '/inc/referral-partners.php';
 require SLN_THEME_DIR . '/inc/home-pages-seed.php';
+require SLN_THEME_DIR . '/inc/mega-menu.php';
 
 /**
  * Pages that render the previous homepage sections (template-parts/sections/):

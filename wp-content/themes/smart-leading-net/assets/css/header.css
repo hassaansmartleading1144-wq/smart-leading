@@ -48,67 +48,72 @@
 	white-space: nowrap;
 }
 
-/* Offer pills (replaces the old location line) */
+/* Top bar: one promo link on the left, quiet links on the right. */
 .header-top__promo {
 	display: flex;
 	align-items: center;
-	gap: 10px;
+	gap: 12px;
 	min-width: 0;
 }
 
 .header-top__promo-text {
-	margin-right: 4px;
 	font-size: 14px;
 	font-weight: 500;
-	color: rgba(255, 255, 255, 0.85);
+	color: rgba(255, 255, 255, 0.8);
 	white-space: nowrap;
 }
 
-.header-top__pill {
+.header-top__audit {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1;
+	color: var(--white);
+	white-space: nowrap;
+	text-decoration: underline;
+	text-decoration-color: rgba(255, 255, 255, 0.35);
+	text-underline-offset: 4px;
+	transition: text-decoration-color 0.25s ease;
+}
+
+.header-top__audit:hover,
+.header-top__audit:focus-visible {
+	color: var(--white);
+	text-decoration-color: var(--white);
+}
+
+.header-top__link {
 	display: inline-flex;
 	align-items: center;
 	gap: 7px;
-	height: 30px;
-	padding: 0 14px;
-	border-radius: 30px;
-	font-size: 13px;
-	font-weight: 600;
+	font-size: 14px;
+	font-weight: 500;
 	line-height: 1;
+	color: rgba(255, 255, 255, 0.9);
 	white-space: nowrap;
 	text-decoration: none;
-	transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+	transition: color 0.25s ease;
 }
 
-.header-top__pill--audit {
-	border: 1px solid rgba(255, 255, 255, 0.45);
+.header-top__link:hover,
+.header-top__link:focus-visible {
 	color: var(--white);
+	text-decoration: underline;
+	text-underline-offset: 4px;
 }
 
-.header-top__pill--audit:hover,
-.header-top__pill--audit:focus-visible {
-	background-color: var(--white);
-	color: var(--primary-color);
-}
-
-.header-top__pill--growth {
-	background-color: var(--secondary-color);
-	color: var(--white);
-}
-
-.header-top__pill--growth:hover,
-.header-top__pill--growth:focus-visible {
-	background-color: #ff7f4a;
-	color: var(--white);
-	transform: translateY(-1px);
-}
-
-.header-top__pill:focus-visible {
+.header-top__audit:focus-visible,
+.header-top__link:focus-visible {
 	outline: 2px solid var(--white);
-	outline-offset: 2px;
+	outline-offset: 3px;
+	border-radius: 2px;
 }
 
 .header-top__pill-dot {
 	position: relative;
+	flex-shrink: 0;
 	width: 7px;
 	height: 7px;
 	border-radius: 50%;
@@ -125,11 +130,11 @@
 		animation: header-top-pulse 2s ease-out infinite;
 	}
 
-	.header-top__pill--growth .header-top__pill-arrow {
+	.header-top__arrow {
 		transition: transform 0.25s ease;
 	}
 
-	.header-top__pill--growth:hover .header-top__pill-arrow {
+	.header-top__audit:hover .header-top__arrow {
 		transform: translateX(3px);
 	}
 }
@@ -142,6 +147,7 @@
 .header-top__contact {
 	display: flex;
 	align-items: center;
+	gap: 22px;
 	margin-left: auto;
 }
 
@@ -820,13 +826,12 @@
 
 	@media (max-width: 767.98px) {
 		.header-top__promo {
-			justify-content: center;
+			justify-content: flex-start;
 		}
 
-		.header-top__pill {
-			height: 28px;
-			padding: 0 12px;
-			font-size: 12px;
+		.header-top__audit,
+		.header-top__link {
+			font-size: 13px;
 		}
 	}
 
@@ -845,7 +850,7 @@
 		justify-content: flex-end;
 		width: auto;
 		margin-left: 0;
-		gap: 12px;
+		gap: 16px;
 	}
 
 	.header-top__contact:empty,

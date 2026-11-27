@@ -98,6 +98,17 @@ class SLN_Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 
 		}
 
+		// Services mega menu (inc/mega-menu.php) renders its own <li> contents.
+		if ( 0 === $depth && function_exists( 'sln_mega_menu_render' ) && in_array( 'sln-mega-item', (array) $item->classes, true ) ) {
+			$output .= sln_mega_menu_render( $item, $this->menu_context );
+			return;
+		}
+
+		if ( 0 === $depth && function_exists( 'sln_about_menu_render' ) && in_array( 'sln-about-item', (array) $item->classes, true ) ) {
+			$output .= sln_about_menu_render( $item, $this->menu_context );
+			return;
+		}
+
 
 
 		$indent       = ( $depth ) ? str_repeat( "\t", $depth ) : '';

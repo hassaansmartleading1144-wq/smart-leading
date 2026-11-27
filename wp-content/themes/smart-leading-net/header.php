@@ -39,54 +39,33 @@ $sln_social_links = array(
 		<div class="header-top">
 			<div class="container">
 				<div class="header-top__inner">
+					<?php
+					// The audit link opens Contact Us until a general Free Audit page exists.
+					$sln_topbar_audit_url   = home_url( '/contact-us/' );
+					$sln_topbar_partner_url = home_url( '/referral-partners/' );
+					?>
 					<div class="header-top__promo">
 						<span class="header-top__promo-text d-none d-xl-inline"><?php esc_html_e( 'Not sure what is holding your business back?', 'smart-leading-net' ); ?></span>
-						<?php
-						// The audit button opens Contact Us until a general Free Audit page exists.
-						$sln_topbar_audit_url   = home_url( '/contact-us/' );
-						$sln_topbar_partner_url = home_url( '/referral-partners/' );
-						?>
-						<a class="header-top__pill header-top__pill--audit" href="<?php echo esc_url( $sln_topbar_audit_url ); ?>">
+						<a class="header-top__audit" href="<?php echo esc_url( $sln_topbar_audit_url ); ?>">
 							<span class="header-top__pill-dot" aria-hidden="true"></span>
-							<span class="d-none d-sm-inline"><?php esc_html_e( 'Get My Free Audit', 'smart-leading-net' ); ?></span>
-							<span class="d-sm-none"><?php esc_html_e( 'Free Audit', 'smart-leading-net' ); ?></span>
-						</a>
-						<a class="header-top__pill header-top__pill--growth" href="<?php echo esc_url( $sln_topbar_partner_url ); ?>">
-							<?php esc_html_e( 'Become a Partner', 'smart-leading-net' ); ?>
-							<svg class="header-top__pill-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+							<span class="d-none d-sm-inline"><?php esc_html_e( 'Get my free audit', 'smart-leading-net' ); ?></span>
+							<span class="d-sm-none"><?php esc_html_e( 'Free audit', 'smart-leading-net' ); ?></span>
+							<svg class="header-top__arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 						</a>
 					</div>
 
 					<div class="header-top__contact">
-						<a class="header-top__email d-none" href="mailto:<?php echo esc_attr( $sln_email ); ?>">
-							<?php
-							/* translators: %s: email address */
-							printf( esc_html__( 'Email: %s', 'smart-leading-net' ), esc_html( $sln_email ) );
-							?>
+						<a class="header-top__link d-none d-md-inline-flex" href="https://leads.smartleading.net/" target="_blank" rel="noopener noreferrer">
+							<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 20h18"/><path d="M6 16v-4"/><path d="M11 16V8"/><path d="M16 16v-6"/></svg>
+							<?php esc_html_e( 'Lead Analytics', 'smart-leading-net' ); ?>
+							<span class="screen-reader-text"><?php esc_html_e( '(opens in a new tab)', 'smart-leading-net' ); ?></span>
 						</a>
-
-						<div class="header-top__right d-none d-lg-flex">
-							<a class="header-top__email" href="mailto:<?php echo esc_attr( $sln_email ); ?>">
-								<?php
-								/* translators: %s: email address */
-								printf( esc_html__( 'Email: %s', 'smart-leading-net' ), esc_html( $sln_email ) );
-								?>
-							</a>
-							<span class="header-top__divider" aria-hidden="true"></span>
-							<div class="header-top__social">
-								<a class="header-top__social-link" href="<?php echo esc_url( $sln_social_links['instagram'] ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'Instagram', 'smart-leading-net' ); ?>">
-									<?php sln_inline_svg( 'instagram.svg', 'header-top__svg' ); ?>
-								</a>
-								<a class="header-top__social-link" href="<?php echo esc_url( $sln_social_links['facebook'] ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'Facebook', 'smart-leading-net' ); ?>">
-									<?php sln_inline_svg( 'facebook.svg', 'header-top__svg' ); ?>
-								</a>
-								<a class="header-top__social-link" href="<?php echo esc_url( $sln_social_links['linkedin'] ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'LinkedIn', 'smart-leading-net' ); ?>">
-									<?php sln_inline_svg( 'linkedin.svg', 'header-top__svg' ); ?>
-								</a>
-							</div>
-						</div>
-
-						<div class="header-top__social d-none d-md-flex d-lg-none">
+						<a class="header-top__link" href="<?php echo esc_url( $sln_topbar_partner_url ); ?>">
+							<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+							<?php esc_html_e( 'Become a Partner', 'smart-leading-net' ); ?>
+						</a>
+						<span class="header-top__divider d-none d-lg-inline-block" aria-hidden="true"></span>
+						<div class="header-top__social d-none d-lg-flex">
 							<a class="header-top__social-link" href="<?php echo esc_url( $sln_social_links['instagram'] ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'Instagram', 'smart-leading-net' ); ?>">
 								<?php sln_inline_svg( 'instagram.svg', 'header-top__svg' ); ?>
 							</a>
@@ -138,14 +117,7 @@ $sln_social_links = array(
 							<span class="screen-reader-text"><?php esc_html_e( '(view our Google Partner profile, opens in a new tab)', 'smart-leading-net' ); ?></span>
 						</a>
 
-						<span class="header-main__divider d-none d-lg-inline-block" aria-hidden="true"></span>
-
 						<div class="header-main__ctas d-none d-lg-flex">
-							<a class="header-main__cta header-main__cta--analytics d-none d-xxl-inline-flex" href="https://leads.smartleading.net/" target="_blank" rel="noopener noreferrer">
-								<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 20h18"/><path d="M6 16v-4"/><path d="M11 16V8"/><path d="M16 16v-6"/><path d="m5 8 5-4 4 3 5-4"/></svg>
-								<?php esc_html_e( 'Lead Analytics', 'smart-leading-net' ); ?>
-								<span class="screen-reader-text"><?php esc_html_e( '(opens in a new tab)', 'smart-leading-net' ); ?></span>
-							</a>
 							<a class="header-main__cta header-main__cta--expert" href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>">
 								<span class="header-main__cta-icon" aria-hidden="true">
 									<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" focusable="false"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1.003 1.003 0 01-.25 1.01l-2.2 2.21z"/></svg>
